@@ -147,7 +147,7 @@ body{
     font-style: normal;
 }
 .container{
-    max-width: 1320px !important;
+    max-width: 90% !important;
 }
 
 .divider:after,
@@ -270,11 +270,28 @@ input {
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     color: #000000 !important;
-    border: 1px solid #0076BF !important;
     background: transparent !important;
     border-radius: 5px !important;
     font-weight: 600 !important;
-    padding: 5px 10px !important;
+    border: 1px solid transparent !important;
+    font-size: 14px;
+    font-weight: 100;
+
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    font-size: 14px;
+    font-weight: 100;
+}
+.page-count.pull-right .dataTables_info{
+    display: none;
+}
+.paginate_button >svg{
+    width: 15px;
+    height: 15px;
+}
+.dataTables_filter > label,
+.dataTables_length > label{
+    margin-bottom: 0;
 }
 #customer_name {
     padding: .375rem 2.25rem .375rem .75rem !important;
@@ -1214,7 +1231,7 @@ table th, table tr {
 
   .switch-label:before, .switch-label:after {
     position: absolute;
-    top: 48%;
+    top: 54%;
     margin-top: -.5em;
     line-height: 1;
     -webkit-transition: inherit;
@@ -2186,7 +2203,21 @@ button.close_btn {
 {
     color:#6f6f6f !important;
 }
-/* new login design by om --start-- */
+
+/*design by om --start-- */
+.navbar.navbar-light{
+    box-shadow: none;
+    padding: 15px 5%;
+}
+.nav-left-in-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 20%;
+    gap: 60px;
+}
+
+
 .qf-users-container {
     display: flex;
     align-items: center;
@@ -2221,6 +2252,9 @@ button.close_btn {
 .qf-text-black ,.logo-icon ,.users-wrapper{
     transition: all 0.3s ease-in-out;
 }
+#ex1.nav-tabs .nav-item.show .nav-link, #ex1.nav-tabs .nav-link {
+    margin-top: 0 !important;
+}
 
 .qf-users-container .users-wrapper:hover {
     border: 1px solid #0774BB;
@@ -2234,37 +2268,199 @@ button.close_btn {
     filter: brightness(1);
 }
 button.btn-secondary.btn-sm.rounded-4.btn-block.border-0.btn-confirm {
-    font-size: 13px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: normal;
-    padding: 6px 12px;
+    padding: 13px 27px;
+    font-weight: normal;
 }
 .dataTables_filter input{
     border-radius: 50px !important;
-    padding: 8px 10px;
+    padding: 8px 5px;
 
 }
 .transaction-content .qf-nav-tabs li a .qf-inner-wrap .nav-title{
     position: relative;
+    font-weight: normal;
+    line-height: 22px;
+    max-width: min-content;
+}
+.transaction-content th {
+    font-weight: normal !important;
+    font-size: 16px;
+}
+.transaction-content #ratebooking td:first-child, .transaction-content #ratebooking th:first-child {
+    border-radius: 40px 0 0 0;
+}
+.transaction-content #ratebooking td:last-child {
+    border-radius: 0px 0px 40px 0;
 }
 .transaction-content .qf-nav-tabs li a .qf-inner-wrap .nav-title:after{
     content: "";
     display: block;
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
     border: 1px solid #000;
     border-width: 0px 0px 1px 1px;
     transform: rotate(313deg);
     position: absolute;
-    left: 50%;
-    bottom: 0;
+    left: 41%;
+    bottom: -7px;
+    opacity: 0;
 }
 .nav-link.active  .nav-title:after{
     border-color:#0075BE !important;
+    opacity: 1  !important;
+}
+.qf-global-search-bar{
+    flex: 1;
+}
+.qf-global-create-btn .qf-create-btn{
+    background-color: #0075be;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    color: #fff;
+}
+ .qf-create-btn{
+    background-color: #0075be;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    color: #fff;
+    min-width: max-content;
+    width: 160px;
+}
+ .qf-create-btn{
+    position: absolute;
+    top: 18px;
+    left: 15%;
 }
 
+.qf-global-search-bar  .search-form{
+    border: 1px solid #0075be;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    width: 36%;
+    margin-left: 25%;
+}
+.qf-global-search-bar  .search-form .qf-search-input{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    padding: 0 30px;
+}
+.qf-global-search-bar  .search-form .qf-search-btn {
+    border: none;
+    background-color: transparent;
+    opacity: 0.4;
+    color: #0075be;
+    font-weight: 100;
+    padding: 10px;
+}
+.datatable-pager .paginate_button{
+    border: none;
+    outline: none;
+}
+.datatable-pager .paginate_button:hover{
+    border: none;
+    outline: none;
+}
+.action-btn-grp .dropdown-menu {
+    min-width: 7rem;
+}
+.action-btn-grp .dropdown-menu .action-btn-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 10px;
+
+}
+.action-btn-grp .dropdown-menu .action-btn {
+ border: none;
+ outline: none;
+ background-color: transparent;
+ font-style: 14px;
+
+}
+.action-btn-grp  .dropdown-toggle > i{
+    font-size: 25px;
+}
+.action-btn-grp .action-btn-wrap .action-btn > i::before{
+    font-size: 13px;
+}
+.action-btn-grp .action-btn-wrap .action-btn.delete-btn{
+    color: rgb(253, 70, 70);
+}
+.action-btn-grp button.dropdown-toggle {
+    border: none;
+    background: 0 0;
+    color: #fff;
+}
+.action-btn-grp button.dropdown-toggle:hover,
+.action-btn-grp button.dropdown-toggle:focus
+ {
+    border: none;
+    background: 0 0;
+    color: #fff;
+}
+.action-btn-grp .dropdown-toggle::after {
+   display: none;
+}
+.even td:last-child,
+.even th:last-child,
+.odd td:last-child,
+.odd th:last-child {
+    text-align: right !important;
+}
+
+table.dataTable tbody tr {
+    height: 60px;
+}
+.input-group .form-control.profile-edit-input {
+    height: 50px!important;
+    background: #fff!important;
+    border-radius: 40px!important;
+    box-shadow: 0 0 15px 0 rgba(7,116,187,.15);
+    border: none;
+    padding: 5px 15px 5px 25px !important;
+}
+.dataTables_wrapper .top{
+    display: none;
+}
+
+.dataTable{
+    overflow:auto;
+}
+/* width */
+.dataTable::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.dataTable::-webkit-scrollbar-track {
+  background: #fcfeff;
+}
+
+/* Handle */
+.dataTable::-webkit-scrollbar-thumb {
+  background: #0075be;
+}
+
+/* Handle on hover */
+.dataTable::-webkit-scrollbar-thumb:hover {
+  background: #004d7d;
+}
+#ratebooking_wrapper{
+   padding-bottom: 60px;
+}
 
 @media (max-width: 768px) {
     .qf-users-container {
@@ -2319,6 +2515,7 @@ button.btn-secondary.btn-sm.rounded-4.btn-block.border-0.btn-confirm {
 .transaction-content .qf-nav-tabs li a .qf-inner-wrap .nav-title{
 width: 100%;
 display: flex;
+
 }
 .transaction-content .qf-nav-tabs li a .qf-inner-wrap .nav-title br{
     display: contents;
@@ -2333,13 +2530,19 @@ display: flex;
     width: 100% !important;
     overflow-x: auto !important;
 }
+.transaction-content .qf-nav-tabs li a .qf-inner-wrap .nav-title:after {
+    bottom: -10px;
+}
 
 }
 @media (min-width: 1024px){
-    .transaction-content #ratebooking{
-        display: block;
+    .transaction-content .dataTable {
+        /* display: block; */
         width: 100% !important;
         overflow-x: auto !important;
+    }
+    .transaction-content table.dataTable tbody tr {
+        height: 60px;
     }
     li.nav-item.tab2 {
         display: flex;
@@ -2349,9 +2552,10 @@ display: flex;
         display: flex;
         justify-content: center;
         justify-content: space-between;
+        padding: 16px 0;
     }
-    .transaction-content .qf-nav-tabs li a .qf-inner-wrap .nav-title:after {
-        bottom: -10px;
-    }
+
+
+
 }
 /* new login design by om --end-- */
