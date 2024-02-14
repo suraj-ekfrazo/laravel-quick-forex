@@ -1,0 +1,15 @@
+{
+    "Auth": true,
+    "Dashboard": true,
+    "User": true,
+    "Settings": true,
+    "AdminUsers": true,
+    "Controller": true,
+    "ManagePurposesController": false,
+    "Branch": true,
+    "Customer": true,
+    "Purpose": true,
+    "Source": true,
+    "Transaction": true,
+    "Profile": true
+}

@@ -1,0 +1,13 @@
+{
+    "name": "Purpose",
+    "alias": "purpose",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Purpose\\Providers\\PurposeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
