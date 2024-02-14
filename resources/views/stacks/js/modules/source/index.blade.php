@@ -48,10 +48,21 @@ $(function () {
                 render: function (data, type, full, meta) {
                     var id = full.id;
 
-                    return '<div class="d-flex gap-3 justify-content">' +
-                        '<button class="text-white bg-success border-0 p-1 rounded-4" onclick="openManageSourceModal(' + id + ')" title="Edit"> <i class="fa-solid fa-pen-to-square"></i> Edit</button>' +
-                        '                                <button class="text-white bg-danger border-0 p-1 rounded-4" onclick="removeSource(' + full.id + ')" title="Delete"> <i class="fa-solid fa-trash"></i> Delete</button>' +
-                        '                              </div>';
+                    return `
+                    <div class="btn-group action-btn-grp">
+                        <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          <div class="action-btn-wrap">
+                          <button class="action-btn edit-btn" onclick="openManageSourceModal(${id})" title="Edit">
+                            <i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                            <button class="action-btn delete-btn" onclick="removeSource(${full.id})" title="Delete">
+                            <i class="fa-solid fa-trash"></i> Delete</button>
+                          </div>
+                        </div>
+                    </div>
+                    `;
                 }
             }
         ],

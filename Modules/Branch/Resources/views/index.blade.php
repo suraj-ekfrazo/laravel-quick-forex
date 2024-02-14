@@ -3,7 +3,7 @@
 @section('content')
     <!-- /Navbar -->
 
-    <div class="w-100 bg-cover flickity-cell is-selected" style="background: url(../assets/img/heading.png) center center/cover no-repeat   #ccc; ;  ">
+    <!-- <div class="w-100 bg-cover flickity-cell is-selected" style="background: url(../assets/img/heading.png) center center/cover no-repeat   #ccc; ;  ">
         <div class="bg-dark-20">
             <div class=" container  justify-content-between">
                 <div class=" " style="min-height: 150px;">
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <div class="container   pb-5 mt-5 mb-5">
@@ -27,9 +27,9 @@
 
         <!-- Tabs content -->
         <div class="text-center">
-            <div type="button" class="btn-sm btn-secondary float-end mb-3" onclick="openAddModal()">
-                <div class="me-3 ms-3"><i class="fa-solid fa-plus"></i> Create Branch ID</div>
-            </div>
+            <div type="button" class="qf-create-btn" onclick="openAddModal()">
+              <i class="fa-solid fa-plus"></i>Create Branch ID
+           </div>
         </div>
         <div class="table-responsive-sm pt-4   ps-0 pe-0">
             <table id="agent-table" class="table roundedTable">
@@ -70,7 +70,7 @@
 @endsection
 @push('pagescript')
     @include('stacks.js.modules.branch.index')
-    
+
     <script>
         $(document).on('click', "#print-data", function(evt) {
             var exportUrl = "{{ route('adminbranch.print') }}";

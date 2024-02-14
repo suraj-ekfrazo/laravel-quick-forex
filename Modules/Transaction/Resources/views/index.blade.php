@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="w-100 bg-cover flickity-cell is-selected" style="background: url(../assets/img/heading.png) center center/cover no-repeat   #ccc; ;  ">
+    <!-- <div class="w-100 bg-cover flickity-cell is-selected" style="background: url(../assets/img/heading.png) center center/cover no-repeat   #ccc; ;  ">
         <div class="bg-dark-20">
             <div class=" container  justify-content-between">
                 <div class=" " style="min-height: 150px;">
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="container transaction-content">
         <!-- Tabs navs -->
         <div class="mt-5 tab-container">
@@ -23,7 +23,7 @@
                 <li class="nav-item tab3" role="presentation">
                     <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 active" id="ex3-tab-7" data-mdb-toggle="tab" href="#ex3-tabs-7"  role="tab" aria-controls="ex3-tabs-7" aria-selected="true">
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap" >
-                            <div class="text-center nav-title">Rate <br> Booking<br>&nbsp</div>
+                            <div class="text-center nav-title">Rate Booking</div>
                         </div>
                         <!--<span class="badge rounded-pill badge-notification bg-danger">3</span>-->
                     </a>
@@ -36,7 +36,7 @@
                             <div>
 
                             </div>
-                            <div class="text-center nav-title"> Approved <br>Deals <br>&nbsp;</div>
+                            <div class="text-center nav-title"> Approved Deals</div>
                         </div>
 
                     </a>
@@ -56,7 +56,7 @@
                             <div>
                                 <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
                             </div>
-                            <div class="text-center nav-title"> KYC <br><br></div>
+                            <div class="text-center nav-title"> KYC </div>
                         </div>
                         <!--<span class="badge rounded-pill badge-notification bg-danger">1</span>-->
                     </a>
@@ -68,7 +68,7 @@
                             <div>
                                 <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
                             </div>
-                            <div class="text-center nav-title">Rate Blocked<br>&nbsp;</div>
+                            <div class="text-center nav-title">Rate Blocked</div>
                         </div>
                         <!--<span class="badge rounded-pill badge-notification bg-danger">2</span>-->
                     </a>
@@ -79,7 +79,7 @@
                             <div>
                                 <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
                             </div>
-                            <div class="text-center nav-title">Pending<br>Payments<br>&nbsp;</div>
+                            <div class="text-center nav-title">Pending Payments</div>
                         </div>
                         <!--<span class="badge rounded-pill badge-notification bg-danger">5</span>-->
 						</a>
@@ -90,7 +90,7 @@
                             <div>
                                 <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
                             </div>
-                            <div class="text-center nav-title">View All <br>Bookings<br>&nbsp;</div>
+                            <div class="text-center nav-title">View All Bookings</div>
                         </div>
                         <!--<span class="badge rounded-pill badge-notification bg-danger">15</span>-->
                     </a>
@@ -101,7 +101,7 @@
                             <div>
                                 <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
                             </div>
-                            <div class="text-center nav-title">Completed <br>Transactions<br>&nbsp;</div>
+                            <div class="text-center nav-title">Completed Transactions</div>
                         </div>
                         <!--<span class="badge rounded-pill badge-notification bg-danger">15</span>-->
                     </a>
@@ -114,7 +114,7 @@
         <div class="tab-content" id="ex3-content">
             <div class="tab-pane fade show active" id="ex3-tabs-7" role="tabpanel" aria-labelledby="ex3-tab-7">
                 <div class="box pt-4 bgc ps-0 pe-0">
-                <table id="ratebooking" class="table roundedTable roundedTable bgc align-middle">
+                <table id="ratebooking" class="table table-responsive roundedTable roundedTable bgc align-middle">
                         <thead class="">
                         <tr class="bgc-table  row-font1">
 							<th scope="col" class="fw-bold">Reference Number</th>
@@ -126,6 +126,7 @@
                             <th scope="col" class="fw-bold">Assign Deal Rate</th>
                             <th scope="col" class="fw-bold">Assign Deal ID</th>
 							 <th scope="col" class="fw-bold">Created DateTime</th>
+							 <th scope="col" class="fw-bold">Action</th>
                             <th scope="col" class="fw-bold"></th>
                         </tr>
                         </thead>
@@ -252,7 +253,7 @@
             </div>
             <div class="tab-pane fade" id="ex3-tabs-5"role="tabpanel"aria-labelledby="ex3-tab-5">
                 <div class="table-responsive-sm pt-4   ps-0 pe-0">
-                    <table id="admin-payment-table" class="table roundedTable">
+                    <table id="admin-payment-table" class="table table-responsive roundedTable">
                         <thead>
                             <tr class="bgc-table row-font1">
                                 <th scope="col" class="fw-bold">Transaction Number</th>
@@ -449,7 +450,7 @@
                     </div>
                 </div>
                 <div class="table-reponsive box pt-4 bgc ps-0 pe-0">
-                    <table id="agent-completed-transaction-table" class="table roundedTable border-0  text-center">
+                    <table id="agent-completed-transaction-table" class="table table-responsive roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
                                 <th scope="col" class="fw-bold">Transaction Number</th>
