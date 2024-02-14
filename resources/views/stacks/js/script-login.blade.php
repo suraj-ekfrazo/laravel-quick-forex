@@ -37,23 +37,5 @@
             $(".reset-password-eye").removeClass("fa-eye");
         });
     })
-
-    function openForgotPassModal() {
-            
-        $.ajax({
-            url: "{!! route('forgot-password') !!}",
-            type: 'GET',
-            contentType: "application/json",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (result) {
-                $('.addModals').html(result);
-                $('#forgotPasswordModal').modal('show');
-            }
-        });
-       
-    }
-
 </script>
 <!-- END: Theme JS-->
