@@ -1,10 +1,22 @@
 <!-- Navbar-->
-<nav class="navbar navbar-light bg-white " style="padding:1.5rem 1rem 1rem 1rem;box-shadow:none;">
+<nav class="navbar navbar-light bg-white">
     <div class="container-fluid">
-        
-        <button class="burger float-start" onclick="w3_open()"><img src="{{ asset('assets/img/forex_new/icon_menu_burger.svg')}}" style="width:30px;" class="float-start" alt="close"></button>
-        
 
+     <div class="nav-left-in-wrap">
+        <button class="burger float-start" onclick="w3_open()"><img src="{{ asset('assets/img/forex_new/icon_menu_burger.svg')}}" style="width:30px;" class="float-start" alt="close">
+        </button>
+
+        <!-- <div class="qf-global-create-btn">
+            <button type="submit" class="qf-create-btn">+ Create</button>
+        </div> -->
+     </div>
+
+        <div class="qf-global-search-bar">
+             <form action="/action_page.php" class="search-form">
+                <input type="text" placeholder="Search.." name="search" class="qf-search-input">
+                <button type="submit" class="qf-search-btn"><i class="fa fa-search"></i></button>
+              </form>
+        </div>
 
         <div class="dropdown">
             <a class=" text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-mdb-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -12,8 +24,7 @@
                 <img src="{{ asset('assets/img/forex_new/icon_user.svg')}}" style="
     width: 25px;margin-left:15px;" class="me-1" alt="Tridha Patel">
                 <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1000" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pmd-sidebar-toggle"><i class="material-icons md-light"></i></a>
-                
-            
+
         </span>
             </a>
             <ul class="dropdown-menu" style="min-width:7rem;"aria-labelledby="dropdownMenuLink">
@@ -30,7 +41,7 @@
 
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
   <button onclick="w3_close()" class="close_btn"><img src="{{ asset('assets/img/forex_new/icon_close.svg')}}" class="float-start" style="width:30px;" alt="close"> </button>
-  
+
   <div class="side-inner d-inline-block h-100 d-flex justify-content-center align-items-center">
         <div class="container side-menu">
   <a href="{{route('admin-user.index')}}" class="{{ collect(request()->segments())->last() == "admin" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_admin.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Admin">Admin</a>
