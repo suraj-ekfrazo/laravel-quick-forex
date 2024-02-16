@@ -10,8 +10,7 @@
         <!-- Tabs content -->
         <div class="d-flex justify-content bg-white mt-4 mb-2">
             <div class="d-flex">
-                <div class="   border-heading"></div>
-                <div class="ps-1 fw-bold">Automation Scorecard &amp; Documents</div>
+                <div class="scorecard-title">Automation Scorecard &amp; Documents</div>
             </div>
         </div>
         <div class="bgc">
@@ -54,110 +53,94 @@
                 </div>--}}
             </div>
         </div>
-        <div class="table-responsive bgc mt-3">
+        <div class="table-responsive scorecard-data-container bgc mt-3">
             <table class="table border-none">
-                <thead class="rounded-5 " style="background-color:#0075BE;">
-                <tr class="text-light">
-                    <th scope="col" style="border-radius: 10px 0px 0px 10px ;">Currency</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Rate</th>
-                    <th scope="col" style="border-radius:0px 10px 10px 0px  ;">Calculate</th>
+                <thead class="rounded-5 ">
+                <tr class="text-light kyc-det-table-head">
+                    <th scope="col"  class="kyc-auto-table-head" ><span>Currency</span></th>
+                    <th scope="col"  class="kyc-auto-table-head"><span>Amount</span></th>
+                    <th scope="col"  class="kyc-auto-table-head"><span>Rate</span></th>
+                    <th scope="col"  class="kyc-auto-table-head"><span>Calculate</span></th>
                 </tr>
                 </thead>
                 <tbody class="fw-bold ">
                 <?php $totalAmount = 0 ?>
                 @foreach($txnCurrency as $txnVal)
                     <tr>
-                        <td   scope="row" style="background-color: #DDE4ED; border-radius: 10px;  ">
-                            {{$txnVal->txn_currency_type}}
+                        <td   scope="row"  class="kyc-auto-table-data">
+                          <span>  {{$txnVal->txn_currency_type}}</span>
                         </td>
-                        <td style="background-color: #DDE4ED; border-radius: 10px; ">
-                            {{$txnVal->txn_frgn_curr_amount}}
+                        <td  class="kyc-auto-table-data">
+                           <span> {{$txnVal->txn_frgn_curr_amount}}</span>
                         </td>
-                        <td style="background-color: #DDE4ED; border-radius: 10px;   ">
-                            {{$txnVal->txn_booking_rate}}
+                        <td  class="kyc-auto-table-data">
+                           <span> {{$txnVal->txn_booking_rate}}</span>
                         </td>
-                        <td style="background-color: #DDE4ED; border-radius: 10px;text-align: right;   ">
-                            {{number_format($txnVal->txn_inr_amount,2)}}
+                        <td  class="kyc-auto-table-data">
+                          <span>  {{number_format($txnVal->txn_inr_amount,2)}}</span>
                             <?php $totalAmount +=$txnVal->txn_inr_amount  ?>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th> </th>
-                    <th> </th>
-                    <th style="background-color:
-                   #F3D9B9; border-radius: 10px; font-weight: 900; color: black; ">
-                        Net Amount
-                    </th>
-                    <th style="background-color: #F3D9B9; border-radius: 10px;  font-weight: 900; color: black;text-align: right;">
-                        {{$txnData->net_amount != "" ? number_format($txnData->net_amount,2) : "0.00" }}
-                    </th>
-                </tr>
-                <tr>
-                    <th> </th>
-                    <th> </th>
-                    <th style="background-color:
-                   #F3D9B9; border-radius: 10px; color: black; ">
-                        Amount For TCS
-                    </th>
-                    <th style="background-color: #F3D9B9; border-radius: 10px; color: black;text-align: right;">
-                        {{$txnData->amount_for_tcs!="" ? number_format($txnData->amount_for_tcs,2) : "0.00" }}
-                    </th>
-                </tr>
-                <tr>
-                    <th> </th>
-                    <th> </th>
-                    <th style="background-color:
-                   #F3D9B9; border-radius: 10px; color: black; ">
-                        Remit Fees
-                    </th>
-                    <th style="background-color: #F3D9B9; border-radius: 10px; color: black;text-align: right;">
-                        {{$txnData->remit_fees!="" ? number_format($txnData->remit_fees,2) : "0.00" }}
-                    </th>
-                </tr>
-                <tr>
-                    <th> </th>
-                    <th> </th>
-                    <th style="background-color:
-                   #F3D9B9; border-radius: 10px; color: black; ">
-                        Swift Charge
-                    </th>
-                    <th style="background-color: #F3D9B9; border-radius: 10px;  color: black;text-align: right;">
-                        {{$txnData->swift_charges!="" ? number_format($txnData->swift_charges,2) : "0.00" }}
-                    </th>
-                </tr>
-				<tr>
-                    <th> </th>
-                    <th> </th>
-                    <th style="background-color:
-                   #F3D9B9; border-radius: 10px; color: black; ">
-                        Nostro Charge
-                    </th>
-                    <th style="background-color: #F3D9B9; border-radius: 10px;  color: black;text-align: right;">
-                        {{$txnData->nostro_charge!="" ? number_format($txnData->nostro_charge,2) : "0.00" }}
-                    </th>
-                </tr>
-                <tr>
-                    <th> </th>
-                    <th> </th>
-                    <th style="background-color:
-                   #F3D9B9; border-radius: 10px; font-weight: 900; color: black;">
-                        Gross Amount
-                    </th>
-                    <th style="background-color: #F3D9B9; border-radius: 10px;  font-weight: 900; color: black;text-align: right;">
-                        {{$txnData->gross_payable!="" ? number_format($txnData->gross_payable,2) : "0.00" }}
-                    </th>
-                </tr>
-                </tfoot>
             </table>
+            <div class="kyc-auto-table-footer">
+                <div class="kyc-inner-wrapper">
+                    <table  class="table table-borderless">
+                        <tr>
+                                <th >
+                                    Net Amount
+                                </th>
+                                <th >
+                                    {{$txnData->net_amount != "" ? number_format($txnData->net_amount,2) : "0.00" }}
+                                </th>
+                            </tr>
+                            <tr>
+                                <th >
+                                    Amount For TCS
+                                </th>
+                                <th >
+                                    {{$txnData->amount_for_tcs!="" ? number_format($txnData->amount_for_tcs,2) : "0.00" }}
+                                </th>
+                            </tr>
+                            <tr>
+                                <th >
+                                    Remit Fees
+                                </th>
+                                <th >
+                                    {{$txnData->remit_fees!="" ? number_format($txnData->remit_fees,2) : "0.00" }}
+                                </th>
+                            </tr>
+                            <tr>
+                                <th >
+                                    Swift Charge
+                                </th>
+                                <th >
+                                    {{$txnData->swift_charges!="" ? number_format($txnData->swift_charges,2) : "0.00" }}
+                                </th>
+                            </tr>
+                            <tr>
+                                <th >
+                                    Nostro Charge
+                                </th>
+                                <th >
+                                    {{$txnData->nostro_charge!="" ? number_format($txnData->nostro_charge,2) : "0.00" }}
+                                </th>
+                            </tr>
+                            <tr>
+                                <th >
+                                    Gross Amount
+                                </th>
+                                <th >
+                                    {{$txnData->gross_payable!="" ? number_format($txnData->gross_payable,2) : "0.00" }}
+                                </th>
+                            </tr>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="d-flex mt-3 mb-3">
-            <div class="border-1"></div>
-            <div class="ps-1 "> Block </div>
-            <div class="ps-1 fw-bold">Rate</div>
+        <div class="d-flex mt-5 mb-3">
+            <div class="scorecard-title"> Block Rate</div>
         </div>
         <form action="{{route('transactionkyc.update',['id'=>$txnData->txn_number])}}" novalidate="novalidate" id="updateDocForm">
             @csrf
@@ -174,7 +157,7 @@
                                 <thead style="backgrounD-color: #F4F6F8;">
                                 <tr class="bgc-table row-font1">
 									 <th  scope="col" class="fw-bold"  >
-									     
+
 									      <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="checkAll"
                                             name="">
@@ -189,6 +172,7 @@
                                     {{--<th  scope="col" class="fw-bold" > Status</th>--}}
                                     <th  scope="col" class="fw-bold w-auto"  > Comment</th>
                                     <th  scope="col" class="fw-bold">Status</th>
+                                    <th  scope="col" class="fw-bold"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -264,7 +248,7 @@
 														<span class="badge badge-danger" style="width:80px;height:22px;font-size:13px;">Reject</span>
 												@else
 														<span class="badge badge-warning" style="width:80px;height:22px;font-size:13px;">Pending</span>
-												
+
 												@endif
                                             @endif
                                         </div>
@@ -282,9 +266,39 @@
                                 </tr>
                                 @endforeach
                                 @else
-                                    <tr>
-                                        <td colspan="6" class="text-center">No Document Found!</td>
-                                    </tr>
+                                <tr class="even">
+                                    <td class="sorting_1">Consultancy fees</td>
+                                    <td>CONS</td>
+                                    <td>CONS</td>
+                                    <td>CONS</td>
+                                    <td>CONS</td>
+                                    <td>CONS</td>
+                                    <td class="  r-col-action">
+                                      <div class="d-flex gap-3 justify-content">
+                                      <label class="switch">
+                                            <input type="checkbox" class="switch-input" checked="" onclick="statusChangePurpose(10,1)">
+                                            <span class="switch-label" data-on="Match" data-off="Pending"
+                                            style="background: #F15922; color: #fff;" ></span>
+                                            <span class="switch-handle"></span>
+                                      </label>
+                                      </div>
+                                   </td>
+                                   <td class="  r-col-action">
+                                        <div class="btn-group action-btn-grp">
+                                            <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <div class="action-btn-wrap">
+                                                    <button class="action-btn edit-btn" onclick="openManagePurposeModal(15)" title="Edit">
+                                                    <i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                                                    <button class="action-btn delete-btn" onclick="removePurpose(15)" title="Delete">
+                                                    <i class="fa-solid fa-trash"></i> Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                                 @endif
                                </tbody>
                             </table>
@@ -300,14 +314,14 @@
                                 <input class="form-control p-2 bg-transparent" type="text" name="bordox_no" placeholder="Enter Bordox Number" value="Not Use Now" disabled>
                             </div>
                         </div>--}}
-                        <div class="col-lg-5 col-sm-4 mt-3">
+                        <div class="col-lg-4 col-sm-4 mt-3">
                             <label class="">Comment</label>
                             <div class="input-group mb-3">
                                 <input class="form-control p-2 bg-transparent" type="text" name="kyc_comment" placeholder="Enter Comment" >
                                 @component('components.ajax-error',['field'=>'kyc_comment'])@endcomponent
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-3 mt-3">
+                        <div class="col-lg-4 col-sm-4 mt-3">
                             <label class="">Status</label>
                             <div class="input-group my-2">
                                 <div class="col-sm-4">
@@ -324,15 +338,16 @@
                             </div>
                             <div class="text-danger status_error"></div>
                         </div>
-                    </div>
-                    <div class="col-lg-12 col-sm-12 mt-5">
+                        <div class="col-lg-4 col-sm-4 mt-3">
                         <div class="text-center  ">
-                            <button type="submit" class="btn btn-secondary px-5 fw-bold text-capitalize m-0" 
-								
+                            <button type="submit" class="btn btn-secondary px-5 fw-bold text-capitalize m-0"
+
 									>Update</button>
                             <a href="{{route('dashboard.index')}}" class="btn btn-secondary px-5 fw-bold text-capitalize m-0">Back</a>
                         </div>
                     </div>
+                    </div>
+
                 </div>
                 <!-- Tabs content -->
             </div>
@@ -346,11 +361,11 @@
 @endsection
 @push('pagescript')
     @include('stacks.js.modules.dashboard.kyc')
-    
+
     <script>
        $('#checkAll').click(function() {
             $('.datas').not(this).prop('checked', this.checked);
-      }); 
+      });
     </script>
-   
+
 @endpush

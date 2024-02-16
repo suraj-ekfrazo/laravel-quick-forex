@@ -1,5 +1,22 @@
 <!-- Navbar-->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="close_btn"><img src="{{ asset('assets/img/forex_new/icon_close.svg')}}" class="float-start" style="width:30px;" alt="close"> </button>
+
+  <div class="side-inner d-inline-block h-100 d-flex justify-content-center align-items-center">
+        <div class="container side-menu">
+  <a href="{{route('admin-user.index')}}" class="{{ collect(request()->segments())->last() == "Transactions" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_admin.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Admin">Admin</a>
+  <a href="{{route('branch.index')}}" class="{{ collect(request()->segments())->last() == "branch" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_branch.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="branch">Branch</a>
+  <a href="{{route('customer.index')}}" class="{{ collect(request()->segments())->last() == "customer" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_customer.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Customer">Customer</a>
+  <a href="{{route('agent-transaction.index')}}" class="{{ collect(request()->segments())->last() == "transaction" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_transaction.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Transaction">Transaction</a>
+  <a href="{{route('purpose.index')}}" class="{{ collect(request()->segments())->last() == "purpose" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_men_purpose.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Purpose">Purpose</a>
+  <a href="{{route('source.index')}}" class="{{ collect(request()->segments())->last() == "source" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_source.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Source">Source</a>
+  <a href="{{url('/')}}" class="w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_report.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Reports">Reports</a>
+  </div></div>
+</div>
+
+<!-- /Navbar -->
 <nav class="  navbar p-0 navbar-expand-custom navbar-mainbg fixed-top">
+
 
     <div class="container-fluid gap-4">
         <a class="navbar-brand  logo-bg navbar-logo" href="#"><img src="./assets/img/login/logo.png" width="60px" class="img-fluid
@@ -38,7 +55,7 @@
                         </div>
                         Agent KYC</a>
                 </li>
-            </ul>                            
+            </ul>
             </form>
 
         </div>

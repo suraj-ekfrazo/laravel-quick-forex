@@ -39,8 +39,8 @@
                     <th>Email ID</th>
                     <th>Mobile</th>
                     <th class="not-export-col">Status</th>
-                    <th class="not-export-col">Action</th>
                     <th class="not-export-col">Password</th>
+                    <th class="not-export-col"></th>
                 </tr>
                 </thead>
             </table>

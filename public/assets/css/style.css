@@ -275,8 +275,11 @@ input {
     font-weight: 600 !important;
     border: 1px solid transparent !important;
     font-size: 14px;
-    font-weight: 100;
+    font-weight: 100 !important;
 
+}
+.container .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    color: #000000 !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button{
     font-size: 14px;
@@ -332,13 +335,15 @@ display: none !important;
 }
 .inputWithIcon img {
     position: absolute;
-    right: -5px;
-    top: -5px;
-    padding: 9px 8px;
+    right: 9px;
+    top: 9px;
+    padding: 0;
     color: #aaa;
     transition: 0.3s;
-    width: 35px;
-	z-index: 9 !important;
+    width: 16px;
+    background-size: contain;
+    object-fit: contain;
+    z-index: 9 !important;
 }
 .swal-overlay {
     background-color: rgba(0,0,0,.7);
@@ -1749,7 +1754,7 @@ i{
 }
 
 .login_bg_block{
-background-image: url("https://dataseedtech.com/quick-forex/public/assets/img/forex_new/login_bg.svg");
+background-image: url("../img/forex_new/login_bg.svg");
 background-repeat: no-repeat;
 	height: 100vh;
 	background-size: cover;
@@ -2337,6 +2342,10 @@ button.btn-secondary.btn-sm.rounded-4.btn-block.border-0.btn-confirm {
     position: absolute;
     top: 18px;
     left: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .qf-global-search-bar  .search-form{
@@ -2420,6 +2429,12 @@ button.btn-secondary.btn-sm.rounded-4.btn-block.border-0.btn-confirm {
 .odd th:last-child {
     text-align: right !important;
 }
+#kyc-status-table_wrapper .even td:last-child,
+#kyc-status-table_wrapper .even th:last-child,
+#kyc-status-table_wrapper .odd td:last-child,
+#kyc-status-table_wrapper .odd th:last-child {
+    text-align: start !important;
+}
 
 table.dataTable tbody tr {
     height: 60px;
@@ -2461,7 +2476,196 @@ table.dataTable tbody tr {
 #ratebooking_wrapper{
    padding-bottom: 60px;
 }
+.r-col-action .trackDealIdBooking,
+.r-col-action .trackDealRateBooking {
+    height: 40px;
+    padding: 3px 20px !important;
+}
+.table .kyc-det-table-head {
+    border-bottom: none !important;
+}
+th.kyc-auto-table-head {
+    padding-left: 0;
+    background: #fff !important;
+}
+.table .kyc-auto-table-head  span{
+    color: #004d7d;
+    border-radius: 50px !important;
+    padding: 12px 30px;
+    min-width: 200px;
+    display: inline-block;
+    text-align: center;
 
+}
+.table  .kyc-auto-table-data{
+    padding-left: 0 !important;
+    border-bottom: none !important;
+    background: #fff;
+
+
+}
+.table  .kyc-auto-table-data span{
+    border: 1px solid #004d7d !important;
+    border-radius: 50px !important;
+    color: #000;
+    padding: 12px 30px;
+    min-width: 200px;
+    display: inline-block;
+    text-align: center;
+}
+.qf-title-lg{
+    font-size: 32px;
+    font-weight: 100;
+    color: #0774BB;
+    margin-bottom: 2rem;
+}
+.scorecard-title{
+    font-size: 32px;
+    font-weight: 100;
+    color: #0774BB;
+}
+.kyc-auto-table-footer{
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 16px;
+    padding: 25px;
+}
+.kyc-inner-wrapper {
+    width: 575px;
+    min-height: max-content;
+    background-color: #F9F9F9;
+    box-shadow: 0 0 15px 0 rgba(7,116,187,.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+}
+.scorecard-data-container{
+    box-shadow: 0 0 15px 0 rgba(7,116,187,.15);
+    border-radius: 40px;
+    padding: 50px 20px;
+}
+
+.form-control.bg-transparent{
+    height: 50px!important;
+    background: #fff!important;
+    border-radius: 40px!important;
+    box-shadow: 0 0 15px 0 rgba(7,116,187,.15);
+    border: none;
+    padding: 5px 15px 5px 25px !important;
+}
+button.cb-psd-reset-btn {
+    border: none;
+    background: 0;
+    color: #fff;
+    text-decoration: underline;
+    font-size: 15px;
+}
+button.swal-button.swal-button--cancel {
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.agent-curr-det-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+button.qf-primary-btn {
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    background-color: #0075be;
+    color: #fff;
+}
+.qf-primary-btn {
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    background-color: #0075be;
+    color: #fff;
+    width: max-content;
+
+}
+.form-control.qf-secondary-input,
+.form-select.qf-primary-select {
+    border-radius: 50px !important;
+    border: 1px solid #0774BB;
+    padding: 10px 40px 10px 20px;
+    height: auto;
+    box-shadow: 0 0 15px 0 rgba(7,116,187,.15);
+}
+.agent-transaction-main .card{
+    width: 100%;
+}
+.agent-transaction-main .card-body .card-inner-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.select2-container--bootstrap-5 .select2-selection--single {
+    border-radius: 50px !important;
+    border: 1px solid #0075be !important;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #ffffff !important;
+    border: 1px solid #ccc !important;
+    pointer-events: none !important;
+    opacity: 0.6 !important;
+}
+.agent-transaction-main .card-header {
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(69 69 69);
+    box-shadow: none;
+    border: none;
+}
+.agent-transaction-main .card {
+    border: 0;
+    border-radius: 0;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    --mdb-card-box-shadow: none;
+}
+.accordion-title {
+    font-size: 25px;
+    font-weight: 100;
+    color: #696969;
+}
+.agent-detail-accordion{
+}
+.create-btn-wrap{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+.agent-detail-accordion .card-header{
+   position: relative;
+}
+.agent-detail-accordion .card-header:after{
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-color: #000;
+    border-width: 0px 0px 1px 1px;
+    transform: rotate(318deg);
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.agent-detail-accordion .card-header.collapsed:after{
+    transform: rotate(134deg);
+}
 @media (max-width: 768px) {
     .qf-users-container {
         margin-top: 20px;
@@ -2537,7 +2741,7 @@ display: flex;
 }
 @media (min-width: 1024px){
     .transaction-content .dataTable {
-        /* display: block; */
+
         width: 100% !important;
         overflow-x: auto !important;
     }
@@ -2554,8 +2758,11 @@ display: flex;
         justify-content: space-between;
         padding: 16px 0;
     }
+}
 
-
-
+@media (min-width: 1024px) and (max-width: 1600px){
+    .transaction-content .dataTable#ratebooking{
+     display: block;
+    }
 }
 /* new login design by om --end-- */
