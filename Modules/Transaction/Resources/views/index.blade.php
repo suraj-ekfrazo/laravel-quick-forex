@@ -114,23 +114,23 @@
         <div class="tab-content" id="ex3-content">
             <div class="tab-pane fade show active" id="ex3-tabs-7" role="tabpanel" aria-labelledby="ex3-tab-7">
                 <div class="box pt-4 bgc ps-0 pe-0">
-                <table id="ratebooking" class="table table-responsive roundedTable roundedTable bgc align-middle">
-                        <thead class="">
-                        <tr class="bgc-table  row-font1">
-							<th scope="col" class="fw-bold">Reference Number</th>
+                <table id="ratebooking" class="table roundedTable roundedTable bgc align-middle">
+                    <thead class="">
+                        <tr class="bgc-table row-font1">
+                            <th scope="col" class="fw-bold">Reference Number</th>
                             <th scope="col" class="fw-bold">Branch</th>
                             <th scope="col" class="fw-bold">FX Currency</th>
                             <th scope="col" class="fw-bold">FX Value</th>
-							<th scope="col" class="fw-bold">Booking Purpose</th>
+                            <th scope="col" class="fw-bold">Booking Purpose</th>
                             <th scope="col" class="fw-bold">Transaction Type</th>
                             <th scope="col" class="fw-bold">Assign Deal Rate</th>
                             <th scope="col" class="fw-bold">Assign Deal ID</th>
-							 <th scope="col" class="fw-bold">Created DateTime</th>
-							 <th scope="col" class="fw-bold">Action</th>
+                            <th scope="col" class="fw-bold">Created DateTime</th>
+                            <th scope="col" class="fw-bold">Action</th>
                             <th scope="col" class="fw-bold"></th>
                         </tr>
-                        </thead>
-                    </table>
+                    </thead>
+                </table>
                 </div>
 
             </div>
@@ -253,7 +253,7 @@
             </div>
             <div class="tab-pane fade" id="ex3-tabs-5"role="tabpanel"aria-labelledby="ex3-tab-5">
                 <div class="table-responsive-sm pt-4   ps-0 pe-0">
-                    <table id="admin-payment-table" class="table table-responsive roundedTable">
+                    <table id="admin-payment-table" class="table roundedTable">
                         <thead>
                             <tr class="bgc-table row-font1">
                                 <th scope="col" class="fw-bold">Transaction Number</th>
@@ -450,7 +450,7 @@
                     </div>
                 </div>
                 <div class="table-reponsive box pt-4 bgc ps-0 pe-0">
-                    <table id="agent-completed-transaction-table" class="table table-responsive roundedTable border-0  text-center">
+                    <table id="agent-completed-transaction-table" class="table roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
                                 <th scope="col" class="fw-bold">Transaction Number</th>

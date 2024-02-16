@@ -40,6 +40,15 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
+
+                        return '<button class="cb-psd-reset-btn" onclick="resetPassword(' + id + ')"> Reset </button>';
+                    }
+                },
+                {
+                    "targets": [5],
+                    className: 'r-col-action',
+                    render: function (data, type, full, meta) {
+                        var id = full.id;
                         var status = full.status ? 'checked':'';
 
                         // return '<div class="d-flex gap-3 justify-content-center">'+
@@ -62,15 +71,6 @@
                                 </div>
                             </div>
                         `;
-                    }
-                },
-                {
-                    "targets": [5],
-                    className: 'r-col-action',
-                    render: function (data, type, full, meta) {
-                        var id = full.id;
-
-                        return '<button class="text-white bg-primary btn-block border-0 p-1 rounded-4 " onclick="resetPassword(' + id + ')"> Reset </button>';
                     }
                 }
                 ],
