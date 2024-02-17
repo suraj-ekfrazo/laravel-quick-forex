@@ -1,151 +1,154 @@
-
-body{
-    font-family: 'Gilroy', sans-serif !important;
-    background: #ffffff;
-}
- @font-face {
+@font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-Regular.eot');
+    src: url('.././font/Gilroy-Regular.eot');
     src: local('Gilroy Regular'), local('Gilroy-Regular'),
-        url('./assets/fonts/Gilroy-Regular.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-Regular.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-Regular.woff') format('woff'),
-        url('./assets/fonts/Gilroy-Regular.ttf') format('truetype');
+        url('.././font/Gilroy-Regular.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Regular.woff2') format('woff2'),
+        url('.././font/Gilroy-Regular.woff') format('woff'),
+        url('.././font/Gilroy-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
+
+
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-Bold.eot');
+    src: url('.././font/Gilroy-Bold.eot');
     src: local('Gilroy Bold'), local('Gilroy-Bold'),
-        url('./Gilroy-Bold.eot?#iefix') format('embedded-opentype'),
-        url('./Gilroy-Bold.woff2') format('woff2'),
-        url('./Gilroy-Bold.woff') format('woff'),
-        url('./Gilroy-Bold.ttf') format('truetype');
+        url('.././font/Gilroy-Bold.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Bold.woff2') format('woff2'),
+        url('.././font/Gilroy-Bold.woff') format('woff'),
+        url('.././font/Gilroy-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-Black.eot');
+    src: url('.././font/Gilroy-Black.eot');
     src: local('Gilroy Black'), local('Gilroy-Black'),
-        url('./assets/fonts/Gilroy-Black.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-Black.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-Black.woff') format('woff'),
-        url('./assets/fonts/Gilroy-Black.ttf') format('truetype');
+        url('.././font/Gilroy-Black.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Black.woff2') format('woff2'),
+        url('.././font/Gilroy-Black.woff') format('woff'),
+        url('.././font/Gilroy-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-Light.eot');
+    src: url('.././font/Gilroy-Light.eot');
     src: local('Gilroy Light'), local('Gilroy-Light'),
-        url('./assets/fonts/Gilroy-Light.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-Light.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-Light.woff') format('woff'),
-        url('./assets/fonts/Gilroy-Light.ttf') format('truetype');
+        url('.././font/Gilroy-Light.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Light.woff2') format('woff2'),
+        url('.././font/Gilroy-Light.woff') format('woff'),
+        url('.././font/Gilroy-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('Gilroy-Semibold.eot');
+    src: url('.././font/Gilroy-Semibold.eot');
     src: local('Gilroy Semibold'), local('Gilroy-Semibold'),
-        url('Gilroy-Semibold.eot?#iefix') format('embedded-opentype'),
-        url('Gilroy-Semibold.woff2') format('woff2'),
-        url('Gilroy-Semibold.woff') format('woff'),
-        url('Gilroy-Semibold.ttf') format('truetype');
+        url('.././font/Gilroy-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Semibold.woff2') format('woff2'),
+        url('.././font/Gilroy-Semibold.woff') format('woff'),
+        url('.././font/Gilroy-Semibold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-Medium.eot');
+    src: url('.././font/Gilroy-Medium.eot');
     src: local('Gilroy Medium'), local('Gilroy-Medium'),
-        url('./assets/fonts/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-Medium.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-Medium.woff') format('woff'),
-        url('./assets/fonts/Gilroy-Medium.ttf') format('truetype');
+        url('.././font/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Medium.woff2') format('woff2'),
+        url('.././font/Gilroy-Medium.woff') format('woff'),
+        url('.././font/Gilroy-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-UltraLight.eot');
+    src: url('.././font/Gilroy-UltraLight.eot');
     src: local('Gilroy UltraLight'), local('Gilroy-UltraLight'),
-        url('./assets/fonts/Gilroy-UltraLight.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-UltraLight.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-UltraLight.woff') format('woff'),
-        url('./assets/fonts/Gilroy-UltraLight.ttf') format('truetype');
+        url('.././font/Gilroy-UltraLight.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-UltraLight.woff2') format('woff2'),
+        url('.././font/Gilroy-UltraLight.woff') format('woff'),
+        url('.././font/Gilroy-UltraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-SemiboldItalic.eot');
+    src: url('.././font/Gilroy-SemiboldItalic.eot');
     src: local('Gilroy Semibold Italic'), local('Gilroy-SemiboldItalic'),
-        url('./assets/fonts/Gilroy-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-SemiboldItalic.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-SemiboldItalic.woff') format('woff'),
-        url('./assets/fonts/Gilroy-SemiboldItalic.ttf') format('truetype');
+        url('.././font/Gilroy-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-SemiboldItalic.woff2') format('woff2'),
+        url('.././font/Gilroy-SemiboldItalic.woff') format('woff'),
+        url('.././font/Gilroy-SemiboldItalic.ttf') format('truetype');
     font-weight: 600;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-Extrabold.eot');
+    src: url('.././font/Gilroy-Extrabold.eot');
     src: local('Gilroy Extrabold'), local('Gilroy-Extrabold'),
-        url('./assets/fonts/Gilroy-Extrabold.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-Extrabold.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-Extrabold.woff') format('woff'),
-        url('./assets/fonts/Gilroy-Extrabold.ttf') format('truetype');
+        url('.././font/Gilroy-Extrabold.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Extrabold.woff2') format('woff2'),
+        url('.././font/Gilroy-Extrabold.woff') format('woff'),
+        url('.././font/Gilroy-Extrabold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-BoldItalic.eot');
+    src: url('.././font/Gilroy-BoldItalic.eot');
     src: local('Gilroy Bold Italic'), local('Gilroy-BoldItalic'),
-        url('./assets/fonts/Gilroy-BoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-BoldItalic.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-BoldItalic.woff') format('woff'),
-        url('./assets/fonts/Gilroy-BoldItalic.ttf') format('truetype');
+        url('.././font/Gilroy-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-BoldItalic.woff2') format('woff2'),
+        url('.././font/Gilroy-BoldItalic.woff') format('woff'),
+        url('.././font/Gilroy-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-Heavy.eot');
+    src: url('.././font/Gilroy-Heavy.eot');
     src: local('Gilroy Heavy'), local('Gilroy-Heavy'),
-        url('./assets/fonts/Gilroy-Heavy.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-Heavy.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-Heavy.woff') format('woff'),
-        url('./assets/fonts/Gilroy-Heavy.ttf') format('truetype');
+        url('.././font/Gilroy-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Heavy.woff2') format('woff2'),
+        url('.././font/Gilroy-Heavy.woff') format('woff'),
+        url('.././font/Gilroy-Heavy.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('./assets/fonts/Gilroy-Thin.eot');
+    src: url('.././font/Gilroy-Thin.eot');
     src: local('Gilroy Thin'), local('Gilroy-Thin'),
-        url('./assets/fonts/Gilroy-Thin.eot?#iefix') format('embedded-opentype'),
-        url('./assets/fonts/Gilroy-Thin.woff2') format('woff2'),
-        url('./assets/fonts/Gilroy-Thin.woff') format('woff'),
-        url('./assets/fonts/Gilroy-Thin.ttf') format('truetype');
+        url('.././font/Gilroy-Thin.eot?#iefix') format('embedded-opentype'),
+        url('.././font/Gilroy-Thin.woff2') format('woff2'),
+        url('.././font/Gilroy-Thin.woff') format('woff'),
+        url('.././font/Gilroy-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
 }
+
+body{
+    font-family: 'Gilroy', sans-serif !important;
+    background: #ffffff;
+}
+
 .container{
     max-width: 90% !important;
 }
@@ -298,7 +301,7 @@ input {
 }
 #customer_name {
     padding: .375rem 2.25rem .375rem .75rem !important;
-    height: 38px !important;
+    height: 44px !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button{
 	padding: 5px 10px !important;
@@ -2286,9 +2289,9 @@ button.btn-secondary.btn-sm.rounded-4.btn-block.border-0.btn-confirm {
     padding: 8px 5px;
 
 }
-.transaction-content .qf-nav-tabs li a .qf-inner-wrap .nav-title{
+a .qf-inner-wrap .nav-title{
     position: relative;
-    font-weight: normal;
+    font-weight: bold;
     line-height: 22px;
     max-width: min-content;
 }
@@ -2302,7 +2305,7 @@ button.btn-secondary.btn-sm.rounded-4.btn-block.border-0.btn-confirm {
 .transaction-content #ratebooking td:last-child {
     border-radius: 0px 0px 40px 0;
 }
-.transaction-content .qf-nav-tabs li a .qf-inner-wrap .nav-title:after{
+ a .qf-inner-wrap .nav-title:after{
     content: "";
     display: block;
     width: 7px;
@@ -2515,7 +2518,7 @@ th.kyc-auto-table-head {
 }
 .qf-title-lg{
     font-size: 32px;
-    font-weight: 100;
+    font-weight: 600;
     color: #0774BB;
     margin-bottom: 2rem;
 }
@@ -2579,8 +2582,8 @@ button.qf-primary-btn {
     border: none;
     border-radius: 50px;
     padding: 10px 20px;
-    background-color: #0075be;
-    color: #fff;
+    background-color: #0075be !important;
+    color: #fff !important;
 }
 .qf-primary-btn {
     border: none;
@@ -2591,6 +2594,16 @@ button.qf-primary-btn {
     width: max-content;
 
 }
+.qf-secondary-btn {
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: #fff;
+    width: max-content;
+    border: 1px solid  #0075be;
+    color: #0075be;
+
+}
 .form-control.qf-secondary-input,
 .form-select.qf-primary-select {
     border-radius: 50px !important;
@@ -2599,6 +2612,16 @@ button.qf-primary-btn {
     height: auto;
     box-shadow: 0 0 15px 0 rgba(7,116,187,.15);
 }
+.form-control.qf-line-input{
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 10px 40px 10px 20px;
+    height: auto;
+    border-radius: 0px !important;
+    max-width: 250px;
+
+}
+
 .agent-transaction-main .card{
     width: 100%;
 }
@@ -2615,10 +2638,16 @@ button.qf-primary-btn {
     border: 1px solid #0075be !important;
 }
 .form-control:disabled, .form-control[readonly] {
-    background-color: #ffffff !important;
-    border: 1px solid #ccc !important;
+    background-color: #d6e5ff  !important;
+    border: 1px solid #8fb8fd  !important;
     pointer-events: none !important;
     opacity: 0.6 !important;
+}
+.select2-container--bootstrap-5 .select2-selection--single {
+    height: 44px !important;
+}
+.select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered {
+    padding: 5px !important;
 }
 .agent-transaction-main .card-header {
     padding: .5rem 1rem;
@@ -2631,21 +2660,17 @@ button.qf-primary-btn {
 .agent-transaction-main .card {
     border: 0;
     border-radius: 0;
-    padding: 20px;
+    padding: 0px 0 10px;
     border-bottom: 1px solid #ccc;
     --mdb-card-box-shadow: none;
 }
-.accordion-title {
-    font-size: 25px;
-    font-weight: 100;
-    color: #696969;
-}
-.agent-detail-accordion{
-}
+
 .create-btn-wrap{
     display: flex;
     justify-content: flex-end;
-    margin-top: 25px;
+}
+.agent-transaction-main .create-btn-wrap{
+    margin-top: 55px;
 }
 .agent-detail-accordion .card-header{
    position: relative;
@@ -2665,6 +2690,121 @@ button.qf-primary-btn {
 }
 .agent-detail-accordion .card-header.collapsed:after{
     transform: rotate(134deg);
+}
+
+.login_form_block .btn-login_new {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    width: max-content;
+    padding: 10px 50px;
+}
+.curr-sum-table{
+ position: relative;
+ border-collapse: separate;
+}
+.curr-sum-table::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #0075be !important;
+    border-radius: 20px !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 15px 0 rgba(7,116,187,.15);
+    z-index: 0;
+}
+.curr-sum-table > .bgc{
+    position: relative;
+    background: 0 !important;
+    z-index: 1;
+}
+.agent-transaction-main .bgc-table{
+    border-bottom: 0 !important;
+}
+
+.currencyTablerb tr td {
+    background: #0075be;
+    color: #fff !important;
+    padding: 16px;
+    margin-top: 20px;
+}
+.remove-currencyrb.new_btn_remove {
+    padding: 9px 20px;
+    background: #fff;
+    border-radius: 50px;
+}
+
+.currency-table{
+    border-collapse: separate;
+}
+#approved-deal-table .even td:last-child,
+#approved-deal-table .even th:last-child,
+#approved-deal-table .odd td:last-child,
+#approved-deal-table .odd th:last-child {
+  text-align: initial !important;
+}
+.agent-transaction-main .selected-currency-container  table.table{
+    border-collapse: separate;
+    border-spacing: 0 2em !important;
+}
+.agent-transaction-main .selected-currency-container{
+    margin-top: 35px;
+}
+
+td.dataTables_empty:first-child, th.dataTables_empty:first-child {
+    border-radius: 0 !important;
+    text-align: center !important;
+}
+/*  ---------------- */
+
+.accordion-title {
+    font-size: 25px;
+    font-weight: 600;
+    color: #696969;
+}
+
+.qf-td-md{
+font-size: 18px;
+font-weight: normal;
+font-style: normal;
+color: #666666
+}
+.qf-td-md-bold{
+font-size: 18px;
+font-weight: bold;
+font-style: normal;
+color: #666666
+}
+.qf-td-base{
+font-size: 16px;
+font-weight: normal;
+font-style: normal;
+color: #666666
+}
+.qf-td-lg{
+font-size: 20px;
+font-weight: normal;
+font-weight: normal;
+;
+}
+.q--py-20px {
+    padding: 20px 0 !important;
+}
+.q--pt-30px {
+    padding-top: 30px!important;
+}
+.bgc-table th{
+    font-size: 18px;
+
+}
+.bgc-table th.fw-normal{
+    font-size: 18px;
+    font-weight: 500 !important;
+
 }
 @media (max-width: 768px) {
     .qf-users-container {
@@ -2757,6 +2897,13 @@ display: flex;
         justify-content: center;
         justify-content: space-between;
         padding: 16px 0;
+    }
+    .agent-transaction-main .card,
+    .create-btn-wrap,
+    .initiate-t-btn-wrapper,
+    .selected-currency-container {
+        width: 86%;
+        margin: 20px auto;
     }
 }
 

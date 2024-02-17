@@ -14,26 +14,26 @@
 <div class="">
     <ul class="nav nav-tabs nav-justified" id="ex1" role="tablist">
         <li class="nav-item tab4" role="presentation">
+
             <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 active" id="ex3-tab-4" data-mdb-toggle="tab"
                 href="#ex3-tabs-4" role="tab" aria-controls="ex3-tabs-4" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
-                    <div>
-                        <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
+                    <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
+                        <div class="text-center nav-title">Rate Booking</div>
                     </div>
-                    <div class="text-center"> Rate Booking<br> <br>&nbsp;</div>
                 </div>
                 {{--<span class="badge rounded-pill badge-notification bg-danger">32</span>--}}
             </a>
+
         </li>
 
         <li class="nav-item tab6" role="presentation">
             <a class="nav-link fw-bold text-light mt-3 ms-3 me-3" id="ex3-tab-6" data-mdb-toggle="tab"
                 href="#ex3-tabs-6" role="tab" aria-controls="ex3-tabs-6" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
-                    <div>
-
+                    <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
+                        <div class="text-center nav-title"> Approved Deals</div>
                     </div>
-                    <div class="text-center"> Approved Deals<br>&nbsp;</div>
                 </div>
 
             </a>
@@ -42,8 +42,9 @@
             <a class="nav-link fw-bold text-light mt-3 ms-3 me-3" id="ex3-tab-1" data-mdb-toggle="tab"
                 href="#ex3-tabs-1" role="tab" aria-controls="ex3-tabs-1" aria-selected="true">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
-
-                    <div class="text-center">Create Transaction<br>&nbsp;</div>
+                    <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
+                        <div class="text-center nav-title"> Create Transaction</div>
+                    </div>
                 </div>
             </a>
         </li>
@@ -51,10 +52,9 @@
             <a class="nav-link fw-bold text-light mt-3 ms-3 me-3" id="ex3-tab-3" data-mdb-toggle="tab"
                 href="#ex3-tabs-3" role="tab" aria-controls="ex3-tabs-3" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
-                    <div>
-                        <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
+                    <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
+                        <div class="text-center nav-title">  KYC </div>
                     </div>
-                    <div class="text-center"> KYC <br><br>&nbsp;</div>
                 </div>
                 {{--<span class="badge rounded-pill badge-notification bg-danger">1</span>--}}
             </a>
@@ -64,10 +64,9 @@
             <a class="nav-link fw-bold text-light mt-3 ms-3 me-3" id="ex3-tab-5" data-mdb-toggle="tab"
                 href="#ex3-tabs-5" role="tab" aria-controls="ex3-tabs-3" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
-                    <div>
-                        <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
+                    <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
+                        <div class="text-center nav-title">  Payments </div>
                     </div>
-                    <div class="text-center"> Payments <br><br>&nbsp;</div>
                 </div>
                 {{--<span class="badge rounded-pill badge-notification bg-danger">5</span>--}}
             </a>
@@ -84,8 +83,9 @@
             <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 " id="ex3-tab-2" data-mdb-toggle="tab"
                 href="#ex3-tabs-2" role="tab" aria-controls="ex3-tabs-2" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
-                    <div></div>
-                    <div class="text-center"> View All Transaction <br>&nbsp;</div>
+                    <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
+                        <div class="text-center nav-title"> View All Transaction </div>
+                    </div>
                 </div>
                 {{--<span class="badge rounded-pill badge-notification bg-danger">3</span>--}}
             </a>
@@ -99,7 +99,7 @@
         <form action="{{route('transaction.save')}}" method="post" class="save-incidents-form">
             <div class="main-wrapper">
                 <div class="create-btn-wrap">
-                    <div class="me-5 text-center  ">
+                    <div class="text-center  ">
                         <div type="button" class="qf-primary-btn new_btn_add_customer"
                             onclick="openCustomerModel();">
                             <div class="  me-3 ms-3"><i class="fa-solid fa-plus"></i> Create Customer</div>
@@ -587,8 +587,8 @@
 
                         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                             <div class="card-body">
-                                <div class="col-md-4 col-lg-3 mt-3">
-                                    <label class="">Currency</label>
+                              <div class="card-inner-wrapper">
+                                <div class="qf-select-wrap">
                                     <div class="input-group mb-3">
                                         <!-- <label class="input-group-text border-0 border-bottom " for="inputGroupSelect01"><img src="../assets/svg/6.svg">
                                             </label>-->
@@ -608,8 +608,7 @@
                                         @component('components.ajax-error',['field'=>'currency'])@endcomponent
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-lg-3 mt-3">
-                                    <label class="">Amount</label>
+                                <div class="qf-select-wrap">
                                     <div class="input-group mb-3 inputWithIcon">
                                         <input onkeypress="return isSpecialKey(event)"
                                             class="form-control qf-secondary-input bgc" name="amount" id="amount"
@@ -621,10 +620,10 @@
                                         <span class="text-danger" id="amountError"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-lg-3 mt-3">
+                                <div class="qf-select-wrap">
 
-                                    <div class="ms-auto  text-center" style="padding-top: 22px;">
-                                        <button type="button" class="btn btn-secondary btn-block" id="selectDealRateBtn"
+                                    <div class="ms-auto  text-center" >
+                                        <button type="button" class="btn qf-primary-btn btn-block" id="selectDealRateBtn"
                                             onclick="return selectDealRate($('#currencyType').val(),$('#booking_purpose_id').val(),$('#txn_type_detail').val());"
                                             disabled>
                                             <span class=" text-capitalize">Select Deal Rate</span>
@@ -640,13 +639,14 @@
                                 </div>
                                 {{-- <div class="col-md-4 col-lg-3 mt-0">
                                     <div class="ms-auto mt-0  text-center">
-                                        <button type="button" class="btn btn-secondary btn-block" id="addCurrency"
+                                        <button type="button" class="qf-primary-btn btn-block" id="addCurrency"
                                             disabled>
                                             <span class=" text-capitalize">Add Currency1</span>
                                         </button>
                                     </div>
                                 </div>--}}
                                 <span class="text-danger" id="currencyError"></span>
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -689,52 +689,52 @@
 
 
             </div>
-            <div class="table-responsive-sm pt-4   ps-0 pe-0">
+            <div class="table-responsive-sm selected-currency-container">
                 <table class="table roundedTable text-center" id="selected-currency">
                     <thead>
                         <tr class="bgc-table row-font1">
-                            {{--<th scope="col" class="fw-bold">Sr.No</th>--}}
-                            <th scope="col" class="fw-bold">Currency</th>
+                            {{--<th scope="col" class="qf-td-md q--py-20px">Sr.No</th>--}}
+                            <th scope="col" class="qf-td-md q--py-20px">Currency</th>
 
-                            <th scope="col" class="fw-bold">Amount
+                            <th scope="col" class="qf-td-md q--py-20px">Amount
                             </th>
-                            <th scope="col" class="fw-bold">Client Rate
+                            <th scope="col" class="qf-td-md q--py-20px">Client Rate
                             </th>
-                            <th scope="col" class="fw-bold">Value INR
+                            <th scope="col" class="qf-td-md q--py-20px">Value INR
                             </th>
-                            <th scope="col" class="fw-bold">Action</th>
+                            <th scope="col" class="qf-td-md q--py-20px">Action</th>
                         </tr>
                     </thead>
                     <tbody class="currencyTable">
                     </tbody>
-                    <tfoot class="mt-5">
+                    <tfoot class="curr-sum-table" >
                         <tr class="bgc">
                             <td colspan="2"></td>
-                            <td><label>Total INR Value:</td>
-                            <td class="row-font1 fw-bolder">
+                            <td class="qf-td-md q--pt-30px"><label>Total INR Value:</td>
+                            <td class="qf-td-md q--pt-30px">
                                 <label id="total_inr_value" class="text-black">₹0</label>
                                 <input onkeypress="return isSpecialKey(event)" type="hidden" id="net_amount_text_box"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="net_amount" value="0"
-                                    class="form-control textInput-sm border p-0">
+                                    class="form-control qf-line-input qf-td-md q--py-20px">
                             </td>
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
                             <td colspan="2"></td>
-                            <td>Remit Charges:</td>
-                            <td class="row-font1 fw-bold">
+                            <td class="qf-td-base">Remit Charges:</td>
+                            <td class="qf-td-base">
                                 <input onkeypress="return isSpecialKey(event)" type="text" id="remit_fees"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="remit_fees" value="0"
-                                    class="form-control textInput-sm border p-0">
+                                    class="form-control qf-line-input">
                             </td>
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
                             <td colspan="2"></td>
-                            <td>Nostro Charges:</td>
-                            <td class="row-font1 fw-bold nostro_charge_msg">
+                            <td class="qf-td-base">Nostro Charges:</td>
+                            <td class="qf-td-base nostro_charge_msg">
                                 <input onkeypress="return isSpecialKey(event)"
-                                    class="form-control textInput-sm border p-0" id="nostro_charge" type="text"
+                                    class="form-control qf-line-input" id="nostro_charge" type="text"
                                     value="0" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                                     name="nostro_charge">
                                 @component('components.ajax-error',['field'=>'nostro_charge'])@endcomponent
@@ -743,46 +743,46 @@
                         </tr>
                         <tr class="bgc">
                             <td colspan="2"></td>
-                            <td>Swift Charges:</td>
-                            <td class="row-font1 fw-bold">
+                            <td class="qf-td-base">Swift Charges:</td>
+                            <td class="qf-td-base">
                                 <input onkeypress="return isSpecialKey(event)" type="text" id="swift_charges"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="swift_charges"
-                                    value="250" class="form-control textInput-sm border p-0">
+                                    value="250" class="form-control qf-line-input">
                             </td>
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
                             <td colspan="2"></td>
-                            <td><label>TCS:<span><i class="fa-solid fa-info-circle text-primary"
+                            <td><label class="qf-td-base">TCS:<span><i class="fa-solid fa-info-circle text-primary"
                                             title="If Loan – than TCS % 0.5% If any other– TCS applicable 5% TCS on amount above INR 7,00,000"></i></span></label>
                             </td>
-                            <td class="row-font1 fw-bold">
+                            <td class="qf-td-base">
                                 <label id="tcs_amount">₹0</label>
                                 <input onkeypress="return isSpecialKey(event)" type="hidden" id="tcs_amount_text_box"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="amount_for_tcs"
-                                    value="0" class="form-control textInput-sm border p-0">
+                                    value="0" class="form-control qf-line-input qf-td-base">
                             </td>
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
                             <td colspan="2"></td>
-                            <td><label>GST:</label></td>
-                            <td class="row-font1 fw-bold">
+                            <td><label class="qf-td-base">GST:</label></td>
+                            <td class="qf-td-base">
                                 <label id="gst_amount">₹0</label>
                                 <input onkeypress="return isSpecialKey(event)" type="hidden" id="gst"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="gst" value="0"
-                                    class="form-control textInput-sm border p-0">
+                                    class="form-control qf-line-input">
                             </td>
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
                             <td colspan="2"></td>
-                            <td><label>Total Payable Amount:</td>
-                            <td class="row-font1 fw-bolder">
+                            <td class="qf-td-base">Total Payable Amount:</td>
+                            <td class="qf-td-base">
                                 <label id="total_payable_amount" class="text-black">₹0</label>
                                 <input onkeypress="return isSpecialKey(event)" type="hidden" id="gross_payable_text_box"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="gross_payable"
-                                    value="0" class="form-control textInput-sm border p-0">
+                                    value="0" class="form-control qf-line-input qf-td-base">
                             </td>
                             <td colspan="2"></td>
                         </tr>
@@ -791,10 +791,10 @@
 
             </div>
 
-            <div class="bgc pb-5">
-                <div class="  pb-4 ">
-                    <div class="me-5 mb-5 text-center float-end  ">
-                        <button type="submit" class="btn-sm btn-secondary  ">
+            <div class="bgc pb-5 initiate-t-btn-wrapper">
+                <div class="pb-4 ">
+                    <div class="text-center float-end  ">
+                        <button type="submit" class="qf-primary-btn">
                             <div class=" text-capitalize me-3 ms-3"><img
                                     src="./assets/img/dashboard/svg/ic_initiate.svg" class="mb-2 mt-1 me-2 " alt="">
                                 Initiate Transaction
@@ -806,26 +806,26 @@
         </form>
         <!--
             <div class="text-center pt-5">
-           <a  href="buy_2.html" class="text-white"><button type="button" class="btn btn-secondary px-5 fw-bold text-capitalize" >Next</button></a>
+           <a  href="buy_2.html" class="text-white"><button type="button" class="qf-primary-btn px-5 fw-bold text-capitalize" >Next</button></a>
             </div> -->
     </div>
 
 
-    <div class="tab-pane fade bg-light" id="ex3-tabs-2" role="tabpanel" aria-labelledby="ex3-tab-2">
+    <div class="tab-pane" id="ex3-tabs-2" role="tabpanel" aria-labelledby="ex3-tab-2">
         <div class="table-responsive pt-4   ps-0 pe-0">
             <table id="transaction-status-table" class="table  roundedTable">
                 <thead>
                     <tr class="bgc-table row-font1">
-                        <th scope="col" class="fw-bold">Transaction Number</th>
-                        <th scope="col" class="fw-bold">Customer Name</th>
-                        <th scope="col" class="fw-bold">Type</th>
-                        <th scope="col" class="fw-bold">Remitter PAN</th>
-                        <th scope="col" class="fw-bold">KYC Status</th>
-                        <th scope="col" class="fw-bold">Payment Status</th>
-                        <th scope="col" class="fw-bold">Transaction Status</th>
-                        <th scope="col" class="fw-bold">Payment Mode</th>
-                        <th scope="col" class="fw-bold">Deal Expiry Date</th>
-                        <th scope="col" class="fw-bold">Action</th>
+                        <th scope="col" class="fw-normal">Transaction Number</th>
+                        <th scope="col" class="fw-normal">Customer Name</th>
+                        <th scope="col" class="fw-normal">Type</th>
+                        <th scope="col" class="fw-normal">Remitter PAN</th>
+                        <th scope="col" class="fw-normal">KYC Status</th>
+                        <th scope="col" class="fw-normal">Payment Status</th>
+                        <th scope="col" class="fw-normal">Transaction Status</th>
+                        <th scope="col" class="fw-normal">Payment Mode</th>
+                        <th scope="col" class="fw-normal">Deal Expiry Date</th>
+                        <th scope="col" class="fw-normal">Action</th>
                     </tr>
                 </thead>
             </table>
@@ -835,13 +835,13 @@
         <div class="container">
             <div class="d-flex justify-content-center gap-3">
                 <div class="  mt-4 pt-2 text-center">
-                    <div type="button" class="btn btn-secondary btn-block " id="print-data">
+                    <div type="button" class="qf-primary-btn btn-block " id="print-data">
                         <span class=" text-capitalize">Print</span>
                     </div>
                 </div>
                 <div class="  mt-4 pt-2 text-center">
                     <a href="{{ route('transection.export')}}">
-                        <div type="button" class="btn btn-secondary btn-block">
+                        <div type="button" class="qf-primary-btn btn-block">
                             <span class=" text-capitalize">Download</span>
                         </div>
                     </a>
@@ -870,14 +870,14 @@
             <table id="transaction-kyc-table" class="table roundedTable bgc align-middle">
                 <thead>
                     <tr class="bgc-table row-font1">
-                        <th scope="col" class="fw-bold">Transaction Number</th>
-                        <th scope="col" class="fw-bold">Customer Name</th>
-                        <th scope="col" class="fw-bold">Transaction type</th>
-                        <th scope="col" class="fw-bold">Purpose</th>
-                        <th scope="col" class="fw-bold">Source Of Fund</th>
-                        <th scope="col" class="fw-bold">Remitter PAN</th>
-                        <th scope="col" class="fw-bold">Status</th>
-                        <th scope="col" class="fw-bold" style="width: 15%;">Kyc Upload</th>
+                        <th scope="col" class="fw-normal">Transaction Number</th>
+                        <th scope="col" class="fw-normal">Customer Name</th>
+                        <th scope="col" class="fw-normal">Transaction type</th>
+                        <th scope="col" class="fw-normal">Purpose</th>
+                        <th scope="col" class="fw-normal">Source Of Fund</th>
+                        <th scope="col" class="fw-normal">Remitter PAN</th>
+                        <th scope="col" class="fw-normal">Status</th>
+                        <th scope="col" class="fw-normal" style="width: 15%;">Kyc Upload</th>
                     </tr>
                 </thead>
             </table>
@@ -980,7 +980,7 @@
 
             </div>
             <div class="table-responsive-sm pt-4   ps-0 pe-0">
-                <table class="table roundedTable text-center" id="selected-currencyrb">
+                <table class="table roundedTable text-center currency-table" id="selected-currencyrb">
                     <thead>
                         <tr class="bgc-table row-font1">
                             {{--<th scope="col" class="fw-bold">Sr.No</th>--}}
@@ -997,10 +997,10 @@
 
                     </tbody>
                 </table>
-                <div class="col-md-4 col-lg-3 mt-3 mb-3">
+                <div class="qf-select-wrap mb-3">
                     <div class="ms-auto mt-4 ">
 
-                        <button type="submit" class="btn btn-secondary" id="addCurrencyrb">
+                        <button type="submit" class="qf-primary-btn" id="addCurrencyrb">
                             <img src="./assets/img/dashboard/svg/ic_initiate.svg" class="mb-2 mt-1 me-2 " alt="">
                             <span class=" text-capitalize">Request Rate</span>
                         </button>
@@ -1015,27 +1015,27 @@
             <table id="agent-payment-table" class="table roundedTable text-center ">
                 <thead>
                     <tr class="bgc-table row-font1">
-                        <th scope="col" class="fw-bold">Transaction Number</th>
-                        <th scope="col" class="fw-bold">Customer Name</th>
-                        <th scope="col" class="fw-bold">Type</th>
-                        <th scope="col" class="fw-bold">Remitter PAN</th>
-                        <th scope="col" class="fw-bold">KYC Status</th>
-                        <th scope="col" class="fw-bold">Payment</th>
-                        <th scope="col" class="fw-bold">Payment Status</th>
-                        <th scope="col" class="fw-bold">Action</th>
+                        <th scope="col" class="fw-normal">Transaction Number</th>
+                        <th scope="col" class="fw-normal">Customer Name</th>
+                        <th scope="col" class="fw-normal">Type</th>
+                        <th scope="col" class="fw-normal">Remitter PAN</th>
+                        <th scope="col" class="fw-normal">KYC Status</th>
+                        <th scope="col" class="fw-normal">Payment</th>
+                        <th scope="col" class="fw-normal">Payment Status</th>
+                        <th scope="col" class="fw-normal">Action</th>
                     </tr>
                 </thead>
             </table>
             {{-- <div class=" ">
                 <div class="text-center pt-5  m-1 float-end">
                     <a href="#" class="text-white ">
-                        <button type="button" class="btn btn-secondary px-5 fw-bold text-capitalize">Download
+                        <button type="button" class="qf-primary-btn px-5 fw-bold text-capitalize">Download
                         </button>
                     </a>
                 </div>
                 <div class="text-center pt-5 m-1 float-end">
                     <a href="#" class="text-white">
-                        <button type="button" class="btn btn-secondary px-5 fw-bold text-capitalize">Print</button>
+                        <button type="button" class="qf-primary-btn px-5 fw-bold text-capitalize">Print</button>
                     </a>
                 </div>
             </div>--}}
@@ -1047,14 +1047,14 @@
             <table id="approved-deal-table" class="table   roundedTable border-0  text-center ">
                 <thead class=" ">
                     <tr class="bgc-table  row-font1">
-                        <th scope="col" class="fw-bold">Reference Number</th>
-                        <th scope="col" class="fw-bold">Currency</th>
-                        <th scope="col" class="fw-bold">Value</th>
-                        <th scope="col" class="fw-bold">Purpose</th>
-                        <th scope="col" class="fw-bold">Transection Type</th>
-                        <th scope="col" class="fw-bold">Rate</th>
-                        <th scope="col" class="fw-bold">Deal ID</th>
-                        <th scope="col" class="fw-bold">Expiry Date</th>
+                        <th scope="col" class="fw-normal">Reference Number</th>
+                        <th scope="col" class="fw-normal">Currency</th>
+                        <th scope="col" class="fw-normal">Value</th>
+                        <th scope="col" class="fw-normal">Purpose</th>
+                        <th scope="col" class="fw-normal">Transection Type</th>
+                        <th scope="col" class="fw-normal">Rate</th>
+                        <th scope="col" class="fw-normal">Deal ID</th>
+                        <th scope="col" class="fw-normal">Expiry Date</th>
                     </tr>
                 </thead>
             </table>
@@ -1163,12 +1163,12 @@
                 <div class="table-responsive-sm pt-4  Transaction_Details_Popup_Table ps-0 pe-0">
                     <table class="table roundedTable text-center ">
                         <tr class="bgc-table row-font1">
-                            <th scope="col" class="fw-bold">Sr.No</th>
-                            <th scope="col" class="fw-bold">Currency</th>
-                            <th scope="col" class="fw-bold">Amount</th>
-                            <th scope="col" class="fw-bold">Client Rate</th>
-                            <th scope="col" class="fw-bold">Remit Fees</th>
-                            <th scope="col" class="fw-bold">Value INR</th>
+                            <th scope="col" class="fw-normal">Sr.No</th>
+                            <th scope="col" class="fw-normal">Currency</th>
+                            <th scope="col" class="fw-normal">Amount</th>
+                            <th scope="col" class="fw-normal">Client Rate</th>
+                            <th scope="col" class="fw-normal">Remit Fees</th>
+                            <th scope="col" class="fw-normal">Value INR</th>
 
                         </tr>
                         <tbody class="">
@@ -1332,7 +1332,7 @@
                     <div class="col-md-3">
                         <div class="text-center mt-5 ">
                             <a href="#" class="text-white"><button type="button"
-                                    class="btn btn-secondary   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
+                                    class="qf-primary-btn   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
                                 </button></a>
                         </div>
 
@@ -1356,7 +1356,7 @@
                     <div class="col-md-3">
                         <div class="text-center mt-5 ">
                             <a href="#" class="text-white"><button type="button"
-                                    class="btn btn-secondary   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
+                                    class="qf-primary-btn   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
                                 </button></a>
                         </div>
 
@@ -1380,7 +1380,7 @@
                     <div class="col-md-3">
                         <div class="text-center mt-5 ">
                             <a href="#" class="text-white"><button type="button"
-                                    class="btn btn-secondary   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
+                                    class="qf-primary-btn   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
                                 </button></a>
                         </div>
 
@@ -1404,7 +1404,7 @@
                     <div class="col-md-3">
                         <div class="text-center mt-5 ">
                             <a href="#" class="text-white"><button type="button"
-                                    class="btn btn-secondary   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
+                                    class="qf-primary-btn   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
                                 </button></a>
                         </div>
 
@@ -1428,7 +1428,7 @@
                     <div class="col-md-3">
                         <div class="text-center mt-5 ">
                             <a href="#" class="text-white"><button type="button"
-                                    class="btn btn-secondary   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
+                                    class="qf-primary-btn   fw-bold text-capitalize"><i class="fa-solid fa-eye"></i>
                                 </button></a>
                         </div>
 
@@ -1532,7 +1532,7 @@
             </div>
             <div class="text-center pt-3 pb-3">
                 <a href="#" class="text-white"><button type="button"
-                        class="btn btn-secondary px-5 fw-bold text-capitalize">Upload</button></a>
+                        class="qf-primary-btn px-5 fw-bold text-capitalize">Upload</button></a>
             </div>
         </div>
     </div>
@@ -1648,7 +1648,7 @@
             </div>
             <div class="text-center pt-3 pb-3">
                 <a href="#" class="text-white"><button type="button"
-                        class="btn btn-secondary px-5 fw-bold text-capitalize">Submit</button></a>
+                        class="qf-primary-btn px-5 fw-bold text-capitalize">Submit</button></a>
             </div>
         </div>
     </div>
@@ -1819,7 +1819,7 @@
 
             <div class="container text-center pt-3 pb-3">
                 <a href="#" class="text-white"><button type="button"
-                        class=" btn-dialog btn btn-secondary px-5 fw-bold text-capitalize">Assign Deal
+                        class=" btn-dialog qf-primary-btn px-5 fw-bold text-capitalize">Assign Deal
                     </button></a>
                 <!-- Dialog will be inserted here -->
                 <div class="awsm-dialog animated bounceIn">
