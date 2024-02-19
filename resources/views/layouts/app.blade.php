@@ -11,10 +11,10 @@
 <div class="loader"></div>
 <div id="app">
 @include('partials.nav')
-	 <audio id="notificationSound" src="{{ asset('assets/Notification.mp3')}}"></audio>
+	<audio id="notificationSound" src="{{ asset('assets/Notification.mp3')}}"></audio>
     <div class="container pt-5 pb-5 mt-5 mb-5">
         <!-- Tabs navs -->
-        <div class="container mt-5  mb-2">
+        <!-- <div class="container mt-5  mb-2">
             <div class="d-flex align-items-center justify-content-end gap-2">
                 <div>
                     <img class="mb-2" src="./assets/img/dashboard/svg/ic_calendar.svg" width="20px" alt="">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="display-time"></div>
             </div>
-        </div>
+        </div> -->
         @yield('content')
     </div>
 </div>

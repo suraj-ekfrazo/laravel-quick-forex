@@ -341,7 +341,7 @@
                                         <label class="">Remitter Country</label>
                                         <div class="input-group mb-3">
                                             <select class="form-select qf-primary-select" name="remitter_country"
-                                                id="remitter_country">
+                                                id="remitter_country" disabled>
                                                 <option value="">Select Remitter Country</option>
                                                 @foreach ($countries as $country)
                                                 <option {{ $country['id']=='101' ? 'selected' : '' }}
