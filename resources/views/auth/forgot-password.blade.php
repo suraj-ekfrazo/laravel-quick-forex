@@ -1,8 +1,10 @@
 <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background: rgba(6,39,75,0.5);">
     <div class="modal-dialog  modal-lg modal-dialog-centered">
         <div class="modal-content">
+            <div class="alert" id="alert-message" role="alert"></div>
             <div class="modal-header">
                 <h5 class="modal-title fw-bold" id="exampleModalLabel" style="color: #2565ab;">Forgot Your Password</h5>
+                <span>Please enter the email address you used to register. We will then send you a new password.</span>
                 <div type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></div>
             </div>
             <div class="modal-body">
@@ -34,6 +36,9 @@
         console.log(status);
         if (status) {
             $('.ajax-error').html('');
+            $("#alert-message").removeClass("alert-success");
+            $("#alert-message").removeClass("alert-danger");
+            $("#alert-message").html();
             var data = new FormData(this);
 
             $.ajax({
@@ -49,9 +54,14 @@
                     console.log(result);
                     /*$(this).attr("disabled", false);*/
                     if (result.type === 'SUCCESS') {
-                        toastr.success(result.message);
+                        $("#alert-message").addClass("alert-success");
+                        $("#alert-message").html(result.message);
+                        setTimeout(function() {
+                            $('#forgotPasswordModal').modal('hide');
+                        }, 2000);
                     } else {
-                        toastr.error(result.message);
+                        $("#alert-message").addClass("alert-danger");
+                        $("#alert-message").html(result.message);
                     }
                 },
                 error: function (error) {

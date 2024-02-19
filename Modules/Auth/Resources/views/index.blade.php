@@ -17,7 +17,7 @@
                         
                         <div class="my-4">
                             <p class="text-center fw-bold mx-3 mb-0 fs-2 text-blue">Welcome To QFX Portals</p>
-                            <p class="text-center text-muted">Enter your email and password to access Agent panel.</p>
+                            <p class="text-center text-muted">Enter your email and password to access Admin panel.</p>
                         </div>
                         <!-- Email input -->
                         <div class="row justify-content-center">

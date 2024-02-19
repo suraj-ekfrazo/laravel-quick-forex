@@ -97,6 +97,8 @@ function updateDate() {
     month = today.getMonth(),
     year = today.getFullYear();
 
+  month = today.toLocaleString('default', { month: 'short' });
+
   const months = [
     "01/",
     "02/",
@@ -114,7 +116,8 @@ function updateDate() {
   // value -> ID of the html element
   const IDCollection = [  "daynum", "month", "year"];
   // return value array with number as a index
-  const val = [  dayNum, months[month], year];
+  // const val = [  dayNum, months[month], year];
+  const val = [  dayNum, month, year];
   for (let i = 0; i < IDCollection.length; i++) {
     document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
   }
