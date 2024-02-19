@@ -13,7 +13,7 @@
                 {data: 'id', orderable: false},
                 {data: 'id', orderable: false},
 				{data: 'id', orderable: false},
-               
+
             ],
             columnDefs = [
                 {
@@ -33,7 +33,7 @@
 						if(full.kyc_status === 0){
 							kycStatus = 'Pending';
 							btnClass = 'warning';
-							
+
 						}else if(full.kyc_status === 1){
 							kycStatus = 'Completed';
 							btnClass = 'success';
@@ -41,7 +41,7 @@
 							kycStatus = 'Rejected';
 							btnClass = 'danger1';
 						}
-						
+
 
                         return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
@@ -66,7 +66,7 @@
                         return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
-				
+
                 {
                     "targets": [7],
                     render: function (data, type, full, meta) {
@@ -79,7 +79,7 @@
                     render: function (data, type, full, meta) {
                         var id = full.id;
                         return '<div class="d-flex gap-2">'+
-                            '<button class="btn-success btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')"> View</button>' +
+                            '<button class="border-0 text-white bg-secondary p-1 rounded-4 new_btn_view" onclick="transactionDetail(' + full.id + ')"> View</button>' +
                             '</div>';
                     }
                 },
@@ -102,7 +102,7 @@
         });
 
     });
-	
+
 	//For completed transaction tab
     $(function () {
         var
@@ -182,8 +182,8 @@
                     render: function (data, type, full, meta) {
                         var id = full.id;
                         return '<div class="d-flex gap-2">'+
-                            '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')"> <img src="{{asset('assets/img/dashboard/icon_view.png')}}" alt="view"> View</button>' +
-								'<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDownload(' + full.id + ')"> <img src="{{asset('assets/img/dashboard/icon_download.png')}}" alt="Download"> Download</button>' +
+                            '<button class="border-0 text-white bg-secondary p-1 rounded-4 new_btn_view" onclick="transactionDetail(' + full.id + ')">  View</button>' +
+								'<button class="new_btn_upload" onclick="transactionDownload(' + full.id + ')"> <img src="{{asset('assets/img/dashboard/icon_download.png')}}" alt="Download"> Download</button>' +
                             '</div>';
                     }
                 },
@@ -211,7 +211,7 @@
         });
 
     });
-	
+
 	function transactionDownload(id) {
 
         var data = {};

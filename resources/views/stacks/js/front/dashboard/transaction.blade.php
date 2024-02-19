@@ -64,8 +64,8 @@
 						}else{
 							return 'Self';
 						}
-                       
-                     
+
+
                     }
                 },
                 {
@@ -80,7 +80,7 @@
                     render: function (data, type, full, meta) {
                         var id = full.id;
                         return '<div class="d-flex gap-2">'+
-                            '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')"> <img src="./assets/img/dashboard/icon_view.png" alt="view"> View</button>' +
+                            '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')"> View</button>' +
                             '</div>';
                     }
                 },
@@ -105,8 +105,8 @@
         });
 
     });
-	
-	
+
+
 
     //remove modal
     function removeTransaction(id) {
@@ -307,14 +307,14 @@ $('.save-incidents-form').submit(function(event) {
         console.log("netAmount ========= ",netAmount);
         console.log("netAmount - tcsExempt ====== ",(netAmount - tcsExempt));
         console.log("tcsAmount ==== ",tcsAmount);*/
-		
+
 		var sum_nostro_swift = Number(swiftCharges) + Number(nostroCharge);
         if(sum_nostro_swift>0)
         {
             gst_cal = Math.round(((sum_nostro_swift)*18)/100);
         }
         $("#gst_amount").text('₹'+gst_cal);
-		
+
         $("#total_inr_value").text('₹'+Math.round(netAmount,2));
         $("#net_amount_text_box").val(Math.round(netAmount,2));
         totalNetAmount = parseFloat(netAmount) + parseFloat(tcsAmount) + Number(remitFees) + Number(swiftCharges) + Number(nostroCharge) + gst_cal;
@@ -326,7 +326,7 @@ $('.save-incidents-form').submit(function(event) {
         $("#gross_payable_text_box").val(Math.round(inrCalRound,2));
 		$("#gst").val(Math.round(gst_cal,2));
     }
-	
+
     function addCurrency(data){
         var rowCount = $("#selected-currency tbody tr").length;
         var validate = checkValidation();
@@ -388,15 +388,15 @@ $('.save-incidents-form').submit(function(event) {
     $( "#amount,#currencyType" ).on( "keyup", function() {
         checkValidation();
     } );
-	
+
 	$("#fund_source_id" ).on( "change", function() {
         checkValidation();
     });
-	
+
 	$('#remit_fees,#swift_charges,#nostro_charge').on("keyup", function () {
         amountCalculation();
     });
-	
+
 	function selectDealRate(currencyType,bookingPurpose,transactionType){
         $.ajax({
             url: "{!! route('deal-rate.edit') !!}",
@@ -428,13 +428,13 @@ $('.save-incidents-form').submit(function(event) {
             $('#amountErrorrb').html('Fx value field is required!');
             return false;
         }
-		
+
 		if($('#purpose_id').val()=='')
         {
             $('#purpose_idErrorrb').html('Booking purpose field is required!');
             return false;
         }
-		
+
 		if($('#txn_type').val()=='')
         {
             $('#txn_typeErrorrb').html('Transaction type field is required!');
@@ -527,7 +527,7 @@ $('.save-incidents-form').submit(function(event) {
         var currentDate = new Date();
         var currentHour = currentDate.getHours();
         var currentMinute = currentDate.getMinutes();
-		
+
 		console.log(currentHour);
          if (currentHour => 10 && (currentHour < 15 || (currentHour === 15 && currentMinute < 15))) {
             if (selectedcurrencycount > 0) {
@@ -581,7 +581,7 @@ $('.save-incidents-form').submit(function(event) {
                 buttons:"OK",
                 })
                 .then((result) => {});
-        } 
+        }
 
     });
 
