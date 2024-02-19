@@ -40,12 +40,12 @@
                     render: function (data, type, full, meta) {
                         if(full.kyc_status==1)
                         {
-                            return '<div class="d-flex gap-2"><span class="btn-success btn-sm rounded-4 btn-block text-center border-0" >Approved</span></div>';
+                            return '<div class="d-flex gap-2"><span class="kyc-approved-btn" >Approved</span></div>';
                         }
                         else if(full.kyc_status==2){
-                            return '<div class="d-flex gap-2"><span class="text-danger" >Rejected</span></div>';
+                            return '<div class="d-flex gap-2"><span class="kyc-rejected-btn" >Rejected</span></div>';
                         }else{
-                            return '<div class="d-flex gap-2"><span class="btn-warning btn-sm rounded-4 btn-block text-center border-0" >Pending</span></div>';
+                            return '<div class="d-flex gap-2"><span class="kyc-pending-btn" >Pending</span></div>';
                         }
 
                     }
