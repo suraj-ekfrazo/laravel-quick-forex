@@ -54,7 +54,7 @@
                     render: function (data, type, full, meta) {
 						var upload_btn="";
                         return '<div class="d-flex gap-2">'+
-                            '<button class="new_btn_view btn-sm rounded-4 btn-block  border-0" onclick="transactionDetail(' + full.id + ')""> <img src="./assets/img/dashboard/icon_view.png" alt="upload"> View </button>'+
+                            '<button class="new_btn_view btn-sm rounded-4 btn-block  border-0" onclick="transactionDetail(' + full.id + ')"">  View </button>'+
                             '</div>';
                     }
                 }

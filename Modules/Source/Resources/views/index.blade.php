@@ -30,7 +30,7 @@
                     <th scope="col" class="fw-bold">TCS Rate %</th>
                     <th scope="col" class="fw-bold">Exempt</th>
                     <th scope="col" class="fw-bold not-export-col">Status</th>
-                    <th scope="col" class="fw-bold not-export-col">Action</th>
+                    <th scope="col" class="fw-bold not-export-col action-last-col">Action</th>
                 </tr>
                 </thead>
             </table>

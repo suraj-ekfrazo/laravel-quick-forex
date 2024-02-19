@@ -46,9 +46,9 @@
                             </div>
                         </div>
 						<div class="col-md-6 col-lg-6 mt-3">
-							<button type="submit" class="btn btn-primary float-end mt-4">Submit</button></div>
+							<button type="submit" class="btn btn-primary qf-primary-btn float-end mt-4">Submit</button></div>
                     </div>
-                    
+
                 </form>
             </div>
 

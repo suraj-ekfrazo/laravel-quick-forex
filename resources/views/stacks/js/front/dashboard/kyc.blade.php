@@ -56,10 +56,10 @@
                     render: function (data, type, full, meta) {
 						var upload_btn="";
 						if(full.kyc_status != 1){
-                            upload_btn = '<button class="btn-danger new_btn_upload btn-sm rounded-4 btn-block  border-0" onclick="uploadKYC(' + full.id + ')"> <img src="./assets/img/dashboard/icon_upload.png" alt="upload">  Upload</button>';
+                            upload_btn = '<button class="new_btn_upload" onclick="uploadKYC(' + full.id + ')"> <img src="./assets/img/dashboard/icon_upload.png" alt="upload">  Upload</button>';
                         }
                         return '<div class="d-flex gap-2">'+
-                                '<button class="border-0 text-white bg-secondary p-1 rounded-4 new_btn_view" onclick="transactionDetail(' + full.id + ')"> <img src="./assets/img/dashboard/icon_view.png" alt="view"> View</button>'+ upload_btn +
+                                '<button class="border-0 text-white bg-secondary p-1 rounded-4 new_btn_view" onclick="transactionDetail(' + full.id + ')"> View</button>'+ upload_btn +
                               '</div>';
                     }
                 }
@@ -90,13 +90,13 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (result) {
-               
+
                 $('.addModals').html(result);
                 $('#upload-kyc-model').modal('show');
             }
         });
     }
-	
+
 	function transactionDetail(id){
         $.ajax({
             url: "transaction/get-transaction-detail/" + id,
