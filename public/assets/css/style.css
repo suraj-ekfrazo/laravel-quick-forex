@@ -224,7 +224,7 @@ table.dataTable tbody th, table.dataTable tbody td {
     padding: 8px 10px;
     color: #fff !important;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 15px;
 }
 td:first-child {
     padding: 0 10px 0 25px !important;
@@ -843,8 +843,7 @@ label {
         color: #0075BE;
         border-bottom: 2px solid #0075BE;
         border-top: none !important;
-
-          background-color: transparent !important;
+        background-color: transparent !important;
       }
 
 /* tab-content */
@@ -2799,6 +2798,10 @@ font-weight: normal;
 }
 .bgc-table th{
     font-size: 18px;
+
+}
+.bgc-table th:last-child{
+   text-align: right !important;
 
 }
 .bgc-table th.fw-normal{
