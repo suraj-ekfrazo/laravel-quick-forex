@@ -11,11 +11,9 @@
         </div> -->
      </div>
 
-        <div class="qf-global-search-bar">
-             <form action="/action_page.php" class="search-form">
-                <input type="text" placeholder="Search.." name="search" class="qf-search-input">
-                <button type="submit" class="qf-search-btn"><i class="fa fa-search"></i></button>
-              </form>
+        <div class="qf-global-search-bar"> 
+            <input type="text" placeholder="Search.." name="search" class="qf-search-input">
+            <button type="submit" class="qf-search-btn"><i class="fa fa-search"></i></button>
         </div>
 
         <div class="dropdown">
@@ -37,7 +35,7 @@
 </nav>
 
 <!-- /Navbar -->
-
+ 
 
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
   <button onclick="w3_close()" class="close_btn"><img src="{{ asset('assets/img/forex_new/icon_close.svg')}}" class="float-start" style="width:30px;" alt="close"> </button>

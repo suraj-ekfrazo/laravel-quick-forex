@@ -16,10 +16,8 @@
         </div>
 
         <div class="qf-global-search-bar">
-            <form action="/action_page.php" class="search-form">
-                <input type="text" placeholder="Search.." name="search" class="qf-search-input">
-                <button type="submit" class="qf-search-btn"><i class="fa fa-search"></i></button>
-            </form>
+            <input type="text" placeholder="Search.." name="search" class="qf-search-input">
+            <button type="submit" class="qf-search-btn"><i class="fa fa-search"></i></button>
         </div>
 
         <div class="dropdown">
@@ -48,7 +46,7 @@
         <div class="container side-menu">
             <a href="{{url('dashboard')}}" class="{{ collect(request()->segments())->last() == "transaction" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_transaction.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Transaction">Transaction</a>
             <a href="{{url('/')}}" class="{{ collect(request()->segments())->last() == "summary" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_men_purpose.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Summary">Summary</a>
-            <a href="{{url('/')}}" class="{{ collect(request()->segments())->last() == "kyc" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_source.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Kyc">KYC</a>
+            <a href="{{url('/')}}#ex3-tabs-3" class="{{ collect(request()->segments())->last() == "kyc" ? "active": "" }} w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_source.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Kyc">KYC</a>
             <a href="{{url('/')}}" class="w3-bar-item w3-button"><img src="{{ asset('assets/img/forex_new/icon_menu_report.svg')}}" style="width:25px; margin:0 10px 0 0;" alt="Reports">Reports</a>
         </div>
     </div>

@@ -86,3 +86,14 @@
     }
 
 </script>
+
+<script>
+    $(document).ready(function(){
+        $(".qf-search-input").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".dataTable tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script> 
