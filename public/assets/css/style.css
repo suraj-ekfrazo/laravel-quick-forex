@@ -593,10 +593,14 @@ tbody tr {
     display: none !important;
 }
 
-.currencyTable {
+.currencyTable tr td{
     background: #0076bf;
+    color: #fff !important;
+    font-size: 16px;
 }
-
+.currencyTable tr .fa-solid.fa-trash::before {
+	color: #fff;
+}
 .currencyTable td {
     padding: 20px !important;
 }
@@ -613,7 +617,7 @@ tbody tr {
     margin-top: -4px;
 }
 
-.comn-status-btn,
+table .comn-status-btn,
 .comn-approved-btn,
 .kyc-approved-btn,
 .comn-pending-btn,
@@ -4655,9 +4659,10 @@ button.swal-button.swal-button--cancel {
     align-items: flex-start;
 }
 
+.btn.btn-primary,
 button.qf-primary-btn {
     border: none;
-    border-radius: 50px;
+    border-radius: 50px !important;
     padding: 10px 20px;
     background-color: #0075be !important;
     color: #fff !important;
@@ -4828,6 +4833,9 @@ button.qf-primary-btn {
     color: #fff !important;
     padding: 16px;
     margin-top: 20px;
+}
+#selected-currencyrb .currencyTablerb tr td:last-child {
+    text-align: right !important;
 }
 
 .remove-currencyrb.new_btn_remove {
