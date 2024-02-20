@@ -418,8 +418,8 @@ input {
 .input-group .valid-feedback,
 .was-validated .input-group .invalid-feedback,
 .was-validated .input-group .valid-feedback {
-	margin-top: 3.5rem !important;
-	margin-left: 1rem !important;
+    margin-top: 3.5rem !important;
+    margin-left: 1rem !important;
 }
 
 .login_form_block .invalid-feedback.d-block,
@@ -611,12 +611,16 @@ tbody tr {
     margin-right: 10px;
     margin-top: -4px;
 }
+.comn-approved-btn,
 .kyc-approved-btn,
+.comn-pending-btn,
 .kyc-pending-btn,
+.comn-rejected-btn,
 .kyc-rejected-btn {
-    padding: 9px 20px;
-    border-radius: 50px;
-    width: max-content;
+    padding: 9px 20px !important;
+    border-radius: 50px !important;
+    width: max-content !important;
+    font-size: 14px;
 }
 
 .kyc-pending-btn {
@@ -1110,10 +1114,10 @@ button.bg-danger:hover {
     font-size: 14px !important;
     box-shadow: none !important;
     text-align: center !important;
-    border-radius: 50px;
+    border-radius: 50px !important;
     width: max-content;
-    padding: 6px 14px;
-    border: none;
+    padding: 6px 14px !important;
+    border: none !important;
 }
 
 .btn-danger.new_btn_upload img,
@@ -1123,6 +1127,16 @@ button.bg-danger:hover {
     margin-bottom: 3px;
     margin-right: 4px;
 }
+
+.download-btn-common,
+.view-btn-common{
+    color: #fff;
+}
+.download-btn-common:hover,
+.view-btn-common:hover{
+    color: #d1d1d1;
+}
+
 
 table th,
 table tr {
@@ -1347,13 +1361,19 @@ tr {
     margin: 0;
     margin-bottom: 30px;
 }
+.date-time-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
 .display-date {
     text-align: center;
-    /* margin-bottom: 10px; */
     font-size: 20px;
     font-weight: 800;
     color: #0075be;
+    display: flex;
 }
 
 .display-time {
@@ -1371,8 +1391,8 @@ tr {
 }
 
 .time_border {
-    border-left: 2px solid #e1e1e1;
-    height: 35px;
+    border-left: 2px solid #939393;
+    height: 21px;
 }
 
 .date {
@@ -2017,7 +2037,7 @@ h1.login_text {
     margin-top: 20px;
 }
 #online_payment,
-#bank_detail{
+#bank_detail {
     margin-top: 35px;
 }
 .modal-body .input-group input {
@@ -2029,7 +2049,7 @@ h1.login_text {
     box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15);
     border: none;
 }
-.form-check-input[type=radio]:before {
+.form-check-input[type="radio"]:before {
     height: 30px !important;
     width: 30px !important;
 }

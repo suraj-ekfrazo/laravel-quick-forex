@@ -6,13 +6,15 @@
         <div class="nav-left-in-wrap">
             <button class="burger float-start" onclick="w3_open()"><img src="{{ asset('assets/img/forex_new/icon_menu_burger.svg')}}" style="width:30px;" class="float-start" alt="close">
             </button>
-            <div class="display-date">
-                <span id="month">month</span>
-                <span id="daynum">00 </span>,           
-                <span id="year">0000</span>
+            <div class="date-time-wrap">
+                <div class="display-date">
+                    <span id="month">month</span>
+                    <span id="daynum">00 </span>,
+                    <span id="year">0000</span>
+                </div>
+                <div class="time_border"></div>
+                <div class="display-time"></div>
             </div>
-            <div class="time_border">   </div>
-            <div class="display-time"></div>
         </div>
 
         <div class="qf-global-search-bar">
