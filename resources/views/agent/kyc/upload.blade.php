@@ -80,23 +80,28 @@
                         @foreach ($kyc_documents as $doc)
                             @if ($kyc_data)
                                 @if ($kyc_data[$doc->document_name . '_status'] != 1)
-                                    <div class="col-md-4 col-sm-6 col-xs-12 test">
-                                        <div class="kyc_doc_card mb-3">
-                                            <label class="form-label mt-3 fw-bold"
+                                    <div class="upload-kyc-each">
+                                        <div class="kyc_doc_card upload-kyc-inner">
+                                            <label class="form-label mt-3 fw-bold qf-file-upload-title"
                                                 for="{{ $doc->document_name }}">{{ $doc->document_value }} :
                                             </label>
 
-                                            <input type="file" class="form-control imagechange1"
-                                                data-key="{{ $doc->document_name }}" id="{{ $doc->document_name }}"
-                                                name="{{ $doc->document_name }}" />
-                                            @component('components.ajax-error', ['field' => "$doc->document_name"])
-                                            @endcomponent
-                                            <div class="text-center mt-3 ">
-                                                <button type="button"
-                                                    class="btn btn-secondary fw-bold btn_view_kyc_doc text-capitalize mt-2"
-                                                    onclick="readFile('{{ $doc->document_name }}')"><i
-                                                        class="fa-solid fa-eye"></i> View</button>
+                                            <div class="upload-wrapper">
+                                                <div class="file-input-wrap">
+                                                <input type="file" class="form-control imagechange1 qf-file-upload"
+                                                    data-key="{{ $doc->document_name }}" id="{{ $doc->document_name }}"
+                                                    name="{{ $doc->document_name }}" />
+                                                    @component('components.ajax-error', ['field' => "$doc->document_name"])
+                                                    @endcomponent
+                                                </div>
+                                                <div class="text-center">
+                                                    <button type="button qf-secondary-btn"
+                                                        class="btn btn-secondary fw-bold btn_view_kyc_doc text-capitalize"
+                                                        onclick="readFile('{{ $doc->document_name }}')"><i
+                                                        class="fa-solid fa-eye "></i> View</button>
+                                                </div>
                                             </div>
+
                                         </div>
 
                                         @if ($kyc_data && $kyc_data[$doc->document_name . '_status'] == 2)
@@ -106,23 +111,28 @@
                                     </div>
                                 @endif
                             @else
-                                <div class="col-md-4 col-sm-6 col-xs-12 test">
-                                    <div class="kyc_doc_card mb-3">
-                                        <label class="form-label mt-3 fw-bold"
+                                <div class="upload-kyc-each">
+                                    <div class="kyc_doc_card upload-kyc-inner">
+                                        <label class="form-label mt-3 fw-bold qf-file-upload-title"
                                             for="{{ $doc->document_name }}">{{ $doc->document_value }} :
                                         </label>
 
-                                        <input type="file" class="form-control imagechange1"
+                                        <div class="upload-wrapper">
+                                            <div class="file-input-wrap">
+                                            <input type="file" class="form-control imagechange1 qf-file-upload"
                                             data-key="{{ $doc->document_name }}" id="{{ $doc->document_name }}"
                                             name="{{ $doc->document_name }}" />
-                                        @component('components.ajax-error', ['field' => "$doc->document_name"])
-                                        @endcomponent
-                                        <div class="text-center mt-3 ">
+                                                @component('components.ajax-error', ['field' => "$doc->document_name"])
+                                                @endcomponent
+                                            </div>
+                                        <div class="text-center">
                                             <button type="button"
-                                                class="btn btn-secondary fw-bold btn_view_kyc_doc text-capitalize mt-2"
+                                                class="btn btn-secondary fw-bold btn_view_kyc_doc text-capitalize  qf-secondary-btn"
                                                 onclick="readFile('{{ $doc->document_name }}')"><i
-                                                    class="fa-solid fa-eye"></i> View</button>
+                                                    class="fa-solid fa-eye "></i> View</button>
                                         </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             @endif

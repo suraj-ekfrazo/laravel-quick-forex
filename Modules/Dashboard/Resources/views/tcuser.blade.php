@@ -245,9 +245,9 @@
                                            		@if($txnKyc->$status == "1")
 														<span class="badge badge-pill  badge-success comn-approved-btn comn-status-btn">Approve</span>
 												@elseif($txnKyc->$status == "2")
-														<span class="badge badge-danger comn-rejected-bt comn-status-btnn">Reject</span>
+														<span class="badge status-danger comn-status-bt comn-status-btnn">Reject</span>
 												@else
-														<span class="badge badge-warning comn-pending-btn comn-status-btn">Pending</span>
+														<span class="badge status-warning comn-status-btn comn-status-btn">Pending</span>
 
 												@endif
                                             @endif
