@@ -80,7 +80,7 @@
                         @foreach ($kyc_documents as $doc)
                             @if ($kyc_data)
                                 @if ($kyc_data[$doc->document_name . '_status'] != 1)
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <div class="col-md-4 col-sm-6 col-xs-12 test">
                                         <div class="kyc_doc_card mb-3">
                                             <label class="form-label mt-3 fw-bold"
                                                 for="{{ $doc->document_name }}">{{ $doc->document_value }} :
@@ -140,7 +140,7 @@
 
                 <div class="modal-footer text-center">
                     <button type="submit" id="upload_document"
-                        class="btn btn-secondary px-5 fw-bold text-capitalize">Upload Documents</button>
+                        class="btn btn-secondary px-5 fw-bold text-capitalize qf-primary-btn">Upload Documents</button>
                 </div>
             </form>
         </div>
