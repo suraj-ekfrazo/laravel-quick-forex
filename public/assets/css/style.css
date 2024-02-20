@@ -196,10 +196,15 @@ input#payment_upload_document {
   border: 1px dashed #ccc;
   padding: 3px 5px;
   border-radius: 50px;
+  gap: 10px;
+}
+.upload-wrapper .file-input-wrap{
+  flex: 1;
 }
 
 .qf-file-upload-title{
     flex: 1;
+    color: #666666 !important;
 }
 
 .qf-file-upload {

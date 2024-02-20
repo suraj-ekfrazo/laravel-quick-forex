@@ -82,7 +82,7 @@
                                 @if ($kyc_data[$doc->document_name . '_status'] != 1)
                                     <div class="upload-kyc-each">
                                         <div class="kyc_doc_card upload-kyc-inner">
-                                            <label class="form-label mt-3 fw-bold qf-file-upload-title"
+                                            <label class="form-label mt-3 qf-file-upload-title"
                                                 for="{{ $doc->document_name }}">{{ $doc->document_value }} :
                                             </label>
 
@@ -113,7 +113,7 @@
                             @else
                                 <div class="upload-kyc-each">
                                     <div class="kyc_doc_card upload-kyc-inner">
-                                        <label class="form-label mt-3 fw-bold qf-file-upload-title"
+                                        <label class="form-label mt-3 qf-file-upload-title"
                                             for="{{ $doc->document_name }}">{{ $doc->document_value }} :
                                         </label>
 
