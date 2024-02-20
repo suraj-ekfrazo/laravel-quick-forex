@@ -998,9 +998,9 @@
                     </tbody>
                 </table>
                 <div class="qf-select-wrap mb-3">
-                    <div class="ms-auto mt-4 ">
+                    <div class="ms-auto mt-4 request-rate-btn-wrap">
 
-                        <button type="submit" class="qf-primary-btn" id="addCurrencyrb">
+                        <button type="submit" class="qf-primary-btn request-rate-btn" id="addCurrencyrb">
                             <img src="./assets/img/dashboard/svg/ic_initiate.svg" class="mb-2 mt-1 me-2 " alt="">
                             <span class=" text-capitalize">Request Rate</span>
                         </button>

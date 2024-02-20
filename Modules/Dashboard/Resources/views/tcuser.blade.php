@@ -191,18 +191,18 @@
                                         @if(!empty($txnKyc->$key))
 
                                         <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
-                                           class="svg-bg m-0 fw-bold disabled" style=" color:#00B7FF;" target="_blank">
+                                           class="svg-bg m-0 fw-bold view-btn-common disabled" target="_blank">
                                             <i class="fa-solid fa-eye"></i> View &nbsp;</a>
                                         <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
-                                           class="svg-bg m-0 fw-bold" style=" color:#686cad;" download>&nbsp;
+                                           class="svg-bg m-0 fw-bold download-btn-common"  download>&nbsp;
                                             <i class="fa-solid fa-download"></i> Download </a>
                                         @else
                                             <span data-toggle="tooltip" data-placement="bottom" title="File Not Uploaded">
                                             <a href="javascript:void(0);"
-                                               class="svg-bg m-0 fw-bold isDisabled" style=" color:#00B7FF;">
+                                               class="svg-bg m-0 fw-bold view-btn-common isDisabled" >
                                                 <i class="fa-solid fa-eye"></i> View &nbsp;</a>
                                             <a href="javascript:void(0);"
-                                               class="svg-bg m-0 fw-bold isDisabled" style=" color:#686cad;">&nbsp;
+                                               class="svg-bg m-0 fw-bold  download-btn-common isDisabled" style=" color:#686cad;">&nbsp;
                                                 <i class="fa-solid fa-download"></i> Download </a>
                                             </span>
                                         @endif
