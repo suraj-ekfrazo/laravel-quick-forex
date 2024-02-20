@@ -193,8 +193,8 @@ input#payment_upload_document {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
+  border: 1px dashed #ccc;
+  padding: 3px 5px;
   border-radius: 50px;
 }
 
@@ -4700,6 +4700,10 @@ button.qf-primary-btn {
     border: 1px solid #0075be !important;
     color: #0075be !important;
 }
+.qf-secondary-btn.btn_view_kyc_doc {
+    padding: 5px 20px !important;
+}
+
 .qf-comn-input{
     border-radius: 50px !important;
     border: 1px solid #0774bb;
