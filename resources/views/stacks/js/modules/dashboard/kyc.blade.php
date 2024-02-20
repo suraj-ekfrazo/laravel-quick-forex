@@ -35,7 +35,7 @@
                     "targets": [4],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
-                        return '<a href="dashboard/view-kyc-doc/'+full.txn_number+'" class="text-white bg-danger border-0 p-1 rounded-4" target="_blank"> View KYC Docs\n' +
+                        return '<a href="dashboard/view-kyc-doc/'+full.txn_number+'" class="text-white bg-danger border-0 p-1 rounded-4 new_btn_view" target="_blank"> View KYC Docs\n' +
                             '</a>';
                     }
                 }
@@ -99,7 +99,7 @@
             });
         }
     }); */
-	
+
 	$(document).ready(function() {
         $(document).on("click", ".updateDoc", function() {
             var tr = $(this).closest("tr");
@@ -135,14 +135,14 @@
             });
         })
     });
-	
-	
+
+
 	$('#updateDocForm').submit(function(event) {
 		var valueData = document.querySelector('input[name="kyc_status"]:checked').value;
-		
-		
-		
-		
+
+
+
+
         event.preventDefault();
         $('.status_error').html('');
         var check = $('input[name=kyc_status]').is(':checked');
@@ -182,7 +182,7 @@
                 data: {
                     id: id,
                     typesArray: typesArray,
-				
+
                     status: valueData == '1' ? 1 : 2,
                     comment: $('input[name=kyc_comment]').val(),
                     _token: '{{ csrf_token() }}'

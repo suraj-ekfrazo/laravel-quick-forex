@@ -79,7 +79,7 @@
                     render: function (data, type, full, meta) {
                         var id = full.id;
                         return '<div class="d-flex gap-2">'+
-                            '<button class="border-0 text-white bg-secondary p-1 rounded-4 new_btn_view" onclick="transactionDetail(' + full.id + ')"> View</button>' +
+                            '<button class="new_btn_view" onclick="transactionDetail(' + full.id + ')"> View</button>' +
                             '</div>';
                     }
                 },

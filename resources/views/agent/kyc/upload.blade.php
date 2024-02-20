@@ -106,7 +106,7 @@
                                     </div>
                                 @endif
                             @else
-                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="col-md-4 col-sm-6 col-xs-12 test">
                                     <div class="kyc_doc_card mb-3">
                                         <label class="form-label mt-3 fw-bold"
                                             for="{{ $doc->document_name }}">{{ $doc->document_value }} :
