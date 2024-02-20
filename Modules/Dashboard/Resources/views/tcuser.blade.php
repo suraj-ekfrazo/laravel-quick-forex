@@ -243,11 +243,11 @@
                                         <div class="btn-group">
                                             @if($txnKyc)
                                            		@if($txnKyc->$status == "1")
-														<span class="badge badge-pill  badge-success" style="width:80px;height:22px;font-size:13px;">Approve</span>
+														<span class="badge badge-pill  badge-success comn-approved-btn comn-status-btn">Approve</span>
 												@elseif($txnKyc->$status == "2")
-														<span class="badge badge-danger" style="width:80px;height:22px;font-size:13px;">Reject</span>
+														<span class="badge badge-danger comn-rejected-bt comn-status-btnn">Reject</span>
 												@else
-														<span class="badge badge-warning" style="width:80px;height:22px;font-size:13px;">Pending</span>
+														<span class="badge badge-warning comn-pending-btn comn-status-btn">Pending</span>
 
 												@endif
                                             @endif

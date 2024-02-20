@@ -45,7 +45,7 @@
                         var id = full.id;
                         var kycStatus = (full.payment_status === 0) ? 'Pending' : (full.payment_status === 1) ? 'Completed' : 'Rejected';
                         var btnClass = (full.payment_status === 0) ? 'secondary' : (full.payment_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white new_payment_status bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        return '<div class="text-white comn-status-btn new_payment_status status-'+btnClass+' "> '+ kycStatus +' </div>';
                     }
                 },
                 {

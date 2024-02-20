@@ -27,7 +27,7 @@
                         <div class="row ">
 
 
-                            <div class="col-md-3 col-sm-6  ">
+                            <div class="col-md-3 col-sm-6">
                                 <p class="text-color">Transaction Number
                                 </p>
                                 <div>
@@ -80,7 +80,7 @@
                         @foreach ($kyc_documents as $doc)
                             @if ($kyc_data)
                                 @if ($kyc_data[$doc->document_name . '_status'] != 1)
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <div class="col-md-4 col-sm-6 col-xs-12 test">
                                         <div class="kyc_doc_card mb-3">
                                             <label class="form-label mt-3 fw-bold"
                                                 for="{{ $doc->document_name }}">{{ $doc->document_value }} :
@@ -129,18 +129,18 @@
                         @endforeach
                     </div>
                 </div>
-				
-				
+
+
 				 <div id="blockDiv" class="hide">
 					<div class="" style="padding: 0px; margin: 0px; text-align: center; color: rgb(0, 0, 0); border: 3px solid rgb(170, 170, 170); width: 100%; height: 100%; position: fixed; top: 0%; background: rgb(20, 14, 51) none repeat scroll 0% 0%; opacity: 0.5; z-index: 1004; cursor: wait; right: 0px;"></div>
 					<div class="blockUI blockMsg blockPage " style="padding: 0px; margin: 0px; top: 33%; color: rgb(0, 0, 0);  font-weight: normal;  font-size: 20px; left: 35%; text-align: center; z-index: 999999 ! important; position: fixed; width: 30%;"><img src="{{ asset('assets/img/loader.gif')}}" style="height:200px;"></div>
 				</div>
 
-					
-		
+
+
                 <div class="modal-footer text-center">
                     <button type="submit" id="upload_document"
-                        class="btn btn-secondary px-5 fw-bold text-capitalize">Upload Documents</button>
+                        class="btn btn-secondary px-5 fw-bold text-capitalize qf-primary-btn">Upload Documents</button>
                 </div>
             </form>
         </div>
@@ -175,7 +175,7 @@
         $('#upload_document').prop('disabled', true);
  		$('#blockDiv').show();
 
-		
+
         var key = $(this).attr('data-key');
 
         const imageInput = document.getElementById(key);
@@ -191,7 +191,7 @@
 
     function sendImageToAPI(imageFile, key) {
 
-	
+
 
 
         $('.' + key).html('');
@@ -218,15 +218,15 @@
 					if(i > 0){
 						i = i -1 ;
 					}
-					
+
 					 $('#upload_document').prop('disabled', false);
 					$('#blockDiv').hide();
 				}
-				
+
             },
             error: function (error) {
             }
-        }); 
+        });
     }
 
     $('.save-form').submit(function (event) {
@@ -247,7 +247,7 @@
                 contentType: false,
                 success: function (result) {
                     console.log(result);
-                   
+
                     if (result.type === 'SUCCESS') {
                         toastr.success(result.message);
                         $("#upload-kyc-model").modal('hide');
@@ -265,7 +265,7 @@
                     });
                 }
             });
-        } 
+        }
     });
 
 
