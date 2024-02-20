@@ -28,14 +28,14 @@
                         var id = full.id;
                         var kycStatus = (full.kyc_status === 0) ? 'Pending' : (full.kyc_status === 1) ? 'Completed' : 'Rejected';
                         var btnClass = (full.kyc_status === 0) ? 'secondary' : (full.kyc_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
                 {
                     "targets": [5],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
-                        return '<button class="btn-danger btn-sm rounded-4 btn-block  border-0" onclick="uploadPayment(' + full.id + ')"> View </button>';
+                        return '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="uploadPayment(' + full.id + ')"> View </button>';
                     }
                 },
                 {
@@ -44,8 +44,8 @@
                     render: function (data, type, full, meta) {
                         var id = full.id;
                         var kycStatus = (full.payment_status === 0) ? 'Pending' : (full.payment_status === 1) ? 'Completed' : 'Rejected';
-                        var btnClass = (full.payment_status === 0) ? 'secondary' : (full.payment_status === 1) ? 'success' : 'danger1';
-                        return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        var btnClass = (full.payment_status === 0) ? 'secondary' : (full.payment_status === 1) ? 'success' : 'danger';
+                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
                 {
@@ -54,7 +54,7 @@
                     render: function (data, type, full, meta) {
 						var upload_btn="";
                         return '<div class="d-flex gap-2">'+
-                            '<button class="btn-success btn-sm rounded-4 btn-block  border-0" onclick="transactionDetail(' + full.id + ')""> View </button>'+
+                            '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')""> View </button>'+
                             '</div>';
                     }
                 }

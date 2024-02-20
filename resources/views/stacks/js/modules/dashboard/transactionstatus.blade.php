@@ -43,7 +43,7 @@
 						}
 
 
-                        return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
                 {
@@ -53,7 +53,7 @@
                         var id = full.id;
                         var kycStatus = (full.payment_status === 0) ? 'Pending' : (full.payment_status === 1) ? 'Completed' : 'Rejected';
                         var btnClass = (full.payment_status === 0) ? 'warning' : (full.payment_status === 1) ? 'success' : 'danger1';
-                        return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
                 {
@@ -63,7 +63,7 @@
                         var id = full.id;
                         var kycStatus = (full.transaction_status === 0) ? 'Pending' : (full.transaction_status === 1) ? 'Completed' : 'Rejected';
                         var btnClass = (full.transaction_status === 0) ? 'warning' : (full.transaction_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
 
@@ -135,7 +135,7 @@
                         var id = full.id;
                         var kycStatus = (full.kyc_status === 0) ? 'Pending' : (full.kyc_status === 1) ? 'Completed' : 'Rejected';
                         var btnClass = (full.kyc_status === 0) ? 'warning' : (full.kyc_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
                 {
@@ -145,7 +145,7 @@
                         var id = full.id;
                         var kycStatus = (full.payment_status === 0) ? 'Pending' : (full.payment_status === 1) ? 'Completed' : 'Rejected';
                         var btnClass = (full.payment_status === 0) ? 'warning' : (full.payment_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
                 {
@@ -155,7 +155,7 @@
                         var id = full.id;
                         var kycStatus = (full.transaction_status === 0) ? 'Pending' : (full.transaction_status === 1) ? 'Completed' : 'Rejected';
                         var btnClass = (full.transaction_status === 0) ? 'warning' : (full.transaction_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white bg-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
                     }
                 },
 				 {

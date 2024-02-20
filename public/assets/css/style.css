@@ -626,10 +626,12 @@ table .comn-status-btn,
 .kyc-rejected-btn {
     padding: 9px 20px !important;
     border-radius: 50px !important;
-    width: max-content !important;
+    width: 110px !important;
     font-size: 14px;
+    text-align: center !important;
 }
 
+.status-warning,
 .status-secondary,
 .kyc-pending-btn {
     background: #ff6d3b !important;
@@ -2055,8 +2057,9 @@ h1.login_text {
     margin-top: 35px;
 }
 .modal-body .input-group input {
-    height: 30px !important;
+    height: 45px !important;
     width: 30px;
+    padding: 10px 40px 10px 20px !important;
     display: inline-block;
     background: #fff !important;
     border-radius: 50px !important;
@@ -4686,6 +4689,14 @@ button.qf-primary-btn {
     border: 1px solid #0075be;
     color: #0075be;
 }
+.qf-comn-input{
+    border-radius: 50px !important;
+    border: 1px solid #0774bb;
+    padding: 10px 40px 10px 20px;
+    height: auto;
+    min-width: 252px !important;
+    box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15);
+}
 
 .form-control.qf-secondary-input,
 .form-select.qf-primary-select {
@@ -5063,6 +5074,7 @@ th.dataTables_empty:first-child {
 }
 
 @media (min-width: 1024px) and (max-width: 1600px) {
+    #agent-completed-transaction-table,
     .transaction-content .dataTable#ratebooking {
         display: block;
     }
