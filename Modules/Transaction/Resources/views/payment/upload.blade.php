@@ -72,28 +72,51 @@
                         <div style="color:red;">
                         {{$data->payment_upload_document=="" ? "Payment Proff not Uploaded yet!" : "" }}
                         </div>
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <a href="{{ $data->payment_upload_document!="" ? asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($data->created_at)).'/'.$data->txn_number. '/'.$data->payment_upload_document : "javascript:void(0)"  }}"   target="_blank" class="btn btn-secondary px-5 fw-bold text-capitalize" style="pointer-events: {{$data->payment_upload_document=="" ? 'none;' : 'all;'}}"  ><i class="fa fa-eye" aria-hidden="true"></i> View Payment Proof</a>
+                        </div> -->
+                        <div class="payment_p-view--wrap">
+                            @php
+                                $documentUrl = $data->payment_upload_document != "" ?
+                                    asset('upload/allDocuments/') . '/' .
+                                    date('Y-m-d', strtotime($data->created_at)) . '/' .
+                                    $data->txn_number . '/' .
+                                    $data->payment_upload_document :
+                                    "javascript:void(0)";
+                                $pointerEvents = $data->payment_upload_document == "" ? 'none;' : 'all;';
+                                $disabledClass = $data->payment_upload_document == "" ? 'disabled' : '';
+                            @endphp
+                            <a href="{{ $documentUrl }}" target="_blank" class="qf-secondary-btn {{ $disabledClass }}" style="pointer-events: {{ $pointerEvents }}">
+                            <i class="fa fa-eye" aria-hidden="true"></i> View Payment Proof</a>
                         </div>
+
+
                     </div>
                     <div class="col-md-12">
-                        <label class="">Payment Type</label>
+                        <label class="mt-3 mb-2 fw-bold">Payment Type</label>
                         <div class="input-group">
-                            <div class="col-md-6">
-                                <label class="radio-inline">
-                                    <input type="radio" class="form-check-input" name="payment_status" value="1" checked>&nbsp; Approved
+                            <div class="col-md-3">
+                                <label class="radio-inline qf-radio-lab-sm">
+                                    <input type="radio" class=" qf-radio-btn-sm" name="payment_status" value="1" checked>
+                                    <span class="qf-label">
+                                        &nbsp; Approved
+                                    </span>
                                 </label>
                             </div>
-                            <div class="col-md-6">
-                                <label class="radio-inline">
-                                    <input type="radio" class="form-check-input" name="payment_status" value="2">&nbsp; Reject
+                            <!-- form-check-input -->
+                            <div class="col-md-3">
+                                <label class="radio-inline qf-radio-lab-sm">
+                                    <input type="radio" class="qf-radio-btn-sm" name="payment_status" value="2">
+                                    <span class="qf-label">
+                                        &nbsp; Reject
+                                    </span>
                                 </label>
                             </div>
                             @component('components.ajax-error',['field'=>'payment_status'])@endcomponent
                         </div>
 
-                        <div >
-                            <label class="">Payment Comment</label>
+                        <div class="mt-3" >
+                            <label class=" fw-bold">Payment Comment</label>
                             <div class="mb-3">
                                 <textarea class="form-control p-2" name="payment_comment" rows="3" id="payment_comment">{{ $data->payment_comment }}</textarea>
                             </div>
