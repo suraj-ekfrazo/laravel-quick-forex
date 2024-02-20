@@ -304,7 +304,7 @@
                                         <div class="accordion-body row">
                                             <div class="col-md-4">
                                                 <label for="defaultFormControlInput" class="form-label">Search By Customer</label>
-                                                <select class="form-control form-select qf-primary-select"  name="customer_id" id="customer_id">
+                                                <select class="form-control select2 form-select qf-primary-select"  name="customer_id" id="customer_id">
                                                     <option value="">Select Customer</option>
                                                     @foreach ($customer as $data)
                                                     <option value="{{$data->id}}">{{$data->name}}</option>
@@ -315,7 +315,7 @@
 
                                             <div class="col-md-4">
                                                 <label for="defaultFormControlInput" class="form-label">Search By  Agent</label>
-                                                <select class="form-control form-select qf-primary-select"  name="agent_id" id="agent_id">
+                                                <select class="form-control select2 form-select qf-primary-select"  name="agent_id" id="agent_id">
                                                     <option value="">Select Agent</option>
                                                     @foreach ($agent as $data)
                                                     <option value="{{$data->id}}">{{$data->first_name}} {{$data->last_name}}</option>
@@ -405,7 +405,7 @@
                                         <div class="accordion-body row">
                                             <div class="col-md-4">
                                                 <label for="defaultFormControlInput" class="form-label">Search By Customer</label>
-                                                <select class="form-control select2"  name="complete_customer_id" id="complete_customer_id">
+                                                <select class="form-control select2 form-select qf-primary-select"  name="complete_customer_id" id="complete_customer_id">
                                                     <option value="">Select Customer</option>
                                                     @foreach ($customer as $data)
                                                     <option value="{{$data->id}}">{{$data->name}}</option>
@@ -416,7 +416,7 @@
 
                                             <div class="col-md-4">
                                                 <label for="defaultFormControlInput" class="form-label">Search By  Agent</label>
-                                                <select class="form-control select2"  name="complete_agent_id"
+                                                <select class="form-control select2 form-select qf-primary-select"  name="complete_agent_id"
                                                 id="complete_agent_id">
                                                     <option value="">Select Agent</option>
                                                     @foreach ($agent as $data)
@@ -428,7 +428,7 @@
 
                                             <div class="col-md-4">
                                                 <label for="defaultFormControlInput" class="form-label">Search By Created Date</label>
-                                                <input type="text" class="form-control datefilter"
+                                                <input type="text" class="form-control datefilter qf-secondary-input"
                                                 name="complete_datefilter"
                                                     value=""/>
                                             </div>
