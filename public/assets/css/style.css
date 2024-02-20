@@ -624,7 +624,7 @@ table .comn-status-btn,
 .kyc-pending-btn,
 .comn-rejected-btn,
 .kyc-rejected-btn {
-    padding: 9px 20px !important;
+    padding: 6px 20px !important;
     border-radius: 50px !important;
     width: 110px !important;
     font-size: 14px;
@@ -1108,7 +1108,6 @@ button.bg-danger:hover {
     font-weight: 500;
     box-shadow: none !important;
     text-align: center;
-    text-decoration: underline;
 }
 
 .bg-secondary.new_btn_view img,
