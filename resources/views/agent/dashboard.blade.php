@@ -127,10 +127,10 @@
                                             name="customer_mobile"
                                             oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                                             id="customer_mobile" placeholder="Enter Mobile Number"/>
-                                        
+
                                         @component('components.ajax-error',['field'=>'customer_mobile'])@endcomponent
 
-                                        <ul class="qf-primary-select" id="optionList"></ul>
+                                        <ul class="qf-num-list" id="optionList"></ul>
                                         <input type="hidden"name="customer_id" id="customer_id">
 
                                         <!-- <select class="form-select qf-primary-select" name="customer_id"
@@ -938,7 +938,7 @@
                     <div class="agent-curr-det-each">
                         <!-- <label class="">FX Value*</label> -->
                         <div class="input-group mb-3 input-group-sm inputWithIcon">
-                            <input onkeypress="return isSpecialKey(event)" class="form-control qf-secondary-input"
+                            <input onkeypress="return isSpecialKey(event)" class="form-control qf-secondary-input px-3"
                                 name="amountrb" id="amountrb" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                                 type="text" placeholder="Enter Amount">
                             <img src="./assets/img/dashboard/svg/icon_value.svg" class="mb-2 mt-1 me-2 " alt="">
@@ -995,14 +995,14 @@
                 <table class="table roundedTable text-center currency-table" id="selected-currencyrb">
                     <thead>
                         <tr class="bgc-table row-font1">
-                            {{--<th scope="col" class="fw-bold">Sr.No</th>--}}
-                            <th scope="col" class="fw-bold">Currency</th>
+                            {{--<th scope="col" class="fw-bold text-center">Sr.No</th>--}}
+                            <th scope="col" class="fw-bold text-center">Currency</th>
 
-                            <th scope="col" class="fw-bold">Amount
+                            <th scope="col" class="fw-bold text-center">Amount
                             </th>
-                            <th scope="col" class="fw-bold">Booking Purpose</th>
-                            <th scope="col" class="fw-bold">Transaction Type</th>
-                            <th scope="col" class="fw-bold">Action</th>
+                            <th scope="col" class="fw-bold text-center">Booking Purpose</th>
+                            <th scope="col" class="fw-bold text-center">Transaction Type</th>
+                            <th scope="col" class="fw-bold text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody class="currencyTablerb">

@@ -24,7 +24,7 @@
 
         <div class="dropdown">
             <a class=" text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-mdb-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="text-white">{{Auth::guard('agent_users')->user()->first_name}} {{Auth::guard('agent_users')->user()->last_name}}</span>
+                <span class="text-black">{{Auth::guard('agent_users')->user()->first_name}} {{Auth::guard('agent_users')->user()->last_name}}</span>
                 <img src="{{ asset('assets/img/forex_new/icon_user.svg')}}" style="width: 25px;margin-left:15px;" class="me-1" alt="Tridha Patel">
                 <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1000" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pmd-sidebar-toggle">
                     <i class="material-icons md-light"></i>

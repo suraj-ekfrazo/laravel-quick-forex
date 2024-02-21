@@ -66,22 +66,22 @@
                     </div>
                     <div class="row mt-4" style="padding: 13px;">
                         <div class="col-md-12">
-                            <label class="">Payment Type</label>
-                            <div class="input-group">
-                                <div class="col-md-6">
+                            <label class="fw-bold">Payment Type</label>
+                            <div class="row">
+                                <div class="col-md-4">
                                     <label class="radio-inline">
-                                        <input type="radio" class="form-check-input" name="payment_type" value="1" checked>&nbsp; Bank Transfer
+                                        <input type="radio" class="qf-radio-sm" name="payment_type" value="1" checked>&nbsp; Bank Transfer
                                     </label>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label class="radio-inline">
-                                        <input type="radio" class="form-check-input" name="payment_type" value="2">&nbsp; Online Payment
+                                        <input type="radio" class="qf-radio-sm" name="payment_type" value="2">&nbsp; Online Payment
                                     </label>
                                 </div>
                                 {{--@component('components.ajax-error',['field'=>'kyc_status'])@endcomponent--}}
                             </div>
 							<div class="col-12" style="margin-top:10px;" id="bank_detail">
-								<div class="grid-container">
+								<div class="grid-container mt-5">
 
 									<div class="grid-child" style="border: 2px #dddddd dashed;border-radius: 10px;padding: 15px;">
 										<div style="font-weight:bold">INDUSIND BANK LTD</div>
@@ -106,25 +106,25 @@
 									</div>
 
 								</div>
-                                <div class="grid-container mt-1">
+                                <div class="grid-container mt-5">
                                     <div >
                                         <label class="">Payment Image</label>
-                                        <div class="input-group mb-3">
-                                            <input class="form-control p-2 w-100" type="file" name="payment_upload_document" id="payment_upload_document">
+                                        <div class="input-group-file_up mb-3">
+                                            <input class="form-control p-2 w-100 qf-file-upload" type="file" name="payment_upload_document" id="payment_upload_document">
                                             @component('components.ajax-error',['field'=>'payment_upload_document'])@endcomponent
                                         </div>
                                     </div>
                                     <div >
                                         <label class="">Payment Comment</label>
                                         <div class="mb-3">
-                                            <textarea class="form-control p-2" name="payment_comment" rows="3" id="payment_comment"></textarea>
+                                            <textarea class="form-control p-2" name="payment_comment" rows="1" id="payment_comment"></textarea>
                                             @component('components.ajax-error',['field'=>'payment_comment'])@endcomponent
                                         </div>
                                     </div>
 							    </div>
                             </div>
 							<div id="online_payment" class="col-12" style="margin-top:10px;display: none;">
-                                <div class="grid-container">
+                                <div class="grid-container mt-5">
                                     <div class="grid-child" style="border: 1px black solid;border-radius: 10px;padding: 7px;">
                                         <img src="{{asset('assets/img/razorpay.png')}}" />
                                     </div>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="modal-footer text-center">
                     <input type="hidden" name="id" id="id" value="{{$data->id}}">
-                    <button type="submit" class="btn btn-secondary px-5 fw-bold text-capitalize buy_now" id="rzp-button1">Submit</button>
+                    <button type="submit" class="btn qf-secondary-btn px-5 fw-bold text-capitalize buy_now" id="rzp-button1">Submit</button>
                 </div>
             </form>
         </div>
@@ -298,7 +298,7 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-	
+
 	$('input[type=radio][name=payment_type]').change(function() {
 
 		$('#bank_detail').show();

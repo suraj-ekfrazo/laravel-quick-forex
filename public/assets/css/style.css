@@ -210,6 +210,7 @@ input#payment_upload_document {
 .qf-file-upload {
     max-width: 100%;
 	border-radius: 60px !important;
+    height: auto !important;
 }
 
 .btn-secondary.btn_view_kyc_doc {
@@ -1172,7 +1173,7 @@ table td .new_btn_view:hover,
 
 table th,
 table tr {
-    text-align: center !important;
+    text-align: left !important;
 }
 
 .bottom-border {
@@ -1380,7 +1381,7 @@ tr {
 .save-currency-form input,
 .save-currency-form .form-select {
     border-radius: 5px !important;
-    height: 40px !important;
+    height: 45px !important;
     font-size: 13px !important;
     color: #8d8d8d !important;
 }
@@ -2089,9 +2090,19 @@ h1.login_text {
 #bank_detail {
     margin-top: 35px;
 }
-.modal-body .input-group input {
-    height: 45px !important;
-    width: 30px;
+.modal-body .input-group input[type="radio"] {
+    height: 18px !important;
+    width: 18px;
+    padding: 10px 40px 10px 20px !important;
+    display: inline-block;
+    background: #fff !important;
+    border-radius: 50px !important;
+    box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15);
+    border: none;
+}
+ .qf-radio-sm {
+    height: 18px !important;
+    width: 18px;
     padding: 10px 40px 10px 20px !important;
     display: inline-block;
     background: #fff !important;
@@ -4322,10 +4333,27 @@ button.close_btn {
     color: #6f6f6f !important;
 }
 
-/*design by om --start-- */
+/*design by omdesign --start-- */
 
 .qf-bg-blue{
     background: #0774bb;
+}
+
+.qf-num-list {
+	border-radius: 6px;
+	margin-top: 2px;
+	z-index: 9;
+	position: relative;
+	padding: 5px;
+    list-style: none;
+}
+.qf-num-list li{
+	cursor: pointer;
+    padding: 5px 20px;
+    background: #98d3ff5e;
+    margin-bottom: 4px;
+    border-radius: 50px;
+    color: #000;
 }
 
 .accordion-item .accordion-button {
