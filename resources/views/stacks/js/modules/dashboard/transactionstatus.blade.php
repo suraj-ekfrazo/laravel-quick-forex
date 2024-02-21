@@ -70,7 +70,7 @@
                 {
                     "targets": [7],
                     render: function (data, type, full, meta) {
-                        return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY h:mm:ss A');
+                        return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY');
                     }
                 },
                 {
@@ -173,7 +173,7 @@
                 {
                     "targets": [8],
                     render: function (data, type, full, meta) {
-                        return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY h:mm:ss A');
+                        return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY'); //DD-MM-YYYY h:mm:ss A
                     }
                 },
                 {

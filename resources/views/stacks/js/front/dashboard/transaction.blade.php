@@ -217,6 +217,7 @@ $('.save-incidents-form').submit(function(event) {
                                         '</strong>';
                                     $('.' + key).html(errorsHtml);
                                 });
+                                window.scrollTo(0, 0);
                             }
                         });
                     }
