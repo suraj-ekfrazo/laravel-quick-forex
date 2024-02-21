@@ -1148,7 +1148,7 @@
                 </div>
 
 
-                <div class="d-flex gap-3 justify-content-end m-2">
+                <div class="d-flex gap-3 justify-content-start m-2">
                     <div class="d-flex badge-1 pe-2">
                         <div class="border-incdent"></div>
                         <p class="badge-c ps-1 fw-bold lh-lg small">*TCS Applicable @ 5%</p>
