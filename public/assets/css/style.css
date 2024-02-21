@@ -1192,7 +1192,23 @@ table tr {
 .bgc-model {
     padding: 9px;
     border-radius: 15px;
-    background-color: rgb(238, 241, 245);
+    background-color: #F9F9F9;
+    box-shadow: 0px 0px 15px 0px rgba(7, 116, 187, 0.15);
+}
+tbody tr.bgc-model {
+    background-color: #666666;
+}
+tbody tr.bgc-model th *,
+tbody tr.bgc-model td *,
+tbody tr.bgc-model td,
+tbody tr.bgc-model th {
+  color: #fff !important;
+}
+tbody tr.bgc-model td.row-font1.fw-bold.text-start {
+   float: none !important;
+}
+tbody tr.bgc-model td.row-font1.fw-bold.text-start:last-child {
+    text-align: right !important;
 }
 
 .text-color {
@@ -1236,6 +1252,7 @@ table tr {
     height: 30px;
     color: #ed5101 !important;
     width: 4px;
+    display: none;
 }
 
 .badge-c {
@@ -4652,7 +4669,6 @@ th.kyc-auto-table-head {
     font-size: 32px;
     font-weight: 600;
     color: #0774bb;
-    margin-bottom: 2rem;
 }
 
 .scorecard-title {
@@ -4714,6 +4730,7 @@ button.swal-button.swal-button--cancel {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 15px;
 }
 
 .btn.btn-primary,
@@ -5027,9 +5044,20 @@ th.dataTables_empty:first-child {
     content: "\f1f8";
     color: #ff0c0c;
 }
-/* #admin-users-table_wrapper .fa-solid.fa-trash::before{
-    color: #ff0c0c;
-} */
+#forgotPasswordModal .modal-header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#forgotPasswordModal .modal-header .btn-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+#forgotPasswordModal .form-control[type="email"]{
+    box-shadow: 0px 0px 15px 0px rgba(7, 116, 187, 0.15);
+    border: 1px solid #ccc;
+}
 
 @media (max-width: 768px) {
     .qf-users-container {

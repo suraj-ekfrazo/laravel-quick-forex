@@ -395,8 +395,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="d-flex  pb-3 ">
-                            <div class="border-heading"></div>
-                            <div class="ps-1 fw-bold">Transaction Details</div>
+                            <div class="qf-title-lg">Transaction Details</div>
                             <div class="ml-auto">
                                 <button class="btn-print  ">  <img src="../assets/img/dashboard/svg/ic-print.svg" class="mb-1 me-1" alt=""> Print</button>
                                 <button class="btn-download  "> <img src="../assets/img/dashboard/svg/ic-download.svg" class="mb-1 me-1" alt=""> Download</button>

@@ -125,7 +125,7 @@
                 </div>
                 <div class="modal-footer text-center">
                     <input type="hidden" value="{{ $data->id }}" name="id">
-                    <button type="submit" class="btn btn-secondary px-5 fw-bold text-capitalize" {{$data->payment_upload_document=="" ? "disabled" : "" }}>Update</button>
+                    <button type="submit" class="btn btn-secondary px-5 qf-primary-btn" {{$data->payment_upload_document=="" ? "disabled" : "" }}>Update</button>
                 </div>
             </form>
         </div>

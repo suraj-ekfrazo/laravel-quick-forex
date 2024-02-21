@@ -11,7 +11,7 @@
     <div class="modal-dialog  modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="ps-1 fw-bold">Transaction Details</div>
+                <div class="qf-title-lg">Transaction Details</div>
                 <div class="ml-auto">
                     {{--<button class="btn-print  ">  <img src="./assets/img/dashboard/svg/ic-print.svg" class="mb-1 me-1" alt=""> Print</button>
                     <button class="btn-download  "> <img src="./assets/img/dashboard/svg/ic-download.svg" class="mb-1 me-1" alt=""> Download</button>--}}
@@ -129,7 +129,7 @@
                                 <!--<div>TCS  :</div>-->
                                 <div>TCS :</div>
                                 <div>Remit Fees :</div>
-								
+
                                 <div>Swift Charge :</div>
 								<div>Nostro Fees :</div>
 								<div>GST (18%) :</div>
@@ -139,7 +139,7 @@
                                 <!--<div>  {{$data['tcs']}} </div>-->
                                 <div style="text-align: right;">  {{number_format($data['amount_for_tcs'],2)}} </div>
                                 <div style="text-align: right;">  {{number_format($data['remit_fees'],2)}} </div>
-								
+
                                 <div style="text-align: right;">  {{number_format($data['swift_charges'],2)}} </div>
 								<div style="text-align: right;">  {{number_format($data['nostro_charge'],2)}} </div>
 								<div style="text-align: right;">  {{number_format($data['gst'],2)}} </div>
