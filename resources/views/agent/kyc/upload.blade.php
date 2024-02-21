@@ -283,6 +283,17 @@
         $('.modal').modal('hide');
     });
 
+    $('.imagechange1').on('change', function() {
+        let size = this.files[0].size; // this is in bytes
+        var key = $(this).attr('data-key');
+        $(".invalid-feedback.ajax-error."+key).html('');
+        if (size > 1000000) {
+            var key = $(this).attr('data-key');
+            $(this).val('');
+            $(".invalid-feedback.ajax-error."+key).html('<strong>Max file upload limit is 1MB.</strong>');
+        }
+    });
+
     function readFile(fileName) {
         var input = $('#' + fileName)[0];
         if (input.files && input.files[0]) {

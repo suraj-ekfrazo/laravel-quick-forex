@@ -98,14 +98,14 @@
     <div class="tab-pane fade" id="ex3-tabs-1" role="tabpanel" aria-labelledby="ex3-tab-1">
         <form action="{{route('transaction.save')}}" method="post" class="save-incidents-form">
             <div class="main-wrapper">
-                <div class="create-btn-wrap">
+                <!-- <div class="create-btn-wrap">
                     <div class="text-center  ">
                         <div type="button" class="qf-primary-btn new_btn_add_customer"
                             onclick="openCustomerModel();">
                             <div class="  me-3 ms-3"><i class="fa-solid fa-plus"></i> Create Customer</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- collapsable start -->
                 <div id="accordion" class="agent-detail-accordion">
                     <div class="card agent-detail-card" >
@@ -121,7 +121,19 @@
                             <div class="card-body">
                                 <div class="card-inner-wrapper">
                                     <div class="qf-select-wrap">
-                                        <select class="form-select qf-primary-select" name="customer_id"
+
+                                        <input onkeypress="return isSpecialKey(event)"
+                                            class="form-control qf-secondary-input" type="text"
+                                            name="customer_mobile"
+                                            oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                                            id="customer_mobile" placeholder="Enter Mobile Number"/>
+                                        
+                                        @component('components.ajax-error',['field'=>'customer_mobile'])@endcomponent
+
+                                        <ul class="qf-primary-select" id="optionList"></ul>
+                                        <input type="hidden"name="customer_id" id="customer_id">
+
+                                        <!-- <select class="form-select qf-primary-select" name="customer_id"
                                             id="single-select-field" data-placeholder="Choose one Customer Number">
                                             <option></option>
                                             @foreach($customers as $val)
@@ -129,13 +141,13 @@
                                                 {{$val['mobile']}}</option>
                                             @endforeach
                                         </select>
-                                        @component('components.ajax-error',['field'=>'customer_id'])@endcomponent
+                                        @component('components.ajax-error',['field'=>'customer_id'])@endcomponent -->
                                     </div>
                                     <div class="qf-select-wrap">
                                         <div class="input-group mb-3 inputWithIcon">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text" name="customer_name"
-                                                id="customer_name" placeholder="Enter Customer Name" readonly>
+                                                id="customer_name" placeholder="Enter Customer Name">
                                             <img src="./assets/img/dashboard/svg/icon_user.svg" class="mb-2 mt-1 me-2 "
                                                 alt="">
 

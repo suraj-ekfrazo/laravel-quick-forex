@@ -64,7 +64,8 @@ class Dashboard extends Controller
         $input = $request->all();
 
         $request->validate([
-            'customer_id' => 'required',
+            // 'customer_id' => 'required',
+            'customer_mobile' => 'required',
             'txn_type' => 'required',
             'booking_purpose_id' => 'required',
             'fund_source_id' => 'required',
@@ -76,6 +77,15 @@ class Dashboard extends Controller
             'nostro_charge'=>'required_if:nostro_charge_type,OUR,SHA',
         ]);
 
+        if (isset($input['customer_mobile'])) {
+            $customerResult = Customers::create(array("name" => $input['customer_name'], "mobile" => $input['customer_mobile']));
+            $input['customer_id'] = $customerResult->id;    
+        }else{
+            $this->validate($request, [
+                'customer_id' => 'required',
+            ]);
+        } 
+        
         if($input['nostro_charge_type']!="" && $input['nostro_charge_type']=='OUR') {
             $this->validate($request, [
                 'nostro_charge' => 'required | numeric | min:1250',
@@ -195,6 +205,18 @@ class Dashboard extends Controller
         $result = Customers::where(['deleted_at'=>null])->get();
 
         $message = 'Successfully Added';
+        if ($result) {
+            return response()->json(array('type' => 'SUCCESS', 'data' => $result));
+        } else {
+            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+        }
+    }
+
+    public function getMatchCustomers(Request $request)
+    {
+        $input = $request->all();
+        $result = Customers::where(['deleted_at'=>null])->where('mobile', 'like', '%' . $input['mobileNo'] . '%')->get();
+        $message = 'Successfully Fetched';
         if ($result) {
             return response()->json(array('type' => 'SUCCESS', 'data' => $result));
         } else {

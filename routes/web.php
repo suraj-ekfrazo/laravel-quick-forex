@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth.agentLogin']], function() {
     Route::get('/dashboard', [App\Http\Controllers\Agent\Dashboard::class, 'index'])->name('dashboard');
     Route::get('/customer/add', [App\Http\Controllers\Agent\Dashboard::class, 'customer'])->name('agent-customer.add');
     Route::get('/customer/getList', [App\Http\Controllers\Agent\Dashboard::class, 'getCustomers'])->name('customers.get');
+    Route::get('/customer/getMatchList', [App\Http\Controllers\Agent\Dashboard::class, 'getMatchCustomers'])->name('customers.getMatch'); 
     Route::post('/customer/save', [App\Http\Controllers\Agent\Dashboard::class, 'store'])->name('customer.save');
     Route::get('/rate-block/add',[App\Http\Controllers\Agent\Dashboard::class,'rateBlock'])->name('rate-block.add');
     Route::post('rate-block/save',[App\Http\Controllers\Agent\Dashboard::class,'rateBlockSave'])->name('rate-block.save');
