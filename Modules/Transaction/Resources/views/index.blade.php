@@ -291,7 +291,7 @@
                         <div class="accordion mt-3" id="accordionWithIcon">
                             <div class="card accordion-item active">
                                 <h2 class="accordion-header d-flex align-items-center">
-                                    <button type="button" class="accordion-button" data-bs-toggle="collapse"
+                                    <button type="button" class="accordion-button qf-bg-blue collapsed" data-bs-toggle="collapse"
                                         data-bs-target="#accordionWithIcon-1" aria-expanded="true">
                                         <i class="ti ti-search ti-xs me-2"></i>
                                         Search
@@ -334,11 +334,11 @@
 
 
 
-                                        <div class="col-12 mt-2 mb-2">
-                                            <button class="btn btn-primary black-btn minw-136"><i
+                                        <div class="col-12 mt-4 mb-4">
+                                            <button class="btn btn-primary black-btn minw-136 qf-primary-btn"><i
                                                     class="ti ti-search ti-xs me-2"></i>Search</button>
                                             <a href=""
-                                                class="btn btn-warning transparent-bg-btn">Reset</a>
+                                                class="btn transparent-bg-btn qf-secondary-btn">Reset</a>
                                         </div>
                                     </form>
                                 </div>
@@ -392,7 +392,7 @@
                         <div class="accordion mt-3" id="accordionWithIcon">
                             <div class="card accordion-item active">
                                 <h2 class="accordion-header d-flex align-items-center">
-                                    <button type="button" class="accordion-button" data-bs-toggle="collapse"
+                                    <button type="button" class="accordion-button qf-bg-blue collapsed" data-bs-toggle="collapse"
                                         data-bs-target="#accordionWithIcon-1" aria-expanded="true">
                                         <i class="ti ti-search ti-xs me-2"></i>
                                         Search
@@ -438,10 +438,10 @@
 
 
                                         <div class="col-12 mt-2 mb-2">
-                                            <button class="btn btn-primary black-btn minw-136"><i
+                                            <button class="btn btn-primary black-btn minw-136 qf-primary-btn"><i
                                                     class="ti ti-search ti-xs me-2"></i>Search</button>
                                             <a href=""
-                                                class="btn btn-warning transparent-bg-btn">Reset</a>
+                                                class="btn transparent-bg-btn qf-secondary-btn">Reset</a>
                                         </div>
                                     </form>
                                 </div>

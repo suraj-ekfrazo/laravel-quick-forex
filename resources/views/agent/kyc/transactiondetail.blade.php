@@ -78,7 +78,7 @@
                 </div>
 
 
-                <div class="d-flex gap-3 justify-content-end m-2">
+                <div class="d-flex gap-3 justify-content-start m-2">
                     <div class="d-flex badge-1  pe-2   ">
                         <div class="border-incdent"></div>
                         <p class="badge-c ps-1 fw-bold lh-lg small">*TCS Applicable @ 5%</p>
@@ -114,7 +114,7 @@
                                     <td>{{$val->txn_frgn_curr_amount}}</td>
                                     <td>{{$val->txn_booking_rate}}</td>
                                     {{--<td>₹4,49,269</td>--}}
-                                    <td class="text-start" style="float: right;">{{number_format($val->txn_inr_amount,2)}}</td>
+                                    <td class="text-end" >{{number_format($val->txn_inr_amount,2)}}</td>
 
                                 </tr>
                             @endforeach
@@ -151,7 +151,7 @@
                             <td></td>
                             <td></td>
                             <td class="fw-bold text-end ">Gross Payable :</td>
-                            <td class="row-font1 fw-bold text-start" style="float: right;">{{number_format($data['gross_payable'],2)}}</td>
+                            <td class="row-font1 fw-bold text-end" >{{number_format($data['gross_payable'],2)}}</td>
                         </tr>
                         </tbody>
                     </table>

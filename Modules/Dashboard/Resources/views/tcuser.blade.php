@@ -10,7 +10,7 @@
         <!-- Tabs content -->
         <div class="d-flex justify-content bg-white mt-4 mb-2">
             <div class="d-flex">
-                <div class="scorecard-title">Automation Scorecard &amp; Documents</div>
+                <div class="qf-title-lg">Automation Scorecard &amp; Documents</div>
             </div>
         </div>
         <div class="bgc">
@@ -314,24 +314,29 @@
                                 <input class="form-control p-2 bg-transparent" type="text" name="bordox_no" placeholder="Enter Bordox Number" value="Not Use Now" disabled>
                             </div>
                         </div>--}}
-                        <div class="col-lg-4 col-sm-4 mt-3">
-                            <label class="">Comment</label>
+                        <div class="col-lg-3 col-sm-4 mt-3">
+                            <!-- <label class="">Comment</label> -->
                             <div class="input-group mb-3">
                                 <input class="form-control p-2 bg-transparent" type="text" name="kyc_comment" placeholder="Enter Comment" >
                                 @component('components.ajax-error',['field'=>'kyc_comment'])@endcomponent
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-4 mt-3">
-                            <label class="">Status</label>
+                        <div class="col-lg-3 col-sm-4 mt-3 d-flex align-bottom">
+                            <!-- <label class="">Status</label> -->
                             <div class="input-group my-2">
                                 <div class="col-sm-4">
-                                    <label class="radio-inline">
-                                        <input type="radio" class="form-check-input" name="kyc_status" value="1">&nbsp; Approve
+                                    <label class="radio-inline d-flex justify-content-center">
+                                        <input type="radio" class="qf-radio-sm" name="kyc_status" value="1"><span class="mb-2">
+                                        &nbsp; Approve
+                                        </span>
                                     </label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <label class="radio-inline">
-                                        <input type="radio" class="form-check-input" name="kyc_status" value="0">&nbsp; Reject
+                                    <label class="radio-inline d-flex justify-content-center">
+                                        <input type="radio" class="qf-radio-sm" name="kyc_status" value="0">
+                                        <span class="mb-2">
+                                             &nbsp; Reject
+                                        </span>
                                     </label>
                                 </div>
                                 @component('components.ajax-error',['field'=>'kyc_status'])@endcomponent
@@ -340,10 +345,10 @@
                         </div>
                         <div class="col-lg-4 col-sm-4 mt-3">
                         <div class="text-center  ">
-                            <button type="submit" class="btn btn-secondary px-5 fw-bold text-capitalize m-0"
+                            <button type="submit" class="btn qf-primary-btn px-5 fw-bold text-capitalize m-0"
 
 									>Update</button>
-                            <a href="{{route('dashboard.index')}}" class="btn btn-secondary px-5 fw-bold text-capitalize m-0">Back</a>
+                            <a href="{{route('dashboard.index')}}" class="btn qf-secondary-btn px-5 fw-bold text-capitalize m-0">Back</a>
                         </div>
                     </div>
                     </div>
