@@ -7,21 +7,21 @@
                 <div class="col-md-7 p-5 login_bg_block">
 					<img src="./assets/img/forex_new/QF-logo.png"
                          style="width:100;" class="img-fluid float-start" alt="Sample image"><div class="clearfix"></div>
-					
+
 					<h1 class="float-start mt-5 fw-bold text-white login_text">The World's Largest<br>
 						Online Foreign Exchange</h1>
                 </div>
                 <div class="col-md-5 login_form_block">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        
+
                         <div class="my-4">
                             <p class="text-center fw-bold mx-3 mb-0 fs-2 text-blue">Welcome To QFX Portals</p>
                             <p class="text-center text-muted">Enter your email and password to access Branch panel.</p>
                         </div>
                         <!-- Email input -->
                         <div class="row justify-content-center">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 @if (Session::has('message'))
                                     <div class="alert alert-success" role="alert">
                                         {{ Session::get('message') }}
@@ -36,13 +36,13 @@
                                             <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
-                                    
+
                                 </div>
                             </div>
                             <!-- Password input -->
                         </div>
                         <div class="row justify-content-center">
-                            <div class="col-md-6 mt-2 mb-4">
+                            <div class="col-md-7 mt-2 mb-4">
                                 <label class="form-label" style="display:none;"></label>
                                 <div class="input-group flex-nowrap">
                                     <input type="password" class="form-control border-end-0 " id="password" placeholder="Enter password" aria-label="Password" aria-describedby="addon-wrapping"
@@ -71,7 +71,7 @@
                                             Remember
                                         </label>
                                     </div>
-                                    <a onclick="openForgotPassModal()" class="text-body text-decoration-none"
+                                    <a onclick="openForgotPassModal()" role='button' class="text-body text-decoration-none"
                                        style="color: #0076BF !important; font-size:13px;font-weight:600;">Forgot password?</a>
                                 </div>
                                 <div class="text-center text-lg-start mt-4 pt-2">

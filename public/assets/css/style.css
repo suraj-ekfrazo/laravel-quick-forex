@@ -1192,7 +1192,23 @@ table tr {
 .bgc-model {
     padding: 9px;
     border-radius: 15px;
-    background-color: rgb(238, 241, 245);
+    background-color: #F9F9F9;
+    box-shadow: 0px 0px 15px 0px rgba(7, 116, 187, 0.15);
+}
+tbody tr.bgc-model {
+    background-color: #666666;
+}
+tbody tr.bgc-model th *,
+tbody tr.bgc-model td *,
+tbody tr.bgc-model td,
+tbody tr.bgc-model th {
+  color: #fff !important;
+}
+tbody tr.bgc-model td.row-font1.fw-bold.text-start {
+   float: none !important;
+}
+tbody tr.bgc-model td.row-font1.fw-bold.text-start:last-child {
+    text-align: right !important;
 }
 
 .text-color {
@@ -1236,6 +1252,7 @@ table tr {
     height: 30px;
     color: #ed5101 !important;
     width: 4px;
+    display: none;
 }
 
 .badge-c {
@@ -2082,9 +2099,47 @@ h1.login_text {
     box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15);
     border: none;
 }
+.qf-radio-lab-sm{
+    display: flex;
+    align-items: center;
+}
 .form-check-input[type="radio"]:before {
     height: 30px !important;
     width: 30px !important;
+}
+
+.modal-body .input-group input.qf-radio-btn-sm {
+    height: 25px !important;
+    width: 25px !important;
+    padding: 0px !important;
+    display: inline-block;
+    background: #fff !important;
+    border-radius: 50px !important;
+    /* box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15); */
+    box-shadow: none !important;
+    border: 1px solid #3b71ca;
+}
+
+.form-check-input[type="radio"].qf-radio-btn-sm:before {
+    height: 25px !important;
+    width: 25px;
+}
+.form-check-input[type="radio"].qf-radio-btn-sm:focus {
+    box-shadow: none !important;
+}
+
+.form-check-input[type=radio]:after {
+    background-color: #fff0 !important;
+}
+
+.form-check-input[type=radio]:checked:after {
+    background-color: #3b71ca !important;
+}
+
+.qf-label {
+    margin-top: 4px;
+    margin-left: 5px;
+    display: inline-block;
 }
 
 a.bg-danger:focus,
@@ -4614,7 +4669,6 @@ th.kyc-auto-table-head {
     font-size: 32px;
     font-weight: 600;
     color: #0774bb;
-    margin-bottom: 2rem;
 }
 
 .scorecard-title {
@@ -4676,6 +4730,7 @@ button.swal-button.swal-button--cancel {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 15px;
 }
 
 .btn.btn-primary,
@@ -4700,10 +4755,18 @@ button.qf-primary-btn {
     border: none;
     border-radius: 50px  !important;
     padding: 10px 20px !important;
-    color: #fff !important;
     width: max-content !important;
     border: 1px solid #0075be !important;
     color: #0075be !important;
+    text-decoration: none !important;
+    transition: all .2s ease;
+}
+.qf-secondary-btn.disabled {
+   opacity: 0.5;
+}
+.qf-secondary-btn:hover {
+    color: #fff !important;
+    background-color: #0075be;
 }
 .qf-secondary-btn.btn_view_kyc_doc {
     padding: 5px 20px !important;
@@ -4716,6 +4779,12 @@ button.qf-primary-btn {
     height: auto;
     min-width: 252px !important;
     box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15);
+}
+
+.payment_p-view--wrap{
+    width: 100%;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
 }
 
 .form-control.qf-secondary-input,
@@ -4975,9 +5044,20 @@ th.dataTables_empty:first-child {
     content: "\f1f8";
     color: #ff0c0c;
 }
-/* #admin-users-table_wrapper .fa-solid.fa-trash::before{
-    color: #ff0c0c;
-} */
+#forgotPasswordModal .modal-header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#forgotPasswordModal .modal-header .btn-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+#forgotPasswordModal .form-control[type="email"]{
+    box-shadow: 0px 0px 15px 0px rgba(7, 116, 187, 0.15);
+    border: 1px solid #ccc;
+}
 
 @media (max-width: 768px) {
     .qf-users-container {

@@ -896,7 +896,7 @@
 
                 <div class="d-flex justify-content-between pt-4 pb-1">
                     <div class="d-flex">
-                        <div class="qf-title-lg">Currency Details</div>
+                        <div class="qf-title-lg mb-4">Currency Details</div>
                     </div>
                 </div>
                 <div class="agent-curr-det-container">
@@ -1077,8 +1077,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex  pb-3 ">
-                    <div class="border-heading"></div>
-                    <div class="ps-1 fw-bold">Transaction Details</div>
+                    <div class="qf-title-lg">Transaction Details</div>
                     <div class="ml-auto">
                         <button class="btn-print  "> <img src="./assets/img/dashboard/svg/ic-print.svg"
                                 class="mb-1 me-1" alt=""> Print</button>
@@ -1848,8 +1847,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex  pb-3 ">
-                    <div class="border-heading"></div>
-                    <div class="ps-1 fw-bold">Transaction Details</div>
+                    <div class="qf-title-lg">Transaction Details</div>
                     <div class="ml-auto ">
                         <button class="btn-print  "> <img src="./assets/img/dashboard/svg/ic-print.svg"
                                 class="mb-1 me-1" alt=""> Print</button>
@@ -2007,8 +2005,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex  pb-3 ">
-                    <div class="border-heading"></div>
-                    <div class="ps-1 fw-bold">Transaction Details</div>
+                    <div class="qf-title-lg">Transaction Details</div>
                     <div class="ml-auto">
                         <button class="btn-print  "> <img src="./assets/img/dashboard/svg/ic-print.svg"
                                 class="mb-1 me-1" alt=""> Print</button>

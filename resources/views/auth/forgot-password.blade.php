@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <form action="{{ route('forgot') }}" method="post" class="form form-vertical forgot-password-form" id="forgot-password-form">
                     <div class="row">
-                        <div class="col-md-6 col-lg-6  mt-3">
+                        <div class="col-md-6 col-lg-12  mt-3">
                             <label class="d-none">Email*</label>
                             <div class="input-group mb-3">
                                 <input class="form-control p-2" type="email" name="email" placeholder="Enter Email">
