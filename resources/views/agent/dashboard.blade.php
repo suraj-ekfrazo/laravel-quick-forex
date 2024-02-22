@@ -847,7 +847,7 @@
         <div class="container">
             <div class="d-flex justify-content-center gap-3">
                 <div class="  mt-4 pt-2 text-center">
-                    <div type="button" class="qf-primary-btn btn-block " id="print-data">
+                    <div type="button" class="qf-secondary-btn btn-block " id="print-data">
                         <span class=" text-capitalize">Print</span>
                     </div>
                 </div>

@@ -136,12 +136,12 @@
                 <div class="container">
                     <div class="d-flex justify-content-center gap-3">
                         <div class="  mt-4 pt-2 text-center">
-                            <div type="button" class="btn btn-secondary btn-block " >
+                            <div type="button" class="btn qf-secondary-btn " >
                                 <span class=" text-capitalize">Print</span>
                             </div>
                         </div>
                         <div class="  mt-4 pt-2 text-center">
-                            <div type="button" class="btn btn-secondary btn-block " >
+                            <div type="button" class="btn qf-primary-btn " >
                             <span class=" text-capitalize">Download
                               </span>
                             </div>

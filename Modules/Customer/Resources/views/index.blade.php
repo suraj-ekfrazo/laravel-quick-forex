@@ -37,13 +37,13 @@
         <div class="container">
             <div class="d-flex justify-content-center gap-3">
                 <div class="mt-4 pt-2 text-center">
-                    <div type="button" class="btn btn-rounded-outlined" id="print-data">
+                    <div type="button" class="btn qf-secondary-btn" id="print-data">
                         <span class=" text-capitalize">Print</span>
                     </div>
                 </div>
                 <div class="  mt-4 pt-2 text-center">
                     <a href="{{ route('admincustomer.export') }}">
-                        <div type="button" class="btn btn-rounded" >
+                        <div type="button" class="btn qf-primary-btn" >
                             <span class=" text-capitalize">Download
                             </span>
                         </div>

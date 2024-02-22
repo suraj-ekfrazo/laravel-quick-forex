@@ -11,21 +11,21 @@
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Source Name*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" name="source_name" type="text" placeholder="Enter Purpose Name">
+                            <input class="form-control qf-shadow-input" name="source_name" type="text" placeholder="Enter Purpose Name">
                             @component('components.ajax-error',['field'=>'source_name'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">TCS Rate %*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" name="tcs_rate" type="number" step="0.01" min="0" placeholder="Enter TCS">
+                            <input class="form-control qf-shadow-input" name="tcs_rate" type="number" step="0.01" min="0" placeholder="Enter TCS">
                             @component('components.ajax-error',['field'=>'tcs_rate'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Exempt*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="number" name="exempt" min="0" placeholder="Enter Exempt">
+                            <input class="form-control qf-shadow-input" type="number" name="exempt" min="0" placeholder="Enter Exempt">
                             @component('components.ajax-error',['field'=>'exempt'])@endcomponent
                         </div>
                     </div>

@@ -11,42 +11,42 @@
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">First Name*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" name="first_name" type="text" placeholder="Enter First Name">
+                            <input class="form-control qf-shadow-input" name="first_name" type="text" placeholder="Enter First Name">
                             @component('components.ajax-error',['field'=>'first_name'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Last Name*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="text" name="last_name" placeholder="Enter Last Name">
+                            <input class="form-control qf-shadow-input" type="text" name="last_name" placeholder="Enter Last Name">
                             @component('components.ajax-error',['field'=>'last_name'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Email*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" name="email" type="email" placeholder="Enter Email">
+                            <input class="form-control qf-shadow-input" name="email" type="email" placeholder="Enter Email">
                             @component('components.ajax-error',['field'=>'email'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Mobile Number*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="tel" name="mobile" maxlength="10" placeholder="Enter Mobile Number">
+                            <input class="form-control qf-shadow-input" type="tel" name="mobile" maxlength="10" placeholder="Enter Mobile Number">
                             @component('components.ajax-error',['field'=>'mobile'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Branch Name*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="text" name="branch_name" placeholder="Enter Branch Name">
+                            <input class="form-control qf-shadow-input" type="text" name="branch_name" placeholder="Enter Branch Name">
                             @component('components.ajax-error',['field'=>'branch_name'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Password*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="password" name="password" placeholder="Enter password">
+                            <input class="form-control qf-shadow-input" type="password" name="password" placeholder="Enter password">
                             @component('components.ajax-error',['field'=>'password'])@endcomponent
                         </div>
                     </div>

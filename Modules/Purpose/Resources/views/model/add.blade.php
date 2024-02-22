@@ -11,22 +11,22 @@
                         <div class="col-md-6 col-lg-6 mt-3">
                             <label class="d-none">Purpose Name*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control p-2" name="purpose_name" type="text" placeholder="Enter Purpose Name">
+                                <input class="form-control qf-shadow-input" name="purpose_name" type="text" placeholder="Enter Purpose Name">
                                 @component('components.ajax-error',['field'=>'purpose_name'])@endcomponent
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 mt-3">
                             <label class="d-none">Purpose Code*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control p-2" type="text" name="purpose_code" maxlength="7" placeholder="Enter Purpose Code">
+                                <input class="form-control qf-shadow-input" type="text" name="purpose_code" maxlength="7" placeholder="Enter Purpose Code">
                                 @component('components.ajax-error',['field'=>'purpose_code'])@endcomponent
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-12 mt-3">
-                            <div class=" bgc-model m-2" style="background:transparent;">
+                            <div class="bgc-model-t m-2" style="background:transparent;">
                                 <div class="row ">
                                     <div class=" ">
-                                        <p class="fw-bold text-dark">Required Documents</p>
+                                        <p class="fw-bold qf-title-md col-black">Required Documents</p>
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
                                 <?php $checkedArr = ['other','a2form','pan_card'] ?>
                                 @foreach($dataDocuments as $val)
                                     <div class="col-md-6">
-                                        <div class=" bgc-model m-2">
+                                        <div class=" bgc-model-select m-2">
                                             <li class=" list-unstyled m-2 ">
                                                 <label for="documents-{{$val['id']}}" class="m-0">{{$val['document_value']}}</label>
                                                 <input type="checkbox" class="float-end mt-1 larger" name="documents[]" id="documents-{{$val['id']}}" value="{{$val['id']}}" <?= in_array($val['document_name'],$checkedArr) ? "checked":""?>>

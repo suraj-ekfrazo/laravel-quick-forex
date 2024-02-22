@@ -59,10 +59,10 @@
             </div>
            {{-- <div class="d-flex justify-content-center gap-3">
                 <div class="text-center pt-3 pb-3">
-                    <a  href="#" class="text-white"><button type="button" class="btn btn-secondary px-5 fw-bold text-capitalize" >Back</button></a>
+                    <a  href="#" class="text-white"><button type="button" class="btn qf-secondary-btn px-5 fw-bold text-capitalize" >Back</button></a>
                 </div>
                 <div class="text-center pt-3 pb-3">
-                    <a  href="#" class="text-white"><button type="button" class="btn btn-secondary px-5 fw-bold text-capitalize" >Confirm
+                    <a  href="#" class="text-white"><button type="button" class="btn qf-primary-btn px-5 fw-bold text-capitalize" >Confirm
                         </button></a>
                 </div>
             </div>--}}

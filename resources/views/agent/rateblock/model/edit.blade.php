@@ -10,7 +10,7 @@
                 <table class="table roundedTable text-center">
                     <thead>
                         <tr class="bgc-table row-font1">
-							
+
                             <th scope="col" class="fw-bold">Select</th>
 							<th scope="col" class="fw-bold">Reference Number</th>
                             <th scope="col" class="fw-bold">FX Currency</th>
@@ -54,7 +54,7 @@
                     <div class="col-md-6 col-lg-6 mt-4">
                         <label class="">Branch Margin*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="number" name="branch_margin" id="branch_margin"
+                            <input class="form-control qf-shadow-input" type="number" name="branch_margin" id="branch_margin"
                                    step="0.01" placeholder="Enter Branch Margin">
                             @component('components.ajax-error',['field'=>'branch_margin'])@endcomponent
                         </div>
@@ -62,13 +62,13 @@
                     <div class="col-md-6 col-lg-6 mt-4">
                         <label class="">Agent commission</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="number" name="agent_commission" step="0.01"
+                            <input class="form-control qf-shadow-input" type="number" name="agent_commission" step="0.01"
                                    placeholder="Enter Agent commission">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer text-center mt-3">
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn qf-primary-btn">
                 </div>
                 </form>
             </div>
@@ -95,7 +95,7 @@
                 /*$(this).attr("disabled", false);*/
                 if (result.type === 'SUCCESS') {
                     toastr.success(result.message);
-                    $('.modal').modal('hide');                    
+                    $('.modal').modal('hide');
                     addCurrency(result.data);
                 } else {
                     toastr.error(result.message);

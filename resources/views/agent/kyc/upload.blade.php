@@ -25,8 +25,6 @@
                 <div class="modal-body">
                     <div class=" bgc-model m-2 p-3">
                         <div class="row ">
-
-
                             <div class="col-md-3 col-sm-6">
                                 <p class="text-color">Transaction Number
                                 </p>
@@ -96,7 +94,7 @@
                                                 </div>
                                                 <div class="text-center">
                                                     <button type="button qf-secondary-btn"
-                                                        class="btn btn-secondary fw-bold btn_view_kyc_doc text-capitalize"
+                                                        class="btn fw-bold btn_view_kyc_doc text-capitalize"
                                                         onclick="readFile('{{ $doc->document_name }}')"><i
                                                         class="fa-solid fa-eye "></i> View</button>
                                                 </div>
@@ -127,7 +125,7 @@
                                             </div>
                                         <div class="text-center">
                                             <button type="button"
-                                                class="btn btn-secondary fw-bold btn_view_kyc_doc text-capitalize  qf-secondary-btn"
+                                                class="btn fw-bold btn_view_kyc_doc text-capitalize  qf-secondary-btn"
                                                 onclick="readFile('{{ $doc->document_name }}')"><i
                                                     class="fa-solid fa-eye "></i> View</button>
                                         </div>

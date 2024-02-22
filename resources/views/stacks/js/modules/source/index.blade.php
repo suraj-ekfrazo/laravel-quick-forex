@@ -20,7 +20,7 @@ $(function () {
             },
             {
                 "targets": [2],
-                className: 'dt-body-right',
+                className: 'dt-body-rightt',
                 render: function (data, type, full, meta) {
                     return "&#8377;"+full.exempt;
                 }
