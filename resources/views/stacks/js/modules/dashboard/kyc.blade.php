@@ -138,16 +138,15 @@
 
 
 	$('#updateDocForm').submit(function(event) {
-		var valueData = document.querySelector('input[name="kyc_status"]:checked').value;
+		event.preventDefault();
 
-
-
-
-        event.preventDefault();
+        var valueData = $('input[name="kyc_status"]').val();
+       
         $('.status_error').html('');
         var check = $('input[name=kyc_status]').is(':checked');
+        var doc_commnetStatus = false;
 
-        if (check) {
+        if ($('input[name="kyc_status"]').is(':checked')) {
 
             swal({
                 title: "Are you sure you want to perform this action?",
@@ -159,50 +158,61 @@
             }).then((willDelete) => {
                 if (willDelete) {
                     var typesArray = [];
-            var typesA = [];
-            var commentArray = [];
-            var types = '';
-            var id = $('.datas').val();
-            $('.datas').each(function() {
-                var key = $(this).attr('data-key');
-                var comment = $('#textarea_' + key).val();
-                var checked = $(this).is(':checked');
-                var obj = {
-                    type: key,
-                    comment: comment,
-                    checked: checked
-                };
-                typesArray.push(obj);
+                    var typesA = [];
+                    var commentArray = [];
+                    var types = '';
+                    var id = $('.datas').val();
+                    $('.datas').each(function() {
+                        var key = $(this).attr('data-key');
+                        var comment = $('#textarea_' + key).val();
+                        var checked = $(this).is(':checked');
+                        var doc_status = $('#doc_status_' + key).attr('data-docStatus');
 
-            });
+                        var obj = {
+                            type: key,
+                            comment: comment,
+                            checked: checked
+                        };
+                        typesArray.push(obj);
 
-            $.ajax({
-                type: 'POST',
-                url: '{{ route('dashboard.kyc-multiple-update-document-status') }}',
-                data: {
-                    id: id,
-                    typesArray: typesArray,
+                        console.log(checked+"-"+doc_status+"-"+comment.length);
 
-                    status: valueData == '1' ? 1 : 2,
-                    comment: $('input[name=kyc_comment]').val(),
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(data) {
-                    if (data.status == true) {
-                       location.reload();
-                    } else {
+                        if (checked !== true && doc_status != "1" && comment.trim() == "") {
+                            doc_commnetStatus = true;
+                            $(".invalid-feedback.ajax-error." + key + "_comment").html('<strong>Please update commnet.</strong>');
+                        }
+                    });
+
+                    if (doc_commnetStatus !== true) {
+                        
+                        $.ajax({
+                            type: 'POST',
+                            url: '{{ route('dashboard.kyc-multiple-update-document-status') }}',
+                            data: {
+                                id: id,
+                                typesArray: typesArray,
+
+                                status: valueData == '1' ? 1 : 2,
+                                comment: $('input[name=kyc_comment]').val(),
+                                _token: '{{ csrf_token() }}'
+                            },
+                            success: function(data) {
+                                if (data.status == true) {
+                                    location.reload();
+                                } else {
+                                }
+                            }
+                        });
                     }
-                }
-            });
                 }
             });
 
         } else {
 
             $('.status_error').html('Please Select Status');
-            setTimeout(function() {
-                $('.status_error').html('');
-            }, 2000);
+            // setTimeout(function() {
+            //     $('.status_error').html('');
+            // }, 2000);
         }
     });
 </script>

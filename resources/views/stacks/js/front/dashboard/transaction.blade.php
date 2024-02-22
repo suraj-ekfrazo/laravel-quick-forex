@@ -166,7 +166,7 @@ $('.save-incidents-form').submit(function(event) {
         var currentDate = new Date();
         var currentHour = currentDate.getHours();
         var currentMinute = currentDate.getMinutes();
-        // if (currentHour >= 10 && currentHour < 18) {
+        if (currentHour >= 10 && currentHour < 18) {
             swal({
                 title: "Please conform selected beneficiary county",
                 text: "",
@@ -223,17 +223,17 @@ $('.save-incidents-form').submit(function(event) {
                     }
                 }
             });
-        // } else {
-        //     swal({
-        //         title: "You can rate block between 10.00 AM to 05:00 PM time",
-        //         text: "",
-        //         icon: "error",
-        //         buttons: true,
-        //         dangerMode: true,
-        //         buttons:"OK",
-        //         })
-        //         .then((result) => {});
-        // }
+        } else {
+            swal({
+                title: "You can rate block between 10.00 AM to 05:00 PM time",
+                text: "",
+                icon: "error",
+                buttons: true,
+                dangerMode: true,
+                buttons:"OK",
+                })
+                .then((result) => {});
+        }
     });
 
     function isSpecialKey(evt) {

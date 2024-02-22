@@ -243,12 +243,11 @@
                                         <div class="btn-group">
                                             @if($txnKyc)
                                            		@if($txnKyc->$status == "1")
-														<span class="badge badge-pill  badge-success comn-approved-btn comn-status-btn">Approve</span>
+													<span class="badge badge-pill badge-success comn-approved-btn comn-status-btn" id="doc_status_{{$key}}" data-docStatus = "1">Approve</span>
 												@elseif($txnKyc->$status == "2")
-														<span class="badge status-danger comn-status-bt comn-status-btnn">Reject</span>
+													<span class="badge status-danger comn-status-bt comn-status-btnn" id="doc_status_{{$key}}" data-docStatus = "2">Reject</span>
 												@else
-														<span class="badge status-warning comn-status-btn comn-status-btn">Pending</span>
-
+													<span class="badge status-warning comn-status-btn comn-status-btn" id="doc_status_{{$key}}" data-docStatus = "0">Pending</span>
 												@endif
                                             @endif
                                         </div>
@@ -368,9 +367,39 @@
     @include('stacks.js.modules.dashboard.kyc')
 
     <script>
-       $('#checkAll').click(function() {
+        $('#checkAll').click(function() {
+            $('input[name="kyc_status"]').prop('checked', false);
             $('.datas').not(this).prop('checked', this.checked);
-      });
+        });
+
+        $(".datas").change(function() {
+            $('input[name="kyc_status"]').prop('checked', false);
+            if ($(this).prop('checked') !== true){ 
+                $("#checkAll").prop('checked', false);
+            }
+            if ($('.datas:checked').length == $('.datas').length) {
+                $("#checkAll").prop('checked', true);
+            }else{
+                $("#checkAll").prop('checked', false);
+                $('input[name="kyc_status"]').prop('checked', false);
+            }
+        });
+
+        $('input[name="kyc_status"]').change(function(){
+            
+            if ($(this).val() == 1 && $('.datas:checked').length != $('.datas').length) {
+                swal({
+                    title: "Document approval is pending",
+                    text: "",
+                    icon: "error",
+                    buttons: true,
+                    dangerMode: true,
+                    buttons:"OK",
+                }).then((result) => {});
+                $(this).prop('checked', false);
+            }
+        });
+
     </script>
 
 @endpush
