@@ -12,35 +12,35 @@
                         <label class="d-none">First Name*</label>
                         {{--<input type="hidden" name="id" value="{{$data['id']}}">--}}
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" name="first_name" type="text" placeholder="Enter First Name" value="{{$data['first_name']}}">
+                            <input class="form-control qf-shadow-input" name="first_name" type="text" placeholder="Enter First Name" value="{{$data['first_name']}}">
                             @component('components.ajax-error',['field'=>'first_name'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Last Name*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="text" name="last_name" placeholder="Enter Last Name" value="{{$data['last_name']}}">
+                            <input class="form-control qf-shadow-input" type="text" name="last_name" placeholder="Enter Last Name" value="{{$data['last_name']}}">
                             @component('components.ajax-error',['field'=>'last_name'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Email*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" name="email" type="email" placeholder="Enter Email" value="{{$data['email']}}">
+                            <input class="form-control qf-shadow-input" name="email" type="email" placeholder="Enter Email" value="{{$data['email']}}">
                             @component('components.ajax-error',['field'=>'email'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Mobile Number*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="tel" name="mobile" placeholder="Enter Mobile Number" maxlength="10" value="{{$data['mobile']}}">
+                            <input class="form-control qf-shadow-input" type="tel" name="mobile" placeholder="Enter Mobile Number" maxlength="10" value="{{$data['mobile']}}">
                             @component('components.ajax-error',['field'=>'mobile'])@endcomponent
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 mt-3">
                         <label class="d-none">Branch Name*</label>
                         <div class="input-group mb-3">
-                            <input class="form-control p-2" type="text" name="branch_name" placeholder="Enter Branch Name" value="{{$data['branch_name']}}">
+                            <input class="form-control qf-shadow-input" type="text" name="branch_name" placeholder="Enter Branch Name" value="{{$data['branch_name']}}">
                             @component('components.ajax-error',['field'=>'branch_name'])@endcomponent
                         </div>
                     </div>

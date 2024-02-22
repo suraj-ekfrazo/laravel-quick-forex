@@ -12,35 +12,35 @@
                         <div class="col-md-6 col-lg-6  mt-3">
                             <label class="d-none">Name*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control  p-2" type="text" name="name" value="{{$data['name']}}" placeholder="Enter Name">
+                                <input class="form-control  qf-shadow-input" type="text" name="name" value="{{$data['name']}}" placeholder="Enter Name">
                                 @component('components.ajax-error',['field'=>'name'])@endcomponent
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6  mt-3">
                             <label class="d-none">Mobile Number*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control p-2" type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" value="{{$data['mobile_no']}}" maxlength="16" name="mobile_no" placeholder="Enter Mobile Number">
+                                <input class="form-control qf-shadow-input" type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" value="{{$data['mobile_no']}}" maxlength="16" name="mobile_no" placeholder="Enter Mobile Number">
                                 @component('components.ajax-error',['field'=>'mobile_no'])@endcomponent
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6  mt-3">
                             <label class="d-none">Email Id*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control p-2" type="text" name="email" placeholder="Enter Email Id" value="{{$data['email']}}">
+                                <input class="form-control qf-shadow-input" type="text" name="email" placeholder="Enter Email Id" value="{{$data['email']}}">
                                 @component('components.ajax-error',['field'=>'email'])@endcomponent
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6  mt-3">
                             <label class="d-none">User Name*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control p-2" type="text" name="user_name" placeholder="Enter User Name" value="{{$data['user_name']}}">
+                                <input class="form-control qf-shadow-input" type="text" name="user_name" placeholder="Enter User Name" value="{{$data['user_name']}}">
                                 @component('components.ajax-error',['field'=>'user_name'])@endcomponent
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6  mt-3">
                             <label class="d-none">Password*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control p-2" type="password" name="password" placeholder="Enter Password">
+                                <input class="form-control qf-shadow-input" type="password" name="password" placeholder="Enter Password">
                                 @component('components.ajax-error',['field'=>'password'])@endcomponent
                             </div>
                         </div>

@@ -12,14 +12,14 @@
                         <div class="col-md-12 col-lg-12  mt-3">
                             <label class="d-none">Customer Name*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control  p-2 qf-comn-input" type="text" name="name" placeholder="Enter Customer/Agent Name">
+                                <input class="form-control qf-shadow-input" type="text" name="name" placeholder="Enter Customer/Agent Name">
                                 @component('components.ajax-error',['field'=>'name'])@endcomponent
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-12  mt-3">
                             <label class="d-none">Mobile Number*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control p-2 qf-comn-input" type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="16" name="mobile" placeholder="Enter Mobile Number">
+                                <input class="form-control qf-shadow-input" type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="16" name="mobile" placeholder="Enter Mobile Number">
                                 @component('components.ajax-error',['field'=>'mobile'])@endcomponent
                             </div>
                         </div>

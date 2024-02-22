@@ -6,7 +6,7 @@
             box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
         }
     </style>
-    <div class="container mt-5 pt-5 bg-white">
+    <div class="container mt-5 pt-5 bg-white view-kyc-doc-main">
         <!-- Tabs content -->
         <div class="d-flex justify-content bg-white mt-4 mb-2">
             <div class="d-flex">
@@ -15,40 +15,40 @@
         </div>
         <div class="bgc">
             <div class="row">
-                <div class="col-lg-4 col-sm-4 mt-3">
+                <div class="col-lg-4 col-sm-4 mt-3 text-center">
                     <label class="">Transaction Number</label>
                     <div class="input-group mb-3">
-                        <input class="form-control  p-2 bg-transparent" type="text" placeholder="Enter Incident Number" readonly="" value="{{$txnData->txn_number}}">
+                        <input class="form-control  p-2 bg-transparent text-center" type="text" placeholder="Enter Incident Number" readonly="" value="{{$txnData->txn_number}}">
                     </div>
                 </div>
-                {{--<div class="col-lg-4 col-sm-4 mt-3">
+                {{--<div class="col-lg-4 col-sm-4 mt-3 text-center">
                     <label class="">Card Number</label>
                     <div class="input-group mb-3">
-                        <input class="form-control  p-2 bg-transparent" type="text" placeholder="Enter Card Number" readonly="" value="4833-1100-0000-0000">
+                        <input class="form-control  p-2 bg-transparent text-center" type="text" placeholder="Enter Card Number" readonly="" value="4833-1100-0000-0000">
                     </div>
                 </div>--}}
-                <div class="col-lg-4 col-sm-4 mt-3 ">
+                <div class="col-lg-4 col-sm-4 mt-3 text-center">
                     <label class="">Transaction Type</label>
                     <div class="input-group mb-3">
-                        <input class="form-control  p-2 bg-transparent" type="text" readonly="" value="{{ $txnData->txn_type==1 ? "Remittance":"Card" }}">
+                        <input class="form-control  p-2 bg-transparent text-center" type="text" readonly="" value="{{ $txnData->txn_type==1 ? "Remittance":"Card" }}">
                     </div>
                 </div>
-                {{--<div class="col-lg-4 col-sm-4 mt-3">
+                {{--<div class="col-lg-4 col-sm-4 mt-3 text-center">
                     <label class="">Buy/Sell</label>
                     <div class="input-group mb-3">
-                        <input class="form-control  p-2 bg-transparent" type="text" readonly="" value="Sell">
+                        <input class="form-control  p-2 bg-transparent text-center" type="text" readonly="" value="Sell">
                     </div>
                 </div>--}}
-                <div class="col-lg-4 col-sm-4 mt-3">
+                <div class="col-lg-4 col-sm-4 mt-3 text-center">
                     <label class="">Travel Type</label>
                     <div class="input-group mb-3">
-                        <input class="form-control  p-2 bg-transparent" type="text" readonly="" value="{{{$purposes->purpose_name}}}">
+                        <input class="form-control  p-2 bg-transparent text-center" type="text" readonly="" value="{{{$purposes->purpose_name}}}">
                     </div>
                 </div>
-                {{--<div class="col-lg-4 col-sm-4 mt-3">
+                {{--<div class="col-lg-4 col-sm-4 mt-3 text-center">
                     <label class="">Date of Departure</label>
                     <div class="input-group mb-3">
-                        <input class="form-control  p-2 bg-transparent" type="text" readonly="" value="24-11-2022">
+                        <input class="form-control  p-2 bg-transparent text-center" type="text" readonly="" value="24-11-2022">
                     </div>
                 </div>--}}
             </div>
@@ -140,7 +140,7 @@
             </div>
         </div>
         <div class="d-flex mt-5 mb-3">
-            <div class="scorecard-title"> Block Rate</div>
+            <div class="qf-title-lg"> Block Rate</div>
         </div>
         <form action="{{route('transactionkyc.update',['id'=>$txnData->txn_number])}}" novalidate="novalidate" id="updateDocForm">
             @csrf
@@ -232,7 +232,7 @@
                                                 @if($txnKyc->$status=="")
                                                     @php $tmp=1; @endphp
                                                 @endif
-                                            <textarea class="form-control comment w-100" id="textarea_{{$key}}" rows="2" name="<?= $key.'_comment' ?>" @if($txnKyc->$status!="") {{"disabled"}} @endif>{{!empty($txnKyc) ? $txnKyc->$comment :""}} </textarea>
+                                            <textarea class="form-control comment w-100 rounded-pill" id="textarea_{{$key}}" rows="2" name="<?= $key.'_comment' ?>" @if($txnKyc->$status!="") {{"disabled"}} @endif>{{!empty($txnKyc) ? $txnKyc->$comment :""}} </textarea>
                                         </div>
                                         @component('components.ajax-error',['field'=>"$key"."_comment"])@endcomponent
                                     </td>
@@ -317,24 +317,24 @@
                         <div class="col-lg-3 col-sm-4 mt-3">
                             <!-- <label class="">Comment</label> -->
                             <div class="input-group mb-3">
-                                <input class="form-control p-2 bg-transparent" type="text" name="kyc_comment" placeholder="Enter Comment" >
+                                <input class="form-control qf-secondary-input" type="text" name="kyc_comment" placeholder="Enter Comment" >
                                 @component('components.ajax-error',['field'=>'kyc_comment'])@endcomponent
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-4 mt-3 d-flex align-bottom">
                             <!-- <label class="">Status</label> -->
                             <div class="input-group my-2">
-                                <div class="col-sm-4">
-                                    <label class="radio-inline d-flex justify-content-center">
-                                        <input type="radio" class="qf-radio-sm" name="kyc_status" value="1"><span class="mb-2">
+                                <div class="col-sm-4 d-flex justify-content-center align-items-center">
+                                    <label class="radio-inline d-flex justify-content-center align-items-center">
+                                        <input type="radio" class="qf-radio-sm" name="kyc_status" value="1"><span class="">
                                         &nbsp; Approve
                                         </span>
                                     </label>
                                 </div>
-                                <div class="col-sm-4">
-                                    <label class="radio-inline d-flex justify-content-center">
+                                <div class="col-sm-4 d-flex justify-content-center align-items-center">
+                                    <label class="radio-inline d-flex justify-content-center align-items-center">
                                         <input type="radio" class="qf-radio-sm" name="kyc_status" value="0">
-                                        <span class="mb-2">
+                                        <span class="">
                                              &nbsp; Reject
                                         </span>
                                     </label>
@@ -345,7 +345,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-4 mt-3">
                         <div class="text-center  ">
-                            <button type="submit" class="btn qf-primary-btn px-5 fw-bold text-capitalize m-0"
+                            <button type="submit" class="btn qf-primary-btn px-5 fw-bold text-capitalize m-0 mr-2"
 
 									>Update</button>
                             <a href="{{route('dashboard.index')}}" class="btn qf-secondary-btn px-5 fw-bold text-capitalize m-0">Back</a>

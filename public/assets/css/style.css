@@ -218,6 +218,30 @@ input#payment_upload_document {
     color: #0075be !important;
 }
 
+.view-kyc-doc-main .scorecard-data-container table td,
+.view-kyc-doc-main .scorecard-data-container table th {
+    text-align: center !important;
+}
+.view-kyc-doc-main .scorecard-data-container .kyc-auto-table-footer  table td,
+.view-kyc-doc-main .scorecard-data-container .kyc-auto-table-footer  table th {
+    text-align: left !important;
+}
+.view-kyc-doc-main .scorecard-data-container table tr {
+    border-bottom: none !important;
+}
+.view-kyc-doc-main .scorecard-data-container table th {
+    font-size: 18px;
+    color: #0075be ;
+}
+.view-kyc-doc-main .scorecard-data-container .kyc-auto-table-footer table th {
+    font-size: 16px;
+    color: #000000 ;
+}
+
+.view-kyc-doc-main #example1_wrapper input[type=checkbox] {
+    accent-color: #fff;
+}
+
 .inputWithIcon {
     position: relative;
 }
@@ -264,6 +288,7 @@ table.dataTable tbody td {
     background-color: #0774bb !important;
 }
 
+th:first-child,
 td:first-child {
     padding: 0 10px 0 25px !important;
 }
@@ -662,6 +687,7 @@ table .comn-status-btn,
     background: #2b9f37 !important;
 }
 .status-danger,
+.status-danger1,
 .kyc-rejected-btn {
     background: #c70300 !important;
 }
@@ -1198,6 +1224,13 @@ table tr {
     background-color: #F9F9F9;
     box-shadow: 0px 0px 15px 0px rgba(7, 116, 187, 0.15);
 }
+.bgc-model-select {
+    padding: 9px;
+    border-radius: 50px;
+    background-color: #F9F9F9;
+    box-shadow: 0px 0px 15px 0px rgba(7, 116, 187, 0.15);
+}
+
 tbody tr.bgc-model {
     background-color: #666666;
 }
@@ -4745,6 +4778,16 @@ th.kyc-auto-table-head {
     font-weight: 600;
     color: #0774bb;
 }
+.qf-title-md {
+    font-size: 20px;
+    font-weight: 600;
+}
+.qf-title-md.col-black {
+    color: #333333;
+}
+.qf-title-md.col-blue {
+    color: #0774bb;
+}
 
 .scorecard-title {
     font-size: 32px;
@@ -4818,12 +4861,14 @@ button.qf-primary-btn {
 }
 
 .qf-primary-btn {
-    border: none;
-    border-radius: 50px;
-    padding: 10px 20px;
-    background-color: #0075be;
-    color: #fff;
-    width: max-content;
+    border: none !important;
+    border-radius: 50px !important;
+    padding: 10px 20px !important;
+    background-color: #0075be !important;
+    color: #fff !important;
+    width: max-content !important;
+    min-width: 135px;
+
 }
 
 .qf-secondary-btn {
@@ -4834,6 +4879,7 @@ button.qf-primary-btn {
     border: 1px solid #0075be !important;
     color: #0075be !important;
     text-decoration: none !important;
+    min-width: 135px;
     transition: all .2s ease;
 }
 .qf-secondary-btn.disabled {
@@ -4872,6 +4918,17 @@ button.qf-primary-btn {
     box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15);
 }
 
+.form-control.qf-shadow-input {
+    border-radius: 50px !important;
+    border: 1px solid transparent;
+    padding: 10px 40px 10px 20px;
+    height: auto;
+    min-width: 252px !important;
+    -webkit-box-shadow: -1px 5px 18px 0px rgba(0,0,0,0.19);
+    -moz-box-shadow: -1px 5px 18px 0px rgba(0,0,0,0.19);
+    box-shadow: -1px 5px 18px 0px rgba(0,0,0,0.19);
+}
+
 .form-control.qf-line-input {
     border: none;
     border-bottom: 1px solid #333;
@@ -4899,10 +4956,11 @@ button.qf-primary-btn {
 
 .form-control:disabled,
 .form-control[readonly] {
-    background-color: #d6e5ff !important;
-    border: 1px solid #8fb8fd !important;
+    background-color: #0075be !important;
+    border: 1px solid #0075be !important;
     pointer-events: none !important;
-    opacity: 0.6 !important;
+    /* opacity: 0.6 !important; */
+    color: #fff;
 }
 
 .select2-container--bootstrap-5 .select2-selection--single {
