@@ -367,7 +367,7 @@ class Dashboard extends Controller
     {
         $input = $request->all();
         /*$array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];*/
-        $query = RateBlock::with('getPurpose')->where('branch_id',Auth::guard('agent_users')->user()->id)
+        $query = RateBlock::with('getPurpose')->where('branch_id',Auth::guard('agent_users')->user()->id)->where('is_used',0)
                 ->whereNotNull('fx_rate');
 
 

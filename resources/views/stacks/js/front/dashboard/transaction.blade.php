@@ -273,7 +273,7 @@ $('.save-incidents-form').submit(function(event) {
         } else if(currencyLen === 0) {
             /*$("#addCurrency").prop('disabled', true);*/
             $("#selectDealRateBtn").prop('disabled', true);
-            $('#currencyError').html('Add min one currency.');
+            $('#currencyError').html('Trasaction details is missing'); 
             $('.fund-source-selected').html('The source field is required.');
         }
         return validate;

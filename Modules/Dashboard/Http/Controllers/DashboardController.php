@@ -488,7 +488,7 @@ class DashboardController extends Controller
     {
         $input = $request->all();
         /*$array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];*/
-        $query = RateBlock::with('getPurpose','getAgent')
+        $query = RateBlock::with('getPurpose','getAgent')->where('is_used',0)
         ->whereNotNull('fx_rate');
 
         if (isset($input['search']['value']) && !empty($input['search']['value'])) {
