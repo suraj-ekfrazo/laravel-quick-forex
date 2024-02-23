@@ -69,6 +69,16 @@
         }
     });
 
+    $("#pancard_no").keyup(function() {
+        var inputvalues = $(this).val();      
+        $(".invalid-feedback.ajax-error.pancard_no").html('');
+        var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;    
+        if(!regex.test(inputvalues) && inputvalues.length > 0){       
+            $(".invalid-feedback.ajax-error.pancard_no").html('<strong>Please Enter valid Pan Card No.</strong>');
+            return regex.test(inputvalues);    
+        }
+    });
+
     $(document).on('click', '#optionList li', function(e){
         var customer_name = $(this).attr('data-custname');
         var customer_mobile = $(this).attr('data-mobileNo');

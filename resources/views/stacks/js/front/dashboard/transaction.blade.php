@@ -168,7 +168,7 @@ $('.save-incidents-form').submit(function(event) {
         var currentMinute = currentDate.getMinutes();
         if (currentHour >= 10 && currentHour < 18) {
             swal({
-                title: "Please conform selected beneficiary county",
+                title: "Please confirm selected beneficiary county",
                 text: "",
                 icon: "success",
                 buttons: true,

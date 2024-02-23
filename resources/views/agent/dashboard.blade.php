@@ -216,8 +216,8 @@
                                         <div class="input-group mb-3">
                                             <select class="form-select qf-primary-select" name="txn_type"
                                                 id="txn_type_detail">
-                                                <option value="" selected>Select Transaction Type</option>
-                                                <option value="1">Remittance</option>
+                                                <option value="">Select Transaction Type</option>
+                                                <option value="1" selected>Remittance</option>
                                                 {{--<option value="Card">Card</option>--}}
                                             </select>
                                             @component('components.ajax-error',['field'=>'txn_type'])@endcomponent
@@ -449,7 +449,8 @@
                                     <div class="qf-select-wrap">
                                         <label class="">Beneficiary Ac Number / IBAN Code</label>
                                         <div class="input-group mb-3">
-                                            <input onkeypress="return isSpecialKey(event)"
+                                            <input onkeypress="return isSpecialKey(event)" 
+                                                oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                                                 class="form-control qf-secondary-input" type="text"
                                                 name="beneficiary_ac_number" id="beneficiary_ac_number"
                                                 placeholder="Enter Beneficiary Ac Number / IBAN Code">

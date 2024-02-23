@@ -49,7 +49,7 @@ class AuthController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect('/admin-login');
+        return redirect('/');
     }
 
     /**
