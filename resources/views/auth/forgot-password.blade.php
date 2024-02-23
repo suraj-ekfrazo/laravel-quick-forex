@@ -13,7 +13,7 @@
                         <div class="col-md-6 col-lg-12  mt-3">
                             <label class="d-none">Email*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control p-2" type="email" name="email" placeholder="Enter Email">
+                                <input class="form-control qf-shadow-input" type="email" name="email" placeholder="Enter Email">
                                 @component('components.ajax-error',['field'=>'email'])@endcomponent
                             </div>
                         </div>
