@@ -719,20 +719,25 @@
                     </thead>
                     <tbody class="currencyTable">
                     </tbody>
-                    <tfoot class="curr-sum-table" >
-                        <tr class="bgc">
-                            <td colspan="2"></td>
-                            <td class="qf-td-md q--pt-30px"><label>Total INR Value:</td>
+
+                </table>
+            </div>
+            <div class="charges-summary-wrap" >
+                <table class="table roundedTable">
+                    <tbody class="curr-sum-table" >
+                        <tr class="bgc tr" >
+                            <td style="width:40%"></td>
+                            <td class="qf-td-md fw-bold q--pt-30px"><label>Total INR Value:</td>
                             <td class="qf-td-md q--pt-30px">
-                                <label id="total_inr_value" class="text-black">₹0</label>
+                                <label id="total_inr_value" class="text-black fw-bold">₹0</label>
                                 <input onkeypress="return isSpecialKey(event)" type="hidden" id="net_amount_text_box"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="net_amount" value="0"
                                     class="form-control qf-line-input qf-td-md q--py-20px">
                             </td>
-                            <td colspan="2"></td>
+                            <td></td>
                         </tr>
                         <tr class="bgc">
-                            <td colspan="2"></td>
+                        <td style="width:40%"></td>
                             <td class="qf-td-base">Remit Charges:</td>
                             <td class="qf-td-base">
                                 <input onkeypress="return isSpecialKey(event)" type="text" id="remit_fees"
@@ -742,7 +747,7 @@
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
-                            <td colspan="2"></td>
+                        <td style="width:40%"></td>
                             <td class="qf-td-base">Nostro Charges:</td>
                             <td class="qf-td-base nostro_charge_msg">
                                 <input onkeypress="return isSpecialKey(event)"
@@ -754,7 +759,7 @@
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
-                            <td colspan="2"></td>
+                        <td style="width:40%"></td>
                             <td class="qf-td-base">Swift Charges:</td>
                             <td class="qf-td-base">
                                 <input onkeypress="return isSpecialKey(event)" type="text" id="swift_charges"
@@ -764,46 +769,56 @@
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
-                            <td colspan="2"></td>
+                        <td style="width:40%"></td>
                             <td><label class="qf-td-base">TCS:<span><i class="fa-solid fa-info-circle text-primary"
                                             title="If Loan – than TCS % 0.5% If any other– TCS applicable 5% TCS on amount above INR 7,00,000"></i></span></label>
                             </td>
                             <td class="qf-td-base">
                                 <label id="tcs_amount">₹0</label>
-                                <input onkeypress="return isSpecialKey(event)" type="hidden" id="tcs_amount_text_box"
+                                <input onkeypress="return isSpecialKey(event)" class="fw-bold" type="hidden" id="tcs_amount_text_box"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="amount_for_tcs"
                                     value="0" class="form-control qf-line-input qf-td-base">
                             </td>
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
-                            <td colspan="2"></td>
+                        <td style="width:40%"></td>
                             <td><label class="qf-td-base">GST:</label></td>
                             <td class="qf-td-base">
                                 <label id="gst_amount">₹0</label>
-                                <input onkeypress="return isSpecialKey(event)" type="hidden" id="gst"
+                                <input onkeypress="return isSpecialKey(event)" class="fw-bold" type="hidden" id="gst"
                                     oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="gst" value="0"
                                     class="form-control qf-line-input">
                             </td>
                             <td colspan="2"></td>
                         </tr>
                         <tr class="bgc">
-                            <td colspan="2"></td>
-                            <td class="qf-td-base">Total Payable Amount:</td>
+                        <td style="width:40%"></td>
+                            <td class="qf-td-base text-black fw-bold">Total Payable Amount:</td>
                             <td class="qf-td-base">
-                                <label id="total_payable_amount" class="text-black">₹0</label>
-                                <input onkeypress="return isSpecialKey(event)" type="hidden" id="gross_payable_text_box"
-                                    oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="gross_payable"
-                                    value="0" class="form-control qf-line-input qf-td-base">
+                                <label id="total_payable_amount" class="text-black fw-bold">₹0</label>
+                                <input onkeypress="return isSpecialKey(event)"
+                                       class="fw-bold"
+                                       type="hidden" id="gross_payable_text_box"
+                                       oninput="this.value=this.value.replace(/[^0-9]/g,'');"   name="gross_payable"
+                                       value="0" class="form-control qf-line-input qf-td-base">
                             </td>
                             <td colspan="2"></td>
                         </tr>
-                    </tfoot>
+                        <td style="width:40%"></td>
+                            <td class="qf-td-base"></td>
+                            <td class="qf-td-base">
+                                <button type="submit" class="qf-secondary-btn initiate-transaction-btn">
+                                  INITIATE TRANSACTION
+                               </button>
+                            </td>
+                            <td colspan="2"></td>
+                        </tr>
+                    </tbody>
                 </table>
-
             </div>
 
-            <div class="bgc pb-5 initiate-t-btn-wrapper">
+            <!-- <div class="bgc pb-5 initiate-t-btn-wrapper">
                 <div class="pb-4 ">
                     <div class="text-center float-end  ">
                         <button type="submit" class="qf-primary-btn">
@@ -814,7 +829,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </form>
         <!--
             <div class="text-center pt-5">

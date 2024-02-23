@@ -473,7 +473,7 @@ input {
 .login_form_block .invalid-feedback.d-block,
 .forgot_pw_block .input-group .invalid-feedback {
     margin-top: 3.2rem;
-    text-align: right;
+    text-align: left;
 }
 
 .forgot_pw_block .input-group .input-group-text,
@@ -1164,8 +1164,10 @@ button.bg-danger:hover {
 
 table td .new_btn_view,
 table td .new_btn_view:hover,
+table td .new_btn_view:focus,
 .btn-danger.new_btn_upload,
 .btn-danger.new_btn_upload:hover,
+.btn-danger.new_btn_upload:focus,
 .new_btn_upload,
 .new_btn_upload:hover {
     background: #fff !important;
@@ -1177,6 +1179,7 @@ table td .new_btn_view:hover,
     width: max-content;
     padding: 6px 14px !important;
     border: none !important;
+    text-decoration: none;
 }
 
 .btn-danger.new_btn_upload img,
@@ -1194,6 +1197,7 @@ table td .new_btn_view:hover,
 .download-btn-common:hover,
 .view-btn-common:hover{
     color: #d1d1d1;
+    text-decoration: none;
 }
 
 
@@ -4422,6 +4426,43 @@ button.close_btn {
     gap: 50px;
 }
 
+
+.charges-summary-wrap{
+    width: 86%;
+    border-collapse: collapse;
+    margin: auto;
+    border: 1px solid #0075be !important;
+    border-radius: 20px ;
+    box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15);
+    padding: 15px 10px;
+}
+.charges-summary-wrap .curr-sum-table .bgc{
+    border-bottom: none !important;
+}
+
+.curr-sum-table {
+    position: relative;
+    border-collapse: separate;
+}
+
+.initiate-transaction-btn{
+    margin-top: 20px;
+    background: #fff;
+}
+
+/* .curr-sum-table::after {
+    content: "";
+    display: block;
+
+} */
+
+.curr-sum-table > .bgc {
+    position: relative;
+    background: 0 !important;
+    z-index: 1;
+}
+
+
 .qf-users-container {
     display: flex;
     align-items: center;
@@ -5032,30 +5073,6 @@ button.qf-primary-btn {
     padding: 10px 50px;
 }
 
-.curr-sum-table {
-    position: relative;
-    border-collapse: separate;
-}
-
-.curr-sum-table::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #0075be !important;
-    border-radius: 20px !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    box-shadow: 0 0 15px 0 rgba(7, 116, 187, 0.15);
-    z-index: 0;
-}
-
-.curr-sum-table > .bgc {
-    position: relative;
-    background: 0 !important;
-    z-index: 1;
-}
 
 .agent-transaction-main .bgc-table {
     border-bottom: 0 !important;
