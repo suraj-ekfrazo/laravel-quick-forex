@@ -89,12 +89,13 @@ class RateBlockedController extends Controller
         }
     }
 
-    public function editDealRate(Request $request)
+    public function editDealRate(Request $request) 
     {
         $input = $request->all();
         $AuthId = Auth::guard('agent_users')->user()->id;
         $query = RateBlock::where('branch_id',$AuthId)
                 ->where('is_used',0)
+                ->where('fx_value',$input['amount'])
                 ->where('fx_currency',$input['currencyType'])
 				->where('purpose_id',$input['bookingPurpose'])
 				->where('transaction_type',$input['transactionType'])

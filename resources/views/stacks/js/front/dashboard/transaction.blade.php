@@ -398,11 +398,11 @@ $('.save-incidents-form').submit(function(event) {
         amountCalculation();
     });
 
-	function selectDealRate(currencyType,bookingPurpose,transactionType){
+	function selectDealRate(amount, currencyType, bookingPurpose, transactionType){
         $.ajax({
             url: "{!! route('deal-rate.edit') !!}",
             type: 'POST',
-            data:JSON.stringify({currencyType:currencyType,bookingPurpose:bookingPurpose,transactionType:transactionType}),
+            data:JSON.stringify({amount: amount, currencyType: currencyType, bookingPurpose: bookingPurpose, transactionType: transactionType}),
             contentType: "application/json",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -478,7 +478,7 @@ $('.save-incidents-form').submit(function(event) {
                 '<input type="hidden" class="txn_type" name="currency[' + rowCountrb + '][txn_type]" value="' + transactionTypeval + '" />'+
                 '</td>'+
                 '<td>'+
-                '<a href="javascript:void(0)" class="btn-remove remove-currencyrb new_btn_remove" currencyText="' + currencyTypeText + '" data-row="' + rowCountrb + '"><img src="./assets/img/dashboard/icon_remove.png" alt="remove"> Remove</a>'+
+                '<a href="javascript:void(0)" class="btn-remove remove-currencyrb new_btn_remove" currencyText="' + currencyTypeText + '" data-row="' + rowCountrb + '"><img src="./assets/img/dashboard/icon_remove.png" alt="remove"></a>'+
                 '</td>'+
                 '</tr>';
             $(".currencyTablerb").append(html);

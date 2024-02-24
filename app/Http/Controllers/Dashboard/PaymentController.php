@@ -29,7 +29,9 @@ class PaymentController extends Controller
     {
         $input = $request->all();
         $array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];
-        $query = Transactions::with('txnCurrency','purposeData','sourceData')->where('kyc_status','1')
+        // $query = Transactions::with('txnCurrency','purposeData','sourceData')->where('kyc_status','1')
+		// 	->where('p_status','0');
+        $query = Transactions::with('txnCurrency','purposeData','sourceData')
 			->where('p_status','0');
         if (isset($input['search']['value']) && !empty($input['search']['value'])) {
             $query->where('txn_id', 'like', '%' . $input['search']['value'] . '%');

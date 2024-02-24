@@ -61,7 +61,8 @@ class PaymentController extends Controller
             $query->orWhere('txn_inr_amount', 'like', '%' . $input['search']['value'] . '%');
         }
         $query->whereHas('txnCurrency', function($query) use ($input) {
-            $query->where('kyc_status','1')->where('p_status','1');
+            // $query->where('kyc_status','0')->where('p_status','1');
+            $query->where('p_status','1');
             if (isset($input['search']['value']) && !empty($input['search']['value'])) {
                 $query->where('txn_number', 'like', '%' . $input['search']['value'] . '%');
                 $query->orWhere('customer_name', 'like', '%' . $input['search']['value'] . '%');

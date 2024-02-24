@@ -317,8 +317,9 @@
                             <!-- <label class="">Comment</label> -->
                             <div class="input-group mb-3">
                                 <input class="form-control qf-secondary-input" type="text" name="kyc_comment" placeholder="Enter Comment" >
-                                @component('components.ajax-error',['field'=>'kyc_comment'])@endcomponent
+                                
                             </div>
+                            @component('components.ajax-error',['field'=>'kyc_comment'])@endcomponent
                         </div>
                         <div class="col-lg-3 col-sm-4 mt-3 d-flex align-bottom">
                             <!-- <label class="">Status</label> -->
@@ -370,6 +371,17 @@
         $('#checkAll').click(function() {
             $('input[name="kyc_status"]').prop('checked', false);
             $('.datas').not(this).prop('checked', this.checked);
+            if ($('.datas:checked').length == $('.datas').length) {
+                $("#checkAll").prop('checked', true);
+                $('input[name="kyc_status"][value="1"]').prop('disabled', false);
+                $('input[name="kyc_status"][value="1"]').prop('checked', true);
+                $('input[name="kyc_status"][value="0"]').prop('disabled', true);
+            }else{
+                $("#checkAll").prop('checked', false);
+                $('input[name="kyc_status"][value="1"]').prop('disabled', true);
+                $('input[name="kyc_status"][value="0"]').prop('disabled', false);
+                $('input[name="kyc_status"][value="0"]').prop('checked', true);
+            }
         });
 
         $(".datas").change(function() {
@@ -379,9 +391,14 @@
             }
             if ($('.datas:checked').length == $('.datas').length) {
                 $("#checkAll").prop('checked', true);
+                $('input[name="kyc_status"][value="1"]').prop('disabled', false);
+                $('input[name="kyc_status"][value="1"]').prop('checked', true);
+                $('input[name="kyc_status"][value="0"]').prop('disabled', true);
             }else{
                 $("#checkAll").prop('checked', false);
-                $('input[name="kyc_status"]').prop('checked', false);
+                $('input[name="kyc_status"][value="1"]').prop('disabled', true);
+                $('input[name="kyc_status"][value="0"]').prop('disabled', false);
+                $('input[name="kyc_status"][value="0"]').prop('checked', true);
             }
         });
 

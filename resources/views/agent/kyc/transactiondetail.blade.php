@@ -83,10 +83,10 @@
                         <div class="border-incdent"></div>
                         <p class="badge-c ps-1 fw-bold lh-lg small">*TCS Applicable @ 5%</p>
                     </div>
-                    <div class="d-flex badge-1 pe-2  ">
+                    <!-- <div class="d-flex badge-1 pe-2  ">
                         <div class="border-incdent"></div>
                         <p class="ps-1 badge-c fw-bold lh-lg small">*Previous Remittance in AY with QFX: 0.00</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="table-responsive-sm pt-4   ps-0 pe-0">

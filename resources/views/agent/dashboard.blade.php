@@ -637,7 +637,7 @@
 
                                     <div class="ms-auto  text-center" >
                                         <button type="button" class="btn qf-primary-btn btn-block" id="selectDealRateBtn"
-                                            onclick="return selectDealRate($('#currencyType').val(),$('#booking_purpose_id').val(),$('#txn_type_detail').val());"
+                                            onclick="return selectDealRate($('#amount').val(),$('#currencyType').val(),$('#booking_purpose_id').val(),$('#txn_type_detail').val());"
                                             disabled>
                                             <span class=" text-capitalize">Select Deal Rate</span>
                                         </button>
@@ -1181,10 +1181,10 @@
                         <div class="border-incdent"></div>
                         <p class="badge-c ps-1 fw-bold lh-lg small">*TCS Applicable @ 5%</p>
                     </div>
-                    <div class="d-flex badge-1 pe-2">
+                    <!-- <div class="d-flex badge-1 pe-2">
                         <div class="border-incdent"></div>
                         <p class="ps-1 badge-c fw-bold lh-lg small">*Previous Remittance in AY with QFX: 0.00</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="table-responsive-sm pt-4  Transaction_Details_Popup_Table ps-0 pe-0">
@@ -1945,10 +1945,10 @@
                         <div class="border-incdent"></div>
                         <p class="badge-c ps-1 fw-bold lh-lg small">*TCS Applicable @ 0.5%</p>
                     </div>
-                    <div class="d-flex badge-1   ">
+                    <!-- <div class="d-flex badge-1   ">
                         <div class="border-incdent"></div>
                         <p class="ps-1 badge-c fw-bold lh-lg small">*Previous Remittance in AY with QFX: 0.00</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="table-responsive-sm pt-4   ps-0 pe-0">
@@ -2107,10 +2107,10 @@
                         <div class="border-incdent"></div>
                         <p class="badge-c ps-1 fw-bold lh-lg small">*TCS Applicable @ 5%</p>
                     </div>
-                    <div class="d-flex badge-1">
+                    <!-- <div class="d-flex badge-1">
                         <div class="border-incdent"></div>
                         <p class="ps-1 badge-c fw-bold lh-lg small">*Previous Remittance in AY with QFX: 0.00</p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="table-responsive-sm pt-4   ps-0 pe-0">

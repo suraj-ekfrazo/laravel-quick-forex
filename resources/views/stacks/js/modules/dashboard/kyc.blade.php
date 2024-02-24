@@ -140,8 +140,8 @@
 	$('#updateDocForm').submit(function(event) {
 		event.preventDefault();
 
-        var valueData = $('input[name="kyc_status"]').val();
-       
+        var valueData =  $('input[name="kyc_status"]:checked').val();
+        
         $('.status_error').html('');
         var check = $('input[name=kyc_status]').is(':checked');
         var doc_commnetStatus = false;
@@ -180,6 +180,7 @@
                         if (checked !== true && doc_status != "1" && comment.trim() == "") {
                             doc_commnetStatus = true;
                             $(".invalid-feedback.ajax-error." + key + "_comment").html('<strong>Please update commnet.</strong>');
+                            $(".invalid-feedback.ajax-error." + key + "_comment").css("padding-top", "10px");
                         }
                     });
 
@@ -198,7 +199,8 @@
                             },
                             success: function(data) {
                                 if (data.status == true) {
-                                    location.reload();
+                                    // location.reload();
+                                    window.location.href = "/admin-login/transaction";
                                 } else {
                                 }
                             }
