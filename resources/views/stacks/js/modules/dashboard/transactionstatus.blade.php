@@ -28,22 +28,14 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var kycStatus = '';
-						 var btnClass = '';
-						if(full.kyc_status === 0){
-							kycStatus = 'Pending';
-							btnClass = 'warning';
 
-						}else if(full.kyc_status === 1){
-							kycStatus = 'Completed';
-							btnClass = 'success';
-						}else{
-							kycStatus = 'Rejected';
-							btnClass = 'danger1';
-						}
-
-
-                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        if(full.kyc_status == 1){
+                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Completed</span></div>';
+                        }else if(full.kyc_status == 2){
+                            return '<div class="text-white comn-status-btn status-danger1 p-1 rounded-4 text-center">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn status-warning p-1 rounded-4 text-center">Pending</span></div>';
+                        }
                     }
                 },
                 {
@@ -51,9 +43,14 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var kycStatus = (full.payment_status === 0) ? 'Pending' : (full.payment_status === 1) ? 'Completed' : 'Rejected';
-                        var btnClass = (full.payment_status === 0) ? 'warning' : (full.payment_status === 1) ? 'success' : 'danger1';
-                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+
+                        if(full.payment_status == 1){
+                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Completed</span></div>';
+                        }else if(full.payment_status == 2){
+                            return '<div class="text-white comn-status-btn status-danger1 p-1 rounded-4 text-center">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn status-warning p-1 rounded-4 text-center">Pending</span></div>';
+                        }
                     }
                 },
                 {
@@ -61,11 +58,16 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var kycStatus = (full.transaction_status === 0) ? 'Pending' : (full.transaction_status === 1) ? 'Completed' : 'Rejected';
-                        var btnClass = (full.transaction_status === 0) ? 'warning' : (full.transaction_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+
+                        if(full.transaction_status == 1){
+                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Completed</span></div>';
+                        }else if(full.transaction_status == 2){
+                            return '<div class="text-white comn-status-btn status-danger p-1 rounded-4 text-center">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn status-warning p-1 rounded-4 text-center">Pending</span></div>';
+                        }
                     }
-                },
+                }, 
 
                 {
                     "targets": [7],
@@ -133,9 +135,14 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var kycStatus = (full.kyc_status === 0) ? 'Pending' : (full.kyc_status === 1) ? 'Completed' : 'Rejected';
-                        var btnClass = (full.kyc_status === 0) ? 'warning' : (full.kyc_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+
+                        if(full.kyc_status == 1){
+                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Completed</span></div>';
+                        }else if(full.kyc_status == 2){
+                            return '<div class="text-white comn-status-btn status-danger p-1 rounded-4 text-center">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn status-warning p-1 rounded-4 text-center">Pending</span></div>';
+                        }
                     }
                 },
                 {
@@ -143,9 +150,14 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var kycStatus = (full.payment_status === 0) ? 'Pending' : (full.payment_status === 1) ? 'Completed' : 'Rejected';
-                        var btnClass = (full.payment_status === 0) ? 'warning' : (full.payment_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+
+                        if(full.payment_status == 1){
+                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Completed</span></div>';
+                        }else if(full.payment_status == 2){
+                            return '<div class="text-white comn-status-btn status-danger p-1 rounded-4 text-center">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn status-warning p-1 rounded-4 text-center">Pending</span></div>';
+                        }
                     }
                 },
                 {
@@ -153,9 +165,14 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var kycStatus = (full.transaction_status === 0) ? 'Pending' : (full.transaction_status === 1) ? 'Completed' : 'Rejected';
-                        var btnClass = (full.transaction_status === 0) ? 'warning' : (full.transaction_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+
+                        if(full.transaction_status == 1){
+                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Completed</span></div>';
+                        }else if(full.transaction_status == 2){
+                            return '<div class="text-white comn-status-btn status-danger p-1 rounded-4 text-center">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn status-warning p-1 rounded-4 text-center">Pending</span></div>';
+                        }
                     }
                 },
 				 {

@@ -26,9 +26,13 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var kycStatus = (full.kyc_status === 0) ? 'Pending' : (full.kyc_status === 1) ? 'Completed' : 'Rejected';
-                        var btnClass = (full.kyc_status === 0) ? 'secondary' : (full.kyc_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white comn-status-btn status-'+btnClass+' p-1 rounded-4 text-center"> '+ kycStatus +' </div>';
+                        if(full.kyc_status == 1){
+                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Approved</span></div>';
+                        }else if(full.kyc_status == 2){
+                            return '<div class="text-white comn-status-btn status-danger p-1 rounded-4 text-center">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn status-secondary p-1 rounded-4 text-center">Pending</span></div>';
+                        }
                     }
                 },
                 {
@@ -43,9 +47,14 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var kycStatus = (full.payment_status === 0) ? 'Pending' : (full.payment_status === 1) ? 'Completed' : 'Rejected';
-                        var btnClass = (full.payment_status === 0) ? 'secondary' : (full.payment_status === 1) ? 'success' : 'danger';
-                        return '<div class="text-white comn-status-btn new_payment_status status-'+btnClass+' "> '+ kycStatus +' </div>';
+
+                        if(full.payment_status == 1){
+                            return '<div class="text-white comn-status-btn new_payment_status status-success">Completed</span></div>';
+                        }else if(full.payment_status == 2){
+                            return '<div class="text-white comn-status-btn new_payment_status status-danger">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn new_payment_status status-secondary">Pending</span></div>';
+                        }
                     }
                 },
                 {
