@@ -69,7 +69,7 @@
         }
     });
 
-    $("#pancard_no").keyup(function() {
+    $("#pancard_no").change(function() {
         var inputvalues = $(this).val();      
         $(".invalid-feedback.ajax-error.pancard_no").html('');
         var regex = /[A-Z]{5}[0-9]{4}[A-Z]{1}$/;    

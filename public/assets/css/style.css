@@ -1194,6 +1194,12 @@ table td .new_btn_view:focus,
 .view-btn-common{
     color: #fff;
 }
+
+#updateDocForm .download-btn-common,
+#updateDocForm .view-btn-common{
+    color: #000;
+}
+
 .download-btn-common:hover,
 .view-btn-common:hover{
     color: #d1d1d1;
@@ -5002,6 +5008,11 @@ button.qf-primary-btn {
     pointer-events: none !important;
     /* opacity: 0.6 !important; */
     color: #fff;
+}
+
+#updateDocForm textarea.form-control:disabled{
+    background-color: #dee2e6 !important;
+    color: #000;
 }
 
 .select2-container--bootstrap-5 .select2-selection--single {

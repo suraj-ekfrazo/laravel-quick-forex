@@ -128,6 +128,14 @@
                                 </th>
                             </tr>
                             <tr>
+                                <th>
+                                    GST(18%) Charge
+                                </th>
+                                <th >
+                                    {{$txnData->gst!="" ? number_format($txnData->gst,2) : "0.00" }}
+                                </th>
+                            </tr>
+                            <tr>
                                 <th >
                                     Gross Amount
                                 </th>
@@ -164,13 +172,9 @@
                                         <label class="custom-control-label" for="checkAll"></label>
                                     </div>
 									 </th>
-                                    <th  scope="col" class="fw-bold"  >Sr.No</th>
-                                    <th  scope="col" class="fw-bold" >Document</th>
-                                    <th  scope="col" class="fw-bold"  >Requirement</th>
-                                    <th  scope="col" class="fw-bold text-wrap"  >Uploaded File</th>
-                                    {{--<th  scope="col" class="fw-bold text-wrap" >Automation Scorecard</th>--}}
-                                    {{--<th  scope="col" class="fw-bold" > Status</th>--}}
-                                    <th  scope="col" class="fw-bold w-auto"  > Comment</th>
+                                    <th  scope="col" class="fw-bold">Serial No.</th>
+                                    <th  scope="col" class="fw-bold">Document Type</th>
+                                    <th  scope="col" class="fw-bold w-auto">Comment</th>
                                     <th  scope="col" class="fw-bold">Status</th>
                                     <th  scope="col" class="fw-bold"></th>
                                 </tr>
@@ -181,50 +185,12 @@
                                 @if($txnKyc)
                                     @foreach($documents as $key => $val)
                                 <tr>
-									<td class=""><input type="checkbox"  class="datas"
-                                        data-key="{{$key}}" value="{{$txnKyc->id}}"></td>
+									<td class="">
+                                        <input type="checkbox"  class="datas" data-key="{{$key}}" value="{{$txnKyc->id}}">
+                                    </td>
                                     <td class="">{{++$cnt}}</td>
                                     <td>{{$val}}</td>
-                                    <td>Mandatory</td>
-                                    <td>
-
-                                        @if(!empty($txnKyc->$key))
-
-                                        <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
-                                           class="svg-bg m-0 fw-bold view-btn-common disabled" target="_blank">
-                                            <i class="fa-solid fa-eye"></i> View &nbsp;</a>
-                                        <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
-                                           class="svg-bg m-0 fw-bold download-btn-common"  download>&nbsp;
-                                            <i class="fa-solid fa-download"></i> Download </a>
-                                        @else
-                                            <span data-toggle="tooltip" data-placement="bottom" title="File Not Uploaded">
-                                            <a href="javascript:void(0);"
-                                               class="svg-bg m-0 fw-bold view-btn-common isDisabled" >
-                                                <i class="fa-solid fa-eye"></i> View &nbsp;</a>
-                                            <a href="javascript:void(0);"
-                                               class="svg-bg m-0 fw-bold  download-btn-common isDisabled" style=" color:#686cad;">&nbsp;
-                                                <i class="fa-solid fa-download"></i> Download </a>
-                                            </span>
-                                        @endif
-                                    </td>
-                                    {{--<td class="">
-                                       <span style="background-color: #FF9E2E; padding: 2px 38px;">
-                                       </span>
-                                    </td>--}}
-                                    {{--<td class="">
-                                        <select class="form-control status" name="passport_status" id="passport_status" disabled>
-                                            <option selected="" value="">Select Status</option>
-                                            <option value="4">Approve</option>
-                                            <option value="2">
-                                                Reject
-                                            </option>
-                                            <option value="3" selected="">
-                                                Manual Validation
-                                            </option>
-                                        </select>
-                                    </td>--}}
-
-
+                                    
                                     <td class="w-responsive">
                                         <div class="input-group">
                                             <?php $comment = $key.'_comment'; ?>
@@ -237,31 +203,48 @@
                                         @component('components.ajax-error',['field'=>"$key"."_comment"])@endcomponent
                                     </td>
 
-
-
                                     <td class="w-responsive">
                                         <div class="btn-group">
                                             @if($txnKyc)
                                            		@if($txnKyc->$status == "1")
-													<span class="badge badge-pill badge-success comn-approved-btn comn-status-btn" id="doc_status_{{$key}}" data-docStatus = "1">Approve</span>
+													<span class="text-white comn-status-btn status-success p-1 rounded-4 text-center" id="doc_status_{{$key}}" data-docStatus = "1">Approve</span>
 												@elseif($txnKyc->$status == "2")
-													<span class="badge status-danger comn-status-bt comn-status-btnn" id="doc_status_{{$key}}" data-docStatus = "2">Reject</span>
+													<span class="text-white comn-status-btn status-danger p-1 rounded-4 text-center" id="doc_status_{{$key}}" data-docStatus = "2">Reject</span>
 												@else
-													<span class="badge status-warning comn-status-btn comn-status-btn" id="doc_status_{{$key}}" data-docStatus = "0">Pending</span>
+													<span class="text-white comn-status-btn status-warning p-1 rounded-4 text-center" id="doc_status_{{$key}}" data-docStatus = "0">Pending</span>
 												@endif
                                             @endif
                                         </div>
 
                                     </td>
-                                    {{--<td class="w-responsive">
-                                        <label class="switch">
-                                            <input type="hidden" name="<?= $key.'_status' ?>" value="false">
-                                            <input type="checkbox" class="switch-input" name="<?= $key.'_status' ?>" value="true">
-                                            <!--<i class="icon-play"></i>-->
-                                            <span class="switch-label" data-on="Approve" data-off="Reject"></span>
-                                            <span class="switch-handle"></span>
-                                        </label>
-                                    </td>--}}
+                                  
+                                    <td class="w-responsive">
+                                        <div class="btn-group action-btn-grp">
+                                            <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <div class="action-btn-wrap">
+                                                    @if(!empty($txnKyc->$key))
+                                                        <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
+                                                            class="svg-bg m-0 view-btn-common disabled" target="_blank">View
+                                                        </a>
+                                                        <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
+                                                            class="svg-bg m-0 download-btn-common"  download>Download
+                                                        </a>
+                                                    @else
+                                                        <span data-toggle="tooltip" data-placement="bottom" title="File Not Uploaded">
+                                                            <a href="javascript:void(0);" class="svg-bg m-0 view-btn-common isDisabled">View
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="svg-bg m-0 download-btn-common isDisabled" style="color:#686cad;">Download 
+                                                            </a>
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                    
                                 </tr>
                                 @endforeach
                                 @else

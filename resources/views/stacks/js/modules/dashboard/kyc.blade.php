@@ -200,7 +200,7 @@
                             success: function(data) {
                                 if (data.status == true) {
                                     // location.reload();
-                                    window.location.href = "/admin-login/transaction";
+                                    window.location.href = window.location.origin + "/admin-login/transaction";
                                 } else {
                                 }
                             }

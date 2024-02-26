@@ -106,6 +106,11 @@
 									</div>
 
 								</div>
+                                @if($data->payment_comment)
+                                    <div class="grid-container mt-5">
+                                        <p class="text-danger">Rejected Reason :- {{$data->payment_comment}}</p>
+                                    </div>
+                                @endif
                                 <div class="grid-container mt-5">
                                     <div >
                                         <label class="">Payment Image</label>

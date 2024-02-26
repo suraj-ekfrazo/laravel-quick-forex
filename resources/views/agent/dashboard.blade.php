@@ -304,7 +304,7 @@
                                         <div class="input-group mb-3 inputWithIcon">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text" maxlength="10"
-                                                name="pancard_no" id="pancard_no" placeholder="Enter Card Number">
+                                                name="pancard_no" id="pancard_no" placeholder="Enter Pan Card Number">
                                             <img src="./assets/img/dashboard/svg/icon_numbers.svg"
                                                 class="mb-2 mt-1 me-2 " alt="">
 

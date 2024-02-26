@@ -95,6 +95,8 @@ class PaymentController extends Controller
 			unset($input['id']);
 			unset($input['amount_payable']);
 			
+            $input['payment_status'] = $transaction_detail['payment_status'] == "2" ? '0' : $transaction_detail['payment_status'];
+
 			$input['p_status'] = 1;
 			$result = Transactions::where('txn_number', $transaction_detail['txn_number'])->update($input);
 			$message = 'Successfully Updated';

@@ -78,8 +78,10 @@ class Dashboard extends Controller
         ]);
 
         if (isset($input['customer_mobile'])) {
-            $customerResult = Customers::create(array("name" => $input['customer_name'], "mobile" => $input['customer_mobile']));
-            $input['customer_id'] = $customerResult->id;    
+            if (!isset($input['customer_id'])) {
+                $customerResult = Customers::create(array("name" => $input['customer_name'], "mobile" => $input['customer_mobile']));
+                $input['customer_id'] = $customerResult->id; 
+            }   
         }else{
             $this->validate($request, [
                 'customer_id' => 'required',
