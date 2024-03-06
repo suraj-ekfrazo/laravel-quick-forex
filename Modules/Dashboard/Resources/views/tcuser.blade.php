@@ -5,6 +5,9 @@
             background: #5379ec;
             box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
         }
+        .shrinkToFit {
+            cursor: zoom-in;
+        }
     </style>
     <div class="container mt-5 pt-5 bg-white view-kyc-doc-main">
         <!-- Tabs content -->
@@ -226,18 +229,18 @@
                                             <div class="dropdown-menu">
                                                 <div class="action-btn-wrap">
                                                     @if(!empty($txnKyc->$key))
-                                                        <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
+                                                        @php $file = asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key @endphp
+                                                        <a href="#" class="svg-bg m-0 view-btn-common disabled" onclick="readFile('{{$file}}'); return false;">view</a>
+                                                        <!-- <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
                                                             class="svg-bg m-0 view-btn-common disabled" target="_blank">View
-                                                        </a>
+                                                        </a> -->
                                                         <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
                                                             class="svg-bg m-0 download-btn-common"  download>Download
                                                         </a>
                                                     @else
                                                         <span data-toggle="tooltip" data-placement="bottom" title="File Not Uploaded">
-                                                            <a href="javascript:void(0);" class="svg-bg m-0 view-btn-common isDisabled">View
-                                                            </a>
-                                                            <a href="javascript:void(0);" class="svg-bg m-0 download-btn-common isDisabled" style="color:#686cad;">Download 
-                                                            </a>
+                                                            <a href="javascript:void(0);" class="svg-bg m-0 view-btn-common isDisabled">View</a>
+                                                            <a href="javascript:void(0);" class="svg-bg m-0 download-btn-common isDisabled" style="color:#686cad;">Download</a>
                                                         </span>
                                                     @endif
                                                 </div>
@@ -346,6 +349,28 @@
             </footer>
         </form>
     </div>
+    <!-- code for view file iframe -->
+    <div class="modal" id="viewModal" tabindex="-1">
+        <div class="modal-dialog  modal-lg modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">View Documents</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="closeModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="" id="iframe" title="W3Schools Free Online Web Tutorials" class="w-100"
+                        style="height: 500px"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        onclick="$('#viewModal').modal('hide');">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @push('pagescript')
     @include('stacks.js.modules.dashboard.kyc')
@@ -399,6 +424,13 @@
                 $(this).prop('checked', false);
             }
         });
+
+        function readFile(fileName) {
+            if (fileName) {
+                $('#iframe').attr("src", fileName);
+                $('#viewModal').modal("show");
+            }
+        }
 
     </script>
 

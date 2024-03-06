@@ -61,23 +61,13 @@
 
                             </div>
                         </div>
-
-                        {{-- <div class="row">--}}
-                            {{-- <div class="col-md-3 col-sm-6  ">--}}
-                                {{-- <p class="text-color">Purpose</p>--}}
-                                {{-- <div>--}}
-                                    {{-- <p>--}}
-                                        {{-- Relative--}}
-                                        {{-- </p>--}}
-                                    {{-- </div>--}}
-                                {{-- </div>--}}
-                            {{-- </div>--}}
                     </div>
                     <input type="hidden" name="txn_link_no" value="{{$data->txn_number}}">
                     <div class="row mt-3">
                         @foreach ($kyc_documents as $doc)
                             @if ($kyc_data)
                                 @if ($kyc_data[$doc->document_name . '_status'] != 1)
+                                    @php $existing_file = asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($data->created_at)).'/'.$data->txn_number. '/'.$kyc_data[$doc->document_name] @endphp
                                     <div class="upload-kyc-each">
                                         <div class="kyc_doc_card upload-kyc-inner">
                                             <label class="form-label mt-3 qf-file-upload-title"
@@ -96,8 +86,16 @@
                                                     <button type="button qf-secondary-btn"
                                                         class="btn fw-bold btn_view_kyc_doc text-capitalize"
                                                         onclick="readFile('{{ $doc->document_name }}')"><i
-                                                        class="fa-solid fa-eye "></i> View</button>
+                                                        class="fa-solid fa-eye "></i>Current View</button>
                                                 </div>
+                                                @if($existing_file)
+                                                    <div class="text-center">
+                                                        <button type="button qf-secondary-btn"
+                                                            class="btn fw-bold btn_view_kyc_doc text-capitalize"
+                                                            onclick="previewLastFile('{{ $existing_file }}')"><i
+                                                            class="fa-solid fa-eye "></i> Last Uploaded</button>
+                                                    </div>
+                                                @endif
                                             </div>
 
                                         </div>
@@ -118,19 +116,18 @@
                                         <div class="upload-wrapper">
                                             <div class="file-input-wrap">
                                             <input type="file" class="form-control imagechange1 qf-file-upload"
-                                            data-key="{{ $doc->document_name }}" id="{{ $doc->document_name }}"
-                                            name="{{ $doc->document_name }}" />
-                                                @component('components.ajax-error', ['field' => "$doc->document_name"])
-                                                @endcomponent
+                                                data-key="{{ $doc->document_name }}" id="{{ $doc->document_name }}"
+                                                name="{{ $doc->document_name }}" />
+                                                @component('components.ajax-error', ['field' => "$doc->document_name"])@endcomponent
                                             </div>
-                                        <div class="text-center">
-                                            <button type="button"
-                                                class="btn fw-bold btn_view_kyc_doc text-capitalize  qf-secondary-btn"
-                                                onclick="readFile('{{ $doc->document_name }}')"><i
+                                            <div class="text-center">
+                                                <button type="button qf-secondary-btn"
+                                                    class="btn fw-bold btn_view_kyc_doc text-capitalize"
+                                                    onclick="readFile('{{ $doc->document_name }}')"><i
                                                     class="fa-solid fa-eye "></i> View</button>
+                                            </div>
                                         </div>
-                                        </div>
-
+                                        
                                     </div>
                                 </div>
                             @endif
@@ -182,26 +179,15 @@
     $(document).on('change', '.imagechange', function (event) {
         $('#upload_document').prop('disabled', true);
  		$('#blockDiv').show();
-
-
         var key = $(this).attr('data-key');
-
         const imageInput = document.getElementById(key);
-
         const selectedFile = event.target.files[0];
         if (selectedFile) {
-
             sendImageToAPI(selectedFile, key);
         }
-
     });
 
-
     function sendImageToAPI(imageFile, key) {
-
-
-
-
         $('.' + key).html('');
         const apiUrl = "{{ route('image.verification')}}";
         const formData = new FormData();
@@ -226,8 +212,7 @@
 					if(i > 0){
 						i = i -1 ;
 					}
-
-					 $('#upload_document').prop('disabled', false);
+					$('#upload_document').prop('disabled', false);
 					$('#blockDiv').hide();
 				}
 
@@ -281,16 +266,16 @@
         $('.modal').modal('hide');
     });
 
-    $('.imagechange1').on('change', function() {
-        let size = this.files[0].size; // this is in bytes
-        var key = $(this).attr('data-key');
-        $(".invalid-feedback.ajax-error."+key).html('');
-        if (size > 1000000) {
-            var key = $(this).attr('data-key');
-            $(this).val('');
-            $(".invalid-feedback.ajax-error."+key).html('<strong>Max file upload limit is 1MB.</strong>');
-        }
-    });
+    // $('.imagechange1').on('change', function() {
+    //     let size = this.files[0].size; // this is in bytes
+    //     var key = $(this).attr('data-key');
+    //     $(".invalid-feedback.ajax-error."+key).html('');
+    //     if (size > 1000000) {
+    //         var key = $(this).attr('data-key');
+    //         $(this).val('');
+    //         $(".invalid-feedback.ajax-error."+key).html('<strong>Max file upload limit is 1MB.</strong>');
+    //     }
+    // });
 
     function readFile(fileName) {
         var input = $('#' + fileName)[0];
@@ -311,4 +296,12 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    function previewLastFile(fileName) {
+        if (fileName) {
+            $('#iframe').attr("src", fileName);
+            $('#viewModal').modal("show");
+        }
+    }
+
 </script>

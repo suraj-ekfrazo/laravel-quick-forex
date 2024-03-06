@@ -401,7 +401,7 @@
 
                                 <div class="card-inner-wrapper">
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary Name</label>
+                                        <label class="">Beneficiary Name*</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text"
@@ -411,7 +411,7 @@
                                         </div>
                                     </div>
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary Address</label>
+                                        <label class="">Beneficiary Address*</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text"
@@ -421,7 +421,7 @@
                                         </div>
                                     </div>
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary City</label>
+                                        <label class="">Beneficiary City*</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text" name="beneficiary_city"
@@ -431,7 +431,7 @@
                                     </div>
 
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary Country</label>
+                                        <label class="">Beneficiary Country*</label>
                                         <div class="input-group mb-3">
                                             <select class="form-select qf-primary-select" name="beneficiary_country"
                                                 id="beneficiary_country">
@@ -447,7 +447,7 @@
                                     </div>
 
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary Ac Number / IBAN Code</label>
+                                        <label class="">Beneficiary Ac Number / IBAN Code*</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)" 
                                                 oninput="this.value=this.value.replace(/[^0-9]/g,'');"
@@ -459,7 +459,7 @@
                                     </div>
 
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary Bank Name</label>
+                                        <label class="">Beneficiary Bank Name*</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text"
@@ -470,7 +470,7 @@
                                     </div>
 
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary Bank Address</label>
+                                        <label class="">Beneficiary Bank Address*</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text"
@@ -481,7 +481,7 @@
                                     </div>
 
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary Bank SORT/BSB/ABA...</label>
+                                        <label class="">Beneficiary Bank SORT/BSB/ABA...*</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text"
@@ -492,7 +492,7 @@
                                     </div>
 
                                     <div class="qf-select-wrap">
-                                        <label class="">Beneficiary Swift Code</label>
+                                        <label class="">Beneficiary Swift Code*</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text"

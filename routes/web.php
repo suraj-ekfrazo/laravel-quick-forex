@@ -52,12 +52,11 @@ Route::prefix('transaction')->middleware('auth.agentLogin')->group(function() {
 	Route::get('get-transaction-detail/{id}', [KycController::class, 'getTransactionDetail'])->name('transaction-kyc.detail');
     Route::post('upload', [KycController::class, 'store'])->name('transaction-kyc.upload');
 	Route::get('/notifications', [App\Http\Controllers\Agent\Dashboard::class, 'getNotification'])->name('get.notifications');
-	Route::post('imageVerification', [KycController::class, 'imageVerification'])
-    ->name('image.verification');
-     Route::get('transection-export', [KycController::class, 'export'])->name('transection.export');
-         Route::get('transection-print', [KycController::class, 'print'])->name('transection-print');
-
-
+	Route::post('imageVerification', [KycController::class, 'imageVerification'])->name('image.verification');
+    Route::get('transection-export', [KycController::class, 'export'])->name('transection.export');
+    Route::get('transection-print', [KycController::class, 'print'])->name('transection-print');
+    Route::get('editSwiftUpload/{id}', [App\Http\Controllers\Agent\Dashboard::class, 'editSwiftUpload'])->name('agent.editSwiftUpload');
+    Route::post('swiftUpload', [App\Http\Controllers\Agent\Dashboard::class, 'swiftUpload'])->name('swift.upload');
 });
 
 Route::prefix('approved-deal')->middleware('auth.agentLogin')->group(function() {

@@ -92,8 +92,12 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
+                        var upload_btn="";
+						if(full.transaction_status == 1){
+                            upload_btn = '<button class="new_btn_upload" onclick="uploadSWIFT(' + full.id + ')"> <img src="./assets/img/dashboard/icon_upload.png" alt="upload">  Upload</button>';
+                        }
                         return '<div class="d-flex gap-2">'+
-                            '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')"> View</button>' +
+                            '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')"> View</button>' + upload_btn +
                             '</div>';
                     }
                 },
@@ -119,6 +123,22 @@
 
     });
 
+
+    function uploadSWIFT(id){
+        $.ajax({
+            url: "transaction/editSwiftUpload/" + id,
+            type: 'GET',
+            contentType: "application/json",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (result) {
+
+                $('.addModals').html(result);
+                $('#upload-swift-model').modal('show');
+            }
+        });
+    }
 
 
     //remove modal
@@ -171,7 +191,7 @@
         });
     }
 
-$('.save-incidents-form').submit(function(event) {
+    $('.save-incidents-form').submit(function(event) {
         checkValidation();
         var status = document.activeElement.innerHTML;
         event.preventDefault();
@@ -180,17 +200,17 @@ $('.save-incidents-form').submit(function(event) {
         var currentHour = currentDate.getHours();
         var currentMinute = currentDate.getMinutes();
         if (currentHour >= 10 && currentHour < 18) {
-            swal({
-                title: "Please confirm selected beneficiary county",
-                text: "",
-                icon: "success",
-                buttons: true,
-                dangerMode: true,
-                buttons: ["Cancel", "Confirm"],
-            })
-            .then((result) => {
+            // swal({
+            //     title: "Please confirm selected beneficiary county",
+            //     text: "",
+            //     icon: "success",
+            //     buttons: true,
+            //     dangerMode: true,
+            //     buttons: ["Cancel", "Confirm"],
+            // })
+            // .then((result) => {
 
-                if (result) {
+                // if (result) {
                     if (status) {
                         $('.ajax-error').html('');
                         var data = new FormData(this);
@@ -229,13 +249,15 @@ $('.save-incidents-form').submit(function(event) {
                                     errorsHtml = '<strong>' + value[0] +
                                         '</strong>';
                                     $('.' + key).html(errorsHtml);
+                                    $('.' + key).parents('.collapse').addClass('show');
+                                    $('.' + key).parents('.card-header').removeClass('collapsed');
                                 });
                                 window.scrollTo(0, 0);
                             }
                         });
                     }
-                }
-            });
+                // }
+            // });
         } else {
             swal({
                 title: "You can rate block between 10.00 AM to 05:00 PM time",
@@ -332,8 +354,10 @@ $('.save-incidents-form').submit(function(event) {
         $("#total_inr_value").text('₹'+Math.round(netAmount,2));
         $("#net_amount_text_box").val(Math.round(netAmount,2));
         totalNetAmount = parseFloat(netAmount) + parseFloat(tcsAmount) + Number(remitFees) + Number(swiftCharges) + Number(nostroCharge) + gst_cal;
-        $("#tcs_amount").text('₹'+Math.round(tcsAmount,2));
-        $("#tcs_amount_text_box").val(Math.round(tcsAmount,2));
+        if ($("#booking_purpose_id").val() != 13) {
+            $("#tcs_amount").text('₹'+Math.round(tcsAmount,2));
+            $("#tcs_amount_text_box").val(Math.round(tcsAmount,2));
+        }
         /*console.log("totalNetAmount === ",totalNetAmount);*/
         var inrCalRound = Math.round(totalNetAmount,2);
         $("#total_payable_amount").text('₹'+Math.round(inrCalRound,2));

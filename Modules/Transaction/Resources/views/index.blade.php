@@ -433,14 +433,11 @@
                                             </div>
 
                                         </div>
-
-
-
                                         <div class="col-12 mt-2 mb-2">
-                                            <button class="btn btn-primary black-btn minw-136 qf-primary-btn"><i
-                                                    class="ti ti-search ti-xs me-2"></i>Search</button>
-                                            <a href=""
-                                                class="btn transparent-bg-btn qf-secondary-btn">Reset</a>
+                                            <button class="btn btn-primary black-btn minw-136 qf-primary-btn">
+                                                <i class="ti ti-search ti-xs me-2"></i>Search
+                                            </button>
+                                            <a href="" class="btn transparent-bg-btn qf-secondary-btn">Reset</a>
                                         </div>
                                     </form>
                                 </div>
@@ -448,7 +445,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-reponsive box pt-4 bgc ps-0 pe-0">
+                <div class="d-flex justify-content-end gap-3">
+                    <div class="mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-secondary-btn btn-block " data-type="complete_transection" id="print-data">
+                            <span class="text-capitalize" >Print</span>
+                        </div>
+                    </div>
+                    <div class="  mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-primary-btn btn-block "  data-type="complete_transection"  id="export-data">
+                            <span class=" text-capitalize">Download</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-reponsive box pt-2 bgc ps-0 pe-0">
                     <table id="agent-completed-transaction-table" class="table roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
@@ -459,7 +468,7 @@
                                 <th scope="col" class="fw-bold">KYC Status</th>
                                 <th scope="col" class="fw-bold">Payment Status</th>
                                 <th scope="col" class="fw-bold">Transaction Status</th>
-								  <th scope="col" class="fw-bold">Payment Mode</th>
+								<th scope="col" class="fw-bold">Payment Mode</th>
                                 <th scope="col" class="fw-bold">Deal Expiry Date</th>
                                 <th scope="col" class="fw-bold">Action</th>
                             </tr>
@@ -467,7 +476,7 @@
                     </table>
                 </div>
 
-                <div class="pb-5">
+                <!-- <div class="pb-5">
                     <div class="text-center m-1 float-end">
                         <button type="button" class="btn btn-secondary px-5 fw-bold text-capitalize"
                         data-type="complete_transection"
@@ -477,7 +486,7 @@
 
                     <button type="button" data-type="complete_transection" class="btn btn-secondary px-5 fw-bold text-capitalize" id="print-data" >Print</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -508,15 +517,19 @@
                             </div>
                         </div>
                         <div class="  mt-4 pt-2 text-center">
-                                <div type="button" class="btn qf-primary-btn btn-block "  data-type="approved_deals"  id="export-data">
+                            <div type="button" class="btn qf-primary-btn btn-block "  data-type="approved_deals"  id="export-data">
                                 <span class=" text-capitalize">Download</span>
                                 </div>
+                                </div>
+
+                            </div>
 
                         </div>
                     </div>
-
-
             </div>
+            </div>
+
+                </div>
 
         </div>
         <!-- Tabs content -->

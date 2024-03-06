@@ -190,7 +190,8 @@ class KycController extends Controller
         }
         if ($result) {
             Transactions::where('txn_number',$input['txn_link_no'])
-				->update(['document_upload_status'=>'1','status'=>'1']);
+                ->update(['document_upload_status'=>'1']);
+				// ->update(['document_upload_status'=>'1','status'=>'1']);
             return response()->json(array('type' => 'SUCCESS', 'message' => $message));
         } else {
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));

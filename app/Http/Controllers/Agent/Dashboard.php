@@ -35,6 +35,12 @@ class Dashboard extends Controller
         return view('agent.dashboard')->with($data);
     }
 
+    public function editSwiftUpload($id)
+    {
+        $data['data'] = Transactions::where('id',$id)->with('customerData')->first();
+        return view('agent.swift.upload')->with($data);
+    }
+
     public function customer()
     {
         return view('agent.customer.add');
@@ -74,7 +80,16 @@ class Dashboard extends Controller
             'pancard_relation' => 'required',
             'nostro_charge_type' => 'required',
             'customer_name' => 'required',
-            'nostro_charge'=>'required_if:nostro_charge_type,OUR,SHA',
+            'nostro_charge'=> 'required_if:nostro_charge_type,OUR,SHA',
+            'beneficiary_name' => 'required',
+            'beneficiary_address' => 'required',
+            'beneficiary_city' => 'required',
+            'beneficiary_country' => 'required',
+            'beneficiary_ac_number' => 'required',
+            'beneficiary_bank_name' => 'required',
+            'beneficiary_bank_address' => 'required',
+            'beneficiary_bank_sort' => 'required',
+            'beneficiary_swift_code' => 'required'
         ]);
 
         if (isset($input['customer_mobile'])) {
@@ -392,6 +407,40 @@ class Dashboard extends Controller
         $result['data'] = $query->skip($input['start'])->take($input['length'])->orderBy('id','DESC')->get()->toArray();
         if ($result) {
             return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'recordsFiltered' => $result['recordsFiltered']));
+        } else {
+            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+        }
+    }
+
+    public function swiftUpload(Request $request)
+    {
+        $input = $request->all();
+        $transaction_detail = Transactions::where('id',$input['id'])->first();
+
+        $validation = [];
+        $validation['swift_upload_document'] = 'required';
+        $request->validate($validation);
+				
+		if($input['id']) {
+            date_default_timezone_set('Asia/Kolkata');
+			$milliseconds = round(microtime(true) * 1000);
+			$todayDate = date('Y-m-d',strtotime($transaction_detail['created_at']));
+			$documentPath = public_path() . '/upload/allDocuments/' . $todayDate . '/' . $transaction_detail['txn_number'] . '/';
+
+			if ($request->hasFile('swift_upload_document')) {
+				$extension = $request->swift_upload_document->getClientOriginalExtension();
+				$uploadFileName = $milliseconds . '_' . $transaction_detail['txn_number'] . '_swift.' . $extension;
+				$request->swift_upload_document->move($documentPath, $uploadFileName);
+				$input['swift_upload_document'] = $uploadFileName;
+			}
+			unset($input['id']);
+			
+			$result = Transactions::where('txn_number', $transaction_detail['txn_number'])->update($input);
+			$message = 'Successfully Updated';			
+		}
+
+        if ($result) {
+            return response()->json(array('type' => 'SUCCESS', 'message' => $message));
         } else {
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
         }
