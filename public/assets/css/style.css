@@ -4461,6 +4461,22 @@ button.close_btn {
     display: block;
 
 } */
+.tab-pane.fade .table-responsive,
+.tab-pane.fade .table-responsive-sm{
+    margin-bottom: 4rem;
+}
+.nav-item .nav-link{
+    position: relative;
+}
+
+.nav-item .nav-link .badge.rounded-pill.badge-notification {
+    position: absolute;
+    top: 0;
+    right: 12%;
+    font-size: 10px;
+    min-width: 15px;
+    height: 15px;
+}
 
 .curr-sum-table > .bgc {
     position: relative;

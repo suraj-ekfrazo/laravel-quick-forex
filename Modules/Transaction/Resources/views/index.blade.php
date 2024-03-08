@@ -390,7 +390,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-reponsive box pt-4   bgc ps-0 pe-0">
+                <div class="table-responsive box pt-4   bgc ps-0 pe-0">
                     <table id="admin-transaction-table" class="table   roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
@@ -486,8 +486,8 @@
                         </div>
                     </div>
                 </div>
-            
-                <div class="table-reponsive box pt-2 bgc ps-0 pe-0">
+
+                <div class="table-responsive box pt-2 bgc ps-0 pe-0">
                     <div class="d-flex justify-content-end gap-3">
                         <div class="mt-4 pt-2 text-center">
                             <div type="button" class="btn qf-secondary-btn btn-block " data-type="complete_transection" id="print-data">
@@ -545,8 +545,8 @@
                         </div>
                     </div>
                 </div>
-            
-                <div class="table-reponsive box pt-4   bgc ps-0 pe-0">
+
+                <div class="table-responsive box pt-4   bgc ps-0 pe-0">
                     <table id="approved-deal-table" class="table   roundedTable border-0  text-center ">
                         <thead class=" ">
                         <tr class="bgc-table  row-font1">
