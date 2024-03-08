@@ -81,7 +81,25 @@
             columns: columns,
             columnDefs: columnDefs,
             drawCallback: drawCallBack,
-            createdRow:createdRow
+            createdRow:createdRow,
+            "initComplete": function(settings, json) {
+                console.log(json.recordsTotal);
+                $("#" + element + "-count").text(json.recordsTotal);
+            }
+        });
+    }
+
+    function getTableRecordCount(url,element){
+        $.ajax({
+            url: url,
+            type: 'POST',
+            contentType: "application/json",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (result) {
+                return JSON.stringify(result);
+            }
         });
     }
 

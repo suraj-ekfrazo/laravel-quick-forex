@@ -96,6 +96,7 @@
             filters['customer_id'] =  $('select[name=customer_id] option:selected').val();
             filters['datefilter']    =  $('input[name=booking_datefilter]').val();
             $('#admin-transaction-table').DataTable().ajax.reload();
+            $("#admin-transaction-table-count").text($('#admin-transaction-table').DataTable().data().count());
         });
 
         $('#page').change(function (event) {
@@ -219,6 +220,7 @@
             filters['customer_id'] =  $('select[name=complete_customer_id] option:selected').val();
             filters['datefilter']    =  $('input[name=complete_datefilter]').val();
             $('#agent-completed-transaction-table').DataTable().ajax.reload();
+            $("#agent-completed-transaction-table-count").text($('#aagent-completed-transaction-table').DataTable().data().count());
         });
 
 

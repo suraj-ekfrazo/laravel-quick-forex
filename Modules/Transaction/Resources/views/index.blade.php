@@ -25,7 +25,7 @@
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap" >
                             <div class="text-center nav-title">Rate Booking</div>
                         </div>
-                        <!--<span class="badge rounded-pill badge-notification bg-danger">3</span>-->
+                        <span class="badge rounded-pill badge-notification bg-danger" id="ratebooking-count">0</span>
                     </a>
                 </li>
 
@@ -33,12 +33,9 @@
                     <a class="nav-link fw-bold text-light mt-3 " id="ex3-tab-10" data-mdb-toggle="tab"
                        href="#ex3-tabs-10" role="tab" aria-controls="ex3-tabs-10" aria-selected="false">
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
-                            <div>
-
-                            </div>
                             <div class="text-center nav-title"> Approved Deals</div>
                         </div>
-
+                        <span class="badge rounded-pill badge-notification bg-danger" id="approved-deal-table-count">0</span>
                     </a>
                 </li>
                 <!--<li class="nav-item tab3" role="presentation">
@@ -58,7 +55,7 @@
                             </div>
                             <div class="text-center nav-title"> KYC </div>
                         </div>
-                        <!--<span class="badge rounded-pill badge-notification bg-danger">1</span>-->
+                        <span class="badge rounded-pill badge-notification bg-danger" id="kyc-status-table-count">0</span>
                     </a>
 
                 </li>
@@ -81,8 +78,8 @@
                             </div>
                             <div class="text-center nav-title">Pending Payments</div>
                         </div>
-                        <!--<span class="badge rounded-pill badge-notification bg-danger">5</span>-->
-						</a>
+                        <span class="badge rounded-pill badge-notification bg-danger" id="admin-payment-table-count">0</span>
+					</a>
                 </li>
                 <li class="nav-item tab6" role="presentation">
                     <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 "id="ex3-tab-6" data-mdb-toggle="tab" href="#ex3-tabs-6"  role="tab" aria-controls="ex3-tabs-3" aria-selected="false">
@@ -92,7 +89,7 @@
                             </div>
                             <div class="text-center nav-title">View All Bookings</div>
                         </div>
-                        <!--<span class="badge rounded-pill badge-notification bg-danger">15</span>-->
+                        <span class="badge rounded-pill badge-notification bg-danger" id="admin-transaction-table-count">0</span>
                     </a>
                 </li>
 				<li class="nav-item tab8" role="presentation">
@@ -103,7 +100,7 @@
                             </div>
                             <div class="text-center nav-title">Completed Transactions</div>
                         </div>
-                        <!--<span class="badge rounded-pill badge-notification bg-danger">15</span>-->
+                        <span class="badge rounded-pill badge-notification bg-danger" id="agent-completed-transaction-table-count">0</span>
                     </a>
                 </li>
             </ul>
@@ -162,7 +159,18 @@
             </div>
 
             <div class="tab-pane fade" id="ex3-tabs-2" role="tabpanel" aria-labelledby="ex3-tab-2">
-
+                <div class="d-flex justify-content-end gap-3">
+                    <div class="mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-secondary-btn btn-block " data-type="kyc" id="print-data">
+                            <span class="text-capitalize" >Print</span>
+                        </div>
+                    </div>
+                    <div class="  mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-primary-btn btn-block "  data-type="kyc"  id="export-data">
+                            <span class=" text-capitalize">Download</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-responsive-sm pt-4 ps-0 pe-0">
                     <table id="kyc-status-table" class="table roundedTable roundedTable bgc align-middle">
                         <thead>
@@ -176,20 +184,24 @@
                         </thead>
                     </table>
                 </div>
-                <div class="d-flex justify-content-center gap-3">
+                <!-- <div class="d-flex justify-content-center gap-3">
                     <div class="  mt-4 pt-2 text-center">
                         <div type="button" class="btn qf-secondary-btn btn-block " id="print-data" data-type="kyc" >
                             <span class=" text-capitalize">Print</span>
                         </div>
                     </div>
                     <div class="  mt-4 pt-2 text-center">
-                            <div type="button" class="btn qf-primary-btn btn-block " id="export-data" data-type="kyc">
+                        <div type="button" class="btn qf-primary-btn btn-block " id="export-data" data-type="kyc">
                             <span class=" text-capitalize">Download</span>
+                            </div>
                             </div>
 
 
+                        </div>
+
+
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="tab-pane fade" id="ex3-tabs-4"role="tabpanel"aria-labelledby="ex3-tab-4">
                 <div class="table-reponsive box pt-4   bgc ps-0 pe-0">
@@ -250,7 +262,20 @@
                     </div>
                 </div>
             </div>
+
             <div class="tab-pane fade" id="ex3-tabs-5"role="tabpanel"aria-labelledby="ex3-tab-5">
+                <div class="d-flex justify-content-end gap-3">
+                    <div class="mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-secondary-btn btn-block " data-type="pending_payment" id="print-data">
+                            <span class="text-capitalize" >Print</span>
+                        </div>
+                    </div>
+                    <div class="  mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-primary-btn btn-block "  data-type="pending_payment"  id="export-data">
+                            <span class=" text-capitalize">Download</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-responsive-sm pt-4   ps-0 pe-0">
                     <table id="admin-payment-table" class="table roundedTable">
                         <thead>
@@ -266,7 +291,7 @@
                             </tr>
                         </thead>
                     </table>
-                    <div class="container">
+                    <!-- <div class="container">
                         <div class="d-flex justify-content-center gap-3">
                             <div class="  mt-4 pt-2 text-center">
                                 <div type="button" class="btn qf-secondary-btn btn-block " id="print-data" data-type="pending_payment">
@@ -274,13 +299,16 @@
                                 </div>
                             </div>
                             <div class="  mt-4 pt-2 text-center">
-                                    <div type="button" class="btn qf-primary-btn btn-block "  id="export-data" data-type="pending_payment">
+                                <div type="button" class="btn qf-primary-btn btn-block "  id="export-data" data-type="pending_payment">
                                     <span class=" text-capitalize">Download</span>
                                     </div>
+                                    </div>
+
+                                </div>
 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -350,6 +378,18 @@
 
                 </div>
 
+                <div class="d-flex justify-content-end gap-3">
+                    <div class="mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-secondary-btn btn-block " data-type="all_transection" id="print-data">
+                            <span class="text-capitalize" >Print</span>
+                        </div>
+                    </div>
+                    <div class="  mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-primary-btn btn-block "  data-type="all_transection"  id="export-data">
+                            <span class=" text-capitalize">Download</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-reponsive box pt-4   bgc ps-0 pe-0">
                     <table id="admin-transaction-table" class="table   roundedTable border-0  text-center">
                         <thead class=" ">
@@ -368,20 +408,21 @@
                     </table>
                 </div>
 
-                <div class="pb-5">
+                <!-- <div class="pb-5">
                     <div class="text-center    m-1 float-end">
-
-                            <div type="button" class="btn btn-secondary btn-block" id="export-data" data-type="all_transection">
+                        <div type="button" class="btn btn-secondary btn-block" id="export-data" data-type="all_transection">
                             <span class="text-capitalize">Download</span>
                             </div>
+                            </div>
+
+                        </div>
 
                     </div>
-
                     <div class="text-center  m-1 float-end">
                         <button type="button" class="btn btn-secondary px-5 fw-bold text-capitalize"  id="print-data" data-type="all_transection">Print
                         </button></a>
                     </div>
-                </div>
+                </div> -->
             </div>
 
 			<div class="tab-pane fade" id="ex3-tabs-8" role="tabpanel" aria-labelledby="ex3-tab-8">
@@ -445,19 +486,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-end gap-3">
-                    <div class="mt-4 pt-2 text-center">
-                        <div type="button" class="btn qf-secondary-btn btn-block " data-type="complete_transection" id="print-data">
-                            <span class="text-capitalize" >Print</span>
-                        </div>
-                    </div>
-                    <div class="  mt-4 pt-2 text-center">
-                        <div type="button" class="btn qf-primary-btn btn-block "  data-type="complete_transection"  id="export-data">
-                            <span class=" text-capitalize">Download</span>
-                        </div>
-                    </div>
-                </div>
+            
                 <div class="table-reponsive box pt-2 bgc ps-0 pe-0">
+                    <div class="d-flex justify-content-end gap-3">
+                        <div class="mt-4 pt-2 text-center">
+                            <div type="button" class="btn qf-secondary-btn btn-block " data-type="complete_transection" id="print-data">
+                                <span class="text-capitalize" >Print</span>
+                            </div>
+                        </div>
+                        <div class="  mt-4 pt-2 text-center">
+                            <div type="button" class="btn qf-primary-btn btn-block "  data-type="complete_transection"  id="export-data">
+                                <span class=" text-capitalize">Download</span>
+                            </div>
+                        </div>
+                    </div>
                     <table id="agent-completed-transaction-table" class="table roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
@@ -491,6 +533,19 @@
             </div>
 
             <div class="tab-pane fade" id="ex3-tabs-10" role="tabpanel" aria-labelledby="ex3-tab-10">
+                <div class="d-flex justify-content-end gap-3">
+                    <div class="mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-secondary-btn btn-block " data-type="approved_deals" id="print-data">
+                            <span class="text-capitalize" >Print</span>
+                        </div>
+                    </div>
+                    <div class="  mt-4 pt-2 text-center">
+                        <div type="button" class="btn qf-primary-btn btn-block "  data-type="approved_deals"  id="export-data">
+                            <span class=" text-capitalize">Download</span>
+                        </div>
+                    </div>
+                </div>
+            
                 <div class="table-reponsive box pt-4   bgc ps-0 pe-0">
                     <table id="approved-deal-table" class="table   roundedTable border-0  text-center ">
                         <thead class=" ">
@@ -509,7 +564,7 @@
                     </table>
                 </div>
 
-                <div class="container">
+                <!-- <div class="container">
                     <div class="d-flex justify-content-center gap-3">
                         <div class="mt-4 pt-2 text-center">
                             <div type="button" class="btn qf-secondary-btn btn-block " data-type="approved_deals" id="print-data">
@@ -519,17 +574,14 @@
                         <div class="  mt-4 pt-2 text-center">
                             <div type="button" class="btn qf-primary-btn btn-block "  data-type="approved_deals"  id="export-data">
                                 <span class=" text-capitalize">Download</span>
-                                </div>
-                                </div>
-
                             </div>
-
                         </div>
                     </div>
+                </div> -->
             </div>
-            </div>
-
-                </div>
+        </div>
+    </div>
+</div>
 
         </div>
         <!-- Tabs content -->
