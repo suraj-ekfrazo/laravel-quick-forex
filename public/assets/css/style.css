@@ -4471,8 +4471,9 @@ button.close_btn {
 
 .nav-item .nav-link .badge.rounded-pill.badge-notification {
     position: absolute;
-    top: 0;
-    right: 12%;
+    bottom: 2px;
+    right: 50%;
+    transform: translateX(50%);
     font-size: 10px;
     min-width: 15px;
     height: 15px;
@@ -4562,7 +4563,6 @@ button.btn-secondary.btn-sm.rounded-4.btn-block.border-0.btn-confirm {
 }
 
 a .qf-inner-wrap .nav-title {
-    position: relative;
     font-weight: bold;
     line-height: 22px;
     max-width: min-content;
@@ -4589,10 +4589,10 @@ a .qf-inner-wrap .nav-title:after {
     height: 7px;
     border: 1px solid #000;
     border-width: 0px 0px 1px 1px;
-    transform: rotate(313deg);
+    transform: rotate(313deg) translate(50%, 3px);
     position: absolute;
-    left: 41%;
-    bottom: -7px;
+    bottom: -8px;
+    right: 50%;
     opacity: 0;
 }
 
