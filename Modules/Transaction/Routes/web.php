@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('admin-login/transaction')->group(function() {
+Route::prefix('admin-login/transaction')->middleware('auth.adminLogin')->group(function() { 
     Route::get('/', 'TransactionController@index')->name('agent-transaction.index');
 });
 
