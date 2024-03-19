@@ -35,12 +35,6 @@ class Dashboard extends Controller
         return view('agent.dashboard')->with($data);
     }
 
-    public function editSwiftUpload($id)
-    {
-        $data['data'] = Transactions::where('id',$id)->with('customerData')->first();
-        return view('agent.swift.upload')->with($data);
-    }
-
     public function customer()
     {
         return view('agent.customer.add');
@@ -102,6 +96,14 @@ class Dashboard extends Controller
                 'customer_id' => 'required',
             ]);
         } 
+
+        if ($input['booking_purpose_id'] == 20) {
+            if (!$request->hasFile('lrs_sheet_document')) {
+                $this->validate($request, [
+                    'lrs_sheet_document' => 'required',
+                ]);
+            }
+        }
         
         if($input['nostro_charge_type']!="" && $input['nostro_charge_type']=='OUR') {
             $this->validate($request, [
@@ -121,7 +123,7 @@ class Dashboard extends Controller
         $incidentNumberDetails = Transactions::orderBy('id', 'DESC')->first();
         if ($incidentNumberDetails != '') {
             $number = $incidentNumberDetails->txn_number;
-            $indexChar = substr($number, 0, -6);
+            $indexChar = "QUICK";
             $getNumber = substr($number, -6);
             if ($getNumber + 1 > 999999) {
                 $number = (++$indexChar . "000001");
@@ -141,6 +143,19 @@ class Dashboard extends Controller
         $startDate = Carbon::now();
         $input['expired_date'] = addDaysSkipWeekend(strtotime($startDate), 4);
         //echo json_encode($input); exit;
+
+        if ($request->hasFile('lrs_sheet_document')) {
+            date_default_timezone_set('Asia/Kolkata');
+			$milliseconds = round(microtime(true) * 1000);
+			$todayDate = date('Y-m-d');
+			$documentPath = public_path() . '/upload/allDocuments/' . $todayDate . '/' . $number . '/';
+
+            $extension = $request->lrs_sheet_document->getClientOriginalExtension();
+            $uploadFileName = $milliseconds . '_' . $number . '_LRS_Sheet.' . $extension;
+            $request->lrs_sheet_document->move($documentPath, $uploadFileName);
+            $input['lrs_sheet_document'] = $uploadFileName;
+		}
+
 		$result = Transactions::create($input);
         $newCurr = array();
         foreach ($currency as $value){
@@ -252,7 +267,7 @@ class Dashboard extends Controller
 		$incidentNumberDetails = RateBlock::orderBy('id', 'DESC')->first();
         if ($incidentNumberDetails != '' && $incidentNumberDetails->reference_number!="") {
             $number = $incidentNumberDetails->reference_number;
-            $indexChar = substr($number, 0, -6);
+            $indexChar = "QUICK";
             $getNumber = substr($number, -6);
             if ($getNumber + 1 > 999999) {
                 $number = (++$indexChar . "000001");
@@ -265,8 +280,8 @@ class Dashboard extends Controller
                 $input['reference_number'] = $number;
             }
         } else {
-            $input['reference_number'] = 'REF000001';
-            $viewNumber = 'REF000001';
+            $input['reference_number'] = 'QUICK000001';
+            $viewNumber = 'QUICK000001';
         }
         $input['branch_id']=Auth::guard('agent_users')->user()->id;
         if($input['currency']) {
@@ -407,40 +422,6 @@ class Dashboard extends Controller
         $result['data'] = $query->skip($input['start'])->take($input['length'])->orderBy('id','DESC')->get()->toArray();
         if ($result) {
             return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'recordsFiltered' => $result['recordsFiltered']));
-        } else {
-            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
-        }
-    }
-
-    public function swiftUpload(Request $request)
-    {
-        $input = $request->all();
-        $transaction_detail = Transactions::where('id',$input['id'])->first();
-
-        $validation = [];
-        $validation['swift_upload_document'] = 'required';
-        $request->validate($validation);
-				
-		if($input['id']) {
-            date_default_timezone_set('Asia/Kolkata');
-			$milliseconds = round(microtime(true) * 1000);
-			$todayDate = date('Y-m-d',strtotime($transaction_detail['created_at']));
-			$documentPath = public_path() . '/upload/allDocuments/' . $todayDate . '/' . $transaction_detail['txn_number'] . '/';
-
-			if ($request->hasFile('swift_upload_document')) {
-				$extension = $request->swift_upload_document->getClientOriginalExtension();
-				$uploadFileName = $milliseconds . '_' . $transaction_detail['txn_number'] . '_swift.' . $extension;
-				$request->swift_upload_document->move($documentPath, $uploadFileName);
-				$input['swift_upload_document'] = $uploadFileName;
-			}
-			unset($input['id']);
-			
-			$result = Transactions::where('txn_number', $transaction_detail['txn_number'])->update($input);
-			$message = 'Successfully Updated';			
-		}
-
-        if ($result) {
-            return response()->json(array('type' => 'SUCCESS', 'message' => $message));
         } else {
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
         }

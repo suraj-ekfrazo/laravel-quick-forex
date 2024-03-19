@@ -12,6 +12,7 @@
                 {data: 'id', orderable: false},
                 {data: 'id', orderable: false},
                 {data: 'id', orderable: false},
+                {data: 'id', orderable: false},
             ],
             columnDefs = [
                 {
@@ -59,6 +60,12 @@
                 },
                 {
                     "targets": [7],
+                    render: function (data, type, full, meta) {
+                        return full.created_at === null ? "": moment(full.created_at).format('DD-MM-YYYY');
+                    }
+                },
+                {
+                    "targets": [8],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
 						var upload_btn="";

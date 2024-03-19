@@ -9,6 +9,7 @@
                 {data: 'txn_type', orderable: false},
                 {data: 'booking_purpose_id', orderable: false},
                 {data: 'id', orderable: false},
+                {data: 'id', orderable: false},
             ],
             columnDefs = [
 				{
@@ -30,9 +31,22 @@
 						return full.purpose_data.purpose_name;
                     	}
                 },
-
                 {
                     "targets": [4],
+                    className: 'r-col-action',
+                    render: function (data, type, full, meta) {
+                        var id = full.id;
+                        if(full.kyc_status == 1){
+                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Approved</span></div>';
+                        }else if(full.kyc_status == 2){
+                            return '<div class="text-white comn-status-btn status-danger p-1 rounded-4 text-center">Rejected</span></div>';
+                        }else{
+                            return '<div class="text-white comn-status-btn status-secondary p-1 rounded-4 text-center">Pending</span></div>';
+                        }
+                    }
+                },
+                {
+                    "targets": [5],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         return '<a href="dashboard/view-kyc-doc/'+full.txn_number+'" class="text-white bg-danger border-0 p-1 rounded-4 new_btn_view" target="_blank"> View KYC Docs\n' +

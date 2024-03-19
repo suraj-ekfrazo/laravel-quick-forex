@@ -231,11 +231,10 @@ class DashboardController extends Controller
 
         if(isset($request->datefilter) && $request->datefilter!=''){
             $date=$request->datefilter;
-             $dates=explode(' - ',$date);
+            $dates=explode(' - ',$date);
             $date0 = str_replace(' ', '', $dates[0]);
             $dates1 = array_key_exists(1,$dates) ? str_replace('/t', '', $dates[1]) : $date0;
-            $query->whereDate('created_at','>=',date('Y-m-d',strtotime($date0)))
-                    ->whereDate('created_at','<=',date('Y-m-d',strtotime($dates1)));
+            $query->whereDate('created_at','>=',date('Y-m-d',strtotime($date0)))->whereDate('created_at','<=',date('Y-m-d',strtotime($dates1)));
         }
         
         if (isset($input['search']['value']) && !empty($input['search']['value'])) {
@@ -266,8 +265,18 @@ class DashboardController extends Controller
     public function tableDataExport(Request $request)
     {
         $input = $request->all();
+        
+        $query = Transactions::with('purposeData','sourceData')->join('transaction_currency','transaction_currency.txn_id','transactions.txn_number');
+        $query->where('payment_status','1');
+        $query->where('transaction_status','1');
+        $query->where('kyc_status','1');
 
-        $result['data'] = Transactions::with('purposeData','sourceData')->join('transaction_currency','transaction_currency.txn_id','transactions.txn_number')->where('payment_status','1')->where('transaction_status','1')->where('kyc_status','1')->orderBy('transaction_currency.id','DESC')->get()->toArray();
+        if ($input['downloadIdList'] != "") {
+            $query->whereIn('transactions.id', $input['downloadIdList']);    
+        }
+        
+        $query->orderBy('transaction_currency.id','DESC');
+        $result['data'] = $query->get()->toArray();
 
         if ($result) {
             $spreadsheet = new Spreadsheet();
@@ -484,7 +493,20 @@ class DashboardController extends Controller
 
     }
 	
-	 public function tableApprovedDealData(Request $request)
+    public function getLrsDocument(Request $request){
+        $input = $request->all();
+        $resultData = Transactions::where('id', $input['id'])->first();
+
+        if ($resultData['transaction_status'] == 1 && $resultData['lrs_sheet_document'] != "") {
+            $lrs_doc_path = asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($resultData['created_at'])).'/'.$resultData['txn_number']. '/'.$resultData['lrs_sheet_document'];
+            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => array('path' => $lrs_doc_path)));
+        }else{
+            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+        }
+    }
+
+
+	public function tableApprovedDealData(Request $request)
     {
         $input = $request->all();
         /*$array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];*/
@@ -625,6 +647,48 @@ class DashboardController extends Controller
             return view('dashboard::print',compact('transections','type'));
         }
 
+    }
+
+    public function editSwiftUpload(Request $request)
+    {
+        $input = $request->all();
+
+        $data['data'] = Transactions::where('id',$input['id'])->with('customerData')->first();
+        return view('agent.swift.upload')->with($data);
+    }
+
+    public function swiftUpload(Request $request)
+    {
+        $input = $request->all();
+        $transaction_detail = Transactions::where('id',$input['id'])->first();
+
+        $validation = [];
+        $validation['swift_upload_document'] = 'required';
+        $request->validate($validation);
+				
+		if($input['id']) {
+            date_default_timezone_set('Asia/Kolkata');
+			$milliseconds = round(microtime(true) * 1000);
+			$todayDate = date('Y-m-d',strtotime($transaction_detail['created_at']));
+			$documentPath = public_path() . '/upload/allDocuments/' . $todayDate . '/' . $transaction_detail['txn_number'] . '/';
+
+			if ($request->hasFile('swift_upload_document')) {
+				$extension = $request->swift_upload_document->getClientOriginalExtension();
+				$uploadFileName = $milliseconds . '_' . $transaction_detail['txn_number'] . '_swift.' . $extension;
+				$request->swift_upload_document->move($documentPath, $uploadFileName);
+				$input['swift_upload_document'] = $uploadFileName;
+			}
+			unset($input['id']);
+			
+			$result = Transactions::where('txn_number', $transaction_detail['txn_number'])->update($input);
+			$message = 'Successfully Updated';			
+		}
+
+        if ($result) {
+            return response()->json(array('type' => 'SUCCESS', 'message' => $message, 'data' => $result));
+        } else {
+            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+        }
     }
 
 }

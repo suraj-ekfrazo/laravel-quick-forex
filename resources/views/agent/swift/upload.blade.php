@@ -143,7 +143,7 @@
                     if (result.type === 'SUCCESS') {
                         toastr.success(result.message);
                         $("#upload-swift-model").modal('hide');
-                        $('#transaction-status-table').DataTable().ajax.reload();
+                        $('#agent-completed-transaction-table').DataTable().ajax.reload();
                     } else {
                         toastr.error(result.message);
                     }

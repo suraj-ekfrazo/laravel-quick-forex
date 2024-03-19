@@ -180,6 +180,7 @@
                             <th scope="col" class="fw-bold">Transaction type</th>
                             <th scope="col" class="fw-bold">Purpose </th>
                             <th scope="col" class="fw-bold">KYC Status</th>
+                            <th scope="col" class="fw-bold">Action</th>
                         </tr>
                         </thead>
                     </table>
@@ -287,6 +288,7 @@
                                 <th scope="col" class="fw-bold">KYC Status</th>
                                 <th scope="col" class="fw-bold">Payment</th>
                                 <th scope="col" class="fw-bold">Payment Status</th>
+                                <th scope="col" class="fw-bold">Txn Created Date</th>
                                 <th scope="col" class="fw-bold">Action</th>
                             </tr>
                         </thead>
@@ -401,6 +403,7 @@
                                 <th scope="col" class="fw-bold">KYC Status</th>
                                 <th scope="col" class="fw-bold">Payment Status</th>
                                 <th scope="col" class="fw-bold">Transaction Status</th>
+                                <th scope="col" class="fw-bold">Txt Created Date</th>
                                 <th scope="col" class="fw-bold">Deal Expiry Date</th>
                                 <th scope="col" class="fw-bold">Action</th>
                             </tr>
@@ -488,13 +491,18 @@
                 </div>
 
                 <div class="table-responsive box pt-2 bgc ps-0 pe-0">
-                    <div class="d-flex justify-content-end gap-3">
+                    <div class="d-flex justify-content gap-3">
+                        <div class="mt-4 pt-2 text-left">
+                            <div type="button" class="btn qf-primary-btn btn-block " onclick="exportExcel()">
+                                <span class=" text-capitalize">Export</span>
+                            </div>
+                        </div>
                         <div class="mt-4 pt-2 text-center">
                             <div type="button" class="btn qf-secondary-btn btn-block " data-type="complete_transection" id="print-data">
                                 <span class="text-capitalize" >Print</span>
                             </div>
                         </div>
-                        <div class="  mt-4 pt-2 text-center">
+                        <div class="mt-4 pt-2 text-center">
                             <div type="button" class="btn qf-primary-btn btn-block "  data-type="complete_transection"  id="export-data">
                                 <span class=" text-capitalize">Download</span>
                             </div>
@@ -503,6 +511,12 @@
                     <table id="agent-completed-transaction-table" class="table roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
+                                <th  scope="col" class="fw-bold"  >
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="downloadAll" name="">
+                                        <label class="custom-control-label" for="downloadAll"></label>
+                                    </div>
+                                </th>
                                 <th scope="col" class="fw-bold">Transaction Number</th>
                                 <th scope="col" class="fw-bold">Customer Name</th>
                                 <th scope="col" class="fw-bold">Type</th>
@@ -511,7 +525,13 @@
                                 <th scope="col" class="fw-bold">Payment Status</th>
                                 <th scope="col" class="fw-bold">Transaction Status</th>
 								<th scope="col" class="fw-bold">Payment Mode</th>
-                                <th scope="col" class="fw-bold">Deal Expiry Date</th>
+                                <th scope="col" class="fw-bold">LRS Doc</th>
+                                <th scope="col" class="fw-bold">Txn Date</th>
+                                <th scope="col" class="fw-bold">Txn Time</th>
+                                <th scope="col" class="fw-bold">Txn Expiry Date</th>
+                                <th scope="col" class="fw-bold">Completed Date</th>
+                                <th scope="col" class="fw-bold">Completed Time</th>
+                                <th scope="col" class="fw-bold">Swift Upload</th>
                                 <th scope="col" class="fw-bold">Action</th>
                             </tr>
                         </thead>
@@ -559,6 +579,8 @@
                             <th scope="col" class="fw-bold">Rate</th>
                             <th scope="col" class="fw-bold">Deal ID</th>
                             <th scope="col" class="fw-bold">Expiry Date</th>
+                            <th scope="col" class="fw-bold">Created Date</th>
+                            <th scope="col" class="fw-bold">Updated Date</th>
                         </tr>
                         </thead>
                     </table>
@@ -620,21 +642,35 @@
             });
 
         function exportExcel() {
-            var data = {};
-            data['from_date'] = $('#from_date').val();
-            data['to_date'] = $('#to_date').val();
-            $.ajax({
-                url: "{!! route('exportData.csv') !!}",
-                type: 'POST',
-                contentType: "application/json",
-                data: JSON.stringify(data),
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(result) {
-                    window.location.href = result.data.path;
-                }
-            });
+            if ($("input[name='downloadIdList']:checked").length > 0) {
+                var transaction_Ids = [];
+                $.each($("input[name='downloadIdList']:checked"), function() {
+                    transaction_Ids.push($(this).attr('data-key'));
+                });
+                
+                $.ajax({
+                    url: "{!! route('exportData.csv') !!}",
+                    type: 'POST',
+                    contentType: "application/json",
+                    data: JSON.stringify({"downloadIdList": transaction_Ids}),
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(result) {
+                        window.location.href = result.data.path;
+                    }
+                });
+
+            }else{
+                swal({
+                    title: "Please select rows to export",
+                    text: "",
+                    icon: "error",
+                    buttons: true,
+                    dangerMode: true,
+                    buttons:"OK",
+                }).then((result) => {});
+            }
         }
 
 

@@ -92,12 +92,8 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var upload_btn="";
-						if(full.transaction_status == 1){
-                            upload_btn = '<button class="new_btn_upload" onclick="uploadSWIFT(' + full.id + ')"> <img src="./assets/img/dashboard/icon_upload.png" alt="upload">  Upload</button>';
-                        }
                         return '<div class="d-flex gap-2">'+
-                            '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')"> View</button>' + upload_btn +
+                            '<button class="new_btn_view btn-sm rounded-4 btn-block border-0" onclick="transactionDetail(' + full.id + ')"> View</button>' +
                             '</div>';
                     }
                 },
@@ -122,24 +118,6 @@
         });
 
     });
-
-
-    function uploadSWIFT(id){
-        $.ajax({
-            url: "transaction/editSwiftUpload/" + id,
-            type: 'GET',
-            contentType: "application/json",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (result) {
-
-                $('.addModals').html(result);
-                $('#upload-swift-model').modal('show');
-            }
-        });
-    }
-
 
     //remove modal
     function removeTransaction(id) {
@@ -376,7 +354,7 @@
             var currencyType = $("#currencyType").val();
             var currencyTypeText = $("#currencyType option:selected").text();
             var inrCalculation = ((parseFloat(fxRate)) * amount);
-            var inrCalRound = Math.round(inrCalculation,2);
+            var inrCalRound = Math.round(inrCalculation,4);
             $("#currencyType option[value='"+currencyType+"']").remove();
             var html = '';
 
@@ -392,7 +370,7 @@
                 '<td>' + amount +
                 '<input type="hidden" class="txn_frgn_curr_amount" name="currency[' + rowCount + '][txn_frgn_curr_amount]" value="' + amount + '" />'+
                 '</td>'+
-                '<td>' + fxRate.toFixed(2) +
+                '<td>' + fxRate.toFixed(4) +
                 '<input type="hidden" class="txn_booking_rate" name="currency[' + rowCount + '][txn_booking_rate]" value="' + fxRate + '" />'+
                 '<input type="hidden" class="txn_branch_margin" name="currency[' + rowCount + '][txn_branch_margin]" value="' + data.branch_margin + '" />'+
                 '<input type="hidden" class="txn_agent_commission" name="currency[' + rowCount + '][txn_agent_commission]" value="' + data.agent_commission + '" />'+

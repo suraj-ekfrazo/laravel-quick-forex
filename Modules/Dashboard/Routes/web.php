@@ -26,6 +26,9 @@ Route::prefix('admin-login/dashboard/transactionstatus')->group(function() {
     Route::post('export/csv', 'DashboardController@tableDataExport')->name('exportData.csv');
 	Route::post('single/csv', 'DashboardController@singleDataExport')->name('singleData.csv');
     Route::post('update/{id}', 'DashboardController@updateDeal')->name('transactionstatus.update');
+    Route::post('getLrsDocument', 'DashboardController@getLrsDocument')->name('getLrs.data');
+    Route::post('editSwiftUpload', 'DashboardController@editSwiftUpload')->name('editSwiftUpload.data');
+    Route::post('swiftUpload', 'DashboardController@swiftUpload')->name('swift.upload');
 });
 
 

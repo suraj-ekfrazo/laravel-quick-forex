@@ -105,6 +105,25 @@
                                                 {{ $kyc_data[$doc->document_name . '_comment'] }}</p>
                                         @endif
                                     </div>
+                                @else
+                                    @php $existing_file = asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($data->created_at)).'/'.$data->txn_number. '/'.$kyc_data[$doc->document_name] @endphp
+                                    <div class="upload-kyc-each">
+                                        <div class="kyc_doc_card upload-kyc-inner">
+                                            <label class="form-label mt-3 qf-file-upload-title"
+                                                for="{{ $doc->document_name }}">{{ $doc->document_value }} :
+                                            </label>
+                                            <div class="upload-wrapper">
+                                                @if($existing_file)
+                                                    <div class="text-center">
+                                                        <button type="button qf-secondary-btn"
+                                                            class="btn fw-bold btn_view_kyc_doc text-capitalize"
+                                                            onclick="previewLastFile('{{ $existing_file }}'); return false;"><i
+                                                            class="fa-solid fa-eye "></i> View</button>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endif
                             @else
                                 <div class="upload-kyc-each">
@@ -141,12 +160,12 @@
 					<div class="blockUI blockMsg blockPage " style="padding: 0px; margin: 0px; top: 33%; color: rgb(0, 0, 0);  font-weight: normal;  font-size: 20px; left: 35%; text-align: center; z-index: 999999 ! important; position: fixed; width: 30%;"><img src="{{ asset('assets/img/loader.gif')}}" style="height:200px;"></div>
 				</div>
 
-
-
-                <div class="modal-footer text-center">
-                    <button type="submit" id="upload_document"
-                        class="btn btn-secondary px-5 fw-bold text-capitalize qf-primary-btn">Upload Documents</button>
-                </div>
+                @if($data->kyc_status != 1)
+                    <div class="modal-footer text-center">
+                        <button type="submit" id="upload_document"
+                            class="btn btn-secondary px-5 fw-bold text-capitalize qf-primary-btn">Upload Documents</button>
+                    </div>
+                @endif;
             </form>
         </div>
     </div>

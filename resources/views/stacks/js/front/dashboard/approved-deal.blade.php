@@ -12,6 +12,8 @@
                 {data: 'fx_rate', orderable: false},
                 {data: 'deal_id', orderable: false},
                 {data: 'expiry_date', orderable: false},
+                {data: 'created_at', orderable: false},
+                {data: 'updated_at', orderable: false},
             ],
             columnDefs = [
                 {
@@ -47,6 +49,20 @@
                     render: function(data, type, full, meta) {
                         return full.expired_date === null ? "" : moment(full.expired_date).format(
                             'DD-MM-YYYY');
+                    }
+                },
+                {
+                    "targets": [8],
+                    render: function(data, type, full, meta) {
+                        return full.created_at === null ? "" : moment(full.created_at).format(
+                            'DD-MM-YYYY h:mm:ss A');
+                    }
+                },
+                {
+                    "targets": [9],
+                    render: function(data, type, full, meta) {
+                        return full.updated_at === null ? "" : moment(full.updated_at).format(
+                            'DD-MM-YYYY h:mm:ss A');
                     }
                 },
             ],

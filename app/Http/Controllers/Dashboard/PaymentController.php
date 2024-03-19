@@ -46,7 +46,7 @@ class PaymentController extends Controller
                 $query->orWhere('created_at', 'like', '%' . $input['search']['value'] . '%');
             }
         });
-		
+		$query->orderBy('id','Desc');
         $result['draw'] = $input['draw'];
         $result['recordsTotal'] = $query->count();
         $result['recordsFiltered'] = $query->count();

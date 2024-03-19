@@ -35,8 +35,7 @@ class KycController extends Controller
             $query->orWhere('txn_inr_amount', 'like', '%' . $input['search']['value'] . '%');
         }
         $query->whereHas('txnCurrency', function($query) use ($input) {
-            $query->where('created_by', Auth::guard('agent_users')->user()->id)
-				->where('status','0');
+            $query->where('created_by', Auth::guard('agent_users')->user()->id);
 			
             if (isset($input['search']['value']) && !empty($input['search']['value'])) {
                 $query->where('txn_number', 'like', '%' . $input['search']['value'] . '%');
@@ -44,6 +43,8 @@ class KycController extends Controller
                 $query->orWhere('created_at', 'like', '%' . $input['search']['value'] . '%');
             }
         });
+        $query->orderBy('txn_number', 'DESC');
+
         $result['draw'] = $input['draw'];
         $result['recordsTotal'] = $query->count();
         $result['recordsFiltered'] = $query->count();
@@ -130,7 +131,7 @@ class KycController extends Controller
         }
         return $response;
     }
-	
+	 
 	public function getTransactionDetail($id)
     {
         $data['data'] = Transactions::where('id',$id)->with('customerData','purposeData','sourceData','txnCurrency')->first();
@@ -190,7 +191,7 @@ class KycController extends Controller
         }
         if ($result) {
             Transactions::where('txn_number',$input['txn_link_no'])
-                ->update(['document_upload_status'=>'1']);
+                ->update(['document_upload_status'=>'1','kyc_status'=>'0']);
 				// ->update(['document_upload_status'=>'1','status'=>'1']);
             return response()->json(array('type' => 'SUCCESS', 'message' => $message));
         } else {

@@ -96,7 +96,7 @@
 <!-- Tabs content -->
 <div class="tab-content agent-transaction-main" id="ex3-content">
     <div class="tab-pane fade" id="ex3-tabs-1" role="tabpanel" aria-labelledby="ex3-tab-1">
-        <form action="{{route('transaction.save')}}" method="post" class="save-incidents-form">
+        <form action="{{route('transaction.save')}}" method="post" class="save-incidents-form" enctype="multipart/form-data" files="true">
             <div class="main-wrapper">
                 <!-- <div class="create-btn-wrap">
                     <div class="text-center  ">
@@ -288,6 +288,27 @@
                         </div>
                     </div>
                     <div class="card">
+                        <div class="card-header" id="headingSix" type="button" data-toggle="collapse"
+                            data-target="#collapseSix" aria-expanded="true" aria-controls="collapseTwo">
+                            <span class="accordion-title">
+                                LRS Detail
+                            </span>
+                        </div>
+                        <div id="collapseSix" class="collapse " aria-labelledby="headingSix" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-inner-wrapper">
+                                    <div class="qf-select-wrap">
+                                        <label class="">LSR Document Sheet</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control qf-file-upload" type="file" name="lrs_sheet_document" id="lrs_sheet_document">
+                                            @component('components.ajax-error',['field'=>'lrs_sheet_document'])@endcomponent
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
                         <div class="card-header" id="headingThree" type="button" data-toggle="collapse"
                             data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                             <span class="accordion-title">
@@ -352,15 +373,17 @@
                                     <div class="qf-select-wrap">
                                         <label class="">Remitter Country</label>
                                         <div class="input-group mb-3">
-                                            <select class="form-select qf-primary-select" name="remitter_country"
-                                                id="remitter_country" disabled>
+                                            {{--<select class="form-select qf-primary-select" name="remitter_country"
+                                                id="remitter_country">
                                                 <option value="">Select Remitter Country</option>
                                                 @foreach ($countries as $country)
                                                 <option {{ $country['id']=='101' ? 'selected' : '' }}
                                                     value="{{ filter_var($country['name'])}}">{{
                                                     ucfirst($country['name'])}}</option>
                                                 @endforeach
-                                            </select>
+                                            </select>--}}
+                                            <input class="form-control qf-secondary-input" type="text" name="remitter_country"
+                                                id="remitter_country" placeholder="Enter Remitter Country" value="India" readonly>
                                             @component('components.ajax-error',['field'=>'remitter_country'])@endcomponent
                                         </div>
                                     </div>
@@ -449,8 +472,7 @@
                                     <div class="qf-select-wrap">
                                         <label class="">Beneficiary Ac Number / IBAN Code*</label>
                                         <div class="input-group mb-3">
-                                            <input onkeypress="return isSpecialKey(event)" 
-                                                oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                                            <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text"
                                                 name="beneficiary_ac_number" id="beneficiary_ac_number"
                                                 placeholder="Enter Beneficiary Ac Number / IBAN Code">
@@ -607,16 +629,16 @@
                                             </label>-->
                                         <select class="form-control qf-secondary-input" id="currencyType">
                                             <option value="" selected>Select Currency</option>
-                                            <option value="USD/INR">USD</option>
-                                            <option value="CAD/INR">CAD</option>
-                                            <option value="AUD/INR">AUD</option>
-                                            <option value="JPY/INR">JPY</option>
-                                            <option value="CHF/INR">CHF</option>
-                                            <option value="AED/INR">AED</option>
-                                            <option value="GBP/INR">GBP</option>
-                                            <option value="EUR/INR">EUR</option>
-                                            <option value="THB/INR">THB</option>
-                                            <option value="SGD/INR">SGD</option>
+                                            <option value="USD">USD</option>
+                                            <option value="CAD">CAD</option>
+                                            <option value="AUD">AUD</option>
+                                            <option value="JPY">JPY</option>
+                                            <option value="CHF">CHF</option>
+                                            <option value="AED">AED</option>
+                                            <option value="GBP">GBP</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="THB">THB</option>
+                                            <option value="SGD">SGD</option>
                                         </select>
                                         @component('components.ajax-error',['field'=>'currency'])@endcomponent
                                     </div>
@@ -935,16 +957,16 @@
                                 </label>-->
                             <select class="form-select qf-primary-select" id="currencyTyperb" name="currencyTyperb">
                                 <option value="" selected>FX Currency*</option>
-                                <option value="USD/INR">USD</option>
-                                <option value="CAD/INR">CAD</option>
-                                <option value="AUD/INR">AUD</option>
-                                <option value="JPY/INR">JPY</option>
-                                <option value="CHF/INR">CHF</option>
-                                <option value="AED/INR">AED</option>
-                                <option value="GBP/INR">GBP</option>
-                                <option value="EUR/INR">EUR</option>
-                                <option value="THB/INR">THB</option>
-                                <option value="SGD/INR">SGD</option>
+                                <option value="USD">USD</option>
+                                <option value="CAD">CAD</option>
+                                <option value="AUD">AUD</option>
+                                <option value="JPY">JPY</option>
+                                <option value="CHF">CHF</option>
+                                <option value="AED">AED</option>
+                                <option value="GBP">GBP</option>
+                                <option value="EUR">EUR</option>
+                                <option value="THB">THB</option>
+                                <option value="SGD">SGD</option>
                             </select>
                             <span class="invalid-feedback ajax-error has-error w-100 vh-30" role="alert"
                                 id="currencyerror"></span>
@@ -1050,6 +1072,7 @@
                         <th scope="col" class="fw-normal">KYC Status</th>
                         <th scope="col" class="fw-normal">Payment</th>
                         <th scope="col" class="fw-normal">Payment Status</th>
+                        <th scope="col" class="fw-normal">Txn Created Date</th>
                         <th scope="col" class="fw-normal">Action</th>
                     </tr>
                 </thead>
@@ -1083,6 +1106,8 @@
                         <th scope="col" class="fw-normal">Rate</th>
                         <th scope="col" class="fw-normal">Deal ID</th>
                         <th scope="col" class="fw-normal">Expiry Date</th>
+                        <th scope="col" class="fw-normal">Created Date</th>
+                        <th scope="col" class="fw-normal">Updated Date</th>
                     </tr>
                 </thead>
             </table>

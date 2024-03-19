@@ -55,8 +55,6 @@ Route::prefix('transaction')->middleware('auth.agentLogin')->group(function() {
 	Route::post('imageVerification', [KycController::class, 'imageVerification'])->name('image.verification');
     Route::get('transection-export', [KycController::class, 'export'])->name('transection.export');
     Route::get('transection-print', [KycController::class, 'print'])->name('transection-print');
-    Route::get('editSwiftUpload/{id}', [App\Http\Controllers\Agent\Dashboard::class, 'editSwiftUpload'])->name('agent.editSwiftUpload');
-    Route::post('swiftUpload', [App\Http\Controllers\Agent\Dashboard::class, 'swiftUpload'])->name('swift.upload');
 });
 
 Route::prefix('approved-deal')->middleware('auth.agentLogin')->group(function() {
