@@ -14,6 +14,7 @@
                 {data: 'id', orderable: false},
 				{data: 'id', orderable: false},
                 {data: 'id', orderable: false},
+                {data: 'id', orderable: false},
             ],
             columnDefs = [
                 {
@@ -82,6 +83,16 @@
                 },
                 {
                     "targets": [9],
+                    render: function (data, type, full, meta) {
+                        if (full.kyc_data != null) {
+                            return full.kyc_data.updated_at === null ? "": moment(full.kyc_data.updated_at).format('DD-MM-YYYY h:mm:ss A');
+                        }else{
+                            return '';
+                        }
+                    }
+                },
+                {
+                    "targets": [10],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -128,6 +139,8 @@
                 {data: 'id', orderable: false},
                 {data: 'id', orderable: false},
 				{data: 'id', orderable: false},
+                {data: 'id', orderable: false},
+                {data: 'id', orderable: false},
             ],
             columnDefs = [
                 {
@@ -234,17 +247,37 @@
                 {
                     "targets": [13],
                     render: function (data, type, full, meta) {
-                        return full.updated_at === null ? "": moment(full.updated_at).format('DD-MM-YYYY'); //DD-MM-YYYY h:mm:ss A
+                        if (full.kyc_data != null) {
+                            return full.kyc_data.updated_at === null ? "": moment(full.kyc_data.updated_at).format('DD-MM-YYYY');
+                        }else{
+                            return '';
+                        }
                     }
                 },
                 {
                     "targets": [14],
                     render: function (data, type, full, meta) {
-                        return full.updated_at === null ? "": moment(full.updated_at).format('h:mm:ss A'); //DD-MM-YYYY h:mm:ss A
+                        if (full.kyc_data != null) {
+                            return full.kyc_data.updated_at === null ? "": moment(full.kyc_data.updated_at).format('h:mm:ss A');
+                        }else{
+                            return '';
+                        }
                     }
                 },
                 {
                     "targets": [15],
+                    render: function (data, type, full, meta) {
+                        return full.updated_at === null ? "": moment(full.updated_at).format('DD-MM-YYYY'); //DD-MM-YYYY h:mm:ss A
+                    }
+                },
+                {
+                    "targets": [16],
+                    render: function (data, type, full, meta) {
+                        return full.updated_at === null ? "": moment(full.updated_at).format('h:mm:ss A'); //DD-MM-YYYY h:mm:ss A
+                    }
+                },
+                {
+                    "targets": [17],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -256,7 +289,7 @@
                     } 
                 },
                 {
-                    "targets": [16],
+                    "targets": [18],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;

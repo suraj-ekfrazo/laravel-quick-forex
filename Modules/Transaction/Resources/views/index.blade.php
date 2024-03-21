@@ -173,12 +173,13 @@
                 </div>
                 <div class="table-responsive-sm pt-4 ps-0 pe-0">
                     <table id="kyc-status-table" class="table roundedTable roundedTable bgc align-middle">
-                        <thead>
+                        <thead> 
                         <tr class="bgc-table row-font1">
                             <th scope="col" class="fw-bold">Transaction Number</th>
                             <th scope="col" class="fw-bold">Customer Name </th>
                             <th scope="col" class="fw-bold">Transaction type</th>
                             <th scope="col" class="fw-bold">Purpose </th>
+                            <th scope="col" class="fw-bold">Doc Upload Date</th>
                             <th scope="col" class="fw-bold">KYC Status</th>
                             <th scope="col" class="fw-bold">Action</th>
                         </tr>
@@ -404,7 +405,8 @@
                                 <th scope="col" class="fw-bold">Payment Status</th>
                                 <th scope="col" class="fw-bold">Transaction Status</th>
                                 <th scope="col" class="fw-bold">Txt Created Date</th>
-                                <th scope="col" class="fw-bold">Deal Expiry Date</th>
+                                <th scope="col" class="fw-bold">Txn Expiry Date</th>
+                                <th scope="col" class="fw-bold">Doc Upload Date</th>
                                 <th scope="col" class="fw-bold">Action</th>
                             </tr>
                         </thead>
@@ -529,6 +531,8 @@
                                 <th scope="col" class="fw-bold">Txn Date</th>
                                 <th scope="col" class="fw-bold">Txn Time</th>
                                 <th scope="col" class="fw-bold">Txn Expiry Date</th>
+                                <th scope="col" class="fw-bold">Doc Upload Date</th>
+                                <th scope="col" class="fw-bold">Doc Upload Time</th>
                                 <th scope="col" class="fw-bold">Completed Date</th>
                                 <th scope="col" class="fw-bold">Completed Time</th>
                                 <th scope="col" class="fw-bold">Swift Upload</th>

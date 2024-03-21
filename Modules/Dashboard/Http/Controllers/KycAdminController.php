@@ -42,7 +42,7 @@ class KycAdminController extends Controller
     {
          $input = $request->all();
         /*$array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];*/
-        $query = Transactions::with('txnCurrency','purposeData','sourceData');
+        $query = Transactions::with('txnCurrency','purposeData','sourceData','kycData');
         if (isset($input['search']['value']) && !empty($input['search']['value'])) {
             $query->where('txn_id', 'like', '%' . $input['search']['value'] . '%');
             $query->orWhere('txn_currency_type', 'like', '%' . $input['search']['value'] . '%');

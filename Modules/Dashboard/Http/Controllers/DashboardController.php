@@ -56,7 +56,7 @@ class DashboardController extends Controller
     {
         $input = $request->all();
         /*$array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];*/
-        $query = Transactions::with('txnCurrency','purposeData','sourceData')->orderBy('txn_number', 'DESC');
+        $query = Transactions::with('txnCurrency','purposeData','sourceData','kycData')->orderBy('txn_number', 'DESC');
         
 
         if(isset($request->customer_id) && $request->customer_id!=''){
@@ -219,7 +219,7 @@ class DashboardController extends Controller
     {
         $input = $request->all();
         /*$array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];*/
-        $query = Transactions::with('txnCurrency','purposeData','sourceData');
+        $query = Transactions::with('txnCurrency','purposeData','sourceData','kycData');
         if(isset($request->customer_id) && $request->customer_id!=''){
             $query->where('customer_id', $request->customer_id);
         }
