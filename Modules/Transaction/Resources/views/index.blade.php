@@ -173,7 +173,7 @@
                 </div>
                 <div class="table-responsive-sm pt-4 ps-0 pe-0">
                     <table id="kyc-status-table" class="table roundedTable roundedTable bgc align-middle">
-                        <thead> 
+                        <thead>
                         <tr class="bgc-table row-font1">
                             <th scope="col" class="fw-bold">Transaction Number</th>
                             <th scope="col" class="fw-bold">Customer Name </th>
@@ -491,14 +491,15 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="table-responsive box pt-2 bgc ps-0 pe-0">
-                    <div class="d-flex justify-content gap-3">
+                <div class="d-flex justify-content-between">
+                        <div class="left-action d-flex ">
                         <div class="mt-4 pt-2 text-left">
                             <div type="button" class="btn qf-primary-btn btn-block " onclick="exportExcel()">
                                 <span class=" text-capitalize">Export</span>
                             </div>
                         </div>
+                        </div>
+                        <div class="right-action d-flex gap-3">
                         <div class="mt-4 pt-2 text-center">
                             <div type="button" class="btn qf-secondary-btn btn-block " data-type="complete_transection" id="print-data">
                                 <span class="text-capitalize" >Print</span>
@@ -509,7 +510,10 @@
                                 <span class=" text-capitalize">Download</span>
                             </div>
                         </div>
+                        </div>
                     </div>
+                <div class="table-responsive box pt-2 bgc ps-0 pe-0">
+
                     <table id="agent-completed-transaction-table" class="table roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
@@ -651,7 +655,7 @@
                 $.each($("input[name='downloadIdList']:checked"), function() {
                     transaction_Ids.push($(this).attr('data-key'));
                 });
-                
+
                 $.ajax({
                     url: "{!! route('exportData.csv') !!}",
                     type: 'POST',
