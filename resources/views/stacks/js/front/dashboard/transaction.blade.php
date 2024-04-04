@@ -15,6 +15,7 @@
 			    {data: 'id', orderable: false},
                 {data: 'id', orderable: false},
                 {data: 'id', orderable: false},
+                {data: 'id', orderable: false},
             ],
             columnDefs = [
                 {
@@ -84,11 +85,23 @@
                 {
                     "targets": [8],
                     render: function (data, type, full, meta) {
-                        return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY');
+                        if (full.lrs_sheet_document && full.transaction_status == 1) {
+                            return '<div class="d-flex gap-2">'+
+                                    '<button class="new_btn_upload" onclick="transactionLRSDownload(' + full.id + ')"> <img src="{{asset('assets/img/dashboard/icon_download.png')}}" alt="Download"> Download</button>' +
+                                '</div>';
+                        }else{
+                            return '';
+                        }
                     }
                 },
                 {
                     "targets": [9],
+                    render: function (data, type, full, meta) {
+                        return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY');
+                    }
+                },
+                {
+                    "targets": [10],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -118,6 +131,24 @@
         });
 
     });
+
+    function transactionLRSDownload(id) {
+        var data = {};
+        data['id'] = id;
+        $.ajax({
+            url: "{!! route('getCustomerLrs.data') !!}",
+            type: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(result) {
+                // console.log(result);
+                window.location.href = result.data.path;
+            }
+        });
+    }
 
     //remove modal
     function removeTransaction(id) {

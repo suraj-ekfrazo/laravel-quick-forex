@@ -46,6 +46,9 @@ Route::prefix('admin-login/dashboard/transactionkyc')->group(function() {
 
 Route::prefix('admin-login/dashboard/approved-deal')->group(function() {
     Route::post('table-json/all', 'DashboardController@tableApprovedDealData')->name('approvedDeal.data');
+    Route::post('editApprovedDeals', 'DashboardController@editApprovedDeals')->name('approvedDeal.edit');
+    Route::post('updateApprovedDeal', 'DashboardController@updateApprovedDeal')->name('approvedDeal.update');
+    Route::post('deleteApprovedDeal', 'DashboardController@deleteApprovedDeal')->name('approvedDeal.delete');
 });
 
 Route::prefix('admin-login/dashboard/rateblocked')->group(function() {

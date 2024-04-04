@@ -74,6 +74,28 @@
                             'DD-MM-YYYY h:mm:ss A');
                     }
                 },
+                {
+                    "targets": [11],
+                    className: 'r-col-action',
+                    render: function (data, type, full, meta) {
+                        var id = full.id;
+                        return `
+                            <div class="btn-group action-btn-grp">
+                                <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                <div class="action-btn-wrap">
+                                <button class="action-btn edit-btn" onclick="openAddModal(${id})" title="Edit">
+                                    <i class="fa-solid fa-pen-to-square"></i> Edit</button>
+                                    <button class="action-btn delete-btn" onclick="removeDeal(${full.id})" title="Delete">
+                                    <i class="fa-solid fa-trash"></i> Delete</button>
+                                </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                },
             ],
             dataTable = callDataTable('approved-deal-table', '{!! route('approvedDeal.data') !!}', filters, columns, '', '', columnDefs);
 
@@ -91,4 +113,54 @@
         });
 
     });
+
+    function openAddModal(id) {
+        if(id){
+            $.ajax({
+                url:  "{!! route('approvedDeal.edit') !!}",
+                type: 'POST',
+                data : JSON.stringify({id: id}),
+                contentType: "application/json",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(result) {
+
+                    $('.addModals').html(result);
+                    $('#edit-approved-deal-model').modal('show');
+                }
+            });
+        }
+    }
+
+    function removeDeal(id) {
+        if(id){
+            swal({
+                title: "Are you sure you want to delete?",
+                text: "",
+                icon: "error",
+                buttons: true,
+                dangerMode: true,
+                buttons: ["Cancel","Confirm"],
+            }).then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: "{!! route('approvedDeal.delete')  !!}",
+                        type: 'POST',
+                        data:  JSON.stringify({id: id}),
+                        contentType: "application/json",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (result) {
+                            if (result.type === 'SUCCESS') {
+                                toastr.success(result.message);
+                                $('#approved-deal-table').DataTable().ajax.reload(null, false);
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    }
 </script>

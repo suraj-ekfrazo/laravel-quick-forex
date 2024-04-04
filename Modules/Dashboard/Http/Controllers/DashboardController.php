@@ -52,6 +52,13 @@ class DashboardController extends Controller
         return view('dashboard::tcuser')->with($data);
     }
 
+    public function editApprovedDeals(Request $request){
+        $input = $request->all();
+
+        $data['data'] = RateBlock::where('id',$input['id'])->first();
+        return view('dashboard::editApprovedDeal')->with($data);
+    }
+
     public function tableTransactionData(Request $request)
     {
         $input = $request->all();
@@ -161,6 +168,35 @@ class DashboardController extends Controller
             }
         } catch (\Exception $e) {
             return response()->json(array('type' => 'ERROR', 'message' => $e->getMessage()));
+        }
+    }
+
+    public function updateApprovedDeal(Request $request){
+        $input = $request->all();
+        
+        $validation = [];
+        $validation['fx_rate'] = 'required';
+        $validation['deal_id'] = 'required';
+        $request->validate($validation);
+
+        $result = RateBlock::where('id', $input['id'])->update($input);
+        $message = 'Successfully Updated';
+        if ($result) {
+            return response()->json(array('type' => 'SUCCESS', 'message' => $message, 'data' => $result));
+        } else {
+            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+        }
+    }
+
+    public function deleteApprovedDeal(Request $request)
+    {
+        $input = $request->all();
+        $result = RateBlock::where('id', $input['id'])->delete();
+        $message = 'Deleted Successfully';
+        if ($result) {
+            return response()->json(array('type' => 'SUCCESS', 'message' => $message, 'data' => []));
+        } else {
+            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
         }
     }
 
@@ -317,7 +353,7 @@ class DashboardController extends Controller
             $sheet->setCellValue('AH1', 'Bene User Identity');
             $sheet->setCellValue('AI1', 'DOB');
             $sheet->setCellValue('AJ1', 'Relation');
-            $sheet->setCellValue('AK1', 'Additional Field1');
+            $sheet->setCellValue('AK1', 'University Name');
             $sheet->setCellValue('AL1', 'Additional Field2');
             $sheet->setCellValue('AM1', 'Additional Field3');
             $rows = 2;

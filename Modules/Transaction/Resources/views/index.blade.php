@@ -589,6 +589,7 @@
                             <th scope="col" class="fw-bold">Expiry Date</th>
                             <th scope="col" class="fw-bold">Created Date</th>
                             <th scope="col" class="fw-bold">Updated Date</th>
+                            <th scope="col" class="fw-bold">Action</th>
                         </tr>
                         </thead>
                     </table>

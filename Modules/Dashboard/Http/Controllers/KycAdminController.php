@@ -40,7 +40,9 @@ class KycAdminController extends Controller
 
     public function tableData(Request $request)
     {
-         $input = $request->all();
+        $input = $request->all();
+        $sortArr = ['txn_number', 'kyc_doc_uploaded_date'];
+        $column = $input['order'][0]['column'];
         /*$array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];*/
         $query = Transactions::with('txnCurrency','purposeData','sourceData','kycData');
         if (isset($input['search']['value']) && !empty($input['search']['value'])) {
@@ -56,7 +58,8 @@ class KycAdminController extends Controller
                 $query->orWhere('created_at', 'like', '%' . $input['search']['value'] . '%');
             }
         });
-		$query->orderBy('id','Desc');
+		// $query->orderBy('id','Desc');
+        $query->orderBy($sortArr[$column], $input['order'][0]['dir']);
         $result['draw'] = $input['draw'];
         $result['recordsTotal'] = $query->count();
         $result['recordsFiltered'] = $query->count();

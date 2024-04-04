@@ -86,6 +86,8 @@ class Dashboard extends Controller
             'beneficiary_swift_code' => 'required'
         ]);
 
+        $input['remitter_country'] = "IN";
+
         if (isset($input['customer_mobile'])) {
             if (!isset($input['customer_id'])) {
                 $customerResult = Customers::create(array("name" => $input['customer_name'], "mobile" => $input['customer_mobile']));
@@ -175,6 +177,15 @@ class Dashboard extends Controller
         $resCurr = TransactionCurrency::insert($newCurr);
         $message = 'Transaction No. '.$viewNumber.' Successfully Added';
         if ($result && $resCurr) {
+            $sendData = array(
+                'email'=> Auth::guard('agent_users')->user()->email,
+                'name'=> Auth::guard('agent_users')->user()->first_name,
+                'txtno' => $viewNumber,
+                'created_date' => date('Y-m-d'),
+                'created_time' => date('H:i:s')
+            );
+            sendEmail($sendData,"New Transaction Details",'mail.transactionDetails');
+
             return response()->json(array('type' => 'SUCCESS', 'message' => $message));
         } else {
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
@@ -192,6 +203,7 @@ class Dashboard extends Controller
             $query->orWhere('txn_inr_amount', 'like', '%' . $input['search']['value'] . '%');
         }
         $query->whereHas('txnCurrency', function($query) use ($input) {
+            $query->where('created_by', Auth::guard('agent_users')->user()->id);
             if (isset($input['search']['value']) && !empty($input['search']['value'])) {
                 $query->where('txn_number', 'like', '%' . $input['search']['value'] . '%');
                 $query->orWhere('customer_name', 'like', '%' . $input['search']['value'] . '%');
@@ -423,6 +435,18 @@ class Dashboard extends Controller
         if ($result) {
             return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'recordsFiltered' => $result['recordsFiltered']));
         } else {
+            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+        }
+    }
+
+    public function getCustomerLrsDoc(Request $request){
+        $input = $request->all();
+        $resultData = Transactions::where('id', $input['id'])->first();
+
+        if ($resultData['transaction_status'] == 1 && $resultData['lrs_sheet_document'] != "") {
+            $lrs_doc_path = asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($resultData['created_at'])).'/'.$resultData['txn_number']. '/'.$resultData['lrs_sheet_document'];
+            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => array('path' => $lrs_doc_path)));
+        }else{
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
         }
     }

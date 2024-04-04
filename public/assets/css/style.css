@@ -5125,12 +5125,12 @@ button.qf-primary-btn {
     border-collapse: separate;
 }
 
-#approved-deal-table .even td:last-child,
+/* #approved-deal-table .even td:last-child,
 #approved-deal-table .even th:last-child,
 #approved-deal-table .odd td:last-child,
 #approved-deal-table .odd th:last-child {
     text-align: initial !important;
-}
+} */
 
 .agent-transaction-main .selected-currency-container table.table {
     border-collapse: separate;

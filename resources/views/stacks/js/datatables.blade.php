@@ -29,7 +29,7 @@
         aaSorting: [[0, "desc"]],
         pageLength: 10,
         pagingType: 'full_numbers',
-        order: [[0, "asc"]],
+        order: [[0, "desc"]],
         language: {
             sProcessing: "Processing...",
             sLengthMenu: "Show _MENU_ entries",

@@ -377,7 +377,7 @@
                                                 id="remitter_country">
                                                 <option value="">Select Remitter Country</option>
                                                 @foreach ($countries as $country)
-                                                <option {{ $country['id']=='101' ? 'selected' : '' }}
+                                                <option {{ $country['code']=='IN' ? 'selected' : '' }}
                                                     value="{{ filter_var($country['name'])}}">{{
                                                     ucfirst($country['name'])}}</option>
                                                 @endforeach
@@ -460,9 +460,9 @@
                                                 id="beneficiary_country">
                                                 <option value="">Select Beneficiary Country</option>
                                                 @foreach ($countries as $country)
-                                                <option value="{{ filter_var($country['name'])}}">{{
-                                                    ucfirst($country['name'])}}
-                                                </option>
+                                                    <option value="{{ filter_var($country['code'])}}">{{
+                                                        ucfirst($country['name'])}}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                             @component('components.ajax-error',['field'=>'beneficiary_country'])@endcomponent
@@ -647,7 +647,7 @@
                                     <div class="input-group mb-3 inputWithIcon">
                                         <input onkeypress="return isSpecialKey(event)"
                                             class="form-control qf-secondary-input bgc" name="amount" id="amount"
-                                            oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="text"
+                                            oninput="this.value=this.value.replace(/[^0-9.]/g,'');" type="text"
                                             onkeyup="return calculateInr();" placeholder="Enter Amount">
                                         <img src="./assets/img/dashboard/svg/icon_value.svg" class="mb-2 mt-1 me-2 "
                                             alt="">
@@ -874,6 +874,7 @@
                         <th scope="col" class="fw-normal">Payment Status</th>
                         <th scope="col" class="fw-normal">Transaction Status</th>
                         <th scope="col" class="fw-normal">Payment Mode</th>
+                        <th scope="col" class="fw-normal">LRS Doc</th>
                         <th scope="col" class="fw-normal">Deal Expiry Date</th>
                         <th scope="col" class="fw-normal">Action</th>
                     </tr>
@@ -977,7 +978,8 @@
                         <!-- <label class="">FX Value*</label> -->
                         <div class="input-group mb-3 input-group-sm inputWithIcon">
                             <input onkeypress="return isSpecialKey(event)" class="form-control qf-secondary-input px-3"
-                                name="amountrb" id="amountrb" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                                name="amountrb" id="amountrb"
+                                oninput="this.value=this.value.replace(/[^0-9.]/g,'');"
                                 type="text" placeholder="Enter Amount">
                             <img src="./assets/img/dashboard/svg/icon_value.svg" class="mb-2 mt-1 me-2 " alt="">
 
