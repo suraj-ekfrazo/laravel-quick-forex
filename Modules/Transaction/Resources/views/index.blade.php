@@ -177,6 +177,7 @@
                         <tr class="bgc-table row-font1">
                             <th scope="col" class="fw-bold">Transaction Number</th>
                             <th scope="col" class="fw-bold">Customer Name </th>
+                            <th scope="col" class="fw-bold">Fx Value </th>
                             <th scope="col" class="fw-bold">Transaction type</th>
                             <th scope="col" class="fw-bold">Purpose </th>
                             <th scope="col" class="fw-bold">Doc Upload Date</th>
@@ -284,6 +285,7 @@
                             <tr class="bgc-table row-font1">
                                 <th scope="col" class="fw-bold">Transaction Number</th>
                                 <th scope="col" class="fw-bold">Customer Name</th>
+                                <th scope="col" class="fw-bold">Fx Value</th>
                                 <th scope="col" class="fw-bold">Type</th>
                                 <th scope="col" class="fw-bold">Remitter PAN</th>
                                 <th scope="col" class="fw-bold">KYC Status</th>
@@ -399,6 +401,7 @@
                             <tr class="bgc-table row-font1">
                                 <th scope="col" class="fw-bold">Transaction Number</th>
                                 <th scope="col" class="fw-bold">Customer Name</th>
+                                <th scope="col" class="fw-bold">Fx Value</th>
                                 <th scope="col" class="fw-bold">Type</th>
                                 <th scope="col" class="fw-bold">Remitter PAN</th>
                                 <th scope="col" class="fw-bold">KYC Status</th>
@@ -525,6 +528,7 @@
                                 </th>
                                 <th scope="col" class="fw-bold">Transaction Number</th>
                                 <th scope="col" class="fw-bold">Customer Name</th>
+                                <th scope="col" class="fw-bold">Fx Value</th>
                                 <th scope="col" class="fw-bold">Type</th>
                                 <th scope="col" class="fw-bold">Remitter PAN</th>
                                 <th scope="col" class="fw-bold">KYC Status</th>

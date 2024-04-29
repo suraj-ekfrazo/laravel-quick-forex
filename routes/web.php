@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth.agentLogin']], function() {
 Route::prefix('transaction')->middleware('auth.agentLogin')->group(function() {
     Route::post('table-json/all', [App\Http\Controllers\Agent\Dashboard::class, 'tableTransactionStatus'])->name('transaction-all.data');
     Route::post('customer-lrs-doc', [App\Http\Controllers\Agent\Dashboard::class, 'getCustomerLrsDoc'])->name('getCustomerLrs.data');
+    Route::post('customer-swift-doc', [App\Http\Controllers\Agent\Dashboard::class, 'getCustomerSwiftDoc'])->name('getCustomerSwift.data');
     Route::post('table-json/kyc', [KycController::class, 'tableData'])->name('transaction-kyc.data');
     Route::get('editKyc/{id}', [KycController::class, 'editKyc'])->name('transaction-edit.kyc');
 	Route::get('get-transaction-detail/{id}', [KycController::class, 'getTransactionDetail'])->name('transaction-kyc.detail');

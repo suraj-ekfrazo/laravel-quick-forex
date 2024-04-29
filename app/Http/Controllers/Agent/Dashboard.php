@@ -450,4 +450,16 @@ class Dashboard extends Controller
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
         }
     }
+
+    public function getCustomerSwiftDoc(Request $request){
+        $input = $request->all();
+        $resultData = Transactions::where('id', $input['id'])->first();
+
+        if ($resultData['transaction_status'] == 1 && $resultData['lrs_sheet_document'] != "") {
+            $swift_doc_path = asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($resultData['created_at'])).'/'.$resultData['txn_number']. '/'.$resultData['swift_upload_document'];
+            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => array('path' => $swift_doc_path)));
+        }else{
+            return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+        }
+    }
 }

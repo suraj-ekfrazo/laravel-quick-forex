@@ -43,7 +43,7 @@
                         <div class="col-md-6 col-lg-6 mt-4">
                             <label class="">Deal ID*</label>
                             <div class="input-group mb-3">
-                                <input class="form-control qf-shadow-input" type="number" name="deal_id" id="deal_id"
+                                <input class="form-control qf-shadow-input" type="text" name="deal_id" id="deal_id" onkeypress="return isSpecialKey(event)"
                                     placeholder="Enter Deal ID">
                                 @component('components.ajax-error',['field'=>'deal_id'])@endcomponent
                             </div>
@@ -99,4 +99,11 @@
     $(".btn-close").click(function(){
         $('.modal').modal('hide');
     });
+
+    function isSpecialKey(evt) {
+        var txt = String.fromCharCode(evt.which);
+        if (!txt.match(/[A-Za-z0-9&. ]/)) {
+            return false;
+        }
+    }
 </script>

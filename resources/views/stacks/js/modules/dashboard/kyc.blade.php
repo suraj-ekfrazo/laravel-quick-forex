@@ -6,6 +6,7 @@
             columns = [
                 {data: 'txn_number', orderable: true},
                 {data: 'customer_name', orderable: false},
+                {data: 'txn_frgn_curr_amount', orderable: false},
                 {data: 'txn_type', orderable: false},
                 {data: 'booking_purpose_id', orderable: false},
                 {data: 'id', orderable: false},
@@ -15,6 +16,24 @@
             columnDefs = [
 				{
                     "targets": [2],
+                    className: 'r-col-action',
+					render: function (data, type, full, meta) {
+                        var fx_values = "";
+                        
+                        if (full.txn_currency != null) {
+                            $.each(full.txn_currency, function (key, value) {
+                                var fx_values_str = value.txn_currency_type + " " +value.txn_frgn_curr_amount + " ";    
+                                fx_values += fx_values_str;
+                            });
+
+                            return fx_values;
+                        }else{
+                            return '';
+                        }
+                    }
+                },
+                {
+                    "targets": [3],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
 						if(full.txn_type=='1'){
@@ -26,14 +45,14 @@
                     }
                 },
 				{
-                    "targets": [3],
+                    "targets": [4],
                     className: 'r-col-action',
 					render: function (data, type, full, meta) {
 						return full.purpose_data.purpose_name;
-                    	}
+                    }
                 },
                 {
-                    "targets": [4],
+                    "targets": [5],
                     className: 'r-col-action',
 					render: function (data, type, full, meta) {
                         if (full.kyc_data != null) {
@@ -44,7 +63,7 @@
                     }
                 },
                 {
-                    "targets": [5],
+                    "targets": [6],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -58,7 +77,7 @@
                     }
                 },
                 {
-                    "targets": [6],
+                    "targets": [7],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         return '<a href="dashboard/view-kyc-doc/'+full.txn_number+'" class="text-white bg-danger border-0 p-1 rounded-4 new_btn_view" target="_blank"> View KYC Docs\n' +
@@ -225,8 +244,9 @@
                             },
                             success: function(data) {
                                 if (data.status == true) {
-                                    // location.reload();
-                                    window.location.href = window.location.origin + "/admin-login/transaction";
+                                    // window.location.href = window.location.origin + "/admin-login/transaction";
+                                    var referrer =  document.referrer;
+                                    window.location = document.referrer;
                                 } else {
                                 }
                             }

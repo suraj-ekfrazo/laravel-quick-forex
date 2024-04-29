@@ -6,6 +6,7 @@
             columns = [
                 {data: 'txn_number', orderable: true},
                 {data: 'customer_name', orderable: false},
+                {data: 'txn_frgn_curr_amount', orderable: false},
                 {data: 'txn_type', orderable: false},
                 {data: 'pancard_no', orderable: false},
                 {data: 'id', orderable: false},
@@ -20,12 +21,30 @@
                 {
                     "targets": [2],
                     className: 'r-col-action',
+					render: function (data, type, full, meta) {
+                        var fx_values = "";
+                        
+                        if (full.txn_currency != null) {
+                            $.each(full.txn_currency, function (key, value) {
+                                var fx_values_str = value.txn_currency_type + " " +value.txn_frgn_curr_amount + " ";    
+                                fx_values += fx_values_str;
+                            });
+
+                            return fx_values;
+                        }else{
+                            return '';
+                        }
+                    }
+                },
+                {
+                    "targets": [3],
+                    className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         return full.txn_type=='1' ? 'Remittance': 'Card';
                     }
                 },
                 {
-                    "targets": [4],
+                    "targets": [5],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -40,7 +59,7 @@
                     }
                 },
                 {
-                    "targets": [5],
+                    "targets": [6],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -55,7 +74,7 @@
                     }
                 },
                 {
-                    "targets": [6],
+                    "targets": [7],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -70,19 +89,19 @@
                     }
                 }, 
                 {
-                    "targets": [7],
+                    "targets": [8],
                     render: function (data, type, full, meta) {
                         return full.created_at === null ? "": moment(full.created_at).format('DD-MM-YYYY');
                     }
                 },
                 {
-                    "targets": [8],
+                    "targets": [9],
                     render: function (data, type, full, meta) {
                         return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY');
                     }
                 },
                 {
-                    "targets": [9],
+                    "targets": [10],
                     render: function (data, type, full, meta) {
                         if (full.kyc_data != null) {
                             return full.kyc_data.updated_at === null ? "": moment(full.kyc_data.updated_at).format('DD-MM-YYYY h:mm:ss A');
@@ -92,7 +111,7 @@
                     }
                 },
                 {
-                    "targets": [10],
+                    "targets": [11],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -131,6 +150,7 @@
                 {data: 'id', orderable: false},
                 {data: 'txn_number', orderable: true},
                 {data: 'customer_name', orderable: false},
+                {data: 'txn_frgn_curr_amount', orderable: false},
                 {data: 'txn_type', orderable: false},
                 {data: 'pancard_no', orderable: false},
                 {data: 'id', orderable: false},
@@ -153,12 +173,30 @@
                 {
                     "targets": [3],
                     className: 'r-col-action',
+					render: function (data, type, full, meta) {
+                        var fx_values = "";
+                        
+                        if (full.txn_currency != null) {
+                            $.each(full.txn_currency, function (key, value) {
+                                var fx_values_str = value.txn_currency_type + " " +value.txn_frgn_curr_amount + " ";    
+                                fx_values += fx_values_str;
+                            });
+
+                            return fx_values;
+                        }else{
+                            return '';
+                        }
+                    }
+                },
+                {
+                    "targets": [4],
+                    className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         return full.txn_type=='1' ? 'Remittance': 'Card';
                     }
                 },
                 {
-                    "targets": [5],
+                    "targets": [6],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -173,7 +211,7 @@
                     }
                 },
                 {
-                    "targets": [6],
+                    "targets": [7],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -188,7 +226,7 @@
                     }
                 },
                 {
-                    "targets": [7],
+                    "targets": [8],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -203,7 +241,7 @@
                     }
                 },
 				 {
-                    "targets": [8],
+                    "targets": [9],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.razorpay_paymentid;
@@ -215,7 +253,7 @@
 					}
                 },
                 {
-                    "targets": [9],
+                    "targets": [10],
                     render: function (data, type, full, meta) {
                         if (full.lrs_sheet_document) {
                             return '<div class="d-flex gap-2">'+
@@ -227,25 +265,25 @@
                     }
                 },
                 {
-                    "targets": [10],
+                    "targets": [11],
                     render: function (data, type, full, meta) {
                         return full.created_at === null ? "": moment(full.created_at).format('DD-MM-YYYY'); //DD-MM-YYYY h:mm:ss A
                     }
                 },
                 {
-                    "targets": [11],
+                    "targets": [12],
                     render: function (data, type, full, meta) {
                         return full.created_at === null ? "": moment(full.created_at).format('h:mm:ss A'); //DD-MM-YYYY h:mm:ss A
                     }
                 },
                 {
-                    "targets": [12],
+                    "targets": [13],
                     render: function (data, type, full, meta) {
                         return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY'); //DD-MM-YYYY h:mm:ss A
                     }
                 },
                 {
-                    "targets": [13],
+                    "targets": [14],
                     render: function (data, type, full, meta) {
                         if (full.kyc_data != null) {
                             return full.kyc_data.updated_at === null ? "": moment(full.kyc_data.updated_at).format('DD-MM-YYYY');
@@ -255,7 +293,7 @@
                     }
                 },
                 {
-                    "targets": [14],
+                    "targets": [15],
                     render: function (data, type, full, meta) {
                         if (full.kyc_data != null) {
                             return full.kyc_data.updated_at === null ? "": moment(full.kyc_data.updated_at).format('h:mm:ss A');
@@ -265,19 +303,19 @@
                     }
                 },
                 {
-                    "targets": [15],
+                    "targets": [16],
                     render: function (data, type, full, meta) {
                         return full.updated_at === null ? "": moment(full.updated_at).format('DD-MM-YYYY'); //DD-MM-YYYY h:mm:ss A
                     }
                 },
                 {
-                    "targets": [16],
+                    "targets": [17],
                     render: function (data, type, full, meta) {
                         return full.updated_at === null ? "": moment(full.updated_at).format('h:mm:ss A'); //DD-MM-YYYY h:mm:ss A
                     }
                 },
                 {
-                    "targets": [17],
+                    "targets": [18],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -289,7 +327,7 @@
                     } 
                 },
                 {
-                    "targets": [18],
+                    "targets": [19],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;

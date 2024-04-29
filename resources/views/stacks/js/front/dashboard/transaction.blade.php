@@ -7,6 +7,7 @@
            columns = [
                 {data: 'txn_number', orderable: true},
                 {data: 'customer_name', orderable: false},
+                {data: 'txn_frgn_curr_amount', orderable: false},
                 {data: 'txn_type', orderable: false},
                 {data: 'pancard_no', orderable: false},
                 {data: 'id', orderable: false},
@@ -21,12 +22,30 @@
                 {
                     "targets": [2],
                     className: 'r-col-action',
+					render: function (data, type, full, meta) {
+                        var fx_values = "";
+                        
+                        if (full.txn_currency != null) {
+                            $.each(full.txn_currency, function (key, value) {
+                                var fx_values_str = value.txn_currency_type + " " +value.txn_frgn_curr_amount + " ";    
+                                fx_values += fx_values_str;
+                            });
+
+                            return fx_values;
+                        }else{
+                            return '';
+                        }
+                    }
+                },
+                {
+                    "targets": [3],
+                    className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         return full.txn_type=='1' ? 'Remittance': 'Card';
                     }
                 },
                 {
-                    "targets": [4],
+                    "targets": [5],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -41,7 +60,7 @@
                     }
                 },
                 {
-                    "targets": [5],
+                    "targets": [6],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -56,7 +75,7 @@
                     }
                 },
                 {
-                    "targets": [6],
+                    "targets": [7],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -71,7 +90,7 @@
                     }
                 },
 				{
-                    "targets": [7],
+                    "targets": [8],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.razorpay_paymentid;
@@ -83,7 +102,7 @@
                     }
                 },
                 {
-                    "targets": [8],
+                    "targets": [9],
                     render: function (data, type, full, meta) {
                         if (full.lrs_sheet_document && full.transaction_status == 1) {
                             return '<div class="d-flex gap-2">'+
@@ -95,13 +114,25 @@
                     }
                 },
                 {
-                    "targets": [9],
+                    "targets": [10],
+                    className: 'r-col-action',
+                    render: function (data, type, full, meta) {
+                        var id = full.id;
+                        var upload_btn="";
+						if(full.transaction_status == 1){
+                            upload_btn = '<button class="new_btn_upload" onclick="swiftDownload(' + full.id + ')"> <img src={{asset('assets/img/dashboard/icon_download.png')}} alt="Download">  Download</button>';
+                        }
+                        return upload_btn;
+                    } 
+                },
+                {
+                    "targets": [11],
                     render: function (data, type, full, meta) {
                         return full.expired_date === null ? "": moment(full.expired_date).format('DD-MM-YYYY');
                     }
                 },
                 {
-                    "targets": [10],
+                    "targets": [12],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -137,6 +168,24 @@
         data['id'] = id;
         $.ajax({
             url: "{!! route('getCustomerLrs.data') !!}",
+            type: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(result) {
+                // console.log(result);
+                window.location.href = result.data.path;
+            }
+        });
+    }
+
+    function swiftDownload(id) {
+        var data = {};
+        data['id'] = id;
+        $.ajax({
+            url: "{!! route('getCustomerSwift.data') !!}",
             type: 'POST',
             contentType: "application/json",
             data: JSON.stringify(data),
@@ -576,7 +625,8 @@
         var currentMinute = currentDate.getMinutes();
 
 		console.log(currentHour);
-         if (currentHour => 10 && (currentHour < 15 || (currentHour === 15 && currentMinute < 15))) {
+        console.log(currentMinute);
+        if (currentHour >= 10 && (currentHour < 15 && currentMinute < 31)) {
             if (selectedcurrencycount > 0) {
                 $('.ajax-error').html('');
                 var data = new FormData(this);
@@ -614,13 +664,13 @@
                             $('.' + key).html(errorsHtml);
                         });
                     }
-                });
+                }); 
             } else {
                 $('#currencyErrorrb').html('<strong>Please add Min one Currency</strong>');
             }
        } else {
             swal({
-                title: "You can rate block between 10.00 AM to 3:15 PM time",
+                title: "You can rate block between 10.00 AM to 3:30 PM time",
                 text: "",
                 icon: "error",
                 buttons: true,

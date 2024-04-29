@@ -639,6 +639,13 @@
                                             <option value="EUR">EUR</option>
                                             <option value="THB">THB</option>
                                             <option value="SGD">SGD</option>
+                                            <option value="NZD">NZD</option>
+                                            <option value="SAR">SAR</option>
+                                            <option value="ZAR">ZAR</option>
+                                            <option value="SEK">SEK</option>
+                                            <option value="NOK">NOK</option>
+                                            <option value="DKK">DKK</option>
+                                            <option value="HKD">HKD</option>
                                         </select>
                                         @component('components.ajax-error',['field'=>'currency'])@endcomponent
                                     </div>
@@ -868,6 +875,7 @@
                     <tr class="bgc-table row-font1">
                         <th scope="col" class="fw-normal">Transaction Number</th>
                         <th scope="col" class="fw-normal">Customer Name</th>
+                        <th scope="col" class="fw-normal">Fx Value</th>
                         <th scope="col" class="fw-normal">Type</th>
                         <th scope="col" class="fw-normal">Remitter PAN</th>
                         <th scope="col" class="fw-normal">KYC Status</th>
@@ -875,6 +883,7 @@
                         <th scope="col" class="fw-normal">Transaction Status</th>
                         <th scope="col" class="fw-normal">Payment Mode</th>
                         <th scope="col" class="fw-normal">LRS Doc</th>
+                        <th scope="col" class="fw-normal">Swift Doc</th>
                         <th scope="col" class="fw-normal">Deal Expiry Date</th>
                         <th scope="col" class="fw-normal">Action</th>
                     </tr>
@@ -923,6 +932,7 @@
                     <tr class="bgc-table row-font1">
                         <th scope="col" class="fw-normal">Transaction Number</th>
                         <th scope="col" class="fw-normal">Customer Name</th>
+                        <th scope="col" class="fw-normal">Fx Value</th>
                         <th scope="col" class="fw-normal">Transaction type</th>
                         <th scope="col" class="fw-normal">Purpose</th>
                         <th scope="col" class="fw-normal">Source Of Fund</th>
@@ -968,6 +978,13 @@
                                 <option value="EUR">EUR</option>
                                 <option value="THB">THB</option>
                                 <option value="SGD">SGD</option>
+                                <option value="NZD">NZD</option>
+                                <option value="SAR">SAR</option>
+                                <option value="ZAR">ZAR</option>
+                                <option value="SEK">SEK</option>
+                                <option value="NOK">NOK</option>
+                                <option value="DKK">DKK</option>
+                                <option value="HKD">HKD</option>
                             </select>
                             <span class="invalid-feedback ajax-error has-error w-100 vh-30" role="alert"
                                 id="currencyerror"></span>
@@ -1069,6 +1086,7 @@
                     <tr class="bgc-table row-font1">
                         <th scope="col" class="fw-normal">Transaction Number</th>
                         <th scope="col" class="fw-normal">Customer Name</th>
+                        <th scope="col" class="fw-normal">Fx Value</th>
                         <th scope="col" class="fw-normal">Type</th>
                         <th scope="col" class="fw-normal">Remitter PAN</th>
                         <th scope="col" class="fw-normal">KYC Status</th>

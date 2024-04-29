@@ -6,6 +6,7 @@
             columns = [
 				{data: 'txn_number', orderable: false},
                 {data: 'customer_name', orderable: false},
+                {data: 'txn_frgn_curr_amount', orderable: false},
                 {data: 'txn_type', orderable: false},
                 {data: 'pancard_no', orderable: false},
                 {data: 'id', orderable: false},
@@ -18,12 +19,30 @@
                 {
                     "targets": [2],
                     className: 'r-col-action',
+					render: function (data, type, full, meta) {
+                        var fx_values = "";
+                        
+                        if (full.txn_currency != null) {
+                            $.each(full.txn_currency, function (key, value) {
+                                var fx_values_str = value.txn_currency_type + " " +value.txn_frgn_curr_amount + " ";    
+                                fx_values += fx_values_str;
+                            });
+
+                            return fx_values;
+                        }else{
+                            return '';
+                        }
+                    }
+                },
+                {
+                    "targets": [3],
+                    className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         return full.txn_type=='1' ? 'Remittance': 'Card';
                     }
                 },
                 {
-                    "targets": [4],
+                    "targets": [5],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -37,14 +56,14 @@
                     }
                 },
                 {
-                    "targets": [5],
+                    "targets": [6],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         return '<button class="btn-danger new_btn_upload btn-sm rounded-4 btn-block  border-0" onclick="uploadPayment(' + full.id + ')"> <img src="./assets/img/dashboard/icon_upload.png" alt="upload"> Upload </button>';
                     }
                 },
                 {
-                    "targets": [6],
+                    "targets": [7],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
@@ -59,13 +78,13 @@
                     }
                 },
                 {
-                    "targets": [7],
+                    "targets": [8],
                     render: function (data, type, full, meta) {
                         return full.created_at === null ? "": moment(full.created_at).format('DD-MM-YYYY');
                     }
                 },
                 {
-                    "targets": [8],
+                    "targets": [9],
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
 						var upload_btn="";
