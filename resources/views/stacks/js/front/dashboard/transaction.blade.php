@@ -104,7 +104,7 @@
                 {
                     "targets": [9],
                     render: function (data, type, full, meta) {
-                        if (full.lrs_sheet_document && full.transaction_status == 1) {
+                        if (full.lrs_sheet_document != null && full.transaction_status == 1) {
                             return '<div class="d-flex gap-2">'+
                                     '<button class="new_btn_upload" onclick="transactionLRSDownload(' + full.id + ')"> <img src="{{asset('assets/img/dashboard/icon_download.png')}}" alt="Download"> Download</button>' +
                                 '</div>';
@@ -118,11 +118,11 @@
                     className: 'r-col-action',
                     render: function (data, type, full, meta) {
                         var id = full.id;
-                        var upload_btn="";
-						if(full.transaction_status == 1){
-                            upload_btn = '<button class="new_btn_upload" onclick="swiftDownload(' + full.id + ')"> <img src={{asset('assets/img/dashboard/icon_download.png')}} alt="Download">  Download</button>';
+						if(full.swift_upload_document != null && full.transaction_status == 1){
+                            return '<button class="new_btn_upload" onclick="swiftDownload(' + full.id + ')"> <img src={{asset('assets/img/dashboard/icon_download.png')}} alt="Download">  Download</button>';
+                        }else{
+                            return '';
                         }
-                        return upload_btn;
                     } 
                 },
                 {
@@ -272,7 +272,7 @@
                     if (status) {
                         $('.ajax-error').html('');
                         var data = new FormData(this);
-
+                        $(".initiate-transaction-btn").prop('disabled', true);
 
                         $.ajax({
                             url: $(this).attr("action"),
@@ -293,14 +293,15 @@
                                         icon: "success",
                                         button: "okay",
                                     }).then(function() {
-                                        location.reload();
+                                        $(".save-incidents-form")[0].reset();
+                                        window.location.reload();
                                     });
                                 } else {
                                     toastr.error(result.message);
                                 }
                             },
                             error: function(error) {
-                                $(this).attr("disabled", false);
+                                $(".initiate-transaction-btn").prop('disabled', false);
                                 let errors = error.responseJSON.errors,
                                     errorsHtml = '';
                                 $.each(errors, function(key, value) {
@@ -407,6 +408,21 @@
         {
             gst_cal = Math.round(((sum_nostro_swift)*18)/100);
         }
+
+        if (netAmount > 1000000) {
+            gst_cal = 990;
+            netAmount_above10Lac = netAmount - 1000000
+            netAmount_above10Lac_gst = (netAmount_above10Lac * 0.018) / 100;
+            gst_cal = gst_cal + netAmount_above10Lac_gst;
+        }else if(netAmount < 1000000 && netAmount > 100000){
+            gst_cal = 180;
+            netAmount_below10Lac = netAmount - 100000
+            netAmount_below10Lac_gst = (netAmount_below10Lac * 0.09) / 100;
+            gst_cal = gst_cal + netAmount_below10Lac_gst;
+        }else if(netAmount < 100000){
+            gst_cal = (netAmount_below10Lac * 0.18) / 100;
+        }
+
         $("#gst_amount").text('₹'+gst_cal);
 
         $("#total_inr_value").text('₹'+Math.round(netAmount,2));
@@ -626,7 +642,7 @@
 
 		console.log(currentHour);
         console.log(currentMinute);
-        if (currentHour >= 10 && (currentHour < 15 && currentMinute < 31)) {
+        if (currentHour >= 10 && currentHour < 15) {
             if (selectedcurrencycount > 0) {
                 $('.ajax-error').html('');
                 var data = new FormData(this);
@@ -670,7 +686,7 @@
             }
        } else {
             swal({
-                title: "You can rate block between 10.00 AM to 3:30 PM time",
+                title: "You can rate block between 10.00 AM to 3:00 PM time",
                 text: "",
                 icon: "error",
                 buttons: true,

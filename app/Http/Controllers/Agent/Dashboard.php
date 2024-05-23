@@ -184,7 +184,7 @@ class Dashboard extends Controller
                 'created_date' => date('Y-m-d'),
                 'created_time' => date('H:i:s')
             );
-            sendEmail($sendData,"New Transaction Details",'mail.transactionDetails');
+            // sendEmail($sendData,"New Transaction Details",'mail.transactionDetails');
 
             return response()->json(array('type' => 'SUCCESS', 'message' => $message));
         } else {
@@ -455,7 +455,7 @@ class Dashboard extends Controller
         $input = $request->all();
         $resultData = Transactions::where('id', $input['id'])->first();
 
-        if ($resultData['transaction_status'] == 1 && $resultData['lrs_sheet_document'] != "") {
+        if ($resultData['transaction_status'] == 1 && $resultData['swift_upload_document'] != "") {
             $swift_doc_path = asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($resultData['created_at'])).'/'.$resultData['txn_number']. '/'.$resultData['swift_upload_document'];
             return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => array('path' => $swift_doc_path)));
         }else{

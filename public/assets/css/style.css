@@ -4679,6 +4679,14 @@ a .qf-inner-wrap .nav-title:after {
     padding: 10px;
 }
 
+.qf-refresh-btn {
+    border: none;
+    background-color: transparent;
+    color: #0075be;
+    font-weight: 100;
+    padding: 10px;
+}
+
 .datatable-pager .paginate_button {
     border: none;
     outline: none;

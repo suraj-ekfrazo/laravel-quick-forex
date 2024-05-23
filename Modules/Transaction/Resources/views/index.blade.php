@@ -111,25 +111,26 @@
         <div class="tab-content" id="ex3-content">
             <div class="tab-pane fade show active" id="ex3-tabs-7" role="tabpanel" aria-labelledby="ex3-tab-7">
                 <div class="box pt-4 bgc ps-0 pe-0">
-                <table id="ratebooking" class="table roundedTable roundedTable bgc align-middle">
-                    <thead class="">
-                        <tr class="bgc-table row-font1">
-                            <th scope="col" class="fw-bold">Reference Number</th>
-                            <th scope="col" class="fw-bold">Branch</th>
-                            <th scope="col" class="fw-bold">FX Currency</th>
-                            <th scope="col" class="fw-bold">FX Value</th>
-                            <th scope="col" class="fw-bold">Booking Purpose</th>
-                            <th scope="col" class="fw-bold">Transaction Type</th>
-                            <th scope="col" class="fw-bold">Assign Deal Rate</th>
-                            <th scope="col" class="fw-bold">Assign Deal ID</th>
-                            <th scope="col" class="fw-bold">Created DateTime</th>
-                            <th scope="col" class="fw-bold">Action</th>
-                            <th scope="col" class="fw-bold"></th>
-                        </tr>
-                    </thead>
-                </table>
+                    <div class="d-flex justify-content-end gap-3">
+                        <button type="button" class="qf-refresh-btn" onClick="$('#ratebooking').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
+                    </div>
+                    <table id="ratebooking" class="table roundedTable roundedTable bgc align-middle">
+                        <thead class="">
+                            <tr class="bgc-table row-font1">
+                                <th scope="col" class="fw-bold">Reference Number</th>
+                                <th scope="col" class="fw-bold">Branch</th>
+                                <th scope="col" class="fw-bold">FX Currency</th>
+                                <th scope="col" class="fw-bold">FX Value</th>
+                                <th scope="col" class="fw-bold">Booking Purpose</th>
+                                <th scope="col" class="fw-bold">Transaction Type</th>
+                                <th scope="col" class="fw-bold">Assign Deal Rate</th>
+                                <th scope="col" class="fw-bold">Assign Deal ID</th>
+                                <th scope="col" class="fw-bold">Created DateTime</th>
+                                <th scope="col" class="fw-bold">Action</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
-
             </div>
             <div class="tab-pane fade  bg-white" id="ex3-tabs-1" role="tabpanel" aria-labelledby="ex3-tab-1">
             </div>
@@ -172,6 +173,9 @@
                     </div>
                 </div>
                 <div class="table-responsive-sm pt-4 ps-0 pe-0">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="qf-refresh-btn" onClick="$('#kyc-status-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
+                    </div>
                     <table id="kyc-status-table" class="table roundedTable roundedTable bgc align-middle">
                         <thead>
                         <tr class="bgc-table row-font1">
@@ -280,6 +284,9 @@
                     </div>
                 </div>
                 <div class="table-responsive-sm pt-4   ps-0 pe-0">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="qf-refresh-btn" onClick="$('#admin-payment-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
+                    </div>
                     <table id="admin-payment-table" class="table roundedTable">
                         <thead>
                             <tr class="bgc-table row-font1">
@@ -396,6 +403,9 @@
                     </div>
                 </div>
                 <div class="table-responsive box pt-4   bgc ps-0 pe-0">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="qf-refresh-btn" onClick="$('#admin-transaction-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
+                    </div>
                     <table id="admin-transaction-table" class="table   roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
@@ -516,7 +526,9 @@
                         </div>
                     </div>
                 <div class="table-responsive box pt-2 bgc ps-0 pe-0">
-
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="qf-refresh-btn" onClick="$('#agent-completed-transaction-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
+                    </div>
                     <table id="agent-completed-transaction-table" class="table roundedTable border-0  text-center">
                         <thead class=" ">
                             <tr class="bgc-table row-font1">
@@ -578,23 +590,26 @@
                     </div>
                 </div>
 
-                <div class="table-responsive box pt-4   bgc ps-0 pe-0">
-                    <table id="approved-deal-table" class="table   roundedTable border-0  text-center ">
+                <div class="table-responsive box pt-4 bgc ps-0 pe-0">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="qf-refresh-btn" onClick="$('#approved-deal-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
+                    </div>
+                    <table id="approved-deal-table" class="table roundedTable border-0 text-center">
                         <thead class=" ">
-                        <tr class="bgc-table  row-font1">
-                            <th scope="col" class="fw-bold">Reference Number</th>
-                            <th scope="col" class="fw-bold">Agent Name</th>
-                            <th scope="col" class="fw-bold">Currency</th>
-                            <th scope="col" class="fw-bold">Value</th>
-                            <th scope="col" class="fw-bold">Purpose</th>
-                            <th scope="col" class="fw-bold">Transection Type</th>
-                            <th scope="col" class="fw-bold">Rate</th>
-                            <th scope="col" class="fw-bold">Deal ID</th>
-                            <th scope="col" class="fw-bold">Expiry Date</th>
-                            <th scope="col" class="fw-bold">Created Date</th>
-                            <th scope="col" class="fw-bold">Updated Date</th>
-                            <th scope="col" class="fw-bold">Action</th>
-                        </tr>
+                            <tr class="bgc-table  row-font1">
+                                <th scope="col" class="fw-bold">Reference Number</th>
+                                <th scope="col" class="fw-bold">Agent Name</th>
+                                <th scope="col" class="fw-bold">Currency</th>
+                                <th scope="col" class="fw-bold">Value</th>
+                                <th scope="col" class="fw-bold">Purpose</th>
+                                <th scope="col" class="fw-bold">Transection Type</th>
+                                <th scope="col" class="fw-bold">Rate</th>
+                                <th scope="col" class="fw-bold">Deal ID</th>
+                                <th scope="col" class="fw-bold">Expiry Date</th>
+                                <th scope="col" class="fw-bold">Created Date</th>
+                                <th scope="col" class="fw-bold">Updated Date</th>
+                                <th scope="col" class="fw-bold">Action</th>
+                            </tr>
                         </thead>
                     </table>
                 </div>

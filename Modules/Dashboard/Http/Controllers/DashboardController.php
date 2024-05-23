@@ -373,8 +373,8 @@ class DashboardController extends Controller
                 $sheet->setCellValue('L' . $rows, ucwords($value['remitter_country']));
                 $sheet->setCellValue('M' . $rows, ucwords($value['beneficiary_name']));
                 $sheet->setCellValue('N' . $rows, ucwords($value['beneficiary_address']));
-                $sheet->setCellValue('O' . $rows, ucwords($value['beneficiary_country']));
-                $sheet->setCellValue('P' . $rows, ucwords($value['beneficiary_city']));
+                $sheet->setCellValue('O' . $rows, ucwords($value['beneficiary_city']));
+                $sheet->setCellValue('P' . $rows, ucwords($value['beneficiary_country']));
                 $sheet->setCellValue('Q' . $rows, ucwords($value['beneficiary_ac_number']));
                 $sheet->setCellValue('R' . $rows, ucwords($value['beneficiary_bank_name']));
                 $sheet->setCellValue('S' . $rows, ucwords($value['beneficiary_bank_address']));

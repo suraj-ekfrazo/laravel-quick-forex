@@ -150,8 +150,13 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex mt-5 mb-3">
-            <div class="qf-title-lg"> Block Rate</div>
+        <div class="d-flex  mt-5 mb-3 justify-content-between">
+            <div class="left-action d-flex ">
+                <div class="qf-title-lg"> Block Rate</div>
+            </div>
+            <!-- <div class="right-action d-flex gap-3">
+                <button class="btn qf-primary-btn px-5 fw-bold text-capitalize m-0 mr-2" id="download-all-docs">Download ALL</button>
+            </div> -->
         </div>
         <form action="{{route('transactionkyc.update',['id'=>$txnData->txn_number])}}" novalidate="novalidate" id="updateDocForm">
             @csrf
@@ -235,7 +240,7 @@
                                                             class="svg-bg m-0 view-btn-common disabled" target="_blank">View
                                                         </a> -->
                                                         <a href="{{asset('upload/allDocuments/').'/'.date('Y-m-d',strtotime($txnData->created_at)).'/'.$txnData->txn_number. '/'.$txnKyc->$key }}"
-                                                            class="svg-bg m-0 download-btn-common"  download>Download
+                                                            data-docName ="{{$txnKyc->$key}}" class="svg-bg m-0 download-btn-common docs"  download>Download
                                                         </a>
                                                     @else
                                                         <span data-toggle="tooltip" data-placement="bottom" title="File Not Uploaded">
@@ -356,7 +361,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title">View Documents</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                        onclick="closeModal()"></button>
+                        onclick="$('#viewModal').modal('hide');"></button>
                 </div>
                 <div class="modal-body">
                     <iframe src="" id="iframe" title="W3Schools Free Online Web Tutorials" class="w-100"
@@ -431,6 +436,15 @@
                 $('#viewModal').modal("show");
             }
         }
+
+        // $("#download-all-docs").click(function(){
+        //     $('.download-btn-common.docs').each(function(index) {
+        //         var imgSrc = $(this).attr('src');
+        //         var imgName = $(this).attr('data-docName');
+        //         var downloadLink = $('<a></a>').attr('href', imgSrc).attr('download', imgName);
+        //         downloadLink[0].click(); // Trigger download
+        //     });
+        // });
 
     </script>
 
