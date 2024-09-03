@@ -120,6 +120,39 @@
                             data-parent="#accordion">
                             <div class="card-body">
                                 <div class="card-inner-wrapper">
+                            
+                                    <div class="qf-select-wrap">
+                                        <div class="input-group mb-3 inputWithIcon">
+                                            <input onkeypress="return isOnlyAlphaKey(event)"
+                                                class="form-control qf-secondary-input" type="text" name="pan_card_name"
+                                                id="pan_card_name" placeholder="Enter Pan Card Name">
+                                            <img src="./assets/img/dashboard/svg/icon_user.svg" class="mb-2 mt-1 me-2 "
+                                                alt="">
+
+                                            @component('components.ajax-error',['field'=>'pan_card_name'])@endcomponent
+                                        </div>
+                                    </div>
+                                    <div class="qf-select-wrap">
+                                        <div class="input-group mb-3 inputWithIcon">
+                                            <input onkeypress="return isSpecialKey(event)"
+                                                class="form-control qf-secondary-input" type="text" maxlength="10"
+                                                name="valid_pancard_no" id="valid_pancard_no" placeholder="Enter Pan Card Number">
+                                            <img src="./assets/img/dashboard/svg/icon_numbers.svg"
+                                                class="mb-2 mt-1 me-2 " alt="">
+
+                                            @component('components.ajax-error',['field'=>'valid_pancard_no'])@endcomponent
+                                        </div>
+                                    </div>
+                                    <div class="qf-select-wrap">
+                                        <button type="button" class="qf-primary-btn" id="validate-pan-details">
+                                            <span class="text-capitalize">Validate Pan Details</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <span class="verified-pan-success" style="display:none; color: #169d5e; font-size:17px">
+                                    <strong>Pan details has verified successfully.</strong>
+                                </span>
+                                <div class="card-inner-wrapper" style="padding-top: 25px;">   
                                     <div class="qf-select-wrap">
 
                                         <input onkeypress="return isSpecialKey(event)"
@@ -143,18 +176,7 @@
                                         </select>
                                         @component('components.ajax-error',['field'=>'customer_id'])@endcomponent -->
                                     </div>
-                                    <div class="qf-select-wrap">
-                                        <div class="input-group mb-3 inputWithIcon">
-                                            <input onkeypress="return isSpecialKey(event)"
-                                                class="form-control qf-secondary-input" type="text" name="customer_name"
-                                                id="customer_name" placeholder="Enter Customer Name">
-                                            <img src="./assets/img/dashboard/svg/icon_user.svg" class="mb-2 mt-1 me-2 "
-                                                alt="">
-
-                                            @component('components.ajax-error',['field'=>'customer_name'])@endcomponent
-                                        </div>
-                                    </div>
-
+                                    
                                     <div class="qf-select-wrap">
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
@@ -199,6 +221,10 @@
                                     </div>--}}
 
                                 </div>
+                                <span class="validate-pan-restriction" style="color: #ff2929; font-size:17px">
+                                    <strong>Please validate pan details to processed further steps</strong>
+                                </span>
+                                
                             </div>
                         </div>
                     </div>
@@ -325,7 +351,7 @@
                                         <div class="input-group mb-3 inputWithIcon">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text" maxlength="10"
-                                                name="pancard_no" id="pancard_no" placeholder="Enter Pan Card Number">
+                                                name="pancard_no" id="pancard_no" placeholder="Enter Pan Card Number" readonly>
                                             <img src="./assets/img/dashboard/svg/icon_numbers.svg"
                                                 class="mb-2 mt-1 me-2 " alt="">
 
@@ -337,7 +363,7 @@
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text" name="pancard_name"
-                                                id="pancard_name" placeholder="Enter PAN Name">
+                                                id="pancard_name" placeholder="Enter PAN Name" readonly>
                                             @component('components.ajax-error',['field'=>'pancard_name'])@endcomponent
                                         </div>
                                     </div>
@@ -351,6 +377,21 @@
                                         </div>
                                     </div>
                                     <div class="qf-select-wrap">
+                                        <label class="">Remitter Aadhaar Card*</label>
+                                        <div class="input-group mb-3">
+                                            <input onkeypress="return isSpecialKey(event)"
+                                                class="form-control qf-secondary-input" type="text" name="aadhaarcard_no"
+                                                id="aadhaarcard_no" placeholder="Enter Aadhaar Card Number">
+                                            @component('components.ajax-error',['field'=>'aadharcard_no'])@endcomponent
+                                        </div>
+                                    </div>
+                                    <div class="qf-select-wrap">
+                                        <label class="">Pan Aadhaar Link Status*</label>
+                                        <div class="input-group mb-3">
+                                            <input type="checkbox" class="float-end mt-1 larger" name="pan_aadhaar_link_status" id="pan_aadhaar_link_status" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="qf-select-wrap">
                                         <label class="">Remitter Address</label>
                                         <div class="input-group mb-3">
                                             <input onkeypress="return isSpecialKey(event)"
@@ -359,7 +400,6 @@
                                             @component('components.ajax-error',['field'=>'remitter_address'])@endcomponent
                                         </div>
                                     </div>
-
                                     <div class="qf-select-wrap">
                                         <label class="">Remitter City</label>
                                         <div class="input-group mb-3">
@@ -404,6 +444,39 @@
                                                 class="form-control qf-secondary-input" type="text" name="remitter_mobile"
                                                 id="remitter_mobile" placeholder="Enter Remitter Mobile">
                                             @component('components.ajax-error',['field'=>'remitter_mobile'])@endcomponent
+                                        </div>
+                                    </div>
+                                    <div class="qf-select-wrap">
+                                        <label class="">Remitter Passport File Number</label>
+                                        <div class="input-group mb-3">
+                                            <input onkeypress="return isSpecialKey(event)"
+                                                class="form-control qf-secondary-input" type="text" name="passport_file_number"
+                                                id="passport_file_number" placeholder="Enter Passport File Number">
+                                            @component('components.ajax-error',['field'=>'passport_file_number'])@endcomponent
+                                        </div>
+                                    </div>
+                                    <div class="qf-select-wrap">
+                                        <label class="">Remitter Passport Holder Name</label>
+                                        <div class="input-group mb-3">
+                                            <input onkeypress="return isSpecialKey(event)"
+                                                class="form-control qf-secondary-input" type="text" name="passport_holder_name"
+                                                id="passport_holder_name" placeholder="Enter Passport File Number">
+                                            @component('components.ajax-error',['field'=>'passport_holder_name'])@endcomponent
+                                        </div>
+                                    </div>
+                                    <div class="qf-select-wrap">
+                                        <label class="">Remitter Passport Holder DOB</label>
+                                        <div class="input-group mb-3">
+                                        <input class="form-control qf-secondary-input" type="date" name="passport_holder_dob"
+                                        onkeypress="return isSpecialKey(event)" id="passport_holder_dob" placeholder="Enter Passport Holder DOB">
+                                            @component('components.ajax-error',['field'=>'passport_holder_dob'])@endcomponent
+                                        </div>
+                                    </div>
+                                    <div class="qf-select-wrap">
+                                        <div class="input-group mb-3" style="padding-top:25px">
+                                            <button type="button" class="qf-primary-btn" id="verify-passport-no">
+                                                <span class="text-capitalize">Verify Passport No</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -2247,6 +2320,7 @@
 @include('stacks.js.front.dashboard.kyc')
 @include('stacks.js.front.dashboard.payment')
 @include('stacks.js.front.dashboard.approved-deal')
+@include('stacks.js.front.dashboard.signzyapi')
 <script>
     /*$('#pancard_no').keypress(function(e) {*/
     $("#pancard_no").on("keyup", function (e) {

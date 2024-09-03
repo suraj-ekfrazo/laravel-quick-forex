@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\KycController;
+use App\Http\Controllers\Auth\SignzyApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,10 @@ Route::group(['middleware' => ['auth.agentLogin']], function() {
     Route::post('/deal-rate/save', [App\Http\Controllers\Dashboard\RateBlockedController::class, 'dealRateSave'])->name('deal-rate.save');
 	Route::get('/profile', [App\Http\Controllers\Agent\Dashboard::class, 'profile'])->name('agent.profile');
     Route::post('/profile/save', [App\Http\Controllers\Agent\Dashboard::class, 'profileSave'])->name('profile.save');
+    Route::post('/verifyPanCard', [SignzyApiController::class, 'verifyPanCard'])->name('verify.pancard');
+    Route::post('/verifyAadhaarCard', [SignzyApiController::class, 'verifyAadhaarCard'])->name('verify.aadhaarcard');
+    Route::post('/panAdharLinkStatus', [SignzyApiController::class, 'getPanAdharLinkStatus'])->name('verify.panadharlinkstatus');
+    Route::post('/verifyPassport', [SignzyApiController::class, 'verifyPassportDetails'])->name('verify.passportno');
 });
 
 Route::prefix('transaction')->middleware('auth.agentLogin')->group(function() {

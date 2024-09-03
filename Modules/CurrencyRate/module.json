@@ -1,0 +1,13 @@
+{
+    "name": "CurrencyRate",
+    "alias": "CurrencyRate",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\CurrencyRate\\Providers\\CurrencyRateServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

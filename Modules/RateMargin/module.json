@@ -1,0 +1,13 @@
+{
+    "name": "RateMargin",
+    "alias": "ratemargin",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\RateMargin\\Providers\\RateMarginServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

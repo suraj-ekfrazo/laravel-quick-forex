@@ -121,15 +121,15 @@
                 </a>
             </div>
 
-            <!--<div class="col-md-6 col-lg-4 col-sm-12">
-                <a href="{{url('/')}}" class="text-decoration-none">
+            <div class="col-md-6 col-lg-4 col-sm-12">
+                <a href="{{route('ratemargin.index')}}" class="text-decoration-none">
                     <div class="widget-stat card bg-dashboard m-3">
                         <div class="card-body ">
                             <div class="media">
                                 <span class="me-3">
                                     <img src="../assets/img/icon/ratemaster.png" class="img-fluid" width="35px">
                                 </span>
-                                <div class=" fw-bold">Rate Master</div>
+                                <div class=" fw-bold">Rate Margins</div>
                                 <div class="media-body text-white text-end">
                                     <h3 class="" style="color: #2565ab;"><i class="fa-solid fa-angle-right"></i></h3>
                                 </div>
@@ -137,7 +137,25 @@
                         </div>
                     </div>
                 </a>
-            </div>-->
+            </div>
+
+            <!-- <div class="col-md-6 col-lg-4 col-sm-12">
+                <a href="{{route('currencyrate.index')}}" class="text-decoration-none">
+                    <div class="widget-stat card bg-dashboard m-3">
+                        <div class="card-body ">
+                            <div class="media">
+                                <span class="me-3">
+                                    <img src="../assets/img/icon/ratemaster.png" class="img-fluid" width="35px">
+                                </span>
+                                <div class=" fw-bold">Currency Master</div>
+                                <div class="media-body text-white text-end">
+                                    <h3 class="" style="color: #2565ab;"><i class="fa-solid fa-angle-right"></i></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div> -->
             
             <div class="col-md-6 col-lg-4 col-sm-12">
                 <a href="{{url('/')}}" class="text-decoration-none">

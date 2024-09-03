@@ -420,7 +420,7 @@
             netAmount_below10Lac_gst = (netAmount_below10Lac * 0.09) / 100;
             gst_cal = gst_cal + netAmount_below10Lac_gst;
         }else if(netAmount < 100000){
-            gst_cal = (netAmount_below10Lac * 0.18) / 100;
+            gst_cal = (netAmount * 0.18) / 100;
         }
 
         $("#gst_amount").text('₹'+gst_cal);

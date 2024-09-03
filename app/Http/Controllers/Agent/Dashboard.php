@@ -73,7 +73,7 @@ class Dashboard extends Controller
             'pancard_no' => 'required',
             'pancard_relation' => 'required',
             'nostro_charge_type' => 'required',
-            'customer_name' => 'required',
+            // 'customer_name' => 'required',
             'nostro_charge'=> 'required_if:nostro_charge_type,OUR,SHA',
             'beneficiary_name' => 'required',
             'beneficiary_address' => 'required',
@@ -85,6 +85,8 @@ class Dashboard extends Controller
             'beneficiary_bank_sort' => 'required',
             'beneficiary_swift_code' => 'required'
         ]);
+
+        $input['customer_name'] = $input['pan_card_name'];
 
         $input['remitter_country'] = "IN";
 

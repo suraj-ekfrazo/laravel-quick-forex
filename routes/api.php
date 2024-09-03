@@ -19,3 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('paymentWebhook', [\App\Http\Controllers\Dashboard\PaymentController::class, 'paymentWebhook'])->name('paymentWebhook');
+
+Route::get('getratemargin/{currency_name?}', [\App\Http\Controllers\Dashboard\RateMasterController::class, 'getCurrencyRate'])->name('currencyRate');
