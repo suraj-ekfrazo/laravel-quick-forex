@@ -181,6 +181,9 @@
                 data: data,
                 processData: false,
                 contentType: false,
+                beforeSend: function() {
+                    $('#fullPageLoader').show(); // Show the loader before sending the request
+                },
                 success: function (result) {
                     console.log(result);
                     /*$(this).attr("disabled", false);*/
@@ -190,6 +193,9 @@
                     } else {
                         toastr.error(result.message);
                     }
+                },
+                complete: function() {
+                    $('#fullPageLoader').hide(); // Hide the loader once the request is complete
                 },
                 error: function (error) {
                     $(this).attr("disabled", false);

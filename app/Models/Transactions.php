@@ -17,7 +17,7 @@ class Transactions extends Model
         'forward_booking_ref','remitter_address','remitter_city','remitter_country','remitter_email','remitter_mobile','beneficiary_name','beneficiary_address','beneficiary_city','beneficiary_country','beneficiary_ac_number',
         'beneficiary_bank_name','beneficiary_bank_address','beneficiary_bank_sort','beneficiary_swift_code','sub_purpose_code','additional_detail','fb_charges','interm_bank_name','interm_address',
         'interm_bic_code','interm_bank_sort','individual_entity_corporate','razorpay_paymentid','razorpay_orderid','razorpay_signature','p_status',
-        'created_at', 'updated_at', 'deleted_at', 'swift_upload_document', 'lrs_sheet_document'];
+        'created_at', 'updated_at', 'deleted_at', 'swift_upload_document', 'lrs_sheet_document', 'aadhaarcard_no', 'pan_aadhaar_link_status', 'passport_file_number', 'passport_holder_name', 'passport_holder_dob', 'passport_detail_verification'];
 	
 	protected $txn = [
         'kyc_status' => 'boolean'

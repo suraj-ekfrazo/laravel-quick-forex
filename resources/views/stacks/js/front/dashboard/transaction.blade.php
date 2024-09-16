@@ -254,69 +254,77 @@
         var status = document.activeElement.innerHTML;
         event.preventDefault();
 
+        var passport_file_number = $("#passport_file_number").val();
+        var passport_holder_name = $("#passport_holder_name").val();
+        var passport_holder_dob = $("#passport_holder_dob").val();
+        var passport_detail_verification = $("#passport_detail_verification").val();
+
         var currentDate = new Date();
         var currentHour = currentDate.getHours();
         var currentMinute = currentDate.getMinutes();
-        if (currentHour >= 10 && currentHour < 18) {
-            // swal({
-            //     title: "Please confirm selected beneficiary county",
-            //     text: "",
-            //     icon: "success",
-            //     buttons: true,
-            //     dangerMode: true,
-            //     buttons: ["Cancel", "Confirm"],
-            // })
-            // .then((result) => {
 
-                // if (result) {
-                    if (status) {
-                        $('.ajax-error').html('');
-                        var data = new FormData(this);
-                        $(".initiate-transaction-btn").prop('disabled', true);
+        if (currentHour >= 10 && currentHour < 15) {
+            if ((passport_file_number != "" && passport_holder_name != "" && passport_holder_dob != "" && passport_detail_verification === "1") || (passport_file_number == "" && passport_holder_name == "" && passport_holder_dob == "")) {
+                if (status) {
+                    $('.ajax-error').html('');
+                    var data = new FormData(this);
+                    $(".initiate-transaction-btn").prop('disabled', true);
 
-                        $.ajax({
-                            url: $(this).attr("action"),
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            type: 'POST',
-                            data: data,
-                            processData: false,
-                            contentType: false,
-                            success: function(result) {
-                                //console.log(result);
-                                /*$(this).attr("disabled", false);*/
-                                if (result.type === 'SUCCESS') {
-                                    swal({
-                                        title: "Success",
-                                        text: result.message,
-                                        icon: "success",
-                                        button: "okay",
-                                    }).then(function() {
-                                        $(".save-incidents-form")[0].reset();
-                                        window.location.reload();
-                                    });
-                                } else {
-                                    toastr.error(result.message);
-                                }
-                            },
-                            error: function(error) {
-                                $(".initiate-transaction-btn").prop('disabled', false);
-                                let errors = error.responseJSON.errors,
-                                    errorsHtml = '';
-                                $.each(errors, function(key, value) {
-                                    errorsHtml = '<strong>' + value[0] +
-                                        '</strong>';
-                                    $('.' + key).html(errorsHtml);
-                                    $('.' + key).parents('.collapse').addClass('show');
-                                    $('.' + key).parents('.card-header').removeClass('collapsed');
+                    $.ajax({
+                        url: $(this).attr("action"),
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: 'POST',
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        beforeSend: function() {
+                            $('#fullPageLoader').show(); // Show the loader before sending the request
+                        },
+                        success: function(result) {
+                            if (result.type === 'SUCCESS') {
+                                swal({
+                                    title: "Success",
+                                    text: result.message,
+                                    icon: "success",
+                                    button: "okay",
+                                }).then(function() {
+                                    $(".save-incidents-form")[0].reset();
+                                    window.location.reload();
                                 });
-                                window.scrollTo(0, 0);
+                            } else {
+                                toastr.error(result.message);
                             }
-                        });
-                    }
-                // }
-            // });
+                        },
+                        complete: function() {
+                            $('#fullPageLoader').hide(); // Hide the loader once the request is complete
+                        },
+                        error: function(error) {
+                            $(".initiate-transaction-btn").prop('disabled', false);
+                            let errors = error.responseJSON.errors,
+                                errorsHtml = '';
+                            $.each(errors, function(key, value) {
+                                errorsHtml = '<strong>' + value[0] +
+                                    '</strong>';
+                                $('.' + key).html(errorsHtml);
+                                $('.' + key).parents('.collapse').addClass('show');
+                                $('.' + key).parents('.card-header').removeClass('collapsed');
+                            });
+                            window.scrollTo(0, 0);
+                        }
+                    });
+                }
+            }else{
+                swal({
+                    title: "Please verify your passport details",
+                    text: "",
+                    icon: "error",
+                    buttons: true,
+                    dangerMode: true,
+                    buttons:"OK",
+                }).then((result) => {});
+            }
         } else {
             swal({
                 title: "You can rate block between 10.00 AM to 05:00 PM time",
@@ -325,8 +333,7 @@
                 buttons: true,
                 dangerMode: true,
                 buttons:"OK",
-                })
-                .then((result) => {});
+            }).then((result) => {});
         }
     });
 
@@ -384,27 +391,81 @@
     let rowCount = $("#selected-currency tbody tr").length, tcsExempt = 0;
 
     function amountCalculation(){
-        var tcsRate = $("#fund_source_id").find(':selected').attr('tcs-rate'),
-            tcsExempt = $("#fund_source_id").find(':selected').attr('tcs-exempt'), remitFees = $("#remit_fees").val(), nostroCharge = $("#nostro_charge").val(),
-            swiftCharges = $("#swift_charges").val(),totalNetAmount = 0,netAmount = 0,tcsAmount = 0,gst_cal=0, gst_val = 0;
-        /*console.log("length ----",$('.txn_inr_amount').length);*/
+        var pancard_no = $("#pancard_no").val(),
+            bookingPurposeId = $("#booking_purpose_id").val(),
+            fund_source_id = $("#fund_source_id").val(), 
+            tcsRate = $("#fund_source_id").find(':selected').attr('tcs-rate'),
+            tcsExempt = $("#fund_source_id").find(':selected').attr('tcs-exempt'), 
+            remitFees = $("#remit_fees").val(), 
+            nostroCharge = $("#nostro_charge").val(),
+            swiftCharges = $("#swift_charges").val(),
+            totalNetAmount = 0,
+            netAmount = 0,
+            tcsAmount = 0,
+            gst_cal=0, 
+            gst_val = 0,
+            tcs_standard_exempt_amount = 700000,
+            fin_year_tcs_total_amount = 0,
+            netAmount_with_total_tcs = 0;
+        
         $('.txn_inr_amount').each(function () {
             netAmount += parseInt($(this).val());
             console.log("val---", $(this).val());
         })
-        /*console.log("netAmount ++++++ ",netAmount);*/
-        if(netAmount > tcsExempt){
-            console.log("inrCalculation > tcsExempt",netAmount > tcsExempt);
-            tcsAmount = ((netAmount - tcsExempt) * tcsRate) / 100
-            console.log("tcsAmount",tcsAmount);
+        
+        if (pancard_no != "") {
+            fin_year_tcs_total_amount = getTcsAmountDetails(pancard_no);   
+            netAmount_with_total_tcs = netAmount + fin_year_tcs_total_amount;
+            console.log("fin_year_tcs_total_amount---", fin_year_tcs_total_amount);
+            console.log("netAmount_with_total_tcs---", netAmount_with_total_tcs);
         }
-        /*console.log("#####################################");
-        console.log("netAmount ========= ",netAmount);
-        console.log("netAmount - tcsExempt ====== ",(netAmount - tcsExempt));
-        console.log("tcsAmount ==== ",tcsAmount);*/
+
+        // if(netAmount > tcsExempt){
+        //     console.log("inrCalculation > tcsExempt",netAmount > tcsExempt);
+        //     tcsAmount = ((netAmount - tcsExempt) * tcsRate) / 100
+        //     console.log("tcsAmount",tcsAmount);
+        // }
+
+        if (bookingPurposeId == 6) {
+            var education_loan_tcsRate = 0.5;
+            var education_without_loan_tcsRate = 5;
+
+            if (netAmount_with_total_tcs > tcs_standard_exempt_amount) {   
+                if (fund_source_id == 5) {
+                    tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * education_loan_tcsRate) / 100;
+                }else{
+                    tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * education_without_loan_tcsRate) / 100;
+                }
+            }
+        }else if(bookingPurposeId == 12){
+            var medical_tcsRate = 5;
+            if (netAmount_with_total_tcs > tcs_standard_exempt_amount) {
+                tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * medical_tcsRate) / 100;
+            }
+        }else if(bookingPurposeId == 4){
+            var overseas_tcsRate_below_7 = 5;
+            var overseas_tcsRate_above_7 = 20;
+            var tcsAmount_on7Lac = 0;
+
+            if (netAmount_with_total_tcs < tcs_standard_exempt_amount) {
+                tcsAmount = ((netAmount_with_total_tcs) * overseas_tcsRate_below_7) / 100;
+            }else{
+                tcsAmount_on7Lac = ((tcs_standard_exempt_amount) * overseas_tcsRate_below_7) / 100;
+                tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * overseas_tcsRate_above_7) / 100;
+                tcsAmount = tcsAmount_on7Lac + tcsAmount;
+            }
+        }else{
+            var other_tcsRate_above_7 = 20;
+            if (netAmount_with_total_tcs > tcs_standard_exempt_amount) {
+                tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * other_tcsRate_above_7) / 100;
+            }
+        }
+
+        console.log("tcsAmount++++++++++++++",tcsAmount);
+
 
 		var sum_nostro_swift = Number(swiftCharges) + Number(nostroCharge);
-        if(sum_nostro_swift>0)
+        if(sum_nostro_swift > 0)
         {
             gst_cal = Math.round(((sum_nostro_swift)*18)/100);
         }
@@ -556,8 +617,6 @@
         var rowCountrb = $("#selected-currencyrb tbody tr").length;
         var validaterb = checkValidationrb();
 
-
-
         if (validaterb) {
 
             var amountrb = $("#amountrb").val();
@@ -618,6 +677,38 @@
         return validate;
     }
 
+    function getTcsAmountDetails(pancard_no) {
+        var tcsAmount = 0;
+        var data = {};
+        data['pancard_no'] = pancard_no;
+        $.ajax({
+            url: "{!! route('getTcsAmount.data') !!}",
+            type: 'POST',
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            beforeSend: function() {
+                $('#fullPageLoader').show(); // Show the loader before sending the request
+            },
+            success: function(result) {
+                console.log(result);
+                if(result.data["Total Amount"]){
+                    tcsAmount = result.data["Total Amount"];
+                }
+            },
+            complete: function() {
+                $('#fullPageLoader').hide(); // Hide the loader once the request is complete
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+
+        return tcsAmount;
+    }
+
     $("#selected-currencyrb tbody").delegate(".remove-currencyrb", "click", function () {
         var row = $(this).attr('data-row');
         var currencyText = $(this).attr('currencyText');
@@ -642,7 +733,7 @@
 
 		console.log(currentHour);
         console.log(currentMinute);
-        if (currentHour >= 10 && currentHour < 15) {
+        if (currentHour >= 10 && currentHour < 15) {    
             if (selectedcurrencycount > 0) {
                 $('.ajax-error').html('');
                 var data = new FormData(this);
@@ -655,6 +746,9 @@
                     data: data,
                     processData: false,
                     contentType: false,
+                    beforeSend: function() {
+                        $('#fullPageLoader').show(); // Show the loader before sending the request
+                    },
                     success: function(result) {
                         console.log(result);
                         /*$(this).attr("disabled", false);*/
@@ -670,6 +764,9 @@
                         } else {
                             toastr.error(result.message);
                         }
+                    },
+                    complete: function() {
+                        $('#fullPageLoader').hide(); // Hide the loader once the request is complete
                     },
                     error: function(error) {
                         $(this).attr("disabled", false);
@@ -692,8 +789,7 @@
                 buttons: true,
                 dangerMode: true,
                 buttons:"OK",
-                })
-                .then((result) => {});
+            }).then((result) => {});
         }
 
     });

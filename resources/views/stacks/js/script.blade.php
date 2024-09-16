@@ -69,6 +69,14 @@
 
         } );
     } );
+    // $(document).ready(function() {
+    //     $(document).ajaxStart(function() {
+    //         $('#fullPageLoader').show();
+    //     });
+    //     $(document).ajaxStop(function() {
+    //         $('#fullPageLoader').hide();
+    //     });
+    // });
 </script>
 
 <script>

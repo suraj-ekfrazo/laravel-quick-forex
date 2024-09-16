@@ -8,7 +8,10 @@
     @stack('pagestyle')
 </head>
 <body>
-<div class="loader"></div>
+<!-- <div class="loader"></div> -->
+<div id="fullPageLoader" style="display:none;">
+    <div class="spinner"></div>
+</div>
 <div id="app">
 @include('partials.nav')
 	<audio id="notificationSound" src="{{ asset('assets/Notification.mp3')}}"></audio>

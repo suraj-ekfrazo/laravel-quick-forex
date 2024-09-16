@@ -8,6 +8,9 @@
     @stack('pagestyle')
 </head>
 <body>
+    <div id="fullPageLoader" style="display:none;">
+        <div class="spinner"></div>
+    </div>
     @include('partials.admin-nav')
     @yield('content')
     @include('partials.footer')

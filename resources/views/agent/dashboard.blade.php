@@ -382,13 +382,13 @@
                                             <input onkeypress="return isSpecialKey(event)"
                                                 class="form-control qf-secondary-input" type="text" name="aadhaarcard_no"
                                                 id="aadhaarcard_no" placeholder="Enter Aadhaar Card Number">
-                                            @component('components.ajax-error',['field'=>'aadharcard_no'])@endcomponent
+                                            @component('components.ajax-error',['field'=>'aadhaarcard_no'])@endcomponent
                                         </div>
                                     </div>
                                     <div class="qf-select-wrap">
                                         <label class="">Pan Aadhaar Link Status*</label>
                                         <div class="input-group mb-3">
-                                            <input type="checkbox" class="float-end mt-1 larger" name="pan_aadhaar_link_status" id="pan_aadhaar_link_status" disabled>
+                                            <input type="checkbox" class="float-end mt-1 larger" name="pan_aadhaar_link_status" id="pan_aadhaar_link_status" style="pointer-events: none;">
                                         </div>
                                     </div>
                                     <div class="qf-select-wrap">
@@ -472,6 +472,7 @@
                                             @component('components.ajax-error',['field'=>'passport_holder_dob'])@endcomponent
                                         </div>
                                     </div>
+                                    <input type="hidden"  name="passport_detail_verification" id="passport_detail_verification" />
                                     <div class="qf-select-wrap">
                                         <div class="input-group mb-3" style="padding-top:25px">
                                             <button type="button" class="qf-primary-btn" id="verify-passport-no">

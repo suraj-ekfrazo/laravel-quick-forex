@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth.agentLogin']], function() {
     Route::post('/verifyAadhaarCard', [SignzyApiController::class, 'verifyAadhaarCard'])->name('verify.aadhaarcard');
     Route::post('/panAdharLinkStatus', [SignzyApiController::class, 'getPanAdharLinkStatus'])->name('verify.panadharlinkstatus');
     Route::post('/verifyPassport', [SignzyApiController::class, 'verifyPassportDetails'])->name('verify.passportno');
+    Route::post('/getTcsAmountDetail', [SignzyApiController::class, 'getTcsAmountOnPanNo'])->name('getTcsAmount.data');
 });
 
 Route::prefix('transaction')->middleware('auth.agentLogin')->group(function() {

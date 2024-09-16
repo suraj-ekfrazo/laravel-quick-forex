@@ -55,6 +55,9 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
+                    beforeSend: function() {
+                        $('#fullPageLoader').show(); // Show the loader before sending the request
+                    },
                     success: function (response) {
                         if (response.type === 'SUCCESS') {
                             if (response.data.result) {
@@ -86,6 +89,9 @@
                         }else{
                             showSwalPopup("Something went wrong try later", "valid_pancard_no", "error");
                         }
+                    },
+                    complete: function() {
+                        $('#fullPageLoader').hide(); // Hide the loader once the request is complete
                     }
                 });
             }else{
@@ -130,6 +136,9 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
+                    beforeSend: function() {
+                        $('#fullPageLoader').show(); // Show the loader before sending the request
+                    },
                     success: function (response) {
                         if (response.type === 'SUCCESS') {
                             if (response.data.result) {
@@ -148,6 +157,9 @@
                         }else{
                             showSwalPopup("Something went wrong try later", "aadhaarcard_no", "error");
                         }
+                    },
+                    complete: function() {
+                        $('#fullPageLoader').hide(); // Hide the loader once the request is complete
                     }
                 });
             }    
@@ -158,6 +170,7 @@
 
     function getPanAadhaarLinkStatus(aadhaarcard_no, pancard_no){
         $("#pan_aadhaar_link_status").prop('checked', false);
+        $("#pan_aadhaar_link_status").val('');
         $.ajax({
             url: "{!! route('verify.panadharlinkstatus') !!}",
             type: 'POST',
@@ -166,11 +179,15 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
+            beforeSend: function() {
+                $('#fullPageLoader').show(); // Show the loader before sending the request
+            },
             success: function (response) {
                 if (response.type === 'SUCCESS') {
                     if (response.data.result) {
                         if (response.data.result.linked == true) {
                             $("#pan_aadhaar_link_status").prop('checked', true);
+                            $("#pan_aadhaar_link_status").val("1");
                             $(".initiate-transaction-btn").prop('disabled', false);
                         }else{
                             showSwalPopup("Something went wrong try later", "aadhaarcard_no", "error");
@@ -183,6 +200,15 @@
                 }else{
                     showSwalPopup("Something went wrong try later", "aadhaarcard_no", "error");
                 }
+            },
+            // error: function(xhr, status, error) {
+            //     showSwalPopup("An error occurred: " + error, "aadhaarcard_no", "error"); 
+            //     setTimeout(function() {
+            //         $('#fullPageLoader').hide();
+            //     }, 5000);
+            // },
+            complete: function() {
+                $('#fullPageLoader').hide(); // Hide the loader once the request is complete
             }
         });
     }
@@ -198,13 +224,20 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
+                beforeSend: function() {
+                    $('#fullPageLoader').show(); // Show the loader before sending the request
+                },
                 success: function (response) {
                     if (response.type === 'SUCCESS') {
                         if (response.data.result) {
-                            if (response.data.result.verified != true) {
-                                showSwalPopup(response.data.result.message, "");
+                            if (response.data.result.verified === "true") {
+                                $("#passport_file_number").prop("readonly",true);
+                                $("#passport_holder_name").prop("readonly",true);
+                                $("#passport_holder_dob").prop("readonly",true);
+                                $("#verify-passport-no").prop('disabled', true);
+                                $("#passport_detail_verification").val('1');
                             }else{
-                                $(".initiate-transaction-btn").prop('disabled', false);
+                                showSwalPopup(response.data.result.message, "passport_file_number", "error");
                             }
                         }else if(response.data.error){
                             showSwalPopup(response.data.error.message, "", "error");
@@ -214,6 +247,9 @@
                     }else{
                         showSwalPopup("Something went wrong try later", "", "error");
                     }
+                },
+                complete: function() {
+                    $('#fullPageLoader').hide(); // Hide the loader once the request is complete
                 }
             });
         }else{
@@ -239,11 +275,11 @@
         }
     });
 
-    function showSwalPopup(message, element, icon_type){
+    function showSwalPopup(message, element, icon_type = "error"){
         swal({
             title: message,
             text: "",
-            icon: "error",
+            icon: icon_type,
             buttons: true,
             dangerMode: true,
             buttons:"OK",

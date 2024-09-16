@@ -162,7 +162,7 @@ class SignzyApiController extends Controller
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://api-preproduction.signzy.app/api/v3/passport/verification',
+                CURLOPT_URL => 'https://api.signzy.app/api/v3/passport/verification',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -186,6 +186,53 @@ class SignzyApiController extends Controller
                 return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
             } else {
                 return response()->json(array('type' => 'SUCCESS', 'message' => 'Passport details fetched successfully', 'data' => json_decode($response)));
+            }
+        }
+    }
+
+    public function getTcsAmountOnPanNo(Request $request) 
+    {
+        $input = $request->all();
+
+        if (isset($input['pancard_no']) && isset($input['pancard_no']) && isset($input['pancard_no'])) {
+            
+            $current_fin_Year = date("y");
+            $next_fin_Year = $current_fin_Year + 1;
+            $fin_Year = $current_fin_Year."".$next_fin_Year;
+
+            $postData = [
+                "Pan" => $input['pancard_no'],
+                "Fin_Year" => $fin_Year,
+                "Client_Code" => "QFL"
+            ];
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://tcsapi.fxplus.in/api/FxPlus_BillingByPan/TransactionDetails',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS =>json_encode($postData),
+                CURLOPT_HTTPHEADER => array(
+                    'Content-Type: application/json',
+                    'secretkey: '.env('TCS_API_TOKEN')
+                ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+                return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+            } else {
+                return response()->json(array('type' => 'SUCCESS', 'message' => 'TCS details fetched successfully', 'data' => json_decode($response)));
             }
         }
     }
