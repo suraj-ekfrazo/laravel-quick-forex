@@ -122,7 +122,7 @@ class PurposeController extends Controller
         $request->validate([
             'purpose_name' => 'required|unique:manage_purposes,purpose_name,'.$id. ',id',
             'purpose_code' => 'required|unique:manage_purposes,purpose_code,'.$id. ',id',
-            'documents' => 'required|array|min:3',
+            'documents' => 'required|array|min:1',
         ]);
         if(isset($input['documents'])){
             $input['documents'] = implode( ',', $input['documents'] );

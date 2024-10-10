@@ -66,7 +66,7 @@
                                         $("#accordion div .collapse").css("display", "");
                                         $("#pancard_no").val($("#valid_pancard_no").val());
                                         $("#pancard_name").val(response.data.result.upstreamName);
-                                        $("#passport_holder_name").val(response.data.result.upstreamName);
+                                        // $("#passport_holder_name").val(response.data.result.upstreamName);
                                         $("#pancard_no").prop("readonly",true);
                                         $("#pancard_name").prop("readonly",true);
                                         $("#valid_pancard_no").prop("readonly",true);

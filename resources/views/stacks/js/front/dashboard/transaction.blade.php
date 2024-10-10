@@ -263,7 +263,7 @@
         var currentHour = currentDate.getHours();
         var currentMinute = currentDate.getMinutes();
 
-        if (currentHour >= 10 && currentHour < 15) {
+        // if (currentHour >= 10 && currentHour < 18) {
             if ((passport_file_number != "" && passport_holder_name != "" && passport_holder_dob != "" && passport_detail_verification === "1") || (passport_file_number == "" && passport_holder_name == "" && passport_holder_dob == "")) {
                 if (status) {
                     $('.ajax-error').html('');
@@ -325,16 +325,16 @@
                     buttons:"OK",
                 }).then((result) => {});
             }
-        } else {
-            swal({
-                title: "You can rate block between 10.00 AM to 05:00 PM time",
-                text: "",
-                icon: "error",
-                buttons: true,
-                dangerMode: true,
-                buttons:"OK",
-            }).then((result) => {});
-        }
+        // } else {
+        //     swal({
+        //         title: "You can rate block between 10.00 AM to 05:00 PM time",
+        //         text: "",
+        //         icon: "error",
+        //         buttons: true,
+        //         dangerMode: true,
+        //         buttons:"OK",
+        //     }).then((result) => {});
+        // }
     });
 
     function isSpecialKey(evt) {
@@ -464,10 +464,10 @@
         console.log("tcsAmount++++++++++++++",tcsAmount);
 
 
-		var sum_nostro_swift = Number(swiftCharges) + Number(nostroCharge);
-        if(sum_nostro_swift > 0)
+		var sum_remitFees_nostro_swift = Number(remitFees) + Number(swiftCharges) + Number(nostroCharge);
+        if(sum_remitFees_nostro_swift > 0)
         {
-            gst_cal = Math.round(((sum_nostro_swift)*18)/100);
+            other_gst_cal = Math.round(((sum_remitFees_nostro_swift)*18)/100);
         }
 
         if (netAmount > 1000000) {
@@ -483,6 +483,8 @@
         }else if(netAmount < 100000){
             gst_cal = (netAmount * 0.18) / 100;
         }
+
+        gst_cal = other_gst_cal + gst_cal;
 
         $("#gst_amount").text('₹'+gst_cal);
 
@@ -733,7 +735,7 @@
 
 		console.log(currentHour);
         console.log(currentMinute);
-        if (currentHour >= 10 && currentHour < 15) {    
+        // if (currentHour >= 10 && currentHour < 15) {    
             if (selectedcurrencycount > 0) {
                 $('.ajax-error').html('');
                 var data = new FormData(this);
@@ -781,16 +783,16 @@
             } else {
                 $('#currencyErrorrb').html('<strong>Please add Min one Currency</strong>');
             }
-       } else {
-            swal({
-                title: "You can rate block between 10.00 AM to 3:00 PM time",
-                text: "",
-                icon: "error",
-                buttons: true,
-                dangerMode: true,
-                buttons:"OK",
-            }).then((result) => {});
-        }
+        // } else {
+        //     swal({
+        //         title: "You can rate block between 10.00 AM to 3:00 PM time",
+        //         text: "",
+        //         icon: "error",
+        //         buttons: true,
+        //         dangerMode: true,
+        //         buttons:"OK",
+        //     }).then((result) => {});
+        // }
 
     });
 
