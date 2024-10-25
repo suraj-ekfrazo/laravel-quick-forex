@@ -21,7 +21,7 @@ Route::get('/', [LoginController::class, 'showCommonLoginForm'])->name('showComm
 Route::get('/branch-login', [LoginController::class, 'showLoginForm'])->name('showLoginForm');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
+ 
 /* Forgot Password Route */
 Route::get('/forgot-password', [ForgotPasswordController::class, 'forgotPwd'])->name('forgot-password');
 Route::post('/send-forgot', [ForgotPasswordController::class, 'sendForgotLink'])->name('forgot');
@@ -63,6 +63,11 @@ Route::prefix('transaction')->middleware('auth.agentLogin')->group(function() {
 	Route::post('imageVerification', [KycController::class, 'imageVerification'])->name('image.verification');
     Route::get('transection-export', [KycController::class, 'export'])->name('transection.export');
     Route::get('transection-print', [KycController::class, 'print'])->name('transection-print');
+    Route::get('summary-report', [App\Http\Controllers\Agent\SummaryReport::class, 'index'])->name('agent-transaction.summaryReport');
+    Route::post('transaction-summary-report', [App\Http\Controllers\Agent\SummaryReport::class, 'transactionSummaryReportTableData'])->name('agent-transaction.summaryReportFilterData');
+    Route::post('view-all-transaction-table-json', [App\Http\Controllers\Agent\SummaryReport::class, 'viewAllTransactionTableData'])->name('agent-transaction.viewAllTransactionData');
+    Route::post('agent-transaction-summary-report-export/csv', [App\Http\Controllers\Agent\SummaryReport::class, 'agentTransactionStatusExportData'])->name('agent-transaction-status-exportData.csv');
+    Route::post('view-all-transaction-summary-report-export/csv', [App\Http\Controllers\Agent\SummaryReport::class, 'agentViewAllTransactionSummaryExportData'])->name('agent-view-all-transaction-summary-exportData.csv');
 });
 
 Route::prefix('approved-deal')->middleware('auth.agentLogin')->group(function() {

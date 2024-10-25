@@ -118,6 +118,12 @@
         }
     });
 
+    $("#booking_purpose_id").change(function() {
+        if ($(this).val() == 4) {
+            $(".initiate-transaction-btn").prop('disabled', false);
+        }
+    });
+
     $("#aadhaarcard_no").change(function() {
         var inputvalues = $(this).val();      
         $(".invalid-feedback.ajax-error.aadhaarcard_no").html('');
@@ -143,9 +149,9 @@
                         if (response.type === 'SUCCESS') {
                             if (response.data.result) {
                                 if (response.data.result.verified == true) {
-
-                                    getPanAadhaarLinkStatus($("#aadhaarcard_no").val(), $("#pancard_no").val());
-
+                                    if ($("#booking_purpose_id").val() != 4) {
+                                        getPanAadhaarLinkStatus($("#aadhaarcard_no").val(), $("#pancard_no").val());    
+                                    }
                                 }else{
                                     showSwalPopup(response.data.error.message, "aadhaarcard_no", "error");
                                 }
@@ -189,6 +195,7 @@
                             $("#pan_aadhaar_link_status").prop('checked', true);
                             $("#pan_aadhaar_link_status").val("1");
                             $(".initiate-transaction-btn").prop('disabled', false);
+                            showSwalPopup("Aadhaar Card details verified successfully", "", "success");
                         }else{
                             showSwalPopup("Something went wrong try later", "aadhaarcard_no", "error");
                         }
@@ -236,6 +243,10 @@
                                 $("#passport_holder_dob").prop("readonly",true);
                                 $("#verify-passport-no").prop('disabled', true);
                                 $("#passport_detail_verification").val('1');
+                                showSwalPopup("Passport details verified successfully", "", "success");
+
+                            }else if (response.data.result.verified === "false") {
+                                showSwalPopup("Passport details has not matched", "passport_file_number", "error");
                             }else{
                                 showSwalPopup(response.data.result.message, "passport_file_number", "error");
                             }

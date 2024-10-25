@@ -212,12 +212,16 @@ class Dashboard extends Controller
                 $query->orWhere('created_at', 'like', '%' . $input['search']['value'] . '%');
             }
         });
+
+        $pendingCount = Transactions::whereNull('swift_upload_document')->where('created_by', Auth::guard('agent_users')->user()->id)->count();
+
         $result['draw'] = $input['draw'];
         $result['recordsTotal'] = $query->count();
+        $result['pendingTotal'] = $pendingCount;
         $result['recordsFiltered'] = $query->count();
         $result['data'] = $query->skip($input['start'])->take($input['length'])->orderBy('id','DESC')->get()->toArray();
         if ($result) {
-            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'recordsFiltered' => $result['recordsFiltered']));
+            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'pendingTotal' => $result['pendingTotal'], 'recordsFiltered' => $result['recordsFiltered']));
         } else {
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
         }
@@ -415,8 +419,6 @@ class Dashboard extends Controller
         /*$array = ['txn_id','txn_currency_type','txn_currency_type','txn_inr_amount','id','id','id'];*/
         $query = RateBlock::with('getPurpose')->where('branch_id',Auth::guard('agent_users')->user()->id)->where('is_used',0)
                 ->whereNotNull('fx_rate');
-
-
 
         if (isset($input['search']['value']) && !empty($input['search']['value'])) {
 

@@ -84,7 +84,11 @@
             createdRow:createdRow,
             "initComplete": function(settings, json) {
                 console.log(json.recordsTotal);
-                $("#" + element + "-count").text(json.recordsTotal);
+                if (json.pendingTotal) {
+                    $("#" + element + "-count").text(json.pendingTotal);
+                }else{
+                    $("#" + element + "-count").text(json.recordsTotal);
+                }
             }
         });
     }

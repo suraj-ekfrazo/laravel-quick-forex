@@ -302,7 +302,7 @@ td:last-child {
     vertical-align: middle !important;
 }
 .table th {
-    text-align: left  !important;
+    text-align: center  !important;
 }
 
 thead tr {
@@ -1209,7 +1209,7 @@ table td .new_btn_view:focus,
 
 table th,
 table tr {
-    text-align: left !important;
+    text-align: center !important;
 }
 
 .bottom-border {
@@ -4499,7 +4499,7 @@ button.close_btn {
 .nav-item .nav-link .badge.rounded-pill.badge-notification {
     position: absolute;
     bottom: 2px;
-    right: 50%;
+    right: -15px;
     transform: translateX(50%);
     font-size: 10px;
     min-width: 15px;
@@ -5269,6 +5269,18 @@ th.dataTables_empty:first-child {
 #forgotPasswordModal .form-control[type="email"]{
     box-shadow: 0px 0px 15px 0px rgba(7, 116, 187, 0.15);
     border: 1px solid #ccc;
+}
+
+a .qf-inner-wrap .nav-title{max-width: initial;position: relative;}
+a .qf-inner-wrap .nav-title::after{transform: rotate(313deg) translate(50%, -50%);bottom: 0;right: -40px;top: 50%;}
+.nav-item .nav-link .badge.rounded-pill.badge-notification{bottom: 0;right: -15px !important;transform: translate(50%,-50%);top: 50%;margin-top: 0 !important;}
+.charges-summary-wrap .curr-sum-table td{text-align: right;}
+.charges-summary-wrap .curr-sum-table td .form-control.qf-line-input{padding: 10px 0px 10px 20px;float: right;text-align: right;}
+
+@media (min-width: 1024px) {
+	 #ex1.nav-tabs {
+	 	padding: 0 35px 0 0 !important;
+	 }
 }
 
 @media (max-width: 768px) {

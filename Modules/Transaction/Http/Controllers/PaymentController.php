@@ -70,12 +70,16 @@ class PaymentController extends Controller
             }
         });
 		$query->orderBy('id','DESC');
+
+        $pendingCount = Transactions::where('kyc_status', 1)->where('payment_status', 0)->where('p_status', 1)->count();
+
         $result['draw'] = $input['draw'];
         $result['recordsTotal'] = $query->count();
+        $result['pendingTotal'] = $pendingCount;
         $result['recordsFiltered'] = $query->count();
         $result['data'] = $query->skip($input['start'])->take($input['length'])->get()->toArray();
         if ($result) {
-            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'recordsFiltered' => $result['recordsFiltered']));
+            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'pendingTotal' => $result['pendingTotal'], 'recordsFiltered' => $result['recordsFiltered']));
         } else {
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
         }

@@ -96,12 +96,16 @@ class DashboardController extends Controller
                 $query->orWhere('created_at', 'like', '%' . $input['search']['value'] . '%');
             }
         });
+
+        $pendingCount = Transactions::where('transaction_status', 0)->count();
+
         $result['draw'] = $input['draw'];
         $result['recordsTotal'] = $query->count();
+        $result['pendingTotal'] = $pendingCount;
         $result['recordsFiltered'] = $query->count();
         $result['data'] = $query->skip($input['start'])->take($input['length'])->get()->toArray();
         if ($result) {
-            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'recordsFiltered' => $result['recordsFiltered']));
+            return response()->json(array('type' => 'SUCCESS', 'message' => 'Success', 'data' => $result['data'], 'recordsTotal' => $result['recordsTotal'], 'pendingTotal' => $result['pendingTotal'], 'recordsFiltered' => $result['recordsFiltered']));
         } else {
             return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
         }

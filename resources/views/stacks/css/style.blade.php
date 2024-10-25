@@ -11,3 +11,5 @@
 {!! HTML::style( asset('/assets/css/css2.css')) !!}
 {!! HTML::style( asset('/assets/css/animate.min.css')) !!}
 {!! HTML::style( asset('/assets/css/toastr/toastr.min.css')) !!}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />

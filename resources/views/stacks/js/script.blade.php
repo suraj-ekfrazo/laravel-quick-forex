@@ -10,6 +10,8 @@
 {!! HTML::script(asset('/assets/js/toastr.min.js')) !!}
 {!! HTML::script( asset('assets/js/moment.js')) !!}
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> 
+
 <script>
 	
 	 var intervalId = window.setInterval(function(){

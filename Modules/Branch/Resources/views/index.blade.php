@@ -31,7 +31,24 @@
               <i class="fa-solid fa-plus"></i>Create Branch ID
            </div>
         </div>
-        <div class="table-responsive-sm pt-4   ps-0 pe-0">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-end gap-3">
+                <!-- <div class="mt-4 pt-2 text-center">
+                    <div type="button" class="btn qf-secondary-btn" id="print-data">
+                        <span class=" text-capitalize">Print</span>
+                    </div>
+                </div> -->
+                <div class=" mt-4 text-center">
+                    <a href="{{ route('adminbranch.export') }}">
+                        <div type="button" class="btn qf-primary-btn" >
+                            <span class=" text-capitalize">Download
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive-sm pt-2 ps-0 pe-0">
             <table id="agent-table" class="table roundedTable">
                 <thead>
                 <tr class="bgc-table row-font1">
@@ -44,24 +61,6 @@
                 </tr>
                 </thead>
             </table>
-        </div>
-
-        <div class="container">
-            <div class="d-flex justify-content-center gap-3">
-                <div class="mt-4 pt-2 text-center">
-                    <div type="button" class="btn qf-secondary-btn" id="print-data">
-                        <span class=" text-capitalize">Print</span>
-                    </div>
-                </div>
-                <div class="  mt-4 pt-2 text-center">
-                    <a href="{{ route('adminbranch.export') }}">
-                        <div type="button" class="btn qf-primary-btn" >
-                            <span class=" text-capitalize">Download
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
 
         <!-- Modal -->

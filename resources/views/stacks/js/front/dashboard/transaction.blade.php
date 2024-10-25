@@ -80,10 +80,14 @@
                     render: function (data, type, full, meta) {
                         var id = full.id;
 
-                        if(full.transaction_status == 1){
-                            return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Completed</span></div>';
-                        }else if(full.transaction_status == 2){
-                            return '<div class="text-white comn-status-btn status-danger p-1 rounded-4 text-center">Rejected</span></div>';
+                        if (full.kyc_status == 1 && full.payment_status == 1 && full.swift_upload_document != null) {
+                            if(full.transaction_status == 1){
+                                return '<div class="text-white comn-status-btn status-success p-1 rounded-4 text-center">Completed</span></div>';
+                            }else if(full.transaction_status == 2){
+                                return '<div class="text-white comn-status-btn status-danger p-1 rounded-4 text-center">Rejected</span></div>';
+                            }else{
+                                return '<div class="text-white comn-status-btn status-secondary p-1 rounded-4 text-center">Pending</span></div>';
+                            }
                         }else{
                             return '<div class="text-white comn-status-btn status-secondary p-1 rounded-4 text-center">Pending</span></div>';
                         }
@@ -121,7 +125,7 @@
 						if(full.swift_upload_document != null && full.transaction_status == 1){
                             return '<button class="new_btn_upload" onclick="swiftDownload(' + full.id + ')"> <img src={{asset('assets/img/dashboard/icon_download.png')}} alt="Download">  Download</button>';
                         }else{
-                            return '';
+                            return '<div class="text-white comn-status-btn status-secondary p-1 rounded-4 text-center">Pending</span></div>';
                         }
                     } 
                 },
@@ -390,84 +394,97 @@
 
     let rowCount = $("#selected-currency tbody tr").length, tcsExempt = 0;
 
-    function amountCalculation(){
+    function amountCalculation() {
         var pancard_no = $("#pancard_no").val(),
             bookingPurposeId = $("#booking_purpose_id").val(),
-            fund_source_id = $("#fund_source_id").val(), 
+            fund_source_id = $("#fund_source_id").val(),
             tcsRate = $("#fund_source_id").find(':selected').attr('tcs-rate'),
-            tcsExempt = $("#fund_source_id").find(':selected').attr('tcs-exempt'), 
-            remitFees = $("#remit_fees").val(), 
+            tcsExempt = $("#fund_source_id").find(':selected').attr('tcs-exempt'),
+            remitFees = $("#remit_fees").val(),
             nostroCharge = $("#nostro_charge").val(),
             swiftCharges = $("#swift_charges").val(),
-            totalNetAmount = 0,
             netAmount = 0,
-            tcsAmount = 0,
-            gst_cal=0, 
-            gst_val = 0,
-            tcs_standard_exempt_amount = 700000,
-            fin_year_tcs_total_amount = 0,
             netAmount_with_total_tcs = 0;
-        
+
+        // Calculate netAmount from each transaction
         $('.txn_inr_amount').each(function () {
             netAmount += parseInt($(this).val());
             console.log("val---", $(this).val());
-        })
-        
-        if (pancard_no != "") {
-            fin_year_tcs_total_amount = getTcsAmountDetails(pancard_no);   
-            netAmount_with_total_tcs = netAmount + fin_year_tcs_total_amount;
-            console.log("fin_year_tcs_total_amount---", fin_year_tcs_total_amount);
-            console.log("netAmount_with_total_tcs---", netAmount_with_total_tcs);
-        }
+        });
 
-        // if(netAmount > tcsExempt){
-        //     console.log("inrCalculation > tcsExempt",netAmount > tcsExempt);
-        //     tcsAmount = ((netAmount - tcsExempt) * tcsRate) / 100
-        //     console.log("tcsAmount",tcsAmount);
-        // }
+        // If pancard number is provided, fetch the TCS amount using async call
+        if (pancard_no != "") {
+            getTcsAmountDetails(pancard_no, function (fin_year_tcs_total_amount) {
+                // Ensure the main calculation happens after getting the TCS amount
+                console.log("Inside callback: fin_year_tcs_total_amount---", fin_year_tcs_total_amount);
+                netAmount_with_total_tcs = parseFloat(netAmount) + parseFloat(fin_year_tcs_total_amount);
+                console.log("netAmount_with_total_tcs---", netAmount_with_total_tcs);
+
+                // Continue with further calculations based on the net amount with TCS
+                calculateRemainingAmounts(
+                    bookingPurposeId,
+                    fund_source_id,
+                    tcsRate,
+                    tcsExempt,
+                    remitFees,
+                    nostroCharge,
+                    swiftCharges,
+                    netAmount,
+                    netAmount_with_total_tcs
+                );
+            });
+        }
+    }
+
+    function calculateRemainingAmounts(bookingPurposeId, fund_source_id, tcsRate, tcsExempt, remitFees, nostroCharge, swiftCharges, netAmount, netAmount_with_total_tcs) {
+        var tcsAmount = 0,
+        gst_cal = 0,
+        totalNetAmount = 0,
+        tcs_standard_exempt_amount = 700000;
 
         if (bookingPurposeId == 6) {
             var education_loan_tcsRate = 0.5;
             var education_without_loan_tcsRate = 5;
 
-            if (netAmount_with_total_tcs > tcs_standard_exempt_amount) {   
+            if (netAmount_with_total_tcs > tcs_standard_exempt_amount) {
                 if (fund_source_id == 5) {
                     tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * education_loan_tcsRate) / 100;
-                }else{
+                } else {
                     tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * education_without_loan_tcsRate) / 100;
                 }
             }
-        }else if(bookingPurposeId == 12){
+        } else if (bookingPurposeId == 12) {
             var medical_tcsRate = 5;
             if (netAmount_with_total_tcs > tcs_standard_exempt_amount) {
                 tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * medical_tcsRate) / 100;
             }
-        }else if(bookingPurposeId == 4){
+        } else if (bookingPurposeId == 4) {
             var overseas_tcsRate_below_7 = 5;
             var overseas_tcsRate_above_7 = 20;
             var tcsAmount_on7Lac = 0;
 
             if (netAmount_with_total_tcs < tcs_standard_exempt_amount) {
                 tcsAmount = ((netAmount_with_total_tcs) * overseas_tcsRate_below_7) / 100;
-            }else{
+            } else {
                 tcsAmount_on7Lac = ((tcs_standard_exempt_amount) * overseas_tcsRate_below_7) / 100;
                 tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * overseas_tcsRate_above_7) / 100;
                 tcsAmount = tcsAmount_on7Lac + tcsAmount;
             }
-        }else{
+
+            tcsAmount = 0; // given by bilal on 18 oct 24
+        } else {
             var other_tcsRate_above_7 = 20;
             if (netAmount_with_total_tcs > tcs_standard_exempt_amount) {
                 tcsAmount = ((netAmount_with_total_tcs - tcs_standard_exempt_amount) * other_tcsRate_above_7) / 100;
             }
         }
 
-        console.log("tcsAmount++++++++++++++",tcsAmount);
+        console.log("tcsAmount++++++++++++++", tcsAmount);
 
-
-		var sum_remitFees_nostro_swift = Number(remitFees) + Number(swiftCharges) + Number(nostroCharge);
+        var sum_remitFees_nostro_swift = Number(remitFees) + Number(swiftCharges) + Number(nostroCharge);
         if(sum_remitFees_nostro_swift > 0)
         {
-            other_gst_cal = Math.round(((sum_remitFees_nostro_swift)*18)/100);
+            other_gst_cal = Math.round(((sum_remitFees_nostro_swift)*18)/100, 2);
         }
 
         if (netAmount > 1000000) {
@@ -513,7 +530,7 @@
             var currencyType = $("#currencyType").val();
             var currencyTypeText = $("#currencyType option:selected").text();
             var inrCalculation = ((parseFloat(fxRate)) * amount);
-            var inrCalRound = Math.round(inrCalculation,4);
+            var inrCalRound = Math.round(inrCalculation,2);
             $("#currencyType option[value='"+currencyType+"']").remove();
             var html = '';
 
@@ -679,7 +696,7 @@
         return validate;
     }
 
-    function getTcsAmountDetails(pancard_no) {
+    function getTcsAmountDetails(pancard_no, callback) {
         var tcsAmount = 0;
         var data = {};
         data['pancard_no'] = pancard_no;
@@ -693,11 +710,12 @@
             },
             beforeSend: function() {
                 $('#fullPageLoader').show(); // Show the loader before sending the request
-            },
+            }, 
             success: function(result) {
-                console.log(result);
-                if(result.data["Total Amount"]){
-                    tcsAmount = result.data["Total Amount"];
+                if (result.data) {
+                    let fin_year_tcs_total_amount = result.data;
+                    console.log("TCS Amount:", fin_year_tcs_total_amount);
+                    callback(fin_year_tcs_total_amount);  // Call the callback with TCS amount
                 }
             },
             complete: function() {
@@ -707,8 +725,6 @@
                 console.log(error);
             }
         });
-
-        return tcsAmount;
     }
 
     $("#selected-currencyrb tbody").delegate(".remove-currencyrb", "click", function () {

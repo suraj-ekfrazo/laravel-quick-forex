@@ -23,9 +23,10 @@
                 <li class="nav-item tab3" role="presentation">
                     <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 active" id="ex3-tab-7" data-mdb-toggle="tab" href="#ex3-tabs-7"  role="tab" aria-controls="ex3-tabs-7" aria-selected="true">
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap" >
-                            <div class="text-center nav-title">Rate Booking</div>
-                        </div>
-                        <span class="badge rounded-pill badge-notification bg-danger" id="ratebooking-count">0</span>
+                            <div class="text-center nav-title">Rate Booking
+                                <span class="badge rounded-pill badge-notification bg-danger" id="ratebooking-count">0</span>
+                            </div>
+                        </div>                    
                     </a>
                 </li>
 
@@ -35,72 +36,44 @@
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
                             <div class="text-center nav-title"> Approved Deals</div>
                         </div>
-                        <span class="badge rounded-pill badge-notification bg-danger" id="approved-deal-table-count">0</span>
+                        <!-- <span class="badge rounded-pill badge-notification bg-danger" id="approved-deal-table-count">0</span> -->
                     </a>
                 </li>
-                <!--<li class="nav-item tab3" role="presentation">
-                    <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 "id="ex3-tab-3" data-mdb-toggle="tab" href="#ex3-tabs-3"  role="tab" aria-controls="ex3-tabs-3" aria-selected="true">
-                        <div class="d-flex gap-2 justify-content-center align-items-center" >
-
-                            <div class="text-center">Transaction<br>Status</div>
-                        </div>
-                        <span class="badge rounded-pill badge-notification bg-danger">3</span>
-                    </a>
-                </li>-->
                 <li class="nav-item tab2" role="presentation">
                     <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 " id="ex3-tab-2"data-mdb-toggle="tab" href="#ex3-tabs-2" role="tab" aria-controls="ex3-tabs-2"aria-selected="false">
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap" >
-                            <div>
-                                <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
+                            <div class="text-center nav-title"> KYC 
+                                <span class="badge rounded-pill badge-notification bg-danger" id="kyc-status-table-count">0</span>
                             </div>
-                            <div class="text-center nav-title"> KYC </div>
                         </div>
-                        <span class="badge rounded-pill badge-notification bg-danger" id="kyc-status-table-count">0</span>
                     </a>
 
                 </li>
-                {{--<li class="nav-item tab4" role="presentation">
-                    <a class="nav-link fw-bold text-light mt-3 ms-3 me-3"id="ex3-tab-4" data-mdb-toggle="tab" href="#ex3-tabs-4"  role="tab" aria-controls="ex3-tabs-3" aria-selected="false">
-                        <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap" >
-                            <div>
-                                <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
-                            </div>
-                            <div class="text-center nav-title">Rate Blocked</div>
-                        </div>
-                        <!--<span class="badge rounded-pill badge-notification bg-danger">2</span>-->
-                    </a>
-                </li>--}}
                 <li class="nav-item tab5" role="presentation">
                     <a class="nav-link fw-bold text-light mt-3 ms-3 me-3"id="ex3-tab-5" data-mdb-toggle="tab" href="#ex3-tabs-5"  role="tab" aria-controls="ex3-tabs-3" aria-selected="false">
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap" >
-                            <div>
-                                <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
+                            <div class="text-center nav-title">Pending Payments
+                                <span class="badge rounded-pill badge-notification bg-danger" id="admin-payment-table-count">0</span>
                             </div>
-                            <div class="text-center nav-title">Pending Payments</div>
                         </div>
-                        <span class="badge rounded-pill badge-notification bg-danger" id="admin-payment-table-count">0</span>
 					</a>
                 </li>
                 <li class="nav-item tab6" role="presentation">
                     <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 "id="ex3-tab-6" data-mdb-toggle="tab" href="#ex3-tabs-6"  role="tab" aria-controls="ex3-tabs-3" aria-selected="false">
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap" >
-                            <div>
-                                <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
+                            <div class="text-center nav-title">View All Bookings
+                                <span class="badge rounded-pill badge-notification bg-danger" id="admin-transaction-table-count">0</span>
                             </div>
-                            <div class="text-center nav-title">View All Bookings</div>
                         </div>
-                        <span class="badge rounded-pill badge-notification bg-danger" id="admin-transaction-table-count">0</span>
                     </a>
                 </li>
 				<li class="nav-item tab8" role="presentation">
                     <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 "id="ex3-tab-8" data-mdb-toggle="tab" href="#ex3-tabs-8"  role="tab" aria-controls="ex3-tabs-8" aria-selected="false">
                         <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap" >
-                            <div>
-                                <!-- <i class="fa-regular fa-square-plus fs-4"></i>  -->
+                            <div class="text-center nav-title">Completed Transactions
+                                <span class="badge rounded-pill badge-notification bg-danger" id="agent-completed-transaction-table-count">0</span>
                             </div>
-                            <div class="text-center nav-title">Completed Transactions</div>
                         </div>
-                        <span class="badge rounded-pill badge-notification bg-danger" id="agent-completed-transaction-table-count">0</span>
                     </a>
                 </li>
             </ul>
@@ -112,6 +85,7 @@
             <div class="tab-pane fade show active" id="ex3-tabs-7" role="tabpanel" aria-labelledby="ex3-tab-7">
                 <div class="box pt-4 bgc ps-0 pe-0">
                     <div class="d-flex justify-content-end gap-3">
+                        <span class="pt-2" style="font-size:18px">Refresh</span>
                         <button type="button" class="qf-refresh-btn" onClick="$('#ratebooking').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
                     </div>
                     <table id="ratebooking" class="table roundedTable roundedTable bgc align-middle">
@@ -174,6 +148,7 @@
                 </div>
                 <div class="table-responsive-sm pt-4 ps-0 pe-0">
                     <div class="d-flex justify-content-end">
+                        <span class="pt-2" style="font-size:18px">Refresh</span>
                         <button type="button" class="qf-refresh-btn" onClick="$('#kyc-status-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
                     </div>
                     <table id="kyc-status-table" class="table roundedTable roundedTable bgc align-middle">
@@ -283,8 +258,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive-sm pt-4   ps-0 pe-0">
+                <div class="table-responsive-sm pt-4 ps-0 pe-0">
                     <div class="d-flex justify-content-end">
+                        <span class="pt-2" style="font-size:18px">Refresh</span>
                         <button type="button" class="qf-refresh-btn" onClick="$('#admin-payment-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
                     </div>
                     <table id="admin-payment-table" class="table roundedTable">
@@ -404,6 +380,7 @@
                 </div>
                 <div class="table-responsive box pt-4   bgc ps-0 pe-0">
                     <div class="d-flex justify-content-end">
+                        <span class="pt-2" style="font-size:18px">Refresh</span>
                         <button type="button" class="qf-refresh-btn" onClick="$('#admin-transaction-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
                     </div>
                     <table id="admin-transaction-table" class="table   roundedTable border-0  text-center">
@@ -527,6 +504,7 @@
                     </div>
                 <div class="table-responsive box pt-2 bgc ps-0 pe-0">
                     <div class="d-flex justify-content-end">
+                        <span class="pt-2" style="font-size:18px">Refresh</span>
                         <button type="button" class="qf-refresh-btn" onClick="$('#agent-completed-transaction-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
                     </div>
                     <table id="agent-completed-transaction-table" class="table roundedTable border-0  text-center">
@@ -592,6 +570,7 @@
 
                 <div class="table-responsive box pt-4 bgc ps-0 pe-0">
                     <div class="d-flex justify-content-end">
+                        <span class="pt-2" style="font-size:18px">Refresh</span>
                         <button type="button" class="qf-refresh-btn" onClick="$('#approved-deal-table').DataTable().ajax.reload(null, false)"><i class="fa fa-refresh"></i></button>
                     </div>
                     <table id="approved-deal-table" class="table roundedTable border-0 text-center">

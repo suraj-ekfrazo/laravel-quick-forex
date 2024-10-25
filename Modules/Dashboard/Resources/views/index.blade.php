@@ -48,7 +48,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-6 col-lg-4 col-sm-12">
+            <!-- <div class="col-md-6 col-lg-4 col-sm-12">
                 <a href="{{route('customer.index')}}" class="text-decoration-none">
                     <div class="widget-stat card bg-dashboard m-3">
                         <div class="card-body ">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> -->
             <div class="col-md-6 col-lg-4 col-sm-12">
                 <a href="{{route('agent-transaction.index')}}" class="text-decoration-none">
                     <div class="widget-stat card bg-dashboard m-3">
@@ -102,7 +102,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-6 col-lg-4 col-sm-12">
+            <!-- <div class="col-md-6 col-lg-4 col-sm-12">
                 <a href="">
                 </a><a href="{{route('source.index')}}" class="text-decoration-none">
                     <div class="widget-stat card bg-dashboard m-3">
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> -->
 
             <div class="col-md-6 col-lg-4 col-sm-12">
                 <a href="{{route('ratemargin.index')}}" class="text-decoration-none">
@@ -158,7 +158,7 @@
             </div> -->
             
             <div class="col-md-6 col-lg-4 col-sm-12">
-                <a href="{{url('/')}}" class="text-decoration-none">
+                <a href="{{route('admin-transaction.reportSummary')}}" class="text-decoration-none">
                     <div class="widget-stat card bg-dashboard m-3">
                         <div class="card-body ">
                             <div class="media">
@@ -167,7 +167,6 @@
                                 </span>
                                 <div class=" fw-bold">Reports </div>
                                 <div class="media-body text-white text-end">
-
                                     <h3 class="" style="color: #2565ab;"><i class="fa-solid fa-angle-right"></i></h3>
                                 </div>
                             </div>

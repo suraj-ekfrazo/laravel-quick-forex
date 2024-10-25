@@ -15,9 +15,17 @@ Route::prefix('admin-login/transaction')->middleware('auth.adminLogin')->group(f
     Route::get('/', 'TransactionController@index')->name('agent-transaction.index');
 });
 
+Route::prefix('admin-login/summary-report')->middleware('auth.adminLogin')->group(function() { 
+    Route::get('/', 'SummaryReportController@transactionWiseReport')->name('admin-transaction.reportSummary');
+    Route::post('transactionWiseFilterReport', 'SummaryReportController@transactionWiseFilterReport')->name('admin-transaction.filterReportSummary');
+    Route::post('branch-user-wise-report-table-json', 'SummaryReportController@branchUserWiseFilterReportTableData')->name('admin-transaction.branchUserwisetabledata');
+    Route::post('admin-transaction-summaryreport-export/csv', 'SummaryReportController@adminTransactionStatusExportData')->name('admin-transaction-status-exportData.csv');
+    Route::post('admin-branch-user-wise-summaryreport-export/csv', 'SummaryReportController@adminBranchUserWiseExportData')->name('admin-transaction-branch-wise-exportData.csv');
+});
+
 Route::prefix('admin-login/rateBooking')->group(function() {
     Route::post('table-json', 'RateBookingController@tableData')->name('rate-booking.data');
-});
+}); 
 
 Route::prefix('admin-login/payment')->group(function() {
     Route::post('table-json', 'PaymentController@tableData')->name('admin-payment.data');

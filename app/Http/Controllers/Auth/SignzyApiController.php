@@ -193,6 +193,7 @@ class SignzyApiController extends Controller
     public function getTcsAmountOnPanNo(Request $request) 
     {
         $input = $request->all();
+        $totalTCSAmount = 0;
 
         if (isset($input['pancard_no']) && isset($input['pancard_no']) && isset($input['pancard_no'])) {
             
@@ -226,13 +227,16 @@ class SignzyApiController extends Controller
 
             $response = curl_exec($curl);
             $err = curl_error($curl);
-
+            
             curl_close($curl);
 
             if ($err) {
-                return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => []));
+                return response()->json(array('type' => 'ERROR', 'message' => 'Something Went Wrong', 'data' => $totalTCSAmount));
             } else {
-                return response()->json(array('type' => 'SUCCESS', 'message' => 'TCS details fetched successfully', 'data' => json_decode($response)));
+                $responseArr = json_decode($response, true);
+                $totalTCSAmount = $responseArr['Total Amount'];
+
+                return response()->json(array('type' => 'SUCCESS', 'message' => 'TCS details fetched successfully', 'data' => $totalTCSAmount));
             }
         }
     }

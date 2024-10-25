@@ -13,8 +13,8 @@
 <!-- Tabs -->
 <div class="">
     <ul class="nav nav-tabs nav-justified" id="ex1" role="tablist">
-        <li class="nav-item tab4" role="presentation">
 
+        <li class="nav-item tab4" role="presentation">
             <a class="nav-link fw-bold text-light mt-3 ms-3 me-3 active" id="ex3-tab-4" data-mdb-toggle="tab"
                 href="#ex3-tabs-4" role="tab" aria-controls="ex3-tabs-4" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
@@ -22,9 +22,7 @@
                         <div class="text-center nav-title">Rate Booking</div>
                     </div>
                 </div>
-                {{--<span class="badge rounded-pill badge-notification bg-danger">32</span>--}}
             </a>
-
         </li>
 
         <li class="nav-item tab6" role="presentation">
@@ -32,10 +30,11 @@
                 href="#ex3-tabs-6" role="tab" aria-controls="ex3-tabs-6" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
                     <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
-                        <div class="text-center nav-title"> Approved Deals</div>
+                        <div class="text-center nav-title"> Approved Deals
+                            <span class="badge rounded-pill badge-notification bg-danger" id="approved-deal-table-count">0</span>
+                        </div>                    
                     </div>
                 </div>
-
             </a>
         </li>
         <li class="nav-item tab1" role="presentation">
@@ -53,10 +52,11 @@
                 href="#ex3-tabs-3" role="tab" aria-controls="ex3-tabs-3" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
                     <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
-                        <div class="text-center nav-title">  KYC </div>
+                        <div class="text-center nav-title"> KYC 
+                            <span class="badge rounded-pill badge-notification bg-danger" id="transaction-kyc-table-count">0</span>
+                        </div>
                     </div>
                 </div>
-                {{--<span class="badge rounded-pill badge-notification bg-danger">1</span>--}}
             </a>
 
         </li>
@@ -65,10 +65,11 @@
                 href="#ex3-tabs-5" role="tab" aria-controls="ex3-tabs-3" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
                     <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
-                        <div class="text-center nav-title">  Payments </div>
+                        <div class="text-center nav-title">  Payments 
+                            <span class="badge rounded-pill badge-notification bg-danger" id="agent-payment-table-count">0</span>
+                        </div>
                     </div>
                 </div>
-                {{--<span class="badge rounded-pill badge-notification bg-danger">5</span>--}}
             </a>
         </li>
         <!--<li class="nav-item tab6" role="presentation">
@@ -84,10 +85,11 @@
                 href="#ex3-tabs-2" role="tab" aria-controls="ex3-tabs-2" aria-selected="false">
                 <div class="d-flex gap-2 justify-content-center align-items-center">
                     <div class="d-flex gap-2 justify-content-center align-items-center qf-inner-wrap">
-                        <div class="text-center nav-title"> View All Transaction </div>
+                        <div class="text-center nav-title"> View All Transaction 
+                            <span class="badge rounded-pill badge-notification bg-danger" id="admin-transaction-table-count">0</span>
+                        </div>
                     </div>
                 </div>
-                {{--<span class="badge rounded-pill badge-notification bg-danger">3</span>--}}
             </a>
         </li>
     </ul>
@@ -874,8 +876,10 @@
                         </tr>
                         <tr class="bgc">
                         <td style="width:40%"></td>
-                            <td><label class="qf-td-base">TCS:<span><i class="fa-solid fa-info-circle text-primary"
-                                            title="If Loan – than TCS % 0.5% If any other– TCS applicable 5% TCS on amount above INR 7,00,000"></i></span></label>
+                            <td><label class="qf-td-base">TCS:<span>
+                                <!-- <i class="fa-solid fa-info-circle text-primary"
+                                    title="If Loan – than TCS % 0.5% If any other– TCS applicable 5% TCS on amount above INR 7,00,000"></i> -->
+                                </span></label>
                             </td>
                             <td class="qf-td-base">
                                 <label id="tcs_amount">₹0</label>
